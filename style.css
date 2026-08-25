@@ -524,8 +524,11 @@ button, input, select {
 
 .modal-image-panel .coin-placeholder {
   width: min(65%, 360px);
+  height: auto;
+  max-width: 360px;
+  max-height: none;
+  aspect-ratio: 1 / 1;
 }
-
 .modal-content {
   padding: 36px 30px 30px;
 }
