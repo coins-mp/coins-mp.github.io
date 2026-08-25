@@ -118,5 +118,25 @@
     "diameter": "24.25 mm",
     "description": "Regular 50 cent coin of San Marino.",
     "notes": ""
-  }
+  },
+  {
+    "country": "Slovakia",
+  "countryCode": "SK",
+  "year": 2004,
+  "denomination": "2 €",
+  "type": "Regular",
+  "name": "Slovakia 2 Euro",
+  "condition": "VF",
+  "mint": "",
+  "inCollection": true,
+  "duplicates": 0,
+  "wanted": false,
+  "image": "images/coins/01_Slovakia_2004_2Euro_Regular.jpg",
+  "mintage": "",
+  "metal": "Bimetallic",
+  "weight": "8.5 g",
+  "diameter": "25.75 mm",
+  "description": "Regular 2 euro circulation coin of Slovakia.",
+  "notes": ""
+}
 ]
