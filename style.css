@@ -247,6 +247,16 @@ button, input, select {
 }
 
 .coin-image {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  border-bottom: 1px solid var(--border);
+  appearance: none;
+  -webkit-appearance: none;
+  color: inherit;
+  font: inherit;
+
   aspect-ratio: 1 / 1;
   background:
     radial-gradient(circle at center, rgba(166,124,58,.12), transparent 56%),
@@ -295,6 +305,7 @@ button, input, select {
 
 .coin-placeholder {
   width: 64%;
+  max-width: 220px;
   aspect-ratio: 1;
   border-radius: 50%;
   border: 8px solid var(--accent);
@@ -710,6 +721,20 @@ button, input, select {
     padding: 12px;
   }
 
+    .coin-image {
+    aspect-ratio: 1.25 / 1;
+  }
+
+  .coin-image img {
+    width: 78%;
+    height: 78%;
+  }
+
+  .coin-placeholder {
+    width: 58%;
+    max-width: 180px;
+  }
+  
   .modal {
     padding: 8px;
   }
