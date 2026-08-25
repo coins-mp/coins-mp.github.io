@@ -507,6 +507,8 @@ button, input, select {
   place-items: center;
   padding: 28px;
   overflow: hidden;
+  position: relative;
+}
 }
 
 .modal-image-panel img {
@@ -515,11 +517,21 @@ button, input, select {
   object-fit: contain;
   cursor: zoom-in;
   transition: transform .2s ease;
+
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-user-drag: none;
+  touch-action: none;
+  transform-origin: center center;
 }
 
 .modal-image-panel img.zoomed {
-  transform: scale(1.55);
-  cursor: zoom-out;
+  cursor: grab;
+  transition: none;
+}
+
+.modal-image-panel img.zoomed.dragging {
+  cursor: grabbing;
 }
 
 .modal-image-panel .coin-placeholder {
