@@ -348,7 +348,7 @@ async function init() {
   bindEvents();
 
   try {
-    const response = await fetch("data/coins.json");
+    const response = await fetch("data/coins.json?v=4");
     if (!response.ok) throw new Error("Could not load coins.json");
     state.coins = await response.json();
     populateFilters();
