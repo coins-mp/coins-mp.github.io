@@ -1,30 +1,105 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en" data-theme="light">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Euro Coin Collection</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Euro Coin Collection</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
+  <header class="site-header">
+    <div class="brand">
+      <div class="brand-mark">€</div>
+      <div>
+        <h1>My Euro Coin Collection</h1>
+        <p>Regular euro coins and €2 commemoratives</p>
+      </div>
+    </div>
 
-<h1>🪙 My Euro Coin Collection</h1>
+    <div class="header-actions">
+      <button id="themeToggle" class="secondary-btn" type="button">🌙 Dark</button>
+      <button id="viewToggle" class="secondary-btn" type="button">▦ Table</button>
+    </div>
+  </header>
 
-<p>Моя коллекция монет евро</p>
+  <nav class="main-nav">
+    <button class="nav-link active" data-section="all">Home</button>
+    <button class="nav-link" data-section="regular">Regular €</button>
+    <button class="nav-link" data-section="commemorative">2€ Commemorative</button>
+    <button class="nav-link" data-section="missing">Missing</button>
+    <button class="nav-link" data-section="duplicates">Duplicates</button>
+    <button class="nav-link" data-section="statistics">Statistics</button>
+  </nav>
 
-<nav>
-    <a href="#">Regular Euro Coins</a> |
-    <a href="#">2€ Commemorative</a> |
-    <a href="#">Missing</a> |
-    <a href="#">Duplicates</a> |
-    <a href="#">Statistics</a>
-</nav>
+  <main class="page-shell">
+    <section class="stats-grid" id="statsGrid"></section>
 
-<hr>
+    <section class="filters-panel">
+      <div class="filter-group">
+        <label for="countryFilter">Country</label>
+        <select id="countryFilter">
+          <option value="">All countries</option>
+        </select>
+      </div>
 
-<h2>Collection</h2>
+      <div class="filter-group">
+        <label for="yearFilter">Year</label>
+        <select id="yearFilter">
+          <option value="">All years</option>
+        </select>
+      </div>
 
-<p>Здесь скоро будет моя коллекция монет.</p>
+      <div class="filter-group">
+        <label for="denominationFilter">Denomination</label>
+        <select id="denominationFilter">
+          <option value="">All denominations</option>
+        </select>
+      </div>
 
+      <div class="filter-group">
+        <label for="conditionFilter">Condition</label>
+        <select id="conditionFilter">
+          <option value="">All conditions</option>
+        </select>
+      </div>
+
+      <div class="filter-group search-group">
+        <label for="searchInput">Search</label>
+        <input id="searchInput" type="search" placeholder="Country, coin name, year..." />
+      </div>
+    </section>
+
+    <section class="section-heading">
+      <div>
+        <h2 id="sectionTitle">Collection</h2>
+        <p id="resultCount"></p>
+      </div>
+    </section>
+
+    <section id="coinGrid" class="coin-grid"></section>
+    <section id="coinTableWrap" class="coin-table-wrap hidden">
+      <table class="coin-table">
+        <thead>
+          <tr>
+            <th>Country</th>
+            <th>Year</th>
+            <th>Denomination</th>
+            <th>Type</th>
+            <th>Name</th>
+            <th>Condition</th>
+            <th>Status</th>
+            <th>Duplicates</th>
+          </tr>
+        </thead>
+        <tbody id="coinTableBody"></tbody>
+      </table>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>My Euro Coin Collection</p>
+  </footer>
+
+  <script src="app.js"></script>
 </body>
 </html>
