@@ -11,7 +11,13 @@
     "inCollection": true,
     "duplicates": 0,
     "wanted": false,
-    "image": ""
+    "image": "",
+    "mintage": "2,000,000",
+    "metal": "Bimetallic",
+    "weight": "8.5 g",
+    "diameter": "25.75 mm",
+    "description": "Commemorative €2 coin issued by Estonia in support of Ukraine.",
+    "notes": "Example personal note. Replace this with your own comment."
   },
   {
     "country": "Estonia",
@@ -25,7 +31,13 @@
     "inCollection": false,
     "duplicates": 0,
     "wanted": true,
-    "image": ""
+    "image": "",
+    "mintage": "",
+    "metal": "Bimetallic",
+    "weight": "8.5 g",
+    "diameter": "25.75 mm",
+    "description": "A commemorative €2 coin from Estonia.",
+    "notes": ""
   },
   {
     "country": "Italy",
@@ -39,7 +51,13 @@
     "inCollection": true,
     "duplicates": 2,
     "wanted": false,
-    "image": ""
+    "image": "",
+    "mintage": "",
+    "metal": "Nordic gold",
+    "weight": "5.74 g",
+    "diameter": "22.25 mm",
+    "description": "Regular Italian 20 cent coin featuring a work by Umberto Boccioni.",
+    "notes": "Two duplicate coins available for swap."
   },
   {
     "country": "Germany",
@@ -53,7 +71,13 @@
     "inCollection": true,
     "duplicates": 1,
     "wanted": false,
-    "image": ""
+    "image": "",
+    "mintage": "",
+    "metal": "Bimetallic",
+    "weight": "8.5 g",
+    "diameter": "25.75 mm",
+    "description": "German commemorative €2 coin marking 10 years of euro cash.",
+    "notes": "Mint mark A."
   },
   {
     "country": "Monaco",
@@ -67,7 +91,13 @@
     "inCollection": true,
     "duplicates": 0,
     "wanted": false,
-    "image": ""
+    "image": "",
+    "mintage": "",
+    "metal": "Bimetallic",
+    "weight": "8.5 g",
+    "diameter": "25.75 mm",
+    "description": "Regular €2 circulation coin of Monaco with the portrait of Prince Albert II.",
+    "notes": ""
   },
   {
     "country": "San Marino",
@@ -81,6 +111,12 @@
     "inCollection": false,
     "duplicates": 0,
     "wanted": true,
-    "image": ""
+    "image": "",
+    "mintage": "",
+    "metal": "Nordic gold",
+    "weight": "7.80 g",
+    "diameter": "24.25 mm",
+    "description": "Regular 50 cent coin of San Marino.",
+    "notes": ""
   }
 ]

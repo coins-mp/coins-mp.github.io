@@ -1,18 +1,29 @@
-# My Euro Coin Collection
+# My Euro Coin Collection — final starter
 
-Starter version for GitHub Pages.
+Upload these files to the root of your GitHub Pages repository.
 
-## Files
-- `index.html` — main page
-- `style.css` — light/dark theme and layout
-- `app.js` — filters, navigation, stats, cards/table view
-- `data/coins.json` — coin catalog data
-- `images/coins/` — put coin images here
+## Replace these existing files
+- `index.html`
+- `style.css`
+- `app.js`
+- `data/coins.json`
 
-## Update a coin image
-1. Upload the image to `images/coins/`.
-2. In `data/coins.json`, set for example:
-   `"image": "images/coins/estonia-2022-slava-ukraini.jpg"`
+## Keep / use this folder
+- `images/coins/` — upload your coin photos here
 
-## Important
-GitHub Pages is case-sensitive for filenames and paths.
+Example:
+`images/coins/01_Estonia_2022_Slava-Ukraini.jpg`
+
+Then in `data/coins.json` set:
+`"image": "images/coins/01_Estonia_2022_Slava-Ukraini.jpg"`
+
+## New features
+- Mobile-optimized compact statistics
+- Statistics hidden on mobile inside catalog sections
+- Light / dark theme
+- Cards / table view
+- Search and filters
+- Click/tap coin image to open large details window
+- Click large image again to zoom
+- Description and personal notes
+- Extra facts: mintage, metal, weight, diameter, mint

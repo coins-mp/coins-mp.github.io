@@ -18,7 +18,18 @@ const els = {
   sectionTitle: document.getElementById("sectionTitle"),
   resultCount: document.getElementById("resultCount"),
   themeToggle: document.getElementById("themeToggle"),
-  viewToggle: document.getElementById("viewToggle")
+  viewToggle: document.getElementById("viewToggle"),
+  modal: document.getElementById("coinModal"),
+  modalImagePanel: document.getElementById("modalImagePanel"),
+  modalCountry: document.getElementById("modalCountry"),
+  modalTitle: document.getElementById("modalTitle"),
+  modalSubtitle: document.getElementById("modalSubtitle"),
+  modalBadges: document.getElementById("modalBadges"),
+  modalFacts: document.getElementById("modalFacts"),
+  modalDescription: document.getElementById("modalDescription"),
+  modalNotes: document.getElementById("modalNotes"),
+  descriptionSection: document.getElementById("descriptionSection"),
+  notesSection: document.getElementById("notesSection")
 };
 
 const sectionTitles = {
@@ -34,6 +45,15 @@ function flagEmoji(code) {
   return code
     .toUpperCase()
     .replace(/./g, char => String.fromCodePoint(127397 + char.charCodeAt()));
+}
+
+function escapeHtml(value) {
+  return String(value ?? "")
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
 }
 
 function setTheme(theme) {
@@ -91,7 +111,9 @@ function getFilteredCoins() {
         coin.type,
         coin.name,
         coin.condition,
-        coin.mint
+        coin.mint,
+        coin.description,
+        coin.notes
       ].join(" ").toLowerCase();
 
       if (!haystack.includes(search)) return false;
@@ -105,7 +127,7 @@ function statusBadges(coin) {
   const badges = [];
 
   if (coin.condition) {
-    badges.push(`<span class="badge condition">${coin.condition}</span>`);
+    badges.push(`<span class="badge condition">${escapeHtml(coin.condition)}</span>`);
   }
 
   if (coin.inCollection) {
@@ -125,12 +147,13 @@ function statusBadges(coin) {
   return badges.join("");
 }
 
-function imageMarkup(coin) {
+function imageMarkup(coin, modal = false) {
   if (coin.image) {
-    return `<img src="${coin.image}" alt="${coin.country} ${coin.year} ${coin.denomination}" loading="lazy">`;
+    const extraClass = modal ? ' class="modal-coin-image"' : "";
+    return `<img${extraClass} src="${escapeHtml(coin.image)}" alt="${escapeHtml(`${coin.country} ${coin.year} ${coin.denomination}`)}" loading="lazy">`;
   }
 
-  return `<div class="coin-placeholder">${coin.denomination}</div>`;
+  return `<div class="coin-placeholder">${escapeHtml(coin.denomination)}</div>`;
 }
 
 function renderCards(coins) {
@@ -139,20 +162,30 @@ function renderCards(coins) {
     return;
   }
 
-  els.grid.innerHTML = coins.map(coin => `
+  els.grid.innerHTML = coins.map((coin, index) => `
     <article class="coin-card">
-      <div class="coin-image">${imageMarkup(coin)}</div>
+      <button class="coin-image coin-open" type="button" data-coin-index="${state.coins.indexOf(coin)}" aria-label="Open details for ${escapeHtml(coin.name || `${coin.denomination} ${coin.country}`)}">
+        ${imageMarkup(coin)}
+      </button>
       <div class="coin-content">
         <div class="coin-topline">
-          <span>${flagEmoji(coin.countryCode)} ${coin.country}</span>
+          <span>${flagEmoji(coin.countryCode)} ${escapeHtml(coin.country)}</span>
           <span>${coin.year}</span>
         </div>
-        <h3 class="coin-title">${coin.name || `${coin.denomination} ${coin.country}`}</h3>
-        <div class="coin-meta">${coin.denomination} · ${coin.type}${coin.mint ? ` · Mint ${coin.mint}` : ""}</div>
+        <h3 class="coin-title">${escapeHtml(coin.name || `${coin.denomination} ${coin.country}`)}</h3>
+        <div class="coin-meta">${escapeHtml(coin.denomination)} · ${escapeHtml(coin.type)}${coin.mint ? ` · Mint ${escapeHtml(coin.mint)}` : ""}</div>
+        ${coin.description ? `<p class="coin-preview">${escapeHtml(coin.description)}</p>` : ""}
         <div class="badges">${statusBadges(coin)}</div>
       </div>
     </article>
   `).join("");
+
+  document.querySelectorAll(".coin-open").forEach(button => {
+    button.addEventListener("click", () => {
+      const coin = state.coins[Number(button.dataset.coinIndex)];
+      openCoinModal(coin);
+    });
+  });
 }
 
 function renderTable(coins) {
@@ -160,12 +193,12 @@ function renderTable(coins) {
     const status = coin.inCollection ? "In collection" : "Missing";
     return `
       <tr>
-        <td>${flagEmoji(coin.countryCode)} ${coin.country}</td>
+        <td>${flagEmoji(coin.countryCode)} ${escapeHtml(coin.country)}</td>
         <td>${coin.year}</td>
-        <td>${coin.denomination}</td>
-        <td>${coin.type}</td>
-        <td>${coin.name || "—"}</td>
-        <td>${coin.condition || "—"}</td>
+        <td>${escapeHtml(coin.denomination)}</td>
+        <td>${escapeHtml(coin.type)}</td>
+        <td>${escapeHtml(coin.name || "—")}</td>
+        <td>${escapeHtml(coin.condition || "—")}</td>
         <td>${status}</td>
         <td>${coin.duplicates || 0}</td>
       </tr>
@@ -194,7 +227,77 @@ function renderStats() {
   `).join("");
 }
 
+function updateStatsVisibility() {
+  const isMobile = window.matchMedia("(max-width: 560px)").matches;
+
+  if (isMobile && state.section !== "all") {
+    els.stats.classList.add("hidden");
+  } else {
+    els.stats.classList.remove("hidden");
+  }
+}
+
+function openCoinModal(coin) {
+  els.modalImagePanel.innerHTML = imageMarkup(coin, true);
+  els.modalCountry.textContent = `${flagEmoji(coin.countryCode)} ${coin.country}`;
+  els.modalTitle.textContent = coin.name || `${coin.denomination} ${coin.country}`;
+  els.modalSubtitle.textContent = `${coin.year} · ${coin.denomination} · ${coin.type}`;
+  els.modalBadges.innerHTML = statusBadges(coin);
+
+  const facts = [
+    ["Country", coin.country],
+    ["Year", coin.year],
+    ["Denomination", coin.denomination],
+    ["Type", coin.type],
+    ["Condition", coin.condition],
+    ["Mint", coin.mint],
+    ["Mintage", coin.mintage],
+    ["Metal", coin.metal],
+    ["Weight", coin.weight],
+    ["Diameter", coin.diameter]
+  ].filter(([, value]) => value !== undefined && value !== null && value !== "");
+
+  els.modalFacts.innerHTML = facts.map(([label, value]) => `
+    <div class="fact">
+      <div class="fact-label">${escapeHtml(label)}</div>
+      <div class="fact-value">${escapeHtml(value)}</div>
+    </div>
+  `).join("");
+
+  if (coin.description) {
+    els.modalDescription.textContent = coin.description;
+    els.descriptionSection.classList.remove("hidden");
+  } else {
+    els.descriptionSection.classList.add("hidden");
+  }
+
+  if (coin.notes) {
+    els.modalNotes.textContent = coin.notes;
+    els.notesSection.classList.remove("hidden");
+  } else {
+    els.notesSection.classList.add("hidden");
+  }
+
+  els.modal.classList.remove("hidden");
+  els.modal.setAttribute("aria-hidden", "false");
+  document.body.classList.add("modal-open");
+
+  const modalImage = els.modalImagePanel.querySelector("img");
+  if (modalImage) {
+    modalImage.addEventListener("click", () => {
+      modalImage.classList.toggle("zoomed");
+    });
+  }
+}
+
+function closeCoinModal() {
+  els.modal.classList.add("hidden");
+  els.modal.setAttribute("aria-hidden", "true");
+  document.body.classList.remove("modal-open");
+}
+
 function render() {
+  updateStatsVisibility();
   const coins = getFilteredCoins();
   els.sectionTitle.textContent = sectionTitles[state.section];
   els.resultCount.textContent = `${coins.length} coin${coins.length === 1 ? "" : "s"}`;
@@ -225,6 +328,18 @@ function bindEvents() {
   els.viewToggle.addEventListener("click", () => {
     setView(state.view === "cards" ? "table" : "cards");
   });
+
+  document.querySelectorAll("[data-close-modal]").forEach(el => {
+    el.addEventListener("click", closeCoinModal);
+  });
+
+  document.addEventListener("keydown", event => {
+    if (event.key === "Escape" && !els.modal.classList.contains("hidden")) {
+      closeCoinModal();
+    }
+  });
+
+  window.addEventListener("resize", updateStatsVisibility);
 }
 
 async function init() {
@@ -240,7 +355,7 @@ async function init() {
     renderStats();
     render();
   } catch (error) {
-    els.grid.innerHTML = `<div class="empty-state">Could not load coin data. ${error.message}</div>`;
+    els.grid.innerHTML = `<div class="empty-state">Could not load coin data. ${escapeHtml(error.message)}</div>`;
     console.error(error);
   }
 }

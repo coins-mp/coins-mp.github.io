@@ -53,6 +53,10 @@ body {
   font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
+body.modal-open {
+  overflow: hidden;
+}
+
 button, input, select {
   font: inherit;
 }
@@ -251,12 +255,42 @@ button, input, select {
   place-items: center;
   border-bottom: 1px solid var(--border);
   overflow: hidden;
+  cursor: zoom-in;
+  position: relative;
+}
+
+.coin-image::after {
+  content: "Click to enlarge";
+  position: absolute;
+  left: 50%;
+  bottom: 10px;
+  transform: translateX(-50%) translateY(6px);
+  opacity: 0;
+  pointer-events: none;
+  background: rgba(0,0,0,.66);
+  color: #fff;
+  padding: 5px 8px;
+  border-radius: 999px;
+  font-size: 11px;
+  transition: opacity .18s ease, transform .18s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .coin-image:hover::after {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  .coin-image:hover img {
+    transform: scale(1.05);
+  }
 }
 
 .coin-image img {
   width: 82%;
   height: 82%;
   object-fit: contain;
+  transition: transform .2s ease;
 }
 
 .coin-placeholder {
@@ -295,6 +329,17 @@ button, input, select {
 .coin-meta {
   color: var(--text-secondary);
   font-size: 14px;
+}
+
+.coin-preview {
+  margin: 8px 0 0;
+  color: var(--text-secondary);
+  font-size: 13px;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .badges {
@@ -385,6 +430,144 @@ button, input, select {
   border-radius: 16px;
 }
 
+/* Coin details modal */
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+}
+
+.modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, .72);
+  backdrop-filter: blur(3px);
+}
+
+.modal-dialog {
+  position: relative;
+  z-index: 1;
+  width: min(1040px, 96vw);
+  max-height: 92vh;
+  overflow: auto;
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  box-shadow: 0 24px 80px rgba(0,0,0,.35);
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(320px, .95fr);
+}
+
+.modal-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 3;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.modal-image-panel {
+  min-height: 520px;
+  background:
+    radial-gradient(circle at center, rgba(166,124,58,.14), transparent 58%),
+    var(--surface-soft);
+  display: grid;
+  place-items: center;
+  padding: 28px;
+  overflow: hidden;
+}
+
+.modal-image-panel img {
+  max-width: 100%;
+  max-height: 72vh;
+  object-fit: contain;
+  cursor: zoom-in;
+  transition: transform .2s ease;
+}
+
+.modal-image-panel img.zoomed {
+  transform: scale(1.55);
+  cursor: zoom-out;
+}
+
+.modal-image-panel .coin-placeholder {
+  width: min(65%, 360px);
+}
+
+.modal-content {
+  padding: 36px 30px 30px;
+}
+
+.modal-country {
+  color: var(--text-secondary);
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.modal-content h2 {
+  margin: 7px 0 5px;
+  font-size: 30px;
+  line-height: 1.15;
+}
+
+.modal-subtitle {
+  color: var(--text-secondary);
+}
+
+.modal-facts {
+  margin-top: 22px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.fact {
+  background: var(--surface-soft);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 10px 12px;
+}
+
+.fact-label {
+  color: var(--text-secondary);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  font-weight: 700;
+}
+
+.fact-value {
+  margin-top: 3px;
+  font-weight: 600;
+}
+
+.modal-text-section {
+  margin-top: 22px;
+}
+
+.modal-text-section h3 {
+  margin: 0 0 7px;
+  font-size: 16px;
+}
+
+.modal-text-section p {
+  margin: 0;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
 @media (max-width: 900px) {
   .site-header {
     align-items: flex-start;
@@ -402,26 +585,168 @@ button, input, select {
   .search-group {
     grid-column: 1 / -1;
   }
+
+  .modal-dialog {
+    grid-template-columns: 1fr;
+    max-height: 94vh;
+  }
+
+  .modal-image-panel {
+    min-height: 340px;
+  }
 }
 
 @media (max-width: 560px) {
   .site-header,
   .main-nav,
   .page-shell {
-    padding-left: 14px;
-    padding-right: 14px;
+    padding-left: 12px;
+    padding-right: 12px;
   }
 
-  .stats-grid,
+  .site-header {
+    padding-top: 16px;
+    padding-bottom: 10px;
+    gap: 10px;
+  }
+
+  .brand {
+    gap: 10px;
+  }
+
+  .brand-mark {
+    width: 42px;
+    height: 42px;
+    font-size: 24px;
+  }
+
+  .brand h1 {
+    font-size: 24px;
+  }
+
+  .brand p {
+    font-size: 13px;
+    margin-top: 3px;
+  }
+
+  .header-actions {
+    gap: 6px;
+  }
+
+  .secondary-btn {
+    padding: 8px 10px;
+    font-size: 13px;
+  }
+
+  .main-nav {
+    margin-bottom: 12px;
+    gap: 4px;
+  }
+
+  .nav-link {
+    padding: 7px 9px;
+    font-size: 13px;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 7px;
+    margin-bottom: 10px;
+  }
+
+  .stat-card {
+    padding: 9px 10px;
+    border-radius: 11px;
+  }
+
+  .stat-label {
+    font-size: 10px;
+  }
+
+  .stat-value {
+    font-size: 19px;
+    margin-top: 1px;
+  }
+
   .filters-panel {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 7px;
+    padding: 9px;
+    border-radius: 12px;
+  }
+
+  .filter-group {
+    gap: 4px;
+  }
+
+  .filter-group label {
+    font-size: 10px;
+  }
+
+  .filter-group select,
+  .filter-group input {
+    padding: 8px 9px;
+    font-size: 13px;
   }
 
   .search-group {
-    grid-column: auto;
+    grid-column: 1 / -1;
+  }
+
+  .section-heading {
+    margin: 14px 0 10px;
+  }
+
+  .section-heading h2 {
+    font-size: 22px;
   }
 
   .coin-grid {
     grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .coin-content {
+    padding: 12px;
+  }
+
+  .modal {
+    padding: 8px;
+  }
+
+  .modal-dialog {
+    width: 100%;
+    max-height: 96vh;
+    border-radius: 14px;
+  }
+
+  .modal-image-panel {
+    min-height: 280px;
+    padding: 16px;
+  }
+
+  .modal-content {
+    padding: 22px 16px 18px;
+  }
+
+  .modal-content h2 {
+    font-size: 24px;
+    padding-right: 36px;
+  }
+
+  .modal-facts {
+    grid-template-columns: 1fr 1fr;
+    gap: 7px;
+  }
+
+  .fact {
+    padding: 8px 9px;
+  }
+
+  .modal-close {
+    width: 38px;
+    height: 38px;
+    top: 8px;
+    right: 8px;
   }
 }
