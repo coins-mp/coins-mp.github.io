@@ -263,7 +263,8 @@ button, input, select {
     var(--surface-soft);
   display: grid;
   place-items: center;
-  border-bottom: 1px solid var(--border);
+  min-width: 0;
+  
   overflow: hidden;
   cursor: zoom-in;
   position: relative;
@@ -304,17 +305,25 @@ button, input, select {
 }
 
 .coin-placeholder {
-  width: 64%;
-  max-width: 220px;
-  aspect-ratio: 1;
+  width: 180px;
+  height: 180px;
+  max-width: 68%;
+  max-height: 68%;
   border-radius: 50%;
   border: 8px solid var(--accent);
-  display: grid;
-  place-items: center;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   color: var(--accent);
-  font-size: 38px;
+  font-size: 34px;
+  line-height: 1;
   font-weight: 700;
+  text-align: center;
+
   opacity: .72;
+  flex-shrink: 0;
 }
 
 .coin-content {
