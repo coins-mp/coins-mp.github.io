@@ -283,11 +283,99 @@ function openCoinModal(coin) {
   document.body.classList.add("modal-open");
 
   const modalImage = els.modalImagePanel.querySelector("img");
-  if (modalImage) {
-    modalImage.addEventListener("click", () => {
-      modalImage.classList.toggle("zoomed");
-    });
+
+if (modalImage) {
+  let scale = 1;
+  let posX = 0;
+  let posY = 0;
+
+  let startX = 0;
+  let startY = 0;
+  let startPosX = 0;
+  let startPosY = 0;
+
+  let dragging = false;
+  let moved = false;
+
+  function updateImageTransform() {
+    modalImage.style.transform =
+      `translate(${posX}px, ${posY}px) scale(${scale})`;
+
+    modalImage.classList.toggle("zoomed", scale > 1);
   }
+
+  function resetImage() {
+    scale = 1;
+    posX = 0;
+    posY = 0;
+    updateImageTransform();
+  }
+
+  function zoomImage() {
+    scale = 2.5;
+    posX = 0;
+    posY = 0;
+    updateImageTransform();
+  }
+
+  modalImage.addEventListener("click", () => {
+    if (moved) {
+      moved = false;
+      return;
+    }
+
+    if (scale === 1) {
+      zoomImage();
+    } else {
+      resetImage();
+    }
+  });
+
+  modalImage.addEventListener("pointerdown", event => {
+    if (scale === 1) return;
+
+    dragging = true;
+    moved = false;
+
+    startX = event.clientX;
+    startY = event.clientY;
+    startPosX = posX;
+    startPosY = posY;
+
+    modalImage.setPointerCapture(event.pointerId);
+    modalImage.classList.add("dragging");
+  });
+
+  modalImage.addEventListener("pointermove", event => {
+    if (!dragging) return;
+
+    const dx = event.clientX - startX;
+    const dy = event.clientY - startY;
+
+    if (Math.abs(dx) > 3 || Math.abs(dy) > 3) {
+      moved = true;
+    }
+
+    posX = startPosX + dx;
+    posY = startPosY + dy;
+
+    updateImageTransform();
+  });
+
+  function stopDragging(event) {
+    if (!dragging) return;
+
+    dragging = false;
+    modalImage.classList.remove("dragging");
+
+    if (modalImage.hasPointerCapture(event.pointerId)) {
+      modalImage.releasePointerCapture(event.pointerId);
+    }
+  }
+
+  modalImage.addEventListener("pointerup", stopDragging);
+  modalImage.addEventListener("pointercancel", stopDragging);
+}
 }
 
 function closeCoinModal() {
