@@ -259,19 +259,17 @@ def main():
     )
 
     required_columns = [
-        "Enabled",
-        "Country",
-        "Year",
-        "Denomination",
-        "Type",
-        "Name",
-        "Condition",
-        "InCollection",
-        "Duplicates",
-        "Wanted",
-        "Mintage",
-        "Notes"
-    ]
+    "Country",
+    "Year",
+    "Denomination",
+    "Type",
+    "Name",
+    "Condition",
+    "Status",
+    "Duplicates",
+    "Mintage",
+    "Notes"
+]
 
     missing_columns = [
         column
@@ -301,18 +299,6 @@ def main():
         )
 
         if not country:
-            continue
-
-        enabled = yes_no(
-            get_value(
-                coins_sheet,
-                row,
-                headers,
-                "Enabled"
-            )
-        )
-
-        if not enabled:
             continue
 
         year = year_value(
@@ -360,14 +346,16 @@ def main():
             )
         )
 
-        in_collection = yes_no(
-            get_value(
-                coins_sheet,
-                row,
-                headers,
-                "InCollection"
-            )
-        )
+        status = clean(
+    get_value(
+        coins_sheet,
+        row,
+        headers,
+        "Status"
+    )
+)
+
+in_collection = status.lower() == "collection"
 
         duplicates = number_or_zero(
             get_value(
@@ -378,14 +366,7 @@ def main():
             )
         )
 
-        wanted = yes_no(
-            get_value(
-                coins_sheet,
-                row,
-                headers,
-                "Wanted"
-            )
-        )
+       wanted = False
 
         mintage = clean(
             get_value(
