@@ -317,6 +317,7 @@ def main():
         "Country",
         "Year",
         "Denomination",
+        "ImageFile"
     ]
 
     missing_columns = [
@@ -549,8 +550,17 @@ def main():
                     f"coin of {country}."
                 )
 
-        image_filename = (
-            build_image_filename(
+        image_filename = clean(
+            get_value(
+                coins_sheet,
+                row,
+                headers,
+                "ImageFile"
+            )
+        )
+
+        if not image_filename:
+            image_filename = build_image_filename(
                 coin_id,
                 country,
                 year,
@@ -558,7 +568,6 @@ def main():
                 coin_type,
                 name
             )
-        )
 
         image_path = process_image(
             image_filename,
