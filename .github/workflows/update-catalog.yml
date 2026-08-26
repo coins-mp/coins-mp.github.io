@@ -11,9 +11,11 @@ on:
 
 permissions:
   contents: write
+
 concurrency:
   group: update-coin-catalog
   cancel-in-progress: false
+
 jobs:
   update-catalog:
     runs-on: ubuntu-latest
@@ -21,6 +23,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v5
