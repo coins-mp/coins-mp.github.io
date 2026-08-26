@@ -472,14 +472,14 @@ def main():
             )
             coin_type = ""
 
- status_lower = status.lower()
+        status_lower = status.lower()
 
- if status_lower not in {
-    "collection",
-    "missing",
-    "duplicate"
-}:
-    status_lower = "collection"
+        if status_lower not in {
+            "collection",
+            "missing",
+            "duplicate"
+        }:
+            status_lower = "collection"
 
         # Duplicate must NOT also appear
         # in Missing.
