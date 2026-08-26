@@ -1,5 +1,25 @@
 [
   {
+    "country": "Slovakia",
+    "countryCode": "SK",
+    "year": 2009,
+    "denomination": "2 €",
+    "type": "",
+    "name": "2 €",
+    "condition": "VF",
+    "mint": "",
+    "inCollection": true,
+    "duplicates": 0,
+    "wanted": false,
+    "image": "images/coins/Slovakia/01_Slovakia_2009_2Euro_Regular.jpeg",
+    "mintage": "",
+    "metal": "Bimetallic",
+    "weight": "8.50 g",
+    "diameter": "25.75 mm",
+    "description": "",
+    "notes": ""
+  },
+  {
     "country": "Malta",
     "countryCode": "MT",
     "year": 2019,
@@ -16,7 +36,7 @@
     "metal": "Bimetallic",
     "weight": "7.50 g",
     "diameter": "23.25 mm",
-    "description": "=IF(OR(B3=\"\",E3=\"\",F3=\"\"),\"\",IF(F3=\"Regular\",\"Regular \"&E3&\" circulation coin of \"&B3&\".\",IF(F3=\"Commemorative\",IF(G3=\"\",\"\",E3&\" commemorative coin of \"&B3&\" – \"&G3&\".\"),\"\")))",
+    "description": "Regular 1 € circulation coin of Malta.",
     "notes": "The €1 coins show the emblem used by the Sovereign Order of Malta. During the Order's rule over Malta, between 1530 and 1798, the eight-pointed cross became associated with the island and is now often referred to as the Maltese Cross."
   }
 ]
