@@ -79,7 +79,7 @@ def build_image_filename(
         safe_filename_part(country),
         str(year),
         denomination_filename(denomination),
-        safe_filename_part(coin_type)
+        safe_filename_part(coin_type or "Unknown")
     ]
 
     if coin_type == "Commemorative" and name:
@@ -296,7 +296,7 @@ def main():
 
     workbook = load_workbook(
         EXCEL_FILE,
-        data_only=False
+        data_only=True
     )
 
     coins_sheet = workbook["Coins"]
@@ -317,14 +317,6 @@ def main():
         "Country",
         "Year",
         "Denomination",
-        "Type",
-        "Name",
-        "Condition",
-        "Status",
-        "Duplicates",
-        "Mintage",
-        "Description",
-        "Notes"
     ]
 
     missing_columns = [
@@ -469,13 +461,14 @@ def main():
         if denomination != "2 €":
             coin_type = "Regular"
 
-        if denomination == "2 €" and not coin_type:
-            print(
-                f"WARNING: skipped row "
-                f"{row}: select Regular or "
-                f"Commemorative for 2 €"
-            )
-            continue
+   if coin_type and coin_type not in {
+    "Regular",
+    "Commemorative"
+}:
+    print(
+        f"WARNING: row {row}: invalid Type '{coin_type}', leaving it blank"
+    )
+    coin_type = ""
 
         if coin_type not in {
             "Regular",
@@ -491,16 +484,11 @@ def main():
         status_lower = status.lower()
 
         if status_lower not in {
-            "collection",
-            "missing",
-            "duplicate"
-        }:
-            print(
-                f"WARNING: skipped row "
-                f"{row}: invalid Status "
-                f"'{status}'"
-            )
-            continue
+    "collection",
+    "missing",
+    "duplicate"
+}:
+    status_lower = "collection"
 
         # Duplicate must NOT also appear
         # in Missing.
