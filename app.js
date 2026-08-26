@@ -312,11 +312,18 @@ if (modalImage) {
   }
 
   function zoomImage() {
+  if (window.innerWidth <= 560) {
+    scale = 1.65;
+  } else if (window.innerWidth <= 900) {
+    scale = 2;
+  } else {
     scale = 2.5;
-    posX = 0;
-    posY = 0;
-    updateImageTransform();
   }
+
+  posX = 0;
+  posY = 0;
+  updateImageTransform();
+}
 
   modalImage.addEventListener("click", () => {
     if (moved) {
