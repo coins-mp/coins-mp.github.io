@@ -21,10 +21,6 @@ def clean(value):
     return str(value).strip()
 
 
-def yes_no(value):
-    return clean(value).upper() == "Y"
-
-
 def number_or_zero(value):
     if value in (None, ""):
         return 0
@@ -57,12 +53,7 @@ def safe_filename_part(value):
 
     value = re.sub(r"\s+", "-", value)
     value = re.sub(r"-+", "-", value)
-
-    value = re.sub(
-        r"[^A-Za-z0-9À-ž_-]",
-        "",
-        value
-    )
+    value = re.sub(r"[^A-Za-z0-9À-ž_-]", "", value)
 
     return value.strip("-_")
 
@@ -71,6 +62,7 @@ def denomination_filename(value):
     value = clean(value)
     value = value.replace("€", "Euro")
     value = value.replace(" ", "")
+
     return safe_filename_part(value)
 
 
@@ -90,7 +82,7 @@ def build_image_filename(
         safe_filename_part(coin_type)
     ]
 
-    if coin_type == "Commemorative" and clean(name):
+    if coin_type == "Commemorative" and name:
         parts.append(
             safe_filename_part(name)
         )
@@ -154,7 +146,12 @@ def get_headers(sheet):
     return headers
 
 
-def get_value(sheet, row, headers, name):
+def get_value(
+    sheet,
+    row,
+    headers,
+    name
+):
     column = headers.get(name)
 
     if not column:
@@ -166,13 +163,57 @@ def get_value(sheet, row, headers, name):
     ).value
 
 
-def move_image(
+def find_existing_image(
     filename,
-    country
+    country,
+    year,
+    denomination,
+    coin_type
 ):
-    if not filename:
-        return ""
+    country_folder = (
+        IMAGES_DIR /
+        safe_filename_part(country)
+    )
 
+    destination = (
+        country_folder /
+        filename
+    )
+
+    if destination.exists():
+        return destination
+
+    if not country_folder.exists():
+        return None
+
+    suffix = (
+        f"_{safe_filename_part(country)}"
+        f"_{year}"
+        f"_{denomination_filename(denomination)}"
+        f"_{safe_filename_part(coin_type)}"
+    )
+
+    for file in country_folder.iterdir():
+        if not file.is_file():
+            continue
+
+        if (
+            file.suffix.lower() in
+            {".jpeg", ".jpg", ".png", ".webp"}
+            and suffix in file.stem
+        ):
+            return file
+
+    return None
+
+
+def process_image(
+    filename,
+    country,
+    year,
+    denomination,
+    coin_type
+):
     country_folder = (
         IMAGES_DIR /
         safe_filename_part(country)
@@ -194,6 +235,7 @@ def move_image(
     )
 
     if source.exists():
+
         if destination.exists():
             destination.unlink()
 
@@ -203,19 +245,31 @@ def move_image(
         )
 
         print(
-            f"Moved image: "
+            "Moved image: "
             f"{source.relative_to(ROOT)} "
-            f"-> "
+            "-> "
             f"{destination.relative_to(ROOT)}"
         )
 
-    if destination.exists():
         return destination.relative_to(
             ROOT
         ).as_posix()
 
+    existing = find_existing_image(
+        filename,
+        country,
+        year,
+        denomination,
+        coin_type
+    )
+
+    if existing:
+        return existing.relative_to(
+            ROOT
+        ).as_posix()
+
     print(
-        f"WARNING: image not found: "
+        "WARNING: image not found: "
         f"{filename}"
     )
 
@@ -223,6 +277,7 @@ def move_image(
 
 
 def main():
+
     if not EXCEL_FILE.exists():
         raise FileNotFoundError(
             f"Excel file not found: "
@@ -259,17 +314,18 @@ def main():
     )
 
     required_columns = [
-    "Country",
-    "Year",
-    "Denomination",
-    "Type",
-    "Name",
-    "Condition",
-    "Status",
-    "Duplicates",
-    "Mintage",
-    "Notes"
-]
+        "Country",
+        "Year",
+        "Denomination",
+        "Type",
+        "Name",
+        "Condition",
+        "Status",
+        "Duplicates",
+        "Mintage",
+        "Description",
+        "Notes"
+    ]
 
     missing_columns = [
         column
@@ -289,6 +345,7 @@ def main():
         2,
         coins_sheet.max_row + 1
     ):
+
         country = clean(
             get_value(
                 coins_sheet,
@@ -298,6 +355,7 @@ def main():
             )
         )
 
+        # Completely blank row -> ignore
         if not country:
             continue
 
@@ -347,15 +405,13 @@ def main():
         )
 
         status = clean(
-    get_value(
-        coins_sheet,
-        row,
-        headers,
-        "Status"
-    )
-)
-
-in_collection = status.lower() == "collection"
+            get_value(
+                coins_sheet,
+                row,
+                headers,
+                "Status"
+            )
+        )
 
         duplicates = number_or_zero(
             get_value(
@@ -366,14 +422,21 @@ in_collection = status.lower() == "collection"
             )
         )
 
-       wanted = False
-
         mintage = clean(
             get_value(
                 coins_sheet,
                 row,
                 headers,
                 "Mintage"
+            )
+        )
+
+        description = clean(
+            get_value(
+                coins_sheet,
+                row,
+                headers,
+                "Description"
             )
         )
 
@@ -400,12 +463,61 @@ in_collection = status.lower() == "collection"
             )
             continue
 
-        if not coin_type:
+        # 1 cent – 1 € are always Regular.
+        # For 2 € the Excel value must be
+        # Regular or Commemorative.
+        if denomination != "2 €":
+            coin_type = "Regular"
+
+        if denomination == "2 €" and not coin_type:
             print(
                 f"WARNING: skipped row "
-                f"{row}: no type"
+                f"{row}: select Regular or "
+                f"Commemorative for 2 €"
             )
             continue
+
+        if coin_type not in {
+            "Regular",
+            "Commemorative"
+        }:
+            print(
+                f"WARNING: skipped row "
+                f"{row}: invalid Type "
+                f"'{coin_type}'"
+            )
+            continue
+
+        status_lower = status.lower()
+
+        if status_lower not in {
+            "collection",
+            "missing",
+            "duplicate"
+        }:
+            print(
+                f"WARNING: skipped row "
+                f"{row}: invalid Status "
+                f"'{status}'"
+            )
+            continue
+
+        # Duplicate must NOT also appear
+        # in Missing.
+        in_collection = (
+            status_lower
+            in {"collection", "duplicate"}
+        )
+
+        if status_lower == "duplicate":
+
+            if duplicates <= 0:
+                duplicates = 1
+
+        else:
+            duplicates = 0
+
+        wanted = False
 
         coin_id = f"{row - 1:03d}"
 
@@ -418,7 +530,7 @@ in_collection = status.lower() == "collection"
 
         if not country_code:
             print(
-                f"WARNING: no country code "
+                "WARNING: no CountryCode "
                 f"for {country}"
             )
 
@@ -442,14 +554,21 @@ in_collection = status.lower() == "collection"
             ""
         )
 
-        if coin_type == "Regular":
-            description = (
-                f"Regular {denomination} "
-                f"circulation coin of "
-                f"{country}."
-            )
-        else:
-            description = ""
+        if not description:
+
+            if coin_type == "Regular":
+                description = (
+                    f"Regular {denomination} "
+                    f"circulation coin of "
+                    f"{country}."
+                )
+
+            elif name:
+                description = (
+                    f"{name}. "
+                    f"Commemorative 2 euro "
+                    f"coin of {country}."
+                )
 
         image_filename = (
             build_image_filename(
@@ -462,21 +581,26 @@ in_collection = status.lower() == "collection"
             )
         )
 
-        image_path = move_image(
+        image_path = process_image(
             image_filename,
-            country
+            country,
+            year,
+            denomination,
+            coin_type
         )
 
-        display_name = name
+        if name:
+            display_name = name
 
-        if not display_name:
-            if coin_type == "Regular":
-                display_name = (
-                    denomination
-                    .replace("€", "Euro")
-                )
-            else:
-                display_name = denomination
+        elif coin_type == "Regular":
+
+            display_name = (
+                denomination
+                .replace("€", "Euro")
+            )
+
+        else:
+            display_name = denomination
 
         coin = {
             "country": country,
@@ -510,6 +634,7 @@ in_collection = status.lower() == "collection"
         "w",
         encoding="utf-8"
     ) as file:
+
         json.dump(
             coins,
             file,
@@ -521,10 +646,9 @@ in_collection = status.lower() == "collection"
 
     print()
     print(
-        f"Generated: "
+        "Generated: "
         f"{JSON_FILE.relative_to(ROOT)}"
     )
-
     print(
         f"Coins: {len(coins)}"
     )
