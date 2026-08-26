@@ -41,8 +41,10 @@ const sectionTitles = {
   statistics: "Statistics"
 };
 
+let viewerController = null;
+
 function flagEmoji(code) {
-  return code
+  return String(code || "")
     .toUpperCase()
     .replace(/./g, char => String.fromCodePoint(127397 + char.charCodeAt()));
 }
@@ -66,14 +68,17 @@ function setTheme(theme) {
 function setView(view) {
   state.view = view;
   localStorage.setItem("coinView", view);
+
   els.grid.classList.toggle("hidden", view !== "cards");
   els.tableWrap.classList.toggle("hidden", view !== "table");
+
   els.viewToggle.textContent = view === "cards" ? "▦ Table" : "▦ Cards";
 }
 
 function populateSelect(select, values) {
   const first = select.options[0].outerHTML;
   select.innerHTML = first;
+
   values.forEach(value => {
     const option = document.createElement("option");
     option.value = value;
@@ -83,10 +88,25 @@ function populateSelect(select, values) {
 }
 
 function populateFilters() {
-  populateSelect(els.country, [...new Set(state.coins.map(c => c.country))].sort());
-  populateSelect(els.year, [...new Set(state.coins.map(c => c.year))].sort((a,b) => b-a));
-  populateSelect(els.denomination, [...new Set(state.coins.map(c => c.denomination))]);
-  populateSelect(els.condition, [...new Set(state.coins.map(c => c.condition).filter(Boolean))].sort());
+  populateSelect(
+    els.country,
+    [...new Set(state.coins.map(c => c.country))].sort()
+  );
+
+  populateSelect(
+    els.year,
+    [...new Set(state.coins.map(c => c.year))].sort((a, b) => b - a)
+  );
+
+  populateSelect(
+    els.denomination,
+    [...new Set(state.coins.map(c => c.denomination))]
+  );
+
+  populateSelect(
+    els.condition,
+    [...new Set(state.coins.map(c => c.condition).filter(Boolean))].sort()
+  );
 }
 
 function getFilteredCoins() {
@@ -94,14 +114,38 @@ function getFilteredCoins() {
 
   return state.coins.filter(coin => {
     if (state.section === "regular" && coin.type !== "Regular") return false;
-    if (state.section === "commemorative" && coin.type !== "Commemorative") return false;
-    if (state.section === "missing" && coin.inCollection) return false;
-    if (state.section === "duplicates" && !(coin.duplicates > 0)) return false;
 
-    if (els.country.value && coin.country !== els.country.value) return false;
-    if (els.year.value && String(coin.year) !== els.year.value) return false;
-    if (els.denomination.value && coin.denomination !== els.denomination.value) return false;
-    if (els.condition.value && coin.condition !== els.condition.value) return false;
+    if (
+      state.section === "commemorative" &&
+      coin.type !== "Commemorative"
+    ) return false;
+
+    if (state.section === "missing" && coin.inCollection) return false;
+
+    if (
+      state.section === "duplicates" &&
+      !(coin.duplicates > 0)
+    ) return false;
+
+    if (
+      els.country.value &&
+      coin.country !== els.country.value
+    ) return false;
+
+    if (
+      els.year.value &&
+      String(coin.year) !== els.year.value
+    ) return false;
+
+    if (
+      els.denomination.value &&
+      coin.denomination !== els.denomination.value
+    ) return false;
+
+    if (
+      els.condition.value &&
+      coin.condition !== els.condition.value
+    ) return false;
 
     if (search) {
       const haystack = [
@@ -127,21 +171,31 @@ function statusBadges(coin) {
   const badges = [];
 
   if (coin.condition) {
-    badges.push(`<span class="badge condition">${escapeHtml(coin.condition)}</span>`);
+    badges.push(
+      `<span class="badge condition">${escapeHtml(coin.condition)}</span>`
+    );
   }
 
   if (coin.inCollection) {
-    badges.push(`<span class="badge collection">✓ In collection</span>`);
+    badges.push(
+      `<span class="badge collection">✓ In collection</span>`
+    );
   } else {
-    badges.push(`<span class="badge missing">○ Missing</span>`);
+    badges.push(
+      `<span class="badge missing">○ Missing</span>`
+    );
   }
 
   if (coin.duplicates > 0) {
-    badges.push(`<span class="badge duplicate">↻ Duplicate ×${coin.duplicates}</span>`);
+    badges.push(
+      `<span class="badge duplicate">↻ Duplicate ×${coin.duplicates}</span>`
+    );
   }
 
   if (coin.wanted) {
-    badges.push(`<span class="badge wanted">Wanted</span>`);
+    badges.push(
+      `<span class="badge wanted">Wanted</span>`
+    );
   }
 
   return badges.join("");
@@ -150,32 +204,76 @@ function statusBadges(coin) {
 function imageMarkup(coin, modal = false) {
   if (coin.image) {
     const extraClass = modal ? ' class="modal-coin-image"' : "";
-    return `<img${extraClass} src="${escapeHtml(coin.image)}" alt="${escapeHtml(`${coin.country} ${coin.year} ${coin.denomination}`)}" loading="lazy">`;
+    const alt = `${coin.country} ${coin.year} ${coin.denomination}`;
+
+    return `
+      <img${extraClass}
+        src="${escapeHtml(coin.image)}"
+        alt="${escapeHtml(alt)}"
+        loading="lazy">
+    `;
   }
 
-  return `<div class="coin-placeholder">${escapeHtml(coin.denomination)}</div>`;
+  return `
+    <div class="coin-placeholder">
+      ${escapeHtml(coin.denomination)}
+    </div>
+  `;
 }
 
 function renderCards(coins) {
   if (!coins.length) {
-    els.grid.innerHTML = `<div class="empty-state">No coins match the selected filters.</div>`;
+    els.grid.innerHTML =
+      `<div class="empty-state">No coins match the selected filters.</div>`;
     return;
   }
 
-  els.grid.innerHTML = coins.map((coin, index) => `
+  els.grid.innerHTML = coins.map(coin => `
     <article class="coin-card">
-      <button class="coin-image coin-open" type="button" data-coin-index="${state.coins.indexOf(coin)}" aria-label="Open details for ${escapeHtml(coin.name || `${coin.denomination} ${coin.country}`)}">
+
+      <button
+        class="coin-image coin-open"
+        type="button"
+        data-coin-index="${state.coins.indexOf(coin)}"
+        aria-label="Open details for ${escapeHtml(
+          coin.name || `${coin.denomination} ${coin.country}`
+        )}"
+      >
         ${imageMarkup(coin)}
       </button>
+
       <div class="coin-content">
+
         <div class="coin-topline">
-          <span>${flagEmoji(coin.countryCode)} ${escapeHtml(coin.country)}</span>
+          <span>
+            ${flagEmoji(coin.countryCode)}
+            ${escapeHtml(coin.country)}
+          </span>
           <span>${coin.year}</span>
         </div>
-        <h3 class="coin-title">${escapeHtml(coin.name || `${coin.denomination} ${coin.country}`)}</h3>
-        <div class="coin-meta">${escapeHtml(coin.denomination)} · ${escapeHtml(coin.type)}${coin.mint ? ` · Mint ${escapeHtml(coin.mint)}` : ""}</div>
-        ${coin.description ? `<p class="coin-preview">${escapeHtml(coin.description)}</p>` : ""}
-        <div class="badges">${statusBadges(coin)}</div>
+
+        <h3 class="coin-title">
+          ${escapeHtml(
+            coin.name || `${coin.denomination} ${coin.country}`
+          )}
+        </h3>
+
+        <div class="coin-meta">
+          ${escapeHtml(coin.denomination)}
+          · ${escapeHtml(coin.type)}
+          ${coin.mint ? ` · Mint ${escapeHtml(coin.mint)}` : ""}
+        </div>
+
+        ${
+          coin.description
+            ? `<p class="coin-preview">${escapeHtml(coin.description)}</p>`
+            : ""
+        }
+
+        <div class="badges">
+          ${statusBadges(coin)}
+        </div>
+
       </div>
     </article>
   `).join("");
@@ -191,9 +289,13 @@ function renderCards(coins) {
 function renderTable(coins) {
   els.tableBody.innerHTML = coins.map(coin => {
     const status = coin.inCollection ? "In collection" : "Missing";
+
     return `
       <tr>
-        <td>${flagEmoji(coin.countryCode)} ${escapeHtml(coin.country)}</td>
+        <td>
+          ${flagEmoji(coin.countryCode)}
+          ${escapeHtml(coin.country)}
+        </td>
         <td>${coin.year}</td>
         <td>${escapeHtml(coin.denomination)}</td>
         <td>${escapeHtml(coin.type)}</td>
@@ -210,7 +312,11 @@ function renderStats() {
   const total = state.coins.length;
   const collected = state.coins.filter(c => c.inCollection).length;
   const missing = state.coins.filter(c => !c.inCollection).length;
-  const duplicates = state.coins.reduce((sum, c) => sum + (c.duplicates || 0), 0);
+
+  const duplicates = state.coins.reduce(
+    (sum, c) => sum + (c.duplicates || 0),
+    0
+  );
 
   const cards = [
     ["Catalog", total],
@@ -228,21 +334,37 @@ function renderStats() {
 }
 
 function updateStatsVisibility() {
-  const isMobile = window.matchMedia("(max-width: 560px)").matches;
+  const isMobile =
+    window.matchMedia("(max-width: 560px)").matches;
 
-  if (isMobile && state.section !== "all") {
-    els.stats.classList.add("hidden");
-  } else {
-    els.stats.classList.remove("hidden");
-  }
+  els.stats.classList.toggle(
+    "hidden",
+    isMobile && state.section !== "all"
+  );
 }
 
 function openCoinModal(coin) {
-  els.modalImagePanel.innerHTML = imageMarkup(coin, true);
-  els.modalCountry.textContent = `${flagEmoji(coin.countryCode)} ${coin.country}`;
-  els.modalTitle.textContent = coin.name || `${coin.denomination} ${coin.country}`;
-  els.modalSubtitle.textContent = `${coin.year} · ${coin.denomination} · ${coin.type}`;
-  els.modalBadges.innerHTML = statusBadges(coin);
+  const dialog = els.modal.querySelector(".modal-dialog");
+
+  if (!dialog) return;
+
+  dialog.classList.remove("image-viewer");
+  viewerController = null;
+
+  els.modalImagePanel.innerHTML =
+    imageMarkup(coin, true);
+
+  els.modalCountry.textContent =
+    `${flagEmoji(coin.countryCode)} ${coin.country}`;
+
+  els.modalTitle.textContent =
+    coin.name || `${coin.denomination} ${coin.country}`;
+
+  els.modalSubtitle.textContent =
+    `${coin.year} · ${coin.denomination} · ${coin.type}`;
+
+  els.modalBadges.innerHTML =
+    statusBadges(coin);
 
   const facts = [
     ["Country", coin.country],
@@ -255,12 +377,21 @@ function openCoinModal(coin) {
     ["Metal", coin.metal],
     ["Weight", coin.weight],
     ["Diameter", coin.diameter]
-  ].filter(([, value]) => value !== undefined && value !== null && value !== "");
+  ].filter(
+    ([, value]) =>
+      value !== undefined &&
+      value !== null &&
+      value !== ""
+  );
 
   els.modalFacts.innerHTML = facts.map(([label, value]) => `
     <div class="fact">
-      <div class="fact-label">${escapeHtml(label)}</div>
-      <div class="fact-value">${escapeHtml(value)}</div>
+      <div class="fact-label">
+        ${escapeHtml(label)}
+      </div>
+      <div class="fact-value">
+        ${escapeHtml(value)}
+      </div>
     </div>
   `).join("");
 
@@ -282,159 +413,382 @@ function openCoinModal(coin) {
   els.modal.setAttribute("aria-hidden", "false");
   document.body.classList.add("modal-open");
 
-  const modalImage = els.modalImagePanel.querySelector("img");
+  const image =
+    els.modalImagePanel.querySelector("img");
 
-if (modalImage) {
+  if (!image) return;
+
+  let viewerOpen = false;
   let scale = 1;
   let posX = 0;
   let posY = 0;
+
+  let dragging = false;
+  let moved = false;
 
   let startX = 0;
   let startY = 0;
   let startPosX = 0;
   let startPosY = 0;
 
-  let dragging = false;
-  let moved = false;
+  const pointers = new Map();
 
-  function updateImageTransform() {
-    modalImage.style.transform =
-      `translate(${posX}px, ${posY}px) scale(${scale})`;
+  let pinchStartDistance = 0;
+  let pinchStartScale = 1;
 
-    modalImage.classList.toggle("zoomed", scale > 1);
+  function applyTransform() {
+    image.style.transform =
+      `translate3d(${posX}px, ${posY}px, 0) scale(${scale})`;
   }
 
-  function resetImage() {
+  function resetTransform() {
     scale = 1;
     posX = 0;
     posY = 0;
-    updateImageTransform();
+
+    dragging = false;
+    moved = false;
+
+    pointers.clear();
+
+    image.style.transform = "";
+    image.classList.remove("dragging");
   }
 
-  function zoomImage() {
-  if (window.innerWidth <= 560) {
-    scale = 1.65;
-  } else if (window.innerWidth <= 900) {
-    scale = 2;
-  } else {
-    scale = 2.5;
+  function initialScale() {
+    if (window.innerWidth <= 560) return 1.8;
+    if (window.innerWidth <= 900) return 2;
+    return 2.2;
   }
 
-  posX = 0;
-  posY = 0;
-  updateImageTransform();
-}
+  function openViewer() {
+    viewerOpen = true;
 
-  modalImage.addEventListener("click", () => {
+    dialog.classList.add("image-viewer");
+
+    scale = initialScale();
+    posX = 0;
+    posY = 0;
+
+    applyTransform();
+  }
+
+  function closeViewer() {
+    viewerOpen = false;
+
+    dialog.classList.remove("image-viewer");
+
+    resetTransform();
+  }
+
+  function pointerDistance() {
+    const points = [...pointers.values()];
+
+    if (points.length < 2) {
+      return 0;
+    }
+
+    return Math.hypot(
+      points[0].x - points[1].x,
+      points[0].y - points[1].y
+    );
+  }
+
+  image.addEventListener("click", () => {
     if (moved) {
       moved = false;
       return;
     }
 
-    if (scale === 1) {
-      zoomImage();
-    } else {
-      resetImage();
+    if (!viewerOpen) {
+      openViewer();
+      return;
+    }
+
+    closeViewer();
+  });
+
+  image.addEventListener("pointerdown", event => {
+    if (!viewerOpen) return;
+
+    pointers.set(
+      event.pointerId,
+      {
+        x: event.clientX,
+        y: event.clientY
+      }
+    );
+
+    try {
+      image.setPointerCapture(event.pointerId);
+    } catch (_) {}
+
+    if (pointers.size === 2) {
+      pinchStartDistance = pointerDistance();
+      pinchStartScale = scale;
+
+      dragging = false;
+      image.classList.remove("dragging");
+
+      return;
+    }
+
+    if (scale > 1) {
+      dragging = true;
+      moved = false;
+
+      startX = event.clientX;
+      startY = event.clientY;
+
+      startPosX = posX;
+      startPosY = posY;
+
+      image.classList.add("dragging");
     }
   });
 
-  modalImage.addEventListener("pointerdown", event => {
-    if (scale === 1) return;
+  image.addEventListener("pointermove", event => {
+    if (!pointers.has(event.pointerId)) {
+      return;
+    }
 
-    dragging = true;
-    moved = false;
+    pointers.set(
+      event.pointerId,
+      {
+        x: event.clientX,
+        y: event.clientY
+      }
+    );
 
-    startX = event.clientX;
-    startY = event.clientY;
-    startPosX = posX;
-    startPosY = posY;
+    if (pointers.size === 2) {
+      const distance = pointerDistance();
 
-    modalImage.setPointerCapture(event.pointerId);
-    modalImage.classList.add("dragging");
-  });
+      if (pinchStartDistance > 0) {
+        scale =
+          pinchStartScale *
+          (distance / pinchStartDistance);
 
-  modalImage.addEventListener("pointermove", event => {
-    if (!dragging) return;
+        scale =
+          Math.min(
+            4,
+            Math.max(1, scale)
+          );
 
-    const dx = event.clientX - startX;
-    const dy = event.clientY - startY;
+        if (scale === 1) {
+          posX = 0;
+          posY = 0;
+        }
 
-    if (Math.abs(dx) > 3 || Math.abs(dy) > 3) {
+        moved = true;
+        applyTransform();
+      }
+
+      return;
+    }
+
+    if (!dragging || scale <= 1) {
+      return;
+    }
+
+    const dx =
+      event.clientX - startX;
+
+    const dy =
+      event.clientY - startY;
+
+    if (
+      Math.abs(dx) > 4 ||
+      Math.abs(dy) > 4
+    ) {
       moved = true;
     }
 
-    posX = startPosX + dx;
-    posY = startPosY + dy;
+    posX =
+      startPosX + dx;
 
-    updateImageTransform();
+    posY =
+      startPosY + dy;
+
+    applyTransform();
   });
 
-  function stopDragging(event) {
-    if (!dragging) return;
+  function stopPointer(event) {
+    pointers.delete(event.pointerId);
 
     dragging = false;
-    modalImage.classList.remove("dragging");
 
-    if (modalImage.hasPointerCapture(event.pointerId)) {
-      modalImage.releasePointerCapture(event.pointerId);
+    image.classList.remove("dragging");
+
+    try {
+      if (
+        image.hasPointerCapture(
+          event.pointerId
+        )
+      ) {
+        image.releasePointerCapture(
+          event.pointerId
+        );
+      }
+    } catch (_) {}
+
+    if (pointers.size < 2) {
+      pinchStartDistance = 0;
     }
   }
 
-  modalImage.addEventListener("pointerup", stopDragging);
-  modalImage.addEventListener("pointercancel", stopDragging);
-}
+  image.addEventListener(
+    "pointerup",
+    stopPointer
+  );
+
+  image.addEventListener(
+    "pointercancel",
+    stopPointer
+  );
+
+  viewerController = {
+    isOpen() {
+      return viewerOpen;
+    },
+
+    close() {
+      closeViewer();
+    }
+  };
 }
 
 function closeCoinModal() {
+  if (
+    viewerController &&
+    viewerController.isOpen()
+  ) {
+    viewerController.close();
+    return;
+  }
+
+  const dialog =
+    els.modal.querySelector(".modal-dialog");
+
+  if (dialog) {
+    dialog.classList.remove(
+      "image-viewer"
+    );
+  }
+
+  viewerController = null;
+
   els.modal.classList.add("hidden");
-  els.modal.setAttribute("aria-hidden", "true");
-  document.body.classList.remove("modal-open");
+
+  els.modal.setAttribute(
+    "aria-hidden",
+    "true"
+  );
+
+  document.body.classList.remove(
+    "modal-open"
+  );
 }
 
 function render() {
   updateStatsVisibility();
-  const coins = getFilteredCoins();
-  els.sectionTitle.textContent = sectionTitles[state.section];
-  els.resultCount.textContent = `${coins.length} coin${coins.length === 1 ? "" : "s"}`;
+
+  const coins =
+    getFilteredCoins();
+
+  els.sectionTitle.textContent =
+    sectionTitles[state.section];
+
+  els.resultCount.textContent =
+    `${coins.length} coin${coins.length === 1 ? "" : "s"}`;
+
   renderCards(coins);
   renderTable(coins);
 }
 
 function bindEvents() {
-  [els.country, els.year, els.denomination, els.condition].forEach(el => {
-    el.addEventListener("change", render);
+  [
+    els.country,
+    els.year,
+    els.denomination,
+    els.condition
+  ].forEach(el => {
+    el.addEventListener(
+      "change",
+      render
+    );
   });
 
-  els.search.addEventListener("input", render);
+  els.search.addEventListener(
+    "input",
+    render
+  );
 
   document.querySelectorAll(".nav-link").forEach(button => {
     button.addEventListener("click", () => {
-      document.querySelectorAll(".nav-link").forEach(b => b.classList.remove("active"));
+      document
+        .querySelectorAll(".nav-link")
+        .forEach(b =>
+          b.classList.remove("active")
+        );
+
       button.classList.add("active");
-      state.section = button.dataset.section;
+
+      state.section =
+        button.dataset.section;
+
       render();
     });
   });
 
-  els.themeToggle.addEventListener("click", () => {
-    setTheme(state.theme === "light" ? "dark" : "light");
-  });
+  els.themeToggle.addEventListener(
+    "click",
+    () => {
+      setTheme(
+        state.theme === "light"
+          ? "dark"
+          : "light"
+      );
+    }
+  );
 
-  els.viewToggle.addEventListener("click", () => {
-    setView(state.view === "cards" ? "table" : "cards");
-  });
+  els.viewToggle.addEventListener(
+    "click",
+    () => {
+      setView(
+        state.view === "cards"
+          ? "table"
+          : "cards"
+      );
+    }
+  );
 
-  document.querySelectorAll("[data-close-modal]").forEach(el => {
-    el.addEventListener("click", closeCoinModal);
-  });
+  document
+    .querySelectorAll("[data-close-modal]")
+    .forEach(el => {
+      el.addEventListener(
+        "click",
+        closeCoinModal
+      );
+    });
 
-  document.addEventListener("keydown", event => {
-    if (event.key === "Escape" && !els.modal.classList.contains("hidden")) {
+  document.addEventListener(
+    "keydown",
+    event => {
+      if (
+        event.key !== "Escape" ||
+        els.modal.classList.contains("hidden")
+      ) {
+        return;
+      }
+
       closeCoinModal();
     }
-  });
+  );
 
-  window.addEventListener("resize", updateStatsVisibility);
+  window.addEventListener(
+    "resize",
+    updateStatsVisibility
+  );
 }
 
 async function init() {
@@ -443,14 +797,30 @@ async function init() {
   bindEvents();
 
   try {
-    const response = await fetch("data/coins.json?v=4");
-    if (!response.ok) throw new Error("Could not load coins.json");
-    state.coins = await response.json();
+    const response =
+      await fetch("data/coins.json?v=4");
+
+    if (!response.ok) {
+      throw new Error(
+        "Could not load coins.json"
+      );
+    }
+
+    state.coins =
+      await response.json();
+
     populateFilters();
     renderStats();
     render();
+
   } catch (error) {
-    els.grid.innerHTML = `<div class="empty-state">Could not load coin data. ${escapeHtml(error.message)}</div>`;
+    els.grid.innerHTML = `
+      <div class="empty-state">
+        Could not load coin data.
+        ${escapeHtml(error.message)}
+      </div>
+    `;
+
     console.error(error);
   }
 }
