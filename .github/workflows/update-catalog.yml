@@ -5,7 +5,7 @@ on:
     paths:
       - "data/Euro_Coin_Catalog_Automation.xlsx"
       - "incoming/**"
-      - "scripts/update_catalog.py"
+      - "scripts/update_coins.py"
 
   workflow_dispatch:
 
@@ -32,7 +32,7 @@ jobs:
 
       - name: Update catalog
         run: |
-          python scripts/update_catalog.py
+          python scripts/update_coins.py
 
       - name: Commit generated changes
         run: |
