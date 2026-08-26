@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>My Euro Coin Collection</title>
-  <link rel="stylesheet" href="style.css?v=4" />
+  <link rel="stylesheet" href="style.css?v=5" />
 </head>
 <body>
   <header class="site-header">
@@ -110,23 +110,29 @@
       <div class="modal-image-panel" id="modalImagePanel"></div>
 
       <div class="modal-content">
-        <div class="modal-country" id="modalCountry"></div>
-        <h2 id="modalTitle"></h2>
-        <div class="modal-subtitle" id="modalSubtitle"></div>
-        <div class="badges" id="modalBadges"></div>
 
-        <div class="modal-facts" id="modalFacts"></div>
+  <div class="modal-sticky-header">
+    <div class="modal-country" id="modalCountry"></div>
+    <h2 id="modalTitle"></h2>
+    <div class="modal-subtitle" id="modalSubtitle"></div>
+    <div class="badges" id="modalBadges"></div>
+  </div>
 
-        <section class="modal-text-section" id="descriptionSection">
-          <h3>Description</h3>
-          <p id="modalDescription"></p>
-        </section>
+  <div class="modal-scroll-content">
+    <div class="modal-facts" id="modalFacts"></div>
 
-        <section class="modal-text-section" id="notesSection">
-          <h3>My notes</h3>
-          <p id="modalNotes"></p>
-        </section>
-      </div>
+    <section class="modal-text-section" id="descriptionSection">
+      <h3>Description</h3>
+      <p id="modalDescription"></p>
+    </section>
+
+    <section class="modal-text-section" id="notesSection">
+      <h3>My notes</h3>
+      <p id="modalNotes"></p>
+    </section>
+  </div>
+
+</div>
     </article>
   </div>
 
