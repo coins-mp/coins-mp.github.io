@@ -509,7 +509,6 @@ button, input, select {
   overflow: hidden;
   position: relative;
 }
-}
 
 .modal-image-panel img {
   max-width: 100%;
@@ -764,22 +763,25 @@ button, input, select {
   }
 
   .modal-dialog {
-    width: 100%;
-    max-height: 96vh;
-    border-radius: 14px;
-  }
+  width: 100%;
+  max-height: 96vh;
+  border-radius: 14px;
+  grid-template-columns: 1fr;
+  grid-template-rows: 250px auto;
+}
 
   .modal-image-panel {
   min-height: 0;
-  height: 250px;
+  height: 100%;
   max-height: 250px;
   padding: 12px;
+  overflow: hidden;
 }
   .modal-image-panel img {
+  width: 100%;
+  height: 100%;
   max-width: 100%;
   max-height: 100%;
-  width: auto;
-  height: auto;
   object-fit: contain;
 }
 
