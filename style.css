@@ -500,38 +500,80 @@ button, input, select {
 
 .modal-image-panel {
   min-height: 520px;
-  background:
-    radial-gradient(circle at center, rgba(166,124,58,.14), transparent 58%),
-    var(--surface-soft);
-  display: grid;
-  place-items: center;
-  padding: 28px;
+  background: var(--surface-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
   overflow: hidden;
   position: relative;
 }
 
 .modal-image-panel img {
+  display: block;
+  width: 100%;
+  height: 100%;
   max-width: 100%;
   max-height: 72vh;
   object-fit: contain;
   cursor: zoom-in;
-  transition: transform .2s ease;
-
   user-select: none;
   -webkit-user-select: none;
   -webkit-user-drag: none;
+}
+
+/* Full-screen image viewer */
+.modal-dialog.image-viewer {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100dvh;
+  max-width: none;
+  max-height: none;
+  border: 0;
+  border-radius: 0;
+  display: block;
+  background: #000;
+  overflow: hidden;
+}
+
+.modal-dialog.image-viewer .modal-content {
+  display: none;
+}
+
+.modal-dialog.image-viewer .modal-image-panel {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  max-height: none;
+  padding: 0;
+  background: #000;
+  overflow: hidden;
   touch-action: none;
+}
+
+.modal-dialog.image-viewer .modal-image-panel img {
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
+  object-fit: contain;
+  touch-action: none;
+  cursor: grab;
   transform-origin: center center;
 }
 
-.modal-image-panel img.zoomed {
-  cursor: grab;
-  transition: none;
-}
-
-.modal-image-panel img.zoomed.dragging {
+.modal-dialog.image-viewer .modal-image-panel img.dragging {
   cursor: grabbing;
 }
+
+.modal-dialog.image-viewer .modal-close {
+  position: fixed;
+  top: max(14px, env(safe-area-inset-top));
+  right: 14px;
+  z-index: 1005;
+}
+
 
 .modal-image-panel .coin-placeholder {
   width: min(65%, 360px);
@@ -767,22 +809,38 @@ button, input, select {
   max-height: 96vh;
   border-radius: 14px;
   grid-template-columns: 1fr;
-  grid-template-rows: 250px auto;
+  grid-template-rows: minmax(300px, 48vh) auto;
 }
 
-  .modal-image-panel {
+.modal-image-panel {
   min-height: 0;
   height: 100%;
-  max-height: 250px;
+  max-height: none;
   padding: 12px;
   overflow: hidden;
 }
-  .modal-image-panel img {
+
+.modal-image-panel img {
   width: 100%;
   height: 100%;
   max-width: 100%;
   max-height: 100%;
   object-fit: contain;
+}
+
+/* fullscreen must override mobile modal rules */
+.modal-dialog.image-viewer {
+  width: 100vw;
+  height: 100dvh;
+  max-height: none;
+  border-radius: 0;
+  grid-template-rows: none;
+}
+
+.modal-dialog.image-viewer .modal-image-panel {
+  height: 100%;
+  max-height: none;
+  padding: 0;
 }
 
   .modal-content {
