@@ -38,5 +38,25 @@
     "diameter": "23.25 mm",
     "description": "Regular 1 € circulation coin of Malta.",
     "notes": "The €1 coins show the emblem used by the Sovereign Order of Malta. During the Order's rule over Malta, between 1530 and 1798, the eight-pointed cross became associated with the island and is now often referred to as the Maltese Cross."
+  },
+  {
+    "country": "Andorra",
+    "countryCode": "AD",
+    "year": 2000,
+    "denomination": "2 cent",
+    "type": "Regular",
+    "name": "2 cent",
+    "condition": "",
+    "mint": "",
+    "inCollection": true,
+    "duplicates": 0,
+    "wanted": false,
+    "image": "",
+    "mintage": "",
+    "metal": "Copper-plated steel",
+    "weight": "3.06 g",
+    "diameter": "18.75 mm",
+    "description": "Regular 2 cent circulation coin of Andorra.",
+    "notes": "Да, теперь видно, что изменения действительно подтянулись. Модальное окно работает правильно:\n\n* Description отображается как текст, а не Excel-формула.\n* My notes берётся из Excel.\n* Metal / Weight / Diameter отображаются.\n* Condition, Status, Type отображаются.\n* Правая часть модального окна нормально вмещает текст.\n\nИ главное — скролл сейчас не появляется потому, что он просто не нужен: весь текст помещается по высоте окна. Когда Description + My notes станут длиннее доступной области, должна появиться прокрутка именно правой части.Да, теперь видно, что изменения действительно подтянулись. Модальное окно работает правильно:\n\n* Description отображается как текст, а не Excel-формула.\n* My notes берётся из Excel.\n* Metal / Weight / Diameter отображаются.\n* Condition, Status, Type отображаются.\n* Правая часть модального окна нормально вмещает текст.\n\nИ главное — скролл сейчас не появляется потому, что он просто не нужен: весь текст помещается по высоте окна. Когда Description + My notes станут длиннее доступной области, должна появиться прокрутка именно правой части."
   }
 ]
