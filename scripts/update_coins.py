@@ -461,29 +461,20 @@ def main():
         if denomination != "2 €":
             coin_type = "Regular"
 
-   if coin_type and coin_type not in {
-    "Regular",
-    "Commemorative"
-}:
-    print(
-        f"WARNING: row {row}: invalid Type '{coin_type}', leaving it blank"
-    )
-    coin_type = ""
-
-        if coin_type not in {
+        if coin_type and coin_type not in {
             "Regular",
             "Commemorative"
         }:
             print(
-                f"WARNING: skipped row "
-                f"{row}: invalid Type "
-                f"'{coin_type}'"
+                f"WARNING: row {row}: "
+                f"invalid Type '{coin_type}', "
+                f"leaving it blank"
             )
-            continue
+            coin_type = ""
 
-        status_lower = status.lower()
+ status_lower = status.lower()
 
-        if status_lower not in {
+ if status_lower not in {
     "collection",
     "missing",
     "duplicate"
