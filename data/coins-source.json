@@ -82,5 +82,19 @@
     "description": "Regular 2 € circulation coin of Spain.",
     "notes": "The first and second series show a portrait of King Juan Carlos I de Borbón y Borbón.\r\n\r\nIn 2015, Spain introduced a third series of €1 and €2 coins showing the new King Felipe VI and the country code ‘ESPAÑA 2015’. The mint mark appears at the right of the effigy.",
     "imageFile": "006_Spain_1999_2Euro_Regular.jpeg"
+  },
+  {
+    "id": "007",
+    "country": "Portugal",
+    "year": 2002,
+    "denomination": "2 €",
+    "type": "Regular",
+    "name": "2 Euro",
+    "condition": "VF",
+    "status": "Collection",
+    "mintage": "",
+    "description": "Regular 2 € circulation coin of Portugal.",
+    "notes": "€2 coins: the country's castles and coats of arms are set amid the European stars. This symbolises dialogue, the exchange of values and the dynamics of the building of Europe. The centrepiece is the royal seal of 1144. Edge lettering of the €2 coin: five coats of arms and seven castles, all equally spaced.",
+    "imageFile": "007_Portugal_2002_2Euro_Regular.jpeg"
   }
 ]
