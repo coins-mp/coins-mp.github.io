@@ -3,14 +3,13 @@ name: Update coin catalog
 on:
   push:
     paths:
-      - "data/Euro_Coin_Catalog_Automation.xlsx"
+      - "data/coins-source.json"
       - "incoming/**"
       - "scripts/update_coins.py"
+      - "scripts/export_excel.py"
+      - "data/Euro_Coin_Catalog_Template.xlsx"
 
   workflow_dispatch:
-
-permissions:
-  contents: write
 
 concurrency:
   group: update-coin-catalog
@@ -21,10 +20,18 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Generate GitHub App token
+        id: app-token
+        uses: actions/create-github-app-token@v3
+        with:
+          client-id: ${{ vars.COIN_CATALOG_APP_CLIENT_ID }}
+          private-key: ${{ secrets.COIN_CATALOG_APP_PRIVATE_KEY }}
+
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          token: ${{ steps.app-token.outputs.token }}
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -39,15 +46,15 @@ jobs:
       - name: Update catalog
         run: |
           python scripts/update_coins.py
-          
+
       - name: Export Excel backup
         run: |
           python scripts/export_excel.py
 
       - name: Commit generated changes
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config user.name "coin-catalog-admin[bot]"
+          git config user.email "coin-catalog-admin[bot]@users.noreply.github.com"
 
           git add data/coins.json data/Euro_Coin_Catalog_Automation.xlsx images/coins incoming
 
