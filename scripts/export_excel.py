@@ -9,6 +9,8 @@ from openpyxl import load_workbook
 ROOT = Path(__file__).resolve().parent.parent
 
 SOURCE_JSON_FILE = ROOT / "data" / "coins-source.json"
+
+TEMPLATE_FILE = ROOT / "data" / "Euro_Coin_Catalog_Template.xlsx"
 EXCEL_FILE = ROOT / "data" / "Euro_Coin_Catalog_Automation.xlsx"
 
 
@@ -175,11 +177,11 @@ def main():
             f"{SOURCE_JSON_FILE}"
         )
 
-    if not EXCEL_FILE.exists():
-        raise FileNotFoundError(
-            f"Excel template not found: "
-            f"{EXCEL_FILE}"
-        )
+if not TEMPLATE_FILE.exists():
+    raise FileNotFoundError(
+        f"Excel template not found: "
+        f"{TEMPLATE_FILE}"
+    )
 
     with SOURCE_JSON_FILE.open(
         "r",
@@ -188,7 +190,7 @@ def main():
         coins = json.load(file)
 
     workbook = load_workbook(
-        EXCEL_FILE,
+        TEMPLATE_FILE,
         data_only=False
     )
 
