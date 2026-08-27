@@ -306,9 +306,7 @@ def main():
         data_only=True
     )
 
-    coins_sheet = workbook["Coins"]
-
-    country_codes = (
+      country_codes = (
         load_country_codes(workbook)
     )
 
@@ -316,138 +314,82 @@ def main():
         load_specifications(workbook)
     )
 
-    headers = get_headers(
-        coins_sheet
-    )
-
-    required_columns = [
-        "Country",
-        "Year",
-        "Denomination",
-        "ImageFile"
-    ]
-
-    missing_columns = [
-        column
-        for column in required_columns
-        if column not in headers
-    ]
-
-    if missing_columns:
-        raise RuntimeError(
-            "Missing Excel columns: "
-            + ", ".join(missing_columns)
-        )
-
     coins = []
 
-    for row in range(
-        2,
-        coins_sheet.max_row + 1
+    for index, source_coin in enumerate(
+        source_coins,
+        start=1
     ):
 
-        country = clean(
-            get_value(
-                coins_sheet,
-                row,
-                headers,
-                "Country"
-            )
+        # Keep row number only for log messages
+        row = index + 1
+
+        coin_id = clean(
+            source_coin.get("id")
         )
 
-        # Completely blank row -> ignore
+        country = clean(
+            source_coin.get("country")
+        )
+
         if not country:
+            print(
+                f"WARNING: skipped coin "
+                f"{coin_id or index}: no country"
+            )
             continue
 
         year = year_value(
-            get_value(
-                coins_sheet,
-                row,
-                headers,
-                "Year"
-            )
+            source_coin.get("year")
         )
 
         denomination = clean(
-            get_value(
-                coins_sheet,
-                row,
-                headers,
-                "Denomination"
+            source_coin.get(
+                "denomination"
             )
         )
 
         coin_type = clean(
-            get_value(
-                coins_sheet,
-                row,
-                headers,
-                "Type"
-            )
+            source_coin.get("type")
         )
 
         name = clean(
-            get_value(
-                coins_sheet,
-                row,
-                headers,
-                "Name"
-            )
+            source_coin.get("name")
         )
 
         condition = clean(
-            get_value(
-                coins_sheet,
-                row,
-                headers,
-                "Condition"
+            source_coin.get(
+                "condition"
             )
         )
 
         status = clean(
-            get_value(
-                coins_sheet,
-                row,
-                headers,
-                "Status"
-            )
-        )
-
-        duplicates = number_or_zero(
-            get_value(
-                coins_sheet,
-                row,
-                headers,
-                "Duplicates"
-            )
+            source_coin.get("status")
         )
 
         mintage = clean(
-            get_value(
-                coins_sheet,
-                row,
-                headers,
-                "Mintage"
+            source_coin.get(
+                "mintage"
             )
         )
 
         description = clean(
-            get_value(
-                coins_sheet,
-                row,
-                headers,
-                "Description"
+            source_coin.get(
+                "description"
             )
         )
 
         notes = clean(
-            get_value(
-                coins_sheet,
-                row,
-                headers,
-                "Notes"
+            source_coin.get("notes")
+        )
+
+        image_filename = clean(
+            source_coin.get(
+                "imageFile"
             )
         )
+
+        duplicates = 0
 
         if year is None:
             print(
@@ -506,7 +448,8 @@ def main():
 
         wanted = False
 
-        coin_id = f"{row - 1:03d}"
+        if not coin_id:
+            coin_id = f"{index:03d}"
 
         country_code = (
             country_codes.get(
@@ -556,15 +499,6 @@ def main():
                     f"Commemorative 2 euro "
                     f"coin of {country}."
                 )
-
-        image_filename = clean(
-            get_value(
-                coins_sheet,
-                row,
-                headers,
-                "ImageFile"
-            )
-        )
 
         if not image_filename:
             image_filename = build_image_filename(
