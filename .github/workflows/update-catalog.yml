@@ -39,13 +39,17 @@ jobs:
       - name: Update catalog
         run: |
           python scripts/update_coins.py
+          
+      - name: Export Excel backup
+        run: |
+          python scripts/export_excel.py
 
       - name: Commit generated changes
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          git add data/coins.json images/coins incoming
+          git add data/coins.json data/Euro_Coin_Catalog_Automation.xlsx images/coins incoming
 
           if git diff --cached --quiet; then
             echo "No changes to commit"
