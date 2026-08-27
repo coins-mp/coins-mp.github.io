@@ -600,6 +600,7 @@ def main():
             "condition": condition,
             "mint": "",
             "inCollection": in_collection,
+            "status": status_lower,
             "duplicates": duplicates,
             "wanted": wanted,
             "image": image_path,
