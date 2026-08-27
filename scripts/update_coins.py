@@ -8,8 +8,9 @@ from openpyxl import load_workbook
 
 ROOT = Path(__file__).resolve().parent.parent
 
-EXCEL_FILE = ROOT / "data" / "Euro_Coin_Catalog_Automation.xlsx"
+SOURCE_JSON_FILE = ROOT / "data" / "coins-source.json"
 JSON_FILE = ROOT / "data" / "coins.json"
+EXCEL_FILE = ROOT / "data" / "Euro_Coin_Catalog_Automation.xlsx"
 
 INCOMING_DIR = ROOT / "incoming"
 IMAGES_DIR = ROOT / "images" / "coins"
@@ -278,10 +279,10 @@ def process_image(
 
 def main():
 
-    if not EXCEL_FILE.exists():
+    if not SOURCE_JSON_FILE.exists():
         raise FileNotFoundError(
-            f"Excel file not found: "
-            f"{EXCEL_FILE}"
+            f"Source JSON file not found: "
+            f"{SOURCE_JSON_FILE}"
         )
 
     INCOMING_DIR.mkdir(
@@ -293,6 +294,12 @@ def main():
         parents=True,
         exist_ok=True
     )
+
+    with SOURCE_JSON_FILE.open(
+        "r",
+        encoding="utf-8"
+    ) as file:
+        source_coins = json.load(file)
 
     workbook = load_workbook(
         EXCEL_FILE,
