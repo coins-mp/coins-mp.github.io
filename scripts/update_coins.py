@@ -306,7 +306,7 @@ def main():
         data_only=True
     )
 
-      country_codes = (
+    country_codes = (
         load_country_codes(workbook)
     )
 
