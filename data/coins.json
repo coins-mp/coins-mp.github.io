@@ -132,7 +132,7 @@
     "denomination": "2 €",
     "type": "Regular",
     "name": "2 Euro",
-    "condition": "VF",
+    "condition": "AU",
     "mint": "",
     "inCollection": true,
     "status": "collection",
