@@ -145,5 +145,26 @@
     "diameter": "25.75 mm",
     "description": "Regular 2 € circulation coin of Portugal.",
     "notes": "€2 coins: the country's castles and coats of arms are set amid the European stars. This symbolises dialogue, the exchange of values and the dynamics of the building of Europe. The centrepiece is the royal seal of 1144. Edge lettering of the €2 coin: five coats of arms and seven castles, all equally spaced."
+  },
+  {
+    "country": "San Marino",
+    "countryCode": "SM",
+    "year": 2021,
+    "denomination": "2 €",
+    "type": "Regular",
+    "name": "2 Euro",
+    "condition": "AU",
+    "mint": "",
+    "inCollection": true,
+    "status": "collection",
+    "duplicates": 0,
+    "wanted": false,
+    "image": "images/coins/San-Marino/008_San-Marino_2021_2Euro_Regular.jpeg",
+    "mintage": "",
+    "metal": "Bimetallic",
+    "weight": "8.50 g",
+    "diameter": "25.75 mm",
+    "description": "Regular 2 € circulation coin of San Marino.",
+    "notes": "Second series: The portrait of Saint Marino, detail of a painting by Giovan Battista Urbinelli, is shown on this coin."
   }
 ]
