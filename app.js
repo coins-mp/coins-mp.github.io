@@ -113,19 +113,37 @@ function getFilteredCoins() {
   const search = els.search.value.trim().toLowerCase();
 
   return state.coins.filter(coin => {
-    if (state.section === "regular" && coin.type !== "Regular") return false;
+       if (state.section === "all" && coin.status !== "collection") {
+      return false;
+    }
+
+    if (
+      state.section === "regular" &&
+      (coin.status !== "collection" || coin.type !== "Regular")
+    ) {
+      return false;
+    }
 
     if (
       state.section === "commemorative" &&
-      coin.type !== "Commemorative"
-    ) return false;
+      (coin.status !== "collection" || coin.type !== "Commemorative")
+    ) {
+      return false;
+    }
 
-    if (state.section === "missing" && coin.inCollection) return false;
+    if (
+      state.section === "missing" &&
+      coin.status !== "missing"
+    ) {
+      return false;
+    }
 
     if (
       state.section === "duplicates" &&
-      !(coin.duplicates > 0)
-    ) return false;
+      coin.status !== "duplicate"
+    ) {
+      return false;
+    }
 
     if (
       els.country.value &&
