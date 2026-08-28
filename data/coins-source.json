@@ -82,5 +82,19 @@
     "description": "Regular 2 € circulation coin of San Marino.",
     "notes": "Second series: The portrait of Saint Marino, detail of a painting by Giovan Battista Urbinelli, is shown on this coin.",
     "imageFile": "008_San-Marino_2021_2Euro_Regular.jpeg"
+  },
+  {
+    "id": "009",
+    "country": "Slovakia",
+    "year": 2026,
+    "denomination": "2 €",
+    "type": "Regular",
+    "name": "2 Euro",
+    "condition": "AU",
+    "status": "Collection",
+    "mintage": "",
+    "description": "Regular 2 € circulation coin of Slovakia.",
+    "notes": "€2 coins depict a double cross on three hills, as featured in the national emblem of Slovakia.",
+    "imageFile": "009_Slovakia_2026_2Euro_Regular.jpeg"
   }
 ]
