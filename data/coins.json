@@ -250,5 +250,26 @@
     "diameter": "25.75 mm",
     "description": "2 500 years since the Battle of Thermopylae. Commemorative 2 euro coin of Greece.",
     "notes": "The design depicts an ancient Greek helmet. Inscribed along the inner edge are the words ‘2500 YEARS SINCE THE BATTLE OF THERMOPYLAE’ and ‘HELLENIC REPUBLIC’. Also inscribed in the background are the year of issuance ‘2020’ and a palmette (the mintmark of the Greek mint). Visible down and right of the helmet is the monogram of the artist (George Stamatopoulos). Although ending in defeat for the Greeks, the Battle of Thermopylae remains a timeless symbol of heroic resistance. The coin’s outer ring bears the 12 stars of the European flag."
+  },
+  {
+    "country": "Germany",
+    "countryCode": "DE",
+    "year": 2020,
+    "denomination": "2 €",
+    "type": "Commemorative",
+    "name": "Brandenburg",
+    "condition": "F",
+    "mint": "",
+    "inCollection": true,
+    "status": "collection",
+    "duplicates": 0,
+    "wanted": false,
+    "image": "images/coins/Germany/015_Germany_2020_2Euro_Commemorative_Brandenburg.jpeg",
+    "mintage": "",
+    "metal": "Bimetallic",
+    "weight": "8.50 g",
+    "diameter": "25.75 mm",
+    "description": "Brandenburg. Commemorative 2 euro coin of Germany.",
+    "notes": "The design shows the Sanssouci Palace. The upper half of the coin’s inner section includes the mint mark of the respective mint (‘A’, ‘D’, ‘F’, ‘G’ or ‘J’), the artist’s initials and the year ‘2020’. The lower half of the coin’s inner section contains the inscription ‘BRANDENBURG’ and Germany’s issuing country code ‘D’. The coin’s outer ring bears the 12 stars of the European flag."
   }
 ]
