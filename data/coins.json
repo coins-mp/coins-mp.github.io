@@ -229,5 +229,26 @@
     "diameter": "23.25 mm",
     "description": "Regular 1 € circulation coin of Belgium.",
     "notes": "The first series depicts King Albert II in the inner part of the coin, while the royal monogram - a capital \"A\" underneath a crown - among 12 stars, symbolising Europe, as well as the year of issuance appear in the outer part."
+  },
+  {
+    "country": "Greece",
+    "countryCode": "GR",
+    "year": 2020,
+    "denomination": "2 €",
+    "type": "Commemorative",
+    "name": "2 500 years since the Battle of Thermopylae",
+    "condition": "F",
+    "mint": "",
+    "inCollection": true,
+    "status": "collection",
+    "duplicates": 0,
+    "wanted": false,
+    "image": "images/coins/Greece/014_Greece_2020_2Euro_Commemorative_2-500-years-since-the-Battle-of-Thermopylae.jpeg",
+    "mintage": "750 000 coins",
+    "metal": "Bimetallic",
+    "weight": "8.50 g",
+    "diameter": "25.75 mm",
+    "description": "2 500 years since the Battle of Thermopylae. Commemorative 2 euro coin of Greece.",
+    "notes": "The design depicts an ancient Greek helmet. Inscribed along the inner edge are the words ‘2500 YEARS SINCE THE BATTLE OF THERMOPYLAE’ and ‘HELLENIC REPUBLIC’. Also inscribed in the background are the year of issuance ‘2020’ and a palmette (the mintmark of the Greek mint). Visible down and right of the helmet is the monogram of the artist (George Stamatopoulos). Although ending in defeat for the Greeks, the Battle of Thermopylae remains a timeless symbol of heroic resistance. The coin’s outer ring bears the 12 stars of the European flag."
   }
 ]
