@@ -44,25 +44,66 @@ jobs:
           python -m pip install --upgrade pip
           pip install openpyxl
 
-      - name: Update catalog
+      - name: Generate and publish catalog
+        shell: bash
         run: |
-          python scripts/update_coins.py
+          set -e
 
-      - name: Export Excel backup
-        run: |
-          python scripts/export_excel.py
-
-      - name: Commit generated changes
-        run: |
           git config user.name "coin-catalog-admin[bot]"
           git config user.email "coin-catalog-admin[bot]@users.noreply.github.com"
 
-          git add data/coins.json data/Euro_Coin_Catalog_Automation.xlsx images/coins incoming
+          for attempt in 1 2 3
+          do
+            echo "======================================"
+            echo "Catalog generation attempt ${attempt}"
+            echo "======================================"
 
-          if git diff --cached --quiet; then
-            echo "No changes to commit"
-          else
+            #
+            # Always start from the newest public main.
+            #
+            git fetch origin main
+            git reset --hard origin/main
+            git clean -fd
+
+            #
+            # Generate everything again from the current
+            # coins-source.json.
+            #
+            python scripts/update_coins.py
+            python scripts/export_excel.py
+
+            git add \
+              data/coins.json \
+              data/Euro_Coin_Catalog_Automation.xlsx \
+              images/coins \
+              incoming
+
+            if git diff --cached --quiet
+            then
+              echo "No generated changes to publish"
+              exit 0
+            fi
+
             git commit -m "Update coin catalog"
-            git pull --rebase origin main
-            git push origin main
-          fi
+
+            #
+            # Push only if main has not changed while
+            # we were generating the files.
+            #
+            if git push origin HEAD:main
+            then
+              echo "Catalog published successfully"
+              exit 0
+            fi
+
+            echo "Public main changed during generation."
+
+            if [ "${attempt}" -eq 3 ]
+            then
+              echo "Failed to publish catalog after 3 attempts"
+              exit 1
+            fi
+
+            echo "Regenerating from the newest main..."
+            sleep $((attempt * 2))
+          done
