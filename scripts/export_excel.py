@@ -177,11 +177,11 @@ def main():
             f"{SOURCE_JSON_FILE}"
         )
 
-if not TEMPLATE_FILE.exists():
-    raise FileNotFoundError(
-        f"Excel template not found: "
-        f"{TEMPLATE_FILE}"
-    )
+    if not TEMPLATE_FILE.exists():
+        raise FileNotFoundError(
+            f"Excel template not found: "
+            f"{TEMPLATE_FILE}"
+        )
 
     with SOURCE_JSON_FILE.open(
         "r",
@@ -381,8 +381,7 @@ if not TEMPLATE_FILE.exists():
                 )
 
             elif (
-                coin_type
-                == "Commemorative"
+                coin_type == "Commemorative"
                 and name
             ):
                 description = (
