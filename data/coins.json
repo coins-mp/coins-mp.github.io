@@ -166,5 +166,26 @@
     "diameter": "25.75 mm",
     "description": "200 years since the Greek Revolution. Commemorative 2 euro coin of Greece.",
     "notes": "he design features the Greek flag at the centre, encircled by laurel branches. Inscribed along the inner edge are the wordings ‘1821 – 2021 200 YEARS SINCE THE GREEK REVOLUTION’ and ‘HELLENIC REPUBLIC’. Visible, at the bottom, between two laurel branches, are a palmette (the minmark of the Greek Mint) and the signature of the artist (George Stamatopoulos). The coin’s outer ring bears the 12 stars of the European flag."
+  },
+  {
+    "country": "Slovakia",
+    "countryCode": "SK",
+    "year": 2009,
+    "denomination": "2 €",
+    "type": "Regular",
+    "name": "2 Euro",
+    "condition": "VF",
+    "mint": "",
+    "inCollection": true,
+    "status": "duplicate",
+    "duplicates": 1,
+    "wanted": false,
+    "image": "images/coins/Slovakia/011_Slovakia_2009_2Euro_Regular.jpeg",
+    "mintage": "",
+    "metal": "Bimetallic",
+    "weight": "8.50 g",
+    "diameter": "25.75 mm",
+    "description": "Regular 2 € circulation coin of Slovakia.",
+    "notes": ""
   }
 ]
