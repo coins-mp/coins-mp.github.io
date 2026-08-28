@@ -181,10 +181,35 @@ def find_existing_image(
         filename
     )
 
-    if destination.exists():
+    if destination.is_file():
         return destination
 
-    if not country_folder.exists():
+    for file in IMAGES_DIR.rglob(filename):
+        if file.is_file():
+            return file
+
+    suffix = (
+        f"_{safe_filename_part(country)}"
+        f"_{year}"
+        f"_{denomination_filename(denomination)}"
+        f"_{safe_filename_part(coin_type)}"
+    )
+
+    for file in IMAGES_DIR.rglob("*"):
+        if not file.is_file():
+            continue
+
+        if file.suffix.lower() not in {
+            ".jpeg",
+            ".jpg",
+            ".png",
+            ".webp"
+        }:
+            continue
+
+        if suffix in file.stem:
+            return file
+
         return None
 
     suffix = (
