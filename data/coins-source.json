@@ -96,19 +96,5 @@
     "description": "Regular 2 € circulation coin of San Marino.",
     "notes": "Second series: The portrait of Saint Marino, detail of a painting by Giovan Battista Urbinelli, is shown on this coin.",
     "imageFile": "008_San-Marino_2021_2Euro_Regular.jpeg"
-  },
-  {
-    "id": "009",
-    "country": "Andorra",
-    "year": 2026,
-    "denomination": "2 €",
-    "type": "Regular",
-    "name": "2 Euro",
-    "condition": "XF",
-    "status": "Collection",
-    "mintage": "",
-    "description": "Regular 2 € circulation coin of Andorra.",
-    "notes": "",
-    "imageFile": ""
   }
 ]
