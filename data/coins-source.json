@@ -1,19 +1,5 @@
 [
   {
-    "id": "001",
-    "country": "Slovakia",
-    "year": 2009,
-    "denomination": "2 €",
-    "type": "Regular",
-    "name": "2 Euro",
-    "condition": "XF",
-    "status": "Duplicate",
-    "mintage": "",
-    "description": "Regular 2 € circulation coin of Slovakia.",
-    "notes": "",
-    "imageFile": "01_Slovakia_2009_2Euro_Regular.jpeg"
-  },
-  {
     "id": "003",
     "country": "Belgium",
     "year": 2009,
