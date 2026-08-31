@@ -439,5 +439,26 @@
     "diameter": "25.75 mm",
     "description": "1st anniversary of the signing of the European Constitution. Commemorative 2 euro coin of Italy.",
     "notes": "The centre of the coin features Europa and the bull, with Europa holding a pen and the text of the European Constitution. To the upper left of the image is the mintmark ‘R’. The initials of engraver Maria Carmela Colaneri, ‘MCC’, appear on the lower left edge of the coin’s central part. The year of mintage is shown in the top right of the image above the head of the bull. Positioned just off-centre at the bottom of the image is the monogram of the Italian Republic, ‘RI’. The words ‘COSTITUZIONE EUROPEA’ form a semicircle along the outer ring of the coin beneath the central image, while twelve stars are depicted on the remainder of the outer ring."
+  },
+  {
+    "country": "Italy",
+    "countryCode": "IT",
+    "year": 2006,
+    "denomination": "2 €",
+    "type": "Commemorative",
+    "name": "XX Olympic Winter Games - Turin 2006",
+    "condition": "F",
+    "mint": "",
+    "inCollection": true,
+    "status": "collection",
+    "duplicates": 0,
+    "wanted": false,
+    "image": "images/coins/Italy/024_Italy_2006_2Euro_Commemorative_XX-Olympic-Winter-Games-Turin-2006.jpeg",
+    "mintage": "",
+    "metal": "Bimetallic",
+    "weight": "8.50 g",
+    "diameter": "25.75 mm",
+    "description": "XX Olympic Winter Games - Turin 2006. Commemorative 2 euro coin of Italy.",
+    "notes": "An image of a skier, a dynamic, curvilinear figure, is in the centre of the coin. Above him are the words ‘GIOCHI INVERNALI’ and to his left the location of the Winter Games is marked by the word ‘TORINO’ and an image of Turin’s landmark Mole Antonelliana building. The monogram of the Italian Republic ‘RI’ and the mintmark ‘R’ are also to the skier’s left. The year of issue, 2006, and the initials of the designer ‘MCC’ (Maria Carmela Colaneri) are shown to his right. The coin’s outer ring bears the 12 stars of the European Union."
   }
 ]
