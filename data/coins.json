@@ -565,5 +565,26 @@
     "diameter": "25.75 mm",
     "description": "The 30th Anniversary of the death of Giovanni Falcone and Paolo Borsellino. Commemorative 2 euro coin of Italy.",
     "notes": "The design depicts in the centre the portraits of the two Italian judges Giovanni Falcone and Paolo Borsellino, inspired by a picture of Tony Gentile. Above, the arc-shaped inscription ‘FALCONE – BORSELLINO’, underneath the dates ‘1992 2022’, with the acronym of the Italian Republic ‘RI’ in between; on the right, ‘R’, identifying the Mint of Rome; on the left, ‘VdS’, initials of the designer Valerio de Seta. The coin’s outer ring bears the 12 stars of the European flag."
+  },
+  {
+    "country": "France",
+    "countryCode": "FR",
+    "year": 2022,
+    "denomination": "2 €",
+    "type": "Commemorative",
+    "name": "The 90th anniversary of President Jacques Chirac’s birth",
+    "condition": "XF",
+    "mint": "",
+    "inCollection": true,
+    "status": "collection",
+    "duplicates": 0,
+    "wanted": false,
+    "image": "images/coins/France/030_France_2022_2Euro_Commemorative_The-90th-anniversary-of-President-Jacques-Chiracs-birth.jpeg",
+    "mintage": "",
+    "metal": "Bimetallic",
+    "weight": "8.50 g",
+    "diameter": "25.75 mm",
+    "description": "The 90th anniversary of President Jacques Chirac’s birth. Commemorative 2 euro coin of France.",
+    "notes": "President of the French Republic for two terms, Jacques Chirac was a major architect of the European construction. As such, he was President when the Euro was introduced in 2002, whose 20th anniversary we celebrate at the beginning of this year. The design shows a solemn profile of President Jacques Chirac looking towards the future. He is surrounded by several symbols representing his actions: a euro symbol, as sign of his involvement in the introduction of the Euro and his European spirit, and a French flag represented in heraldic colours, itself embellished with the RF as a reference to his presidency. His dates and name are inserted in the Euro’s logo. The mintmarks as well as the year date fit into the design. The coin’s outer ring bears the 12 stars of the European flag."
   }
 ]
