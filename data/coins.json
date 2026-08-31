@@ -271,5 +271,26 @@
     "diameter": "25.75 mm",
     "description": "Brandenburg. Commemorative 2 euro coin of Germany.",
     "notes": "The design shows the Sanssouci Palace. The upper half of the coin’s inner section includes the mint mark of the respective mint (‘A’, ‘D’, ‘F’, ‘G’ or ‘J’), the artist’s initials and the year ‘2020’. The lower half of the coin’s inner section contains the inscription ‘BRANDENBURG’ and Germany’s issuing country code ‘D’. The coin’s outer ring bears the 12 stars of the European flag."
+  },
+  {
+    "country": "Greece",
+    "countryCode": "GR",
+    "year": 2004,
+    "denomination": "2 €",
+    "type": "Commemorative",
+    "name": "Olympic Games in Athens 2004",
+    "condition": "F",
+    "mint": "",
+    "inCollection": true,
+    "status": "collection",
+    "duplicates": 0,
+    "wanted": false,
+    "image": "images/coins/Greece/016_Greece_2004_2Euro_Commemorative_Olympic-Games-in-Athens-2004.jpeg",
+    "mintage": "",
+    "metal": "Bimetallic",
+    "weight": "8.50 g",
+    "diameter": "25.75 mm",
+    "description": "Olympic Games in Athens 2004. Commemorative 2 euro coin of Greece.",
+    "notes": "The twelve stars of the European Union positioned around the outer circle surround the design of an ancient statue depicting a discobolus in his attempt to throw the discus. The base of the statue covers a small part of the coin's external ring (outer part). To the left is the logo of the Olympic Games 'ATHENS 2004' and the five Olympic circles, and to the right, one above the other, are the figure '2' and the word 'ΕΥΡΩ'. The yearmark is written in split form around the star positioned bottom centre, as follows: 20*04 and the mintmark is above the athlete's head to the left."
   }
 ]
