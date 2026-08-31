@@ -502,5 +502,26 @@
     "diameter": "25.75 mm",
     "description": "700th Anniversary of the birth of Giovanni BOCCACCIO. Commemorative 2 euro coin of Italy.",
     "notes": "The design shows the head of Giovanni BOCCACCIO in three quarter view facing right, drawn from the fresco by Andrea del Castagno, around 1450 ca. (Florence, Galleria degli Uffizi); around, on the bottom, BOCCACCIO 1313 2013; on the right, superimposed letters R (monogram of the Mint of Rome)/RI (monogram of Italian Republic)/m (monogram of the author Roberto Mauri). The coin’s outer ring bears the 12 stars of the European Union."
+  },
+  {
+    "country": "Italy",
+    "countryCode": "IT",
+    "year": 2014,
+    "denomination": "2 €",
+    "type": "Commemorative",
+    "name": "450th Anniversary of the birth of Galileo Galilei (born in 1564)",
+    "condition": "G",
+    "mint": "",
+    "inCollection": true,
+    "status": "collection",
+    "duplicates": 0,
+    "wanted": false,
+    "image": "images/coins/Italy/027_Italy_2014_2Euro_Commemorative_450th-Anniversary-of-the-birth-of-Galileo-Galilei-born-in-1564.jpeg",
+    "mintage": "",
+    "metal": "Bimetallic",
+    "weight": "8.50 g",
+    "diameter": "25.75 mm",
+    "description": "450th Anniversary of the birth of Galileo Galilei (born in 1564). Commemorative 2 euro coin of Italy.",
+    "notes": "The design shows the head of Galileo Galilei from the painting of Justus Sustermans, 1636 (Florence, Galleria degli Uffizi); around, upside, GALILEO GALILEI; on the right, superimposed letters R (monogram of the Mint of Rome)/astronomic telescope/C.M. (monogram of the Author Claudia Momoni); on the left, superimposed letters of the Italian Republic monogram ‘RI’; in exergue 1564-2014. The coin’s outer ring bears the 12 stars of the European Union."
   }
 ]
