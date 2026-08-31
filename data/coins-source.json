@@ -264,5 +264,19 @@
     "description": "French Presidency of the Council of the European Union in the second half of 2008. Commemorative 2 euro coin of France.",
     "notes": "The coin is inscribed as follows: ‘2008 PRÉSIDENCE FRANÇAISE UNION EUROPÉENNE RF’. The mint mark and the mintmaster's mark are located below, to the left and the right respectively. The 12 stars of the European Union are shown on the outer ring.",
     "imageFile": "021_France_2008_2Euro_Commemorative_French-Presidency-of-the-Council-of-the-European-Union-in-the-second-half-of-2008.jpeg"
+  },
+  {
+    "id": "022",
+    "country": "Italy",
+    "year": 2008,
+    "denomination": "2 €",
+    "type": "Commemorative",
+    "name": "60th anniversary of the Universal Declaration of Human Rights",
+    "condition": "F",
+    "status": "Collection",
+    "mintage": "",
+    "description": "60th anniversary of the Universal Declaration of Human Rights. Commemorative 2 euro coin of Italy.",
+    "notes": "The coin depicts a man and a woman with an olive branch, an ear of corn, a cogwheel and some barbed wire – symbols of the right to peace, food, work and freedom respectively. The monogram of the Italian Republic ‘RI’ is placed between the two figures, as is the year of issue ‘2008’. At the bottom of the image are the links of a chain forming the number ‘60’ and the inscription ‘DIRITTI UMANI’ (human rights). The initials ‘MCC’ of the artist Maria Carmela Colaneri and the mint mark ‘R’ are shown on the right. The outer ring of the coin depicts the 12 stars of the European Union.",
+    "imageFile": "022_Italy_2008_2Euro_Commemorative_60th-anniversary-of-the-Universal-Declaration-of-Human-Rights.jpeg"
   }
 ]
