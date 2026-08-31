@@ -334,5 +334,26 @@
     "diameter": "25.75 mm",
     "description": "Mecklenburg-Vorpommern. Commemorative 2 euro coin of Germany.",
     "notes": "The coin shows Schwerin Castle and bears the inscription ‘Mecklenburg-Vorpommern’ - the federal state of Mecklenburg-West Pomerania where the castle is located. The mintmark, ‘A’, ‘D’, ‘F’, ‘G’ or ‘J’, appears above the image, and the engraver’s initials ‘HH’ below it. The year of mintage, 2007, the 12 stars of the European Union and the words ‘Bundesrepublik Deutschland’ appear in the outer ring."
+  },
+  {
+    "country": "Italy",
+    "countryCode": "IT",
+    "year": 2007,
+    "denomination": "2 €",
+    "type": "Commemorative",
+    "name": "50th anniversary of the Treaty of Rome_ Italy",
+    "condition": "F",
+    "mint": "",
+    "inCollection": true,
+    "status": "collection",
+    "duplicates": 0,
+    "wanted": false,
+    "image": "images/coins/Italy/019_Italy_2007_2Euro_Commemorative_50th-anniversary-of-the-Treaty-of-Rome_-Italy.jpeg",
+    "mintage": "",
+    "metal": "Bimetallic",
+    "weight": "8.50 g",
+    "diameter": "25.75 mm",
+    "description": "50th anniversary of the Treaty of Rome_ Italy. Commemorative 2 euro coin of Italy.",
+    "notes": "The coin shows the Treaty document signed by the six founding countries on a background evoking the paving (designed by Michelangelo) of the Piazza del Campidoglio in Rome, where the signing took place on 25 March 1957. ‘Treaty of Rome 50 years’, ‘EUROPE’ and the name of the issuing country appear in the respective languages of the euro area or in Latin. Thus, the legend differs from country to country, but the image is the same. The Treaty of Rome established the European Economic Community and ultimately led to the introduction of the euro in 1999 and the euro banknotes and coins in 2002. The anniversary was celebrated on 25 March 2007. The euro area countries have marked the occasion by jointly issuing this commemorative coin. Its design was selected following a competition organised by the European mints. The coin’s outer ring bears the 12 stars of the European Union."
   }
 ]
