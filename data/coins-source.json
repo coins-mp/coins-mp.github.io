@@ -208,5 +208,19 @@
     "description": "Saarland. Commemorative 2 euro coin of Germany.",
     "notes": "The coin features the Ludwigskirche, a symbol of Saarbrücken, the capital of the Saarland. It shows the distinctive east facade and bell tower of the church, with the word ‘SAARLAND’ and ‘G’, a mint mark, underneath. It was designed by Friedrich Brenner, whose initials appear to the right of the image. The year of mintage, 2009, the 12 stars of the European Union and the words ‘BUNDESREPUBLIK DEUTSCHLAND’ are depicted on the outer ring.",
     "imageFile": "017_Germany_2009_2Euro_Commemorative_Saarland.jpeg"
+  },
+  {
+    "id": "018",
+    "country": "Germany",
+    "year": 2007,
+    "denomination": "2 €",
+    "type": "Commemorative",
+    "name": "Mecklenburg-Vorpommern",
+    "condition": "F",
+    "status": "Collection",
+    "mintage": "",
+    "description": "Mecklenburg-Vorpommern. Commemorative 2 euro coin of Germany.",
+    "notes": "The coin shows Schwerin Castle and bears the inscription ‘Mecklenburg-Vorpommern’ - the federal state of Mecklenburg-West Pomerania where the castle is located. The mintmark, ‘A’, ‘D’, ‘F’, ‘G’ or ‘J’, appears above the image, and the engraver’s initials ‘HH’ below it. The year of mintage, 2007, the 12 stars of the European Union and the words ‘Bundesrepublik Deutschland’ appear in the outer ring.",
+    "imageFile": ""
   }
 ]
