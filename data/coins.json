@@ -943,5 +943,26 @@
     "diameter": "25.75 mm",
     "description": "International Missing Children’s Day. Commemorative 2 euro coin of Belgium.",
     "notes": "The inner part of the coin displays in its centre the face of a child surrounded by the words ‘MISSING-DISPARU-VERMIST’, ‘WWW.CHILDFOCUS.BE’ and the trilingual indication of nationality ‘BELGIQUE-BELGIE-BELGIEN’ followed by the year 2016. The mark of the Brussels mint, a helmeted profile of the archangel Michael and the signature mark of the Master of the Mint appear to the left and right respectively of the face. The coin’s outer ring bears the 12 stars of the European Union."
+  },
+  {
+    "country": "Germany",
+    "countryCode": "DE",
+    "year": 2016,
+    "denomination": "2 €",
+    "type": "Commemorative",
+    "name": "Saxony",
+    "condition": "F",
+    "mint": "",
+    "inCollection": true,
+    "status": "collection",
+    "duplicates": 0,
+    "wanted": false,
+    "image": "images/coins/Germany/048_Germany_2016_2Euro_Commemorative_Saxony.jpeg",
+    "mintage": "",
+    "metal": "Bimetallic",
+    "weight": "8.50 g",
+    "diameter": "25.75 mm",
+    "description": "Saxony. Commemorative 2 euro coin of Germany.",
+    "notes": "The design shows a view of the world-famous Zwinger Palace in Dresden, namely of the inner yard giving way to the Crown Gate. It includes the name ‘SACHSEN’ (Saxony) and the country code ‘D’ at the bottom, the mint mark of the respective mint (‘A’, ‘D’, ‘F’, ‘G’ or ‘J’) as well as the engraver’s mark (the initials ‘JT’ for Jordi Truxa) at the top right and the year ‘2016’ at the top left. The coin’s outer ring bears the 12 stars of the European Union."
   }
 ]
