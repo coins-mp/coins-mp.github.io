@@ -530,5 +530,19 @@
     "description": "BAYERN. Commemorative 2 euro coin of Germany.",
     "notes": "The inner part of the coin, designed by Erich Ott, depicts one of Bavaria’s most famous landmarks, Neuschwanstein Castle, viewed from the east, with the gatehouse in the foreground, the romantic towers and turrets of the castle itself, and the majestic mountains behind. Beneath is the name of the federal state “BAYERN”. To the right is the mintmark of the respective mint (A, D, F, G or J) and to the left are the initials of the designer. The outer ring features the 12 stars of the European Union with a “D” at the top and “2012” at the bottom, denoting the country and year of issue respectively.",
     "imageFile": "040_Germany_2012_2Euro_Commemorative_BAYERN.jpeg"
+  },
+  {
+    "id": "041",
+    "country": "Germany",
+    "year": 2026,
+    "denomination": "2 €",
+    "type": "Commemorative",
+    "name": "Baden-Württemberg",
+    "condition": "VF",
+    "status": "Collection",
+    "mintage": "",
+    "description": "Baden-Württemberg. Commemorative 2 euro coin of Germany.",
+    "notes": "The inner part of the coin depicts the Maulbronn Monastery which is home to the most perfectly preserved medieval monastery complex north of the Alps. Founded in 1147, this complex has been a UNESCO World Heritage Site since 1993. On the top, the year of issuance ‘2013’. At the bottom, the inscription BADEN- WÜRTTEMBERG and underneath the indication of the issuing country ‘D’. The mint mark, represented by the letter A, D, F, G or J, is located at the right hand side. At the bottom left the initials of the artist. The coin’s outer ring bears the 12 stars of the European Union.",
+    "imageFile": "041_Germany_2026_2Euro_Commemorative_Baden-Württemberg.jpeg"
   }
 ]
