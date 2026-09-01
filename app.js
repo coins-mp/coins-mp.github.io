@@ -18,7 +18,8 @@ const els = {
   condition: document.getElementById("conditionFilter"),
   sort: document.getElementById("sortFilter"),
   search: document.getElementById("searchInput"),
-  pagination: document.getElementById("pagination"),
+  paginationTop: document.getElementById("paginationTop"),
+  paginationBottom: document.getElementById("paginationBottom"),
   sectionTitle: document.getElementById("sectionTitle"),
   resultCount: document.getElementById("resultCount"),
   themeToggle: document.getElementById("themeToggle"),
@@ -109,10 +110,7 @@ function setView(view) {
       : "▦ Cards";
 }
 
-function populateSelect(
-  select,
-  values
-) {
+function populateSelect(select, values) {
   const first =
     select.options[0].outerHTML;
 
@@ -575,45 +573,9 @@ function getCoinsPerPage() {
   );
 }
 
-function renderPagination(
-  totalCoins
+function createPaginationHtml(
+  totalPages
 ) {
-  const perPage =
-    getCoinsPerPage();
-
-  const totalPages =
-    Math.max(
-      1,
-      Math.ceil(
-        totalCoins /
-        perPage
-      )
-    );
-
-  if (
-    state.page >
-    totalPages
-  ) {
-    state.page =
-      totalPages;
-  }
-
-  if (
-    totalPages <= 1
-  ) {
-    els.pagination.innerHTML = "";
-
-    els.pagination
-      .classList
-      .add("hidden");
-
-    return;
-  }
-
-  els.pagination
-    .classList
-    .remove("hidden");
-
   let html = "";
 
   html += `
@@ -654,8 +616,7 @@ function renderPagination(
       class="pagination-btn"
       data-page="${state.page + 1}"
       ${
-        state.page ===
-        totalPages
+        state.page === totalPages
           ? "disabled"
           : ""
       }
@@ -664,10 +625,14 @@ function renderPagination(
     </button>
   `;
 
-  els.pagination.innerHTML =
-    html;
+  return html;
+}
 
-  els.pagination
+function bindPaginationButtons(
+  container,
+  totalPages
+) {
+  container
     .querySelectorAll(
       ".pagination-btn"
     )
@@ -686,8 +651,7 @@ function renderPagination(
                 nextPage
               ) ||
               nextPage < 1 ||
-              nextPage >
-                totalPages
+              nextPage > totalPages
             ) {
               return;
             }
@@ -712,6 +676,72 @@ function renderPagination(
         );
       }
     );
+}
+
+function renderPagination(
+  totalCoins
+) {
+  const perPage =
+    getCoinsPerPage();
+
+  const totalPages =
+    Math.max(
+      1,
+      Math.ceil(
+        totalCoins /
+        perPage
+      )
+    );
+
+  if (
+    state.page >
+    totalPages
+  ) {
+    state.page =
+      totalPages;
+  }
+
+  const containers = [
+    els.paginationTop,
+    els.paginationBottom
+  ];
+
+  if (
+    totalPages <= 1
+  ) {
+    containers.forEach(
+      container => {
+        container.innerHTML = "";
+
+        container
+          .classList
+          .add("hidden");
+      }
+    );
+
+    return;
+  }
+
+  const html =
+    createPaginationHtml(
+      totalPages
+    );
+
+  containers.forEach(
+    container => {
+      container
+        .classList
+        .remove("hidden");
+
+      container.innerHTML =
+        html;
+
+      bindPaginationButtons(
+        container,
+        totalPages
+      );
+    }
+  );
 }
 
 function statusBadges(coin) {
@@ -788,9 +818,7 @@ function imageMarkup(
   `;
 }
 
-function renderCards(
-  coins
-) {
+function renderCards(coins) {
   if (!coins.length) {
     els.grid.innerHTML =
       `<div class="empty-state">No coins match the selected filters.</div>`;
@@ -905,9 +933,7 @@ function renderCards(
     );
 }
 
-function renderTable(
-  coins
-) {
+function renderTable(coins) {
   els.tableBody.innerHTML =
     coins
       .map(
@@ -1057,9 +1083,7 @@ function updateStatsVisibility() {
   );
 }
 
-function openCoinModal(
-  coin
-) {
+function openCoinModal(coin) {
   const dialog =
     els.modal.querySelector(
       ".modal-dialog"
@@ -1153,10 +1177,8 @@ function openCoinModal(
     ]
   ].filter(
     ([, value]) =>
-      value !==
-        undefined &&
-      value !==
-        null &&
+      value !== undefined &&
+      value !== null &&
       value !== ""
   );
 
