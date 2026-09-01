@@ -618,6 +618,11 @@ select {
   flex-wrap: wrap;
 }
 
+#paginationTop {
+  margin-top: 10px;
+  margin-bottom: 36px;
+}
+
 .pagination-btn {
   min-width: 40px;
 
