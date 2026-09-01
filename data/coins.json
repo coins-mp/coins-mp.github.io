@@ -1027,5 +1027,26 @@
     "diameter": "25.75 mm",
     "description": "The 70th anniversary of the Bundesrat’s founding. Commemorative 2 euro coin of Germany.",
     "notes": "The design shows a highly detailed and finely sculpted rendering of the Bundesrat building. The upper half of the coin’s inner section includes the mint mark of the respective mint (‘A’, ‘D’, ‘F’, ‘G’ or ‘J’), the artist’s initials and the year ‘2019’. The lower half of the coin’s inner section contains the inscription ‘BUNDESRAT’ and Germany’s issuing country code ‘D’. The coin’s outer ring bears the 12 stars of the European Union."
+  },
+  {
+    "country": "Germany",
+    "countryCode": "DE",
+    "year": 2020,
+    "denomination": "2 €",
+    "type": "Commemorative",
+    "name": "The 50th anniversary of Willy Brandt’s Kniefall von Warschau",
+    "condition": "F",
+    "mint": "",
+    "inCollection": true,
+    "status": "collection",
+    "duplicates": 0,
+    "wanted": false,
+    "image": "images/coins/Germany/052_Germany_2020_2Euro_Commemorative_The-50th-anniversary-of-Willy-Brandts-Kniefall-von-Warschau.jpeg",
+    "mintage": "",
+    "metal": "Bimetallic",
+    "weight": "8.50 g",
+    "diameter": "25.75 mm",
+    "description": "The 50th anniversary of Willy Brandt’s Kniefall von Warschau. Commemorative 2 euro coin of Germany.",
+    "notes": "The design shows Brandt, who was the chancellor of Germany at that time, keeling before the Monument to the Ghetto Heroes in Warsaw in a gesture of humility. Yhe Warsaw Ghetto Uprising of 1943 is evoked by the composition’s powerful imagery. Traced in extremely fine relief, the design pictures compelling symbols: a seven-branched menorah, the ghetto victims, as well as the genuflection. The inner part of the coin also features the artist’s initials (top), the mint mark of the respective mint (‘A’, ‘D’, ‘F’, ‘G’ or ‘J’), the year, ‘2020’ (centre left), Germany’s issuing country code, ‘D’ (bottom right), and the lettering ‘50 JAHRE KNIEFALL VON WARSCHAU’. The coin’s outer ring bears the 12 stars of the European flag."
   }
 ]
