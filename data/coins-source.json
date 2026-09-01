@@ -768,5 +768,19 @@
     "description": "Bremen. Commemorative 2 euro coin of Germany.",
     "notes": "",
     "imageFile": "057_Germany_2026_2Euro_Commemorative_Bremen.jpeg"
+  },
+  {
+    "id": "058",
+    "country": "Germany",
+    "year": 2026,
+    "denomination": "2 €",
+    "type": "Commemorative",
+    "name": "Konrad Adenauer",
+    "condition": "UNC",
+    "status": "Collection",
+    "mintage": "",
+    "description": "Konrad Adenauer. Commemorative 2 euro coin of Germany.",
+    "notes": "",
+    "imageFile": "058_Germany_2026_2Euro_Commemorative_Konrad-Adenauer.jpeg"
   }
 ]
