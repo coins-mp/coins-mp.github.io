@@ -4,12 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>My Euro Coin Collection</title>
-  <link rel="stylesheet" href="style.css?v=7" />
+  <link rel="stylesheet" href="style.css?v=8" />
 </head>
 <body>
   <header class="site-header">
     <div class="brand">
       <div class="brand-mark">€</div>
+
       <div>
         <h1>My Euro Coin Collection</h1>
         <p>Regular euro coins and €2 commemoratives</p>
@@ -17,68 +18,142 @@
     </div>
 
     <div class="header-actions">
-      <button id="themeToggle" class="secondary-btn" type="button">🌙 Dark</button>
-      <button id="viewToggle" class="secondary-btn" type="button">▦ Table</button>
+      <button id="themeToggle" class="secondary-btn" type="button">
+        🌙 Dark
+      </button>
+
+      <button id="viewToggle" class="secondary-btn" type="button">
+        ▦ Table
+      </button>
     </div>
   </header>
 
   <nav class="main-nav">
-    <button class="nav-link active" data-section="all">Home</button>
-    <button class="nav-link" data-section="regular">Regular €</button>
-    <button class="nav-link" data-section="commemorative">2€ Commemorative</button>
-    <button class="nav-link" data-section="missing">Missing</button>
-    <button class="nav-link" data-section="duplicates">Duplicates</button>
-    <button class="nav-link" data-section="statistics">Statistics</button>
+    <button class="nav-link active" data-section="all">
+      Home
+    </button>
+
+    <button class="nav-link" data-section="regular">
+      Regular €
+    </button>
+
+    <button class="nav-link" data-section="commemorative">
+      2€ Commemorative
+    </button>
+
+    <button class="nav-link" data-section="missing">
+      Missing
+    </button>
+
+    <button class="nav-link" data-section="duplicates">
+      Duplicates
+    </button>
+
+    <button class="nav-link" data-section="statistics">
+      Statistics
+    </button>
   </nav>
 
   <main class="page-shell">
-    <section class="stats-grid" id="statsGrid"></section>
+    <section
+      class="stats-grid"
+      id="statsGrid"
+    ></section>
 
     <section class="filters-panel">
       <div class="filter-group">
-        <label for="countryFilter">Country</label>
+        <label for="countryFilter">
+          Country
+        </label>
+
         <select id="countryFilter">
-          <option value="">All countries</option>
+          <option value="">
+            All countries
+          </option>
         </select>
       </div>
 
       <div class="filter-group">
-        <label for="yearFilter">Year</label>
+        <label for="yearFilter">
+          Year
+        </label>
+
         <select id="yearFilter">
-          <option value="">All years</option>
+          <option value="">
+            All years
+          </option>
         </select>
       </div>
 
       <div class="filter-group">
-        <label for="denominationFilter">Denomination</label>
+        <label for="denominationFilter">
+          Denomination
+        </label>
+
         <select id="denominationFilter">
-          <option value="">All denominations</option>
+          <option value="">
+            All denominations
+          </option>
         </select>
       </div>
 
       <div class="filter-group">
-        <label for="conditionFilter">Condition</label>
+        <label for="conditionFilter">
+          Condition
+        </label>
+
         <select id="conditionFilter">
-          <option value="">All conditions</option>
+          <option value="">
+            All conditions
+          </option>
         </select>
       </div>
 
       <div class="filter-group">
-        <label for="sortFilter">Sort by</label>
+        <label for="sortFilter">
+          Sort by
+        </label>
+
         <select id="sortFilter">
-          <option value="country-asc">Country A–Z</option>
-          <option value="country-desc">Country Z–A</option>
-          <option value="added-desc">Newest added</option>
-          <option value="added-asc">Oldest added</option>
-          <option value="year-desc">Year: newest first</option>
-          <option value="year-asc">Year: oldest first</option>
-          <option value="denomination-asc">Denomination: low → high</option>
-          <option value="denomination-desc">Denomination: high → low</option>
+          <option value="country-asc">
+            Country A–Z
+          </option>
+
+          <option value="country-desc">
+            Country Z–A
+          </option>
+
+          <option value="added-desc">
+            Newest added
+          </option>
+
+          <option value="added-asc">
+            Oldest added
+          </option>
+
+          <option value="year-desc">
+            Year: newest first
+          </option>
+
+          <option value="year-asc">
+            Year: oldest first
+          </option>
+
+          <option value="denomination-asc">
+            Denomination: low → high
+          </option>
+
+          <option value="denomination-desc">
+            Denomination: high → low
+          </option>
         </select>
       </div>
 
       <div class="filter-group search-group">
-        <label for="searchInput">Search</label>
+        <label for="searchInput">
+          Search
+        </label>
+
         <input
           id="searchInput"
           type="search"
@@ -89,14 +164,23 @@
 
     <section class="section-heading">
       <div>
-        <h2 id="sectionTitle">Collection</h2>
+        <h2 id="sectionTitle">
+          Collection
+        </h2>
+
         <p id="resultCount"></p>
       </div>
     </section>
 
-    <section id="coinGrid" class="coin-grid"></section>
+    <section
+      id="coinGrid"
+      class="coin-grid"
+    ></section>
 
-    <section id="coinTableWrap" class="coin-table-wrap hidden">
+    <section
+      id="coinTableWrap"
+      class="coin-table-wrap hidden"
+    >
       <table class="coin-table">
         <thead>
           <tr>
@@ -110,17 +194,30 @@
             <th>Duplicates</th>
           </tr>
         </thead>
+
         <tbody id="coinTableBody"></tbody>
       </table>
     </section>
+
+    <div
+      id="pagination"
+      class="pagination"
+    ></div>
   </main>
 
   <footer class="site-footer">
     <p>My Euro Coin Collection</p>
   </footer>
 
-  <div id="coinModal" class="modal hidden" aria-hidden="true">
-    <div class="modal-backdrop" data-close-modal></div>
+  <div
+    id="coinModal"
+    class="modal hidden"
+    aria-hidden="true"
+  >
+    <div
+      class="modal-backdrop"
+      data-close-modal
+    ></div>
 
     <article
       class="modal-dialog"
@@ -137,35 +234,57 @@
         ×
       </button>
 
-      <div class="modal-image-panel" id="modalImagePanel"></div>
+      <div
+        class="modal-image-panel"
+        id="modalImagePanel"
+      ></div>
 
       <div class="modal-content">
-
         <div class="modal-sticky-header">
-          <div class="modal-country" id="modalCountry"></div>
+          <div
+            class="modal-country"
+            id="modalCountry"
+          ></div>
+
           <h2 id="modalTitle"></h2>
-          <div class="modal-subtitle" id="modalSubtitle"></div>
-          <div class="badges" id="modalBadges"></div>
+
+          <div
+            class="modal-subtitle"
+            id="modalSubtitle"
+          ></div>
+
+          <div
+            class="badges"
+            id="modalBadges"
+          ></div>
         </div>
 
         <div class="modal-scroll-content">
-          <div class="modal-facts" id="modalFacts"></div>
+          <div
+            class="modal-facts"
+            id="modalFacts"
+          ></div>
 
-          <section class="modal-text-section" id="descriptionSection">
+          <section
+            class="modal-text-section"
+            id="descriptionSection"
+          >
             <h3>Description</h3>
             <p id="modalDescription"></p>
           </section>
 
-          <section class="modal-text-section" id="notesSection">
+          <section
+            class="modal-text-section"
+            id="notesSection"
+          >
             <h3>My notes</h3>
             <p id="modalNotes"></p>
           </section>
         </div>
-
       </div>
     </article>
   </div>
 
-  <script src="app.js?v=9"></script>
+  <script src="app.js?v=10"></script>
 </body>
 </html>
