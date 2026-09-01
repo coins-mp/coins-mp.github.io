@@ -754,5 +754,19 @@
     "description": "Saarland. Commemorative 2 euro coin of Germany.",
     "notes": "The design shows the Saarschleife bend in the Saar river, reduced to the key features of the motif of the meandering river, which characterises the hilly landscape. Groups of trees depicted along the course of the river symbolise the forested landscape around the picturesque Saarschleife. The bird’s-eye perspective means that the landmark natural waterway is seen embedded in the surrounding hills, which reach off into the distance. The inscription “Saarland” is positioned low down in the foreground, in order to not disturb the landscape’s sense of calmness and light. The upper half of the coin’s inner circle also features on the left the mark of the artist, Frankfurt-based Carsten Wolff, and on the right the letter “X” as placeholder for the mint mark of the respective mint (“A”, “D”, “F”, “G” or “J”). The lower half features the inscription “SAARLAND”, Germany’s issuing country code “D” and the year of issue, “2025”. The coin’s outer ring bears the 12 stars of the European flag.",
     "imageFile": "056_Germany_2025_2Euro_Commemorative_Saarland.jpeg"
+  },
+  {
+    "id": "057",
+    "country": "Germany",
+    "year": 2026,
+    "denomination": "2 €",
+    "type": "Commemorative",
+    "name": "Bremen",
+    "condition": "UNC",
+    "status": "Collection",
+    "mintage": "",
+    "description": "Bremen. Commemorative 2 euro coin of Germany.",
+    "notes": "",
+    "imageFile": "057_Germany_2026_2Euro_Commemorative_Bremen.jpeg"
   }
 ]
