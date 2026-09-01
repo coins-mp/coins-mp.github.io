@@ -670,5 +670,19 @@
     "description": "Rhineland-Palatinate. Commemorative 2 euro coin of Germany.",
     "notes": "The design shows the Porta Nigra in Trier which is probably the best-preserved Roman city gate north of the Alps. The inner part also features the name ‘RHEINLAND-PFALZ’ and the issuing country’s code ‘D’ at the bottom. The mint mark of the respective mint (‘A’, ‘D’, ‘F’, ‘G’ or ‘J’) appears at the left and the year ‘2017’ appears at the top. At the right, the initials of the designer ‘CH’ (Chocola Frantisek). The coin’s outer ring bears the 12 stars of the European Union.",
     "imageFile": "050_Germany_2017_2Euro_Commemorative_Rhineland-Palatinate.jpeg"
+  },
+  {
+    "id": "051",
+    "country": "Germany",
+    "year": 2019,
+    "denomination": "2 €",
+    "type": "Commemorative",
+    "name": "The 70th anniversary of the Bundesrat’s founding",
+    "condition": "F",
+    "status": "Collection",
+    "mintage": "",
+    "description": "The 70th anniversary of the Bundesrat’s founding. Commemorative 2 euro coin of Germany.",
+    "notes": "The design shows a highly detailed and finely sculpted rendering of the Bundesrat building. The upper half of the coin’s inner section includes the mint mark of the respective mint (‘A’, ‘D’, ‘F’, ‘G’ or ‘J’), the artist’s initials and the year ‘2019’. The lower half of the coin’s inner section contains the inscription ‘BUNDESRAT’ and Germany’s issuing country code ‘D’. The coin’s outer ring bears the 12 stars of the European Union.",
+    "imageFile": "051_Germany_2019_2Euro_Commemorative_The-70th-anniversary-of-the-Bundesrats-founding.jpeg"
   }
 ]
