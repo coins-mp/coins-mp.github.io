@@ -600,5 +600,19 @@
     "description": "Hessen. Commemorative 2 euro coin of Germany.",
     "notes": "The design depicts a classic perspective on St. Paul’s Church in Frankfurt (the ‘Paulskirche’ was the seat of Germany’s first freely elected legislative body in 1849 and is regarded as the cradle of German democracy) and is therefore the perspective possessing the greatest recognition value. The design incisively brings out the tension between the dominant tower and the elliptical structure of the church. The slightly exaggerated flight of steps has an inviting quality while simultaneously offering support to the subjacent inscription ‘HESSEN’ (the Federal State of Hessen in which St. Paul’s Church is situated).The inner part also features the year ‘2015’ and the mint mark of the respective mint (‘A’, ‘D’, ‘F’, ‘G’ or ‘J’) at the left side as well as the issuing country’s indication ‘D’ and the engraver’s mark (the initials ‘HH’ — Heinz Hoyer) at the right side. The coin’s outer ring bears the 12 stars of the European Union.",
     "imageFile": "045_Germany_2015_2Euro_Commemorative_Hessen.jpeg"
+  },
+  {
+    "id": "046",
+    "country": "France",
+    "year": 2016,
+    "denomination": "2 €",
+    "type": "Commemorative",
+    "name": "François Mitterrand",
+    "condition": "F",
+    "status": "Collection",
+    "mintage": "",
+    "description": "François Mitterrand. Commemorative 2 euro coin of France.",
+    "notes": "The design shows a profile of a pensive François Mitterrand. Adjacent is his personal emblem of a half oak/half olive tree. Above are the dates marking the centenary of his birth (‘1916’ and ‘2016’) and his name. At the bottom, the indication of the issuing country ‘RF’. The coin’s outer ring bears the 12 stars of the European Union.",
+    "imageFile": "046_France_2016_2Euro_Commemorative_François-Mitterrand.jpeg"
   }
 ]
