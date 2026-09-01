@@ -2,7 +2,8 @@ const state = {
   coins: [],
   section: "all",
   view: localStorage.getItem("coinView") || "cards",
-  theme: localStorage.getItem("coinTheme") || "light"
+  theme: localStorage.getItem("coinTheme") || "light",
+  sort: localStorage.getItem("coinSort") || "country-asc"
 };
 
 const els = {
@@ -14,6 +15,7 @@ const els = {
   year: document.getElementById("yearFilter"),
   denomination: document.getElementById("denominationFilter"),
   condition: document.getElementById("conditionFilter"),
+  sort: document.getElementById("sortFilter"),
   search: document.getElementById("searchInput"),
   sectionTitle: document.getElementById("sectionTitle"),
   resultCount: document.getElementById("resultCount"),
@@ -46,7 +48,11 @@ let viewerController = null;
 function flagEmoji(code) {
   return String(code || "")
     .toUpperCase()
-    .replace(/./g, char => String.fromCodePoint(127397 + char.charCodeAt()));
+    .replace(/./g, char =>
+      String.fromCodePoint(
+        127397 + char.charCodeAt()
+      )
+    );
 }
 
 function escapeHtml(value) {
@@ -60,29 +66,61 @@ function escapeHtml(value) {
 
 function setTheme(theme) {
   state.theme = theme;
-  document.documentElement.dataset.theme = theme;
-  localStorage.setItem("coinTheme", theme);
-  els.themeToggle.textContent = theme === "light" ? "🌙 Dark" : "☀️ Light";
+
+  document.documentElement.dataset.theme =
+    theme;
+
+  localStorage.setItem(
+    "coinTheme",
+    theme
+  );
+
+  els.themeToggle.textContent =
+    theme === "light"
+      ? "🌙 Dark"
+      : "☀️ Light";
 }
 
 function setView(view) {
   state.view = view;
-  localStorage.setItem("coinView", view);
 
-  els.grid.classList.toggle("hidden", view !== "cards");
-  els.tableWrap.classList.toggle("hidden", view !== "table");
+  localStorage.setItem(
+    "coinView",
+    view
+  );
 
-  els.viewToggle.textContent = view === "cards" ? "▦ Table" : "▦ Cards";
+  els.grid.classList.toggle(
+    "hidden",
+    view !== "cards"
+  );
+
+  els.tableWrap.classList.toggle(
+    "hidden",
+    view !== "table"
+  );
+
+  els.viewToggle.textContent =
+    view === "cards"
+      ? "▦ Table"
+      : "▦ Cards";
 }
 
-function populateSelect(select, values) {
-  const first = select.options[0].outerHTML;
+function populateSelect(
+  select,
+  values
+) {
+  const first =
+    select.options[0].outerHTML;
+
   select.innerHTML = first;
 
   values.forEach(value => {
-    const option = document.createElement("option");
+    const option =
+      document.createElement("option");
+
     option.value = value;
     option.textContent = value;
+
     select.appendChild(option);
   });
 }
@@ -90,99 +128,393 @@ function populateSelect(select, values) {
 function populateFilters() {
   populateSelect(
     els.country,
-    [...new Set(state.coins.map(c => c.country))].sort()
+    [
+      ...new Set(
+        state.coins.map(
+          coin => coin.country
+        )
+      )
+    ].sort((a, b) =>
+      String(a).localeCompare(
+        String(b),
+        "en",
+        { sensitivity: "base" }
+      )
+    )
   );
 
   populateSelect(
     els.year,
-    [...new Set(state.coins.map(c => c.year))].sort((a, b) => b - a)
+    [
+      ...new Set(
+        state.coins.map(
+          coin => coin.year
+        )
+      )
+    ].sort(
+      (a, b) =>
+        Number(b) - Number(a)
+    )
   );
 
   populateSelect(
     els.denomination,
-    [...new Set(state.coins.map(c => c.denomination))]
+    [
+      ...new Set(
+        state.coins.map(
+          coin => coin.denomination
+        )
+      )
+    ]
   );
 
   populateSelect(
     els.condition,
-    [...new Set(state.coins.map(c => c.condition).filter(Boolean))].sort()
+    [
+      ...new Set(
+        state.coins
+          .map(
+            coin => coin.condition
+          )
+          .filter(Boolean)
+      )
+    ].sort()
   );
 }
 
+function coinIdNumber(coin) {
+  const value =
+    Number.parseInt(
+      coin.id,
+      10
+    );
+
+  return Number.isFinite(value)
+    ? value
+    : 0;
+}
+
+function denominationValue(value) {
+  const text =
+    String(value || "")
+      .trim()
+      .toLowerCase()
+      .replace(",", ".");
+
+  const numberMatch =
+    text.match(/[\d.]+/);
+
+  if (!numberMatch) {
+    return Number.MAX_SAFE_INTEGER;
+  }
+
+  const number =
+    Number.parseFloat(
+      numberMatch[0]
+    );
+
+  if (!Number.isFinite(number)) {
+    return Number.MAX_SAFE_INTEGER;
+  }
+
+  if (
+    text.includes("cent") ||
+    text.includes("centime") ||
+    text.includes("cént")
+  ) {
+    return number / 100;
+  }
+
+  return number;
+}
+
+function compareCountry(
+  a,
+  b,
+  direction = 1
+) {
+  const countryCompare =
+    String(a.country || "")
+      .localeCompare(
+        String(b.country || ""),
+        "en",
+        {
+          sensitivity: "base"
+        }
+      );
+
+  if (countryCompare !== 0) {
+    return (
+      countryCompare *
+      direction
+    );
+  }
+
+  const yearCompare =
+    Number(a.year || 0) -
+    Number(b.year || 0);
+
+  if (yearCompare !== 0) {
+    return yearCompare;
+  }
+
+  const denominationCompare =
+    denominationValue(
+      a.denomination
+    ) -
+    denominationValue(
+      b.denomination
+    );
+
+  if (denominationCompare !== 0) {
+    return denominationCompare;
+  }
+
+  return (
+    coinIdNumber(a) -
+    coinIdNumber(b)
+  );
+}
+
+function sortCoins(coins) {
+  const sorted =
+    [...coins];
+
+  switch (state.sort) {
+    case "country-desc":
+      sorted.sort(
+        (a, b) =>
+          compareCountry(
+            a,
+            b,
+            -1
+          )
+      );
+      break;
+
+    case "added-desc":
+      sorted.sort(
+        (a, b) =>
+          coinIdNumber(b) -
+          coinIdNumber(a)
+      );
+      break;
+
+    case "added-asc":
+      sorted.sort(
+        (a, b) =>
+          coinIdNumber(a) -
+          coinIdNumber(b)
+      );
+      break;
+
+    case "year-desc":
+      sorted.sort((a, b) => {
+        const difference =
+          Number(b.year || 0) -
+          Number(a.year || 0);
+
+        if (difference !== 0) {
+          return difference;
+        }
+
+        return compareCountry(
+          a,
+          b,
+          1
+        );
+      });
+      break;
+
+    case "year-asc":
+      sorted.sort((a, b) => {
+        const difference =
+          Number(a.year || 0) -
+          Number(b.year || 0);
+
+        if (difference !== 0) {
+          return difference;
+        }
+
+        return compareCountry(
+          a,
+          b,
+          1
+        );
+      });
+      break;
+
+    case "denomination-desc":
+      sorted.sort((a, b) => {
+        const difference =
+          denominationValue(
+            b.denomination
+          ) -
+          denominationValue(
+            a.denomination
+          );
+
+        if (difference !== 0) {
+          return difference;
+        }
+
+        return compareCountry(
+          a,
+          b,
+          1
+        );
+      });
+      break;
+
+    case "denomination-asc":
+      sorted.sort((a, b) => {
+        const difference =
+          denominationValue(
+            a.denomination
+          ) -
+          denominationValue(
+            b.denomination
+          );
+
+        if (difference !== 0) {
+          return difference;
+        }
+
+        return compareCountry(
+          a,
+          b,
+          1
+        );
+      });
+      break;
+
+    case "country-asc":
+    default:
+      sorted.sort(
+        (a, b) =>
+          compareCountry(
+            a,
+            b,
+            1
+          )
+      );
+      break;
+  }
+
+  return sorted;
+}
+
 function getFilteredCoins() {
-  const search = els.search.value.trim().toLowerCase();
+  const search =
+    els.search.value
+      .trim()
+      .toLowerCase();
 
-  return state.coins.filter(coin => {
-       if (state.section === "all" && coin.status !== "collection") {
-      return false;
-    }
+  const filtered =
+    state.coins.filter(
+      coin => {
+        if (
+          state.section === "all" &&
+          coin.status !== "collection"
+        ) {
+          return false;
+        }
 
-    if (
-      state.section === "regular" &&
-      (coin.status !== "collection" || coin.type !== "Regular")
-    ) {
-      return false;
-    }
+        if (
+          state.section === "regular" &&
+          (
+            coin.status !== "collection" ||
+            coin.type !== "Regular"
+          )
+        ) {
+          return false;
+        }
 
-    if (
-      state.section === "commemorative" &&
-      (coin.status !== "collection" || coin.type !== "Commemorative")
-    ) {
-      return false;
-    }
+        if (
+          state.section === "commemorative" &&
+          (
+            coin.status !== "collection" ||
+            coin.type !== "Commemorative"
+          )
+        ) {
+          return false;
+        }
 
-    if (
-      state.section === "missing" &&
-      coin.status !== "missing"
-    ) {
-      return false;
-    }
+        if (
+          state.section === "missing" &&
+          coin.status !== "missing"
+        ) {
+          return false;
+        }
 
-    if (
-      state.section === "duplicates" &&
-      coin.status !== "duplicate"
-    ) {
-      return false;
-    }
+        if (
+          state.section === "duplicates" &&
+          coin.status !== "duplicate"
+        ) {
+          return false;
+        }
 
-    if (
-      els.country.value &&
-      coin.country !== els.country.value
-    ) return false;
+        if (
+          els.country.value &&
+          coin.country !==
+            els.country.value
+        ) {
+          return false;
+        }
 
-    if (
-      els.year.value &&
-      String(coin.year) !== els.year.value
-    ) return false;
+        if (
+          els.year.value &&
+          String(coin.year) !==
+            els.year.value
+        ) {
+          return false;
+        }
 
-    if (
-      els.denomination.value &&
-      coin.denomination !== els.denomination.value
-    ) return false;
+        if (
+          els.denomination.value &&
+          coin.denomination !==
+            els.denomination.value
+        ) {
+          return false;
+        }
 
-    if (
-      els.condition.value &&
-      coin.condition !== els.condition.value
-    ) return false;
+        if (
+          els.condition.value &&
+          coin.condition !==
+            els.condition.value
+        ) {
+          return false;
+        }
 
-    if (search) {
-      const haystack = [
-        coin.country,
-        coin.year,
-        coin.denomination,
-        coin.type,
-        coin.name,
-        coin.condition,
-        coin.mint,
-        coin.description,
-        coin.notes
-      ].join(" ").toLowerCase();
+        if (search) {
+          const haystack = [
+            coin.country,
+            coin.year,
+            coin.denomination,
+            coin.type,
+            coin.name,
+            coin.condition,
+            coin.mint,
+            coin.description,
+            coin.notes
+          ]
+            .join(" ")
+            .toLowerCase();
 
-      if (!haystack.includes(search)) return false;
-    }
+          if (
+            !haystack.includes(
+              search
+            )
+          ) {
+            return false;
+          }
+        }
 
-    return true;
-  });
+        return true;
+      }
+    );
+
+  return sortCoins(filtered);
 }
 
 function statusBadges(coin) {
@@ -190,7 +522,9 @@ function statusBadges(coin) {
 
   if (coin.condition) {
     badges.push(
-      `<span class="badge condition">${escapeHtml(coin.condition)}</span>`
+      `<span class="badge condition">${escapeHtml(
+        coin.condition
+      )}</span>`
     );
   }
 
@@ -219,10 +553,20 @@ function statusBadges(coin) {
   return badges.join("");
 }
 
-function imageMarkup(coin, modal = false) {
+function imageMarkup(
+  coin,
+  modal = false
+) {
   if (coin.image) {
-    const extraClass = modal ? ' class="modal-coin-image"' : "";
-    const alt = `${coin.country} ${coin.year} ${coin.denomination}`;
+    const extraClass =
+      modal
+        ? ' class="modal-coin-image"'
+        : "";
+
+    const alt =
+      `${coin.country} ` +
+      `${coin.year} ` +
+      `${coin.denomination}`;
 
     return `
       <img${extraClass}
@@ -234,7 +578,9 @@ function imageMarkup(coin, modal = false) {
 
   return `
     <div class="coin-placeholder">
-      ${escapeHtml(coin.denomination)}
+      ${escapeHtml(
+        coin.denomination
+      )}
     </div>
   `;
 }
@@ -243,10 +589,14 @@ function renderCards(coins) {
   if (!coins.length) {
     els.grid.innerHTML =
       `<div class="empty-state">No coins match the selected filters.</div>`;
+
     return;
   }
 
-  els.grid.innerHTML = coins.map(coin => `
+  els.grid.innerHTML =
+    coins
+      .map(
+        coin => `
     <article class="coin-card">
 
       <button
@@ -254,7 +604,8 @@ function renderCards(coins) {
         type="button"
         data-coin-index="${state.coins.indexOf(coin)}"
         aria-label="Open details for ${escapeHtml(
-          coin.name || `${coin.denomination} ${coin.country}`
+          coin.name ||
+          `${coin.denomination} ${coin.country}`
         )}"
       >
         ${imageMarkup(coin)}
@@ -264,27 +615,47 @@ function renderCards(coins) {
 
         <div class="coin-topline">
           <span>
-            ${flagEmoji(coin.countryCode)}
-            ${escapeHtml(coin.country)}
+            ${flagEmoji(
+              coin.countryCode
+            )}
+            ${escapeHtml(
+              coin.country
+            )}
           </span>
-          <span>${coin.year}</span>
+
+          <span>
+            ${coin.year}
+          </span>
         </div>
 
         <h3 class="coin-title">
           ${escapeHtml(
-            coin.name || `${coin.denomination} ${coin.country}`
+            coin.name ||
+            `${coin.denomination} ${coin.country}`
           )}
         </h3>
 
         <div class="coin-meta">
-          ${escapeHtml(coin.denomination)}
-          · ${escapeHtml(coin.type)}
-          ${coin.mint ? ` · Mint ${escapeHtml(coin.mint)}` : ""}
+          ${escapeHtml(
+            coin.denomination
+          )}
+          · ${escapeHtml(
+            coin.type
+          )}
+          ${
+            coin.mint
+              ? ` · Mint ${escapeHtml(
+                  coin.mint
+                )}`
+              : ""
+          }
         </div>
 
         ${
           coin.description
-            ? `<p class="coin-preview">${escapeHtml(coin.description)}</p>`
+            ? `<p class="coin-preview">${escapeHtml(
+                coin.description
+              )}</p>`
             : ""
         }
 
@@ -294,47 +665,93 @@ function renderCards(coins) {
 
       </div>
     </article>
-  `).join("");
+  `
+      )
+      .join("");
 
-  document.querySelectorAll(".coin-open").forEach(button => {
-    button.addEventListener("click", () => {
-      const coin = state.coins[Number(button.dataset.coinIndex)];
-      openCoinModal(coin);
+  document
+    .querySelectorAll(
+      ".coin-open"
+    )
+    .forEach(button => {
+      button.addEventListener(
+        "click",
+        () => {
+          const coin =
+            state.coins[
+              Number(
+                button.dataset
+                  .coinIndex
+              )
+            ];
+
+          openCoinModal(coin);
+        }
+      );
     });
-  });
 }
 
 function renderTable(coins) {
-  els.tableBody.innerHTML = coins.map(coin => {
-    const status = coin.inCollection ? "In collection" : "Missing";
+  els.tableBody.innerHTML =
+    coins
+      .map(coin => {
+        const status =
+          coin.inCollection
+            ? "In collection"
+            : "Missing";
 
-    return `
+        return `
       <tr>
         <td>
-          ${flagEmoji(coin.countryCode)}
-          ${escapeHtml(coin.country)}
+          ${flagEmoji(
+            coin.countryCode
+          )}
+          ${escapeHtml(
+            coin.country
+          )}
         </td>
         <td>${coin.year}</td>
-        <td>${escapeHtml(coin.denomination)}</td>
-        <td>${escapeHtml(coin.type)}</td>
-        <td>${escapeHtml(coin.name || "—")}</td>
-        <td>${escapeHtml(coin.condition || "—")}</td>
+        <td>${escapeHtml(
+          coin.denomination
+        )}</td>
+        <td>${escapeHtml(
+          coin.type
+        )}</td>
+        <td>${escapeHtml(
+          coin.name || "—"
+        )}</td>
+        <td>${escapeHtml(
+          coin.condition || "—"
+        )}</td>
         <td>${status}</td>
         <td>${coin.duplicates || 0}</td>
       </tr>
     `;
-  }).join("");
+      })
+      .join("");
 }
 
 function renderStats() {
-  const total = state.coins.length;
-  const collected = state.coins.filter(c => c.inCollection).length;
-  const missing = state.coins.filter(c => !c.inCollection).length;
+  const total =
+    state.coins.length;
 
-  const duplicates = state.coins.reduce(
-    (sum, c) => sum + (c.duplicates || 0),
-    0
-  );
+  const collected =
+    state.coins.filter(
+      coin => coin.inCollection
+    ).length;
+
+  const missing =
+    state.coins.filter(
+      coin => !coin.inCollection
+    ).length;
+
+  const duplicates =
+    state.coins.reduce(
+      (sum, coin) =>
+        sum +
+        (coin.duplicates || 0),
+      0
+    );
 
   const cards = [
     ["Catalog", total],
@@ -343,43 +760,66 @@ function renderStats() {
     ["Duplicates", duplicates]
   ];
 
-  els.stats.innerHTML = cards.map(([label, value]) => `
+  els.stats.innerHTML =
+    cards
+      .map(
+        ([label, value]) => `
     <div class="stat-card">
-      <div class="stat-label">${label}</div>
-      <div class="stat-value">${value}</div>
+      <div class="stat-label">
+        ${label}
+      </div>
+      <div class="stat-value">
+        ${value}
+      </div>
     </div>
-  `).join("");
+  `
+      )
+      .join("");
 }
 
 function updateStatsVisibility() {
   const isMobile =
-    window.matchMedia("(max-width: 560px)").matches;
+    window.matchMedia(
+      "(max-width: 560px)"
+    ).matches;
 
   els.stats.classList.toggle(
     "hidden",
-    isMobile && state.section !== "all"
+    isMobile &&
+      state.section !== "all"
   );
 }
 
 function openCoinModal(coin) {
-  const dialog = els.modal.querySelector(".modal-dialog");
+  const dialog =
+    els.modal.querySelector(
+      ".modal-dialog"
+    );
 
   if (!dialog) return;
 
-  dialog.classList.remove("image-viewer");
+  dialog.classList.remove(
+    "image-viewer"
+  );
+
   viewerController = null;
 
   els.modalImagePanel.innerHTML =
     imageMarkup(coin, true);
 
   els.modalCountry.textContent =
-    `${flagEmoji(coin.countryCode)} ${coin.country}`;
+    `${flagEmoji(
+      coin.countryCode
+    )} ${coin.country}`;
 
   els.modalTitle.textContent =
-    coin.name || `${coin.denomination} ${coin.country}`;
+    coin.name ||
+    `${coin.denomination} ${coin.country}`;
 
   els.modalSubtitle.textContent =
-    `${coin.year} · ${coin.denomination} · ${coin.type}`;
+    `${coin.year} · ` +
+    `${coin.denomination} · ` +
+    `${coin.type}`;
 
   els.modalBadges.innerHTML =
     statusBadges(coin);
@@ -387,14 +827,23 @@ function openCoinModal(coin) {
   const facts = [
     ["Country", coin.country],
     ["Year", coin.year],
-    ["Denomination", coin.denomination],
+    [
+      "Denomination",
+      coin.denomination
+    ],
     ["Type", coin.type],
-    ["Condition", coin.condition],
+    [
+      "Condition",
+      coin.condition
+    ],
     ["Mint", coin.mint],
     ["Mintage", coin.mintage],
     ["Metal", coin.metal],
     ["Weight", coin.weight],
-    ["Diameter", coin.diameter]
+    [
+      "Diameter",
+      coin.diameter
+    ]
   ].filter(
     ([, value]) =>
       value !== undefined &&
@@ -402,7 +851,10 @@ function openCoinModal(coin) {
       value !== ""
   );
 
-  els.modalFacts.innerHTML = facts.map(([label, value]) => `
+  els.modalFacts.innerHTML =
+    facts
+      .map(
+        ([label, value]) => `
     <div class="fact">
       <div class="fact-label">
         ${escapeHtml(label)}
@@ -411,28 +863,52 @@ function openCoinModal(coin) {
         ${escapeHtml(value)}
       </div>
     </div>
-  `).join("");
+  `
+      )
+      .join("");
 
   if (coin.description) {
-    els.modalDescription.textContent = coin.description;
-    els.descriptionSection.classList.remove("hidden");
+    els.modalDescription.textContent =
+      coin.description;
+
+    els.descriptionSection
+      .classList
+      .remove("hidden");
   } else {
-    els.descriptionSection.classList.add("hidden");
+    els.descriptionSection
+      .classList
+      .add("hidden");
   }
 
   if (coin.notes) {
-    els.modalNotes.textContent = coin.notes;
-    els.notesSection.classList.remove("hidden");
+    els.modalNotes.textContent =
+      coin.notes;
+
+    els.notesSection
+      .classList
+      .remove("hidden");
   } else {
-    els.notesSection.classList.add("hidden");
+    els.notesSection
+      .classList
+      .add("hidden");
   }
 
-  els.modal.classList.remove("hidden");
-  els.modal.setAttribute("aria-hidden", "false");
-  document.body.classList.add("modal-open");
+  els.modal.classList.remove(
+    "hidden"
+  );
+
+  els.modal.setAttribute(
+    "aria-hidden",
+    "false"
+  );
+
+  document.body.classList.add(
+    "modal-open"
+  );
 
   const image =
-    els.modalImagePanel.querySelector("img");
+    els.modalImagePanel
+      .querySelector("img");
 
   if (!image) return;
 
@@ -449,7 +925,8 @@ function openCoinModal(coin) {
   let startPosX = 0;
   let startPosY = 0;
 
-  const pointers = new Map();
+  const pointers =
+    new Map();
 
   let pinchStartDistance = 0;
   let pinchStartScale = 1;
@@ -470,19 +947,34 @@ function openCoinModal(coin) {
     pointers.clear();
 
     image.style.transform = "";
-    image.classList.remove("dragging");
+
+    image.classList.remove(
+      "dragging"
+    );
   }
 
   function initialScale() {
-    if (window.innerWidth <= 560) return 1.8;
-    if (window.innerWidth <= 900) return 2;
+    if (
+      window.innerWidth <= 560
+    ) {
+      return 1.8;
+    }
+
+    if (
+      window.innerWidth <= 900
+    ) {
+      return 2;
+    }
+
     return 2.2;
   }
 
   function openViewer() {
     viewerOpen = true;
 
-    dialog.classList.add("image-viewer");
+    dialog.classList.add(
+      "image-viewer"
+    );
 
     scale = initialScale();
     posX = 0;
@@ -494,148 +986,202 @@ function openCoinModal(coin) {
   function closeViewer() {
     viewerOpen = false;
 
-    dialog.classList.remove("image-viewer");
+    dialog.classList.remove(
+      "image-viewer"
+    );
 
     resetTransform();
   }
 
   function pointerDistance() {
-    const points = [...pointers.values()];
+    const points =
+      [...pointers.values()];
 
     if (points.length < 2) {
       return 0;
     }
 
     return Math.hypot(
-      points[0].x - points[1].x,
-      points[0].y - points[1].y
+      points[0].x -
+        points[1].x,
+      points[0].y -
+        points[1].y
     );
   }
 
-  image.addEventListener("click", () => {
-    if (moved) {
-      moved = false;
-      return;
-    }
-
-    if (!viewerOpen) {
-      openViewer();
-      return;
-    }
-
-    closeViewer();
-  });
-
-  image.addEventListener("pointerdown", event => {
-    if (!viewerOpen) return;
-
-    pointers.set(
-      event.pointerId,
-      {
-        x: event.clientX,
-        y: event.clientY
+  image.addEventListener(
+    "click",
+    () => {
+      if (moved) {
+        moved = false;
+        return;
       }
-    );
 
-    try {
-      image.setPointerCapture(event.pointerId);
-    } catch (_) {}
-
-    if (pointers.size === 2) {
-      pinchStartDistance = pointerDistance();
-      pinchStartScale = scale;
-
-      dragging = false;
-      image.classList.remove("dragging");
-
-      return;
-    }
-
-    if (scale > 1) {
-      dragging = true;
-      moved = false;
-
-      startX = event.clientX;
-      startY = event.clientY;
-
-      startPosX = posX;
-      startPosY = posY;
-
-      image.classList.add("dragging");
-    }
-  });
-
-  image.addEventListener("pointermove", event => {
-    if (!pointers.has(event.pointerId)) {
-      return;
-    }
-
-    pointers.set(
-      event.pointerId,
-      {
-        x: event.clientX,
-        y: event.clientY
+      if (!viewerOpen) {
+        openViewer();
+        return;
       }
-    );
 
-    if (pointers.size === 2) {
-      const distance = pointerDistance();
+      closeViewer();
+    }
+  );
 
-      if (pinchStartDistance > 0) {
-        scale =
-          pinchStartScale *
-          (distance / pinchStartDistance);
+  image.addEventListener(
+    "pointerdown",
+    event => {
+      if (!viewerOpen) return;
 
-        scale =
-          Math.min(
-            4,
-            Math.max(1, scale)
-          );
+      pointers.set(
+        event.pointerId,
+        {
+          x: event.clientX,
+          y: event.clientY
+        }
+      );
 
-        if (scale === 1) {
-          posX = 0;
-          posY = 0;
+      try {
+        image.setPointerCapture(
+          event.pointerId
+        );
+      } catch (_) {}
+
+      if (
+        pointers.size === 2
+      ) {
+        pinchStartDistance =
+          pointerDistance();
+
+        pinchStartScale =
+          scale;
+
+        dragging = false;
+
+        image.classList.remove(
+          "dragging"
+        );
+
+        return;
+      }
+
+      if (scale > 1) {
+        dragging = true;
+        moved = false;
+
+        startX =
+          event.clientX;
+
+        startY =
+          event.clientY;
+
+        startPosX = posX;
+        startPosY = posY;
+
+        image.classList.add(
+          "dragging"
+        );
+      }
+    }
+  );
+
+  image.addEventListener(
+    "pointermove",
+    event => {
+      if (
+        !pointers.has(
+          event.pointerId
+        )
+      ) {
+        return;
+      }
+
+      pointers.set(
+        event.pointerId,
+        {
+          x: event.clientX,
+          y: event.clientY
+        }
+      );
+
+      if (
+        pointers.size === 2
+      ) {
+        const distance =
+          pointerDistance();
+
+        if (
+          pinchStartDistance > 0
+        ) {
+          scale =
+            pinchStartScale *
+            (
+              distance /
+              pinchStartDistance
+            );
+
+          scale =
+            Math.min(
+              4,
+              Math.max(
+                1,
+                scale
+              )
+            );
+
+          if (scale === 1) {
+            posX = 0;
+            posY = 0;
+          }
+
+          moved = true;
+
+          applyTransform();
         }
 
-        moved = true;
-        applyTransform();
+        return;
       }
 
-      return;
+      if (
+        !dragging ||
+        scale <= 1
+      ) {
+        return;
+      }
+
+      const dx =
+        event.clientX -
+        startX;
+
+      const dy =
+        event.clientY -
+        startY;
+
+      if (
+        Math.abs(dx) > 4 ||
+        Math.abs(dy) > 4
+      ) {
+        moved = true;
+      }
+
+      posX =
+        startPosX + dx;
+
+      posY =
+        startPosY + dy;
+
+      applyTransform();
     }
-
-    if (!dragging || scale <= 1) {
-      return;
-    }
-
-    const dx =
-      event.clientX - startX;
-
-    const dy =
-      event.clientY - startY;
-
-    if (
-      Math.abs(dx) > 4 ||
-      Math.abs(dy) > 4
-    ) {
-      moved = true;
-    }
-
-    posX =
-      startPosX + dx;
-
-    posY =
-      startPosY + dy;
-
-    applyTransform();
-  });
+  );
 
   function stopPointer(event) {
-    pointers.delete(event.pointerId);
+    pointers.delete(
+      event.pointerId
+    );
 
     dragging = false;
 
-    image.classList.remove("dragging");
+    image.classList.remove(
+      "dragging"
+    );
 
     try {
       if (
@@ -649,7 +1195,9 @@ function openCoinModal(coin) {
       }
     } catch (_) {}
 
-    if (pointers.size < 2) {
+    if (
+      pointers.size < 2
+    ) {
       pinchStartDistance = 0;
     }
   }
@@ -685,7 +1233,9 @@ function closeCoinModal() {
   }
 
   const dialog =
-    els.modal.querySelector(".modal-dialog");
+    els.modal.querySelector(
+      ".modal-dialog"
+    );
 
   if (dialog) {
     dialog.classList.remove(
@@ -695,7 +1245,9 @@ function closeCoinModal() {
 
   viewerController = null;
 
-  els.modal.classList.add("hidden");
+  els.modal.classList.add(
+    "hidden"
+  );
 
   els.modal.setAttribute(
     "aria-hidden",
@@ -714,10 +1266,16 @@ function render() {
     getFilteredCoins();
 
   els.sectionTitle.textContent =
-    sectionTitles[state.section];
+    sectionTitles[
+      state.section
+    ];
 
   els.resultCount.textContent =
-    `${coins.length} coin${coins.length === 1 ? "" : "s"}`;
+    `${coins.length} coin${
+      coins.length === 1
+        ? ""
+        : "s"
+    }`;
 
   renderCards(coins);
   renderTable(coins);
@@ -736,27 +1294,55 @@ function bindEvents() {
     );
   });
 
+  els.sort.addEventListener(
+    "change",
+    () => {
+      state.sort =
+        els.sort.value;
+
+      localStorage.setItem(
+        "coinSort",
+        state.sort
+      );
+
+      render();
+    }
+  );
+
   els.search.addEventListener(
     "input",
     render
   );
 
-  document.querySelectorAll(".nav-link").forEach(button => {
-    button.addEventListener("click", () => {
-      document
-        .querySelectorAll(".nav-link")
-        .forEach(b =>
-          b.classList.remove("active")
-        );
+  document
+    .querySelectorAll(
+      ".nav-link"
+    )
+    .forEach(button => {
+      button.addEventListener(
+        "click",
+        () => {
+          document
+            .querySelectorAll(
+              ".nav-link"
+            )
+            .forEach(b =>
+              b.classList.remove(
+                "active"
+              )
+            );
 
-      button.classList.add("active");
+          button.classList.add(
+            "active"
+          );
 
-      state.section =
-        button.dataset.section;
+          state.section =
+            button.dataset.section;
 
-      render();
+          render();
+        }
+      );
     });
-  });
 
   els.themeToggle.addEventListener(
     "click",
@@ -781,7 +1367,9 @@ function bindEvents() {
   );
 
   document
-    .querySelectorAll("[data-close-modal]")
+    .querySelectorAll(
+      "[data-close-modal]"
+    )
     .forEach(el => {
       el.addEventListener(
         "click",
@@ -794,7 +1382,9 @@ function bindEvents() {
     event => {
       if (
         event.key !== "Escape" ||
-        els.modal.classList.contains("hidden")
+        els.modal.classList.contains(
+          "hidden"
+        )
       ) {
         return;
       }
@@ -812,11 +1402,41 @@ function bindEvents() {
 async function init() {
   setTheme(state.theme);
   setView(state.view);
+
+  /*
+   * Restore saved sorting.
+   * Country A-Z is the default.
+   */
+  const validSorts = [
+    "country-asc",
+    "country-desc",
+    "added-desc",
+    "added-asc",
+    "year-desc",
+    "year-asc",
+    "denomination-asc",
+    "denomination-desc"
+  ];
+
+  if (
+    !validSorts.includes(
+      state.sort
+    )
+  ) {
+    state.sort =
+      "country-asc";
+  }
+
+  els.sort.value =
+    state.sort;
+
   bindEvents();
 
   try {
     const response =
-      await fetch("data/coins.json?v=4");
+      await fetch(
+        "data/coins.json?v=5"
+      );
 
     if (!response.ok) {
       throw new Error(
@@ -835,7 +1455,9 @@ async function init() {
     els.grid.innerHTML = `
       <div class="empty-state">
         Could not load coin data.
-        ${escapeHtml(error.message)}
+        ${escapeHtml(
+          error.message
+        )}
       </div>
     `;
 
