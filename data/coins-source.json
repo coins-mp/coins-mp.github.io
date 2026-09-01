@@ -502,5 +502,19 @@
     "description": "Berlin. Commemorative 2 euro coin of Germany.",
     "notes": "The design shows the main building of the Charlottenburg Palace from the side of the Cour d' Honneur. The inner part also features the name ‘BERLIN’ and the mint mark of the respective mint (‘A’, ‘D’, ‘F’, ‘G’ or ‘J’) at the bottom, the issuing country's country code ‘D’ right at the top, the year ‘2018’ left at the top and the engraver's mark left at the bottom. The coin’s outer ring bears the 12 stars of the European Union.",
     "imageFile": "038_Germany_2018_2Euro_Commemorative_Berlin.jpeg"
+  },
+  {
+    "id": "039",
+    "country": "Germany",
+    "year": 2011,
+    "denomination": "2 €",
+    "type": "Commemorative",
+    "name": "North Rhine-Westphalia",
+    "condition": "F",
+    "status": "Collection",
+    "mintage": "",
+    "description": "North Rhine-Westphalia. Commemorative 2 euro coin of Germany.",
+    "notes": "The inner part of the coin features the Cologne Cathedral above the words “Nordrhein-Westfalen” to designate the German federal state of North Rhine-Westphalia in which it stands. The 12 stars of the European Union are depicted on the outer ring, together with the year of issue, 2011, at the bottom.",
+    "imageFile": "039_Germany_2011_2Euro_Commemorative_North-Rhine-Westphalia.jpeg"
   }
 ]
