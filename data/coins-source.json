@@ -740,5 +740,19 @@
     "description": "35 years of German unity. Commemorative 2 euro coin of Germany.",
     "notes": "The national side features a typographic design: the right-aligned words ‘Wir sind ein Volk’ (‘We are one people’) are positioned, one on top of the other, to the left of a slightly off-centre vertical axis. The words ‘35 Jahre Deutsche Einheit’ (‘35 years of German unity’) are left-aligned on the right-hand side. The two blocks of text are offset slightly along the vertical axis and are bordered by horizontal lines at the top and bottom. The two texts are connected by a slightly enlarged ‘D’ in the middle. By offsetting the two blocks of text, the design alludes to a once-divided Germany, while the shared letter ‘D’ underscores that the populations of the former East and West Germanys have now been unified for 35 years. Despite the coin’s deceptively simple design, it nonetheless invites a range of associations, including the fall of the wall suggested by the bisected lines. The upper part of the coin’s inner circle also features the initials of the artist, Hattingen-based Thomas Serres (‘TS’), and beneath the initials the mint mark of the respective mint (‘A’, ‘D’, ‘F’, ‘G’ or ‘J’). At the bottom of the coin’s inner ring is the year of issue ‘2025’ and above it Germany’s issuing country code ‘D’. The coin’s outer ring bears the 12 stars of the European flag.",
     "imageFile": "055_Germany_2025_2Euro_Commemorative_35-years-of-German-unity.jpeg"
+  },
+  {
+    "id": "056",
+    "country": "Germany",
+    "year": 2025,
+    "denomination": "2 €",
+    "type": "Commemorative",
+    "name": "Saarland",
+    "condition": "UNC",
+    "status": "Collection",
+    "mintage": "",
+    "description": "Saarland. Commemorative 2 euro coin of Germany.",
+    "notes": "The design shows the Saarschleife bend in the Saar river, reduced to the key features of the motif of the meandering river, which characterises the hilly landscape. Groups of trees depicted along the course of the river symbolise the forested landscape around the picturesque Saarschleife. The bird’s-eye perspective means that the landmark natural waterway is seen embedded in the surrounding hills, which reach off into the distance. The inscription “Saarland” is positioned low down in the foreground, in order to not disturb the landscape’s sense of calmness and light. The upper half of the coin’s inner circle also features on the left the mark of the artist, Frankfurt-based Carsten Wolff, and on the right the letter “X” as placeholder for the mint mark of the respective mint (“A”, “D”, “F”, “G” or “J”). The lower half features the inscription “SAARLAND”, Germany’s issuing country code “D” and the year of issue, “2025”. The coin’s outer ring bears the 12 stars of the European flag.",
+    "imageFile": "056_Germany_2025_2Euro_Commemorative_Saarland.jpeg"
   }
 ]
