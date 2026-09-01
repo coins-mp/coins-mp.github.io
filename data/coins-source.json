@@ -712,5 +712,19 @@
     "description": "Thuringia. Commemorative 2 euro coin of Germany.",
     "notes": "The design shows Wartburg Castle, the first German castle to be listed as a UNESCO World Heritage Site. The inner part also features the name ‘THÜRINGEN’ and the issuing country’s country code ‘D’ at the bottom, the mint mark of the respective mint (‘A’, ‘D’, ‘F’, ‘G’ or ‘J’) as well as the engraver’s mark on the right and the the year ‘2022’ on the left. The artist: Olaf Stoy (Rabenau). The coin’s outer ring bears the 12 stars of the European flag.",
     "imageFile": "053_Germany_2022_2Euro_Commemorative_Thuringia.jpeg"
+  },
+  {
+    "id": "054",
+    "country": "Germany",
+    "year": 2021,
+    "denomination": "2 €",
+    "type": "Commemorative",
+    "name": "Saxony-Anhalt",
+    "condition": "VF",
+    "status": "Collection",
+    "mintage": "",
+    "description": "Saxony-Anhalt. Commemorative 2 euro coin of Germany.",
+    "notes": "The design shows the Magdeburg Cathedral, the first Gothic-style cathedral to be constructed on German soil. The inner part also features the name ‘SACHSEN-ANHALT’ and the issuing country’s country code ‘D’ at the bottom, the mint mark of the respective mint (‘A’, ‘D’, ‘F’, ‘G’ or ‘J’) as well as the the year ‘2021’ on the left and the engraver’s mark on the right. The coin’s outer ring bears the 12 stars of the European flag.",
+    "imageFile": "054_Germany_2021_2Euro_Commemorative_Saxony-Anhalt.jpeg"
   }
 ]
