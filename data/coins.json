@@ -922,5 +922,26 @@
     "diameter": "25.75 mm",
     "description": "François Mitterrand. Commemorative 2 euro coin of France.",
     "notes": "The design shows a profile of a pensive François Mitterrand. Adjacent is his personal emblem of a half oak/half olive tree. Above are the dates marking the centenary of his birth (‘1916’ and ‘2016’) and his name. At the bottom, the indication of the issuing country ‘RF’. The coin’s outer ring bears the 12 stars of the European Union."
+  },
+  {
+    "country": "Belgium",
+    "countryCode": "BE",
+    "year": 2016,
+    "denomination": "2 €",
+    "type": "Commemorative",
+    "name": "International Missing Children’s Day",
+    "condition": "F",
+    "mint": "",
+    "inCollection": true,
+    "status": "collection",
+    "duplicates": 0,
+    "wanted": false,
+    "image": "images/coins/Belgium/047_Belgium_2016_2Euro_Commemorative_International-Missing-Childrens-Day.jpeg",
+    "mintage": "",
+    "metal": "Bimetallic",
+    "weight": "8.50 g",
+    "diameter": "25.75 mm",
+    "description": "International Missing Children’s Day. Commemorative 2 euro coin of Belgium.",
+    "notes": "The inner part of the coin displays in its centre the face of a child surrounded by the words ‘MISSING-DISPARU-VERMIST’, ‘WWW.CHILDFOCUS.BE’ and the trilingual indication of nationality ‘BELGIQUE-BELGIE-BELGIEN’ followed by the year 2016. The mark of the Brussels mint, a helmeted profile of the archangel Michael and the signature mark of the Master of the Mint appear to the left and right respectively of the face. The coin’s outer ring bears the 12 stars of the European Union."
   }
 ]
