@@ -838,5 +838,19 @@
     "description": "The 30th anniversary of the EU flag_Germany. Commemorative 2 euro coin of Germany.",
     "notes": "The designs show the EU flag as a symbol that unites people and cultures with shared visions and ideals for a better common future. Twelve stars that morph into human figures are embracing the birth of a new Europe. At the top right, in semi-circle, are the issuing country and the years ‘1985-2015’. At the bottom right are the initials of the artist (Georgios Stamatopoulos). The coin’s outer ring bears the 12 stars of the European Union.",
     "imageFile": "062_Germany_2015_2Euro_Commemorative_The-30th-anniversary-of-the-EU-flag_Germany.jpeg"
+  },
+  {
+    "id": "063",
+    "country": "Spain",
+    "year": 1999,
+    "denomination": "2 €",
+    "type": "Regular",
+    "name": "2 Euro",
+    "condition": "F",
+    "status": "Duplicate",
+    "mintage": "",
+    "description": "Regular 2 € circulation coin of Spain.",
+    "notes": "",
+    "imageFile": ""
   }
 ]
