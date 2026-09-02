@@ -1,5 +1,6 @@
 [
   {
+    "id": "003",
     "country": "Belgium",
     "countryCode": "BE",
     "year": 2009,
@@ -21,6 +22,7 @@
     "notes": ""
   },
   {
+    "id": "004",
     "country": "Belgium",
     "countryCode": "BE",
     "year": 2004,
@@ -42,6 +44,7 @@
     "notes": ""
   },
   {
+    "id": "005",
     "country": "Bulgaria",
     "countryCode": "BG",
     "year": 2026,
@@ -63,6 +66,7 @@
     "notes": ""
   },
   {
+    "id": "006",
     "country": "Spain",
     "countryCode": "ES",
     "year": 1999,
@@ -84,6 +88,7 @@
     "notes": "The first and second series show a portrait of King Juan Carlos I de Borbón y Borbón.\r\n\r\nIn 2015, Spain introduced a third series of €1 and €2 coins showing the new King Felipe VI and the country code ‘ESPAÑA 2015’. The mint mark appears at the right of the effigy."
   },
   {
+    "id": "007",
     "country": "Portugal",
     "countryCode": "PT",
     "year": 2002,
@@ -105,6 +110,7 @@
     "notes": "€2 coins: the country's castles and coats of arms are set amid the European stars. This symbolises dialogue, the exchange of values and the dynamics of the building of Europe. The centrepiece is the royal seal of 1144. Edge lettering of the €2 coin: five coats of arms and seven castles, all equally spaced."
   },
   {
+    "id": "008",
     "country": "San Marino",
     "countryCode": "SM",
     "year": 2021,
@@ -126,6 +132,7 @@
     "notes": "Second series: The portrait of Saint Marino, detail of a painting by Giovan Battista Urbinelli, is shown on this coin."
   },
   {
+    "id": "009",
     "country": "Slovakia",
     "countryCode": "SK",
     "year": 2026,
@@ -147,6 +154,7 @@
     "notes": "€2 coins depict a double cross on three hills, as featured in the national emblem of Slovakia."
   },
   {
+    "id": "010",
     "country": "Greece",
     "countryCode": "GR",
     "year": 2021,
@@ -168,6 +176,7 @@
     "notes": "he design features the Greek flag at the centre, encircled by laurel branches. Inscribed along the inner edge are the wordings ‘1821 – 2021 200 YEARS SINCE THE GREEK REVOLUTION’ and ‘HELLENIC REPUBLIC’. Visible, at the bottom, between two laurel branches, are a palmette (the minmark of the Greek Mint) and the signature of the artist (George Stamatopoulos). The coin’s outer ring bears the 12 stars of the European flag."
   },
   {
+    "id": "011",
     "country": "Slovakia",
     "countryCode": "SK",
     "year": 2009,
@@ -189,6 +198,7 @@
     "notes": ""
   },
   {
+    "id": "012",
     "country": "Belgium",
     "countryCode": "BE",
     "year": 2008,
@@ -210,6 +220,7 @@
     "notes": "In 2008, Belgium slightly modified the design in order to comply with the European Commission's guidelines. The coins of the second series also show King Albert II, but the royal monogram and the year of issuance now appear in the inner part of the coin, as do the mint marks and the country code for Belgium, \"BE\"."
   },
   {
+    "id": "013",
     "country": "Belgium",
     "countryCode": "BE",
     "year": 2002,
@@ -231,6 +242,7 @@
     "notes": "The first series depicts King Albert II in the inner part of the coin, while the royal monogram - a capital \"A\" underneath a crown - among 12 stars, symbolising Europe, as well as the year of issuance appear in the outer part."
   },
   {
+    "id": "014",
     "country": "Greece",
     "countryCode": "GR",
     "year": 2020,
@@ -252,6 +264,7 @@
     "notes": "The design depicts an ancient Greek helmet. Inscribed along the inner edge are the words ‘2500 YEARS SINCE THE BATTLE OF THERMOPYLAE’ and ‘HELLENIC REPUBLIC’. Also inscribed in the background are the year of issuance ‘2020’ and a palmette (the mintmark of the Greek mint). Visible down and right of the helmet is the monogram of the artist (George Stamatopoulos). Although ending in defeat for the Greeks, the Battle of Thermopylae remains a timeless symbol of heroic resistance. The coin’s outer ring bears the 12 stars of the European flag."
   },
   {
+    "id": "015",
     "country": "Germany",
     "countryCode": "DE",
     "year": 2020,
@@ -273,6 +286,7 @@
     "notes": "The design shows the Sanssouci Palace. The upper half of the coin’s inner section includes the mint mark of the respective mint (‘A’, ‘D’, ‘F’, ‘G’ or ‘J’), the artist’s initials and the year ‘2020’. The lower half of the coin’s inner section contains the inscription ‘BRANDENBURG’ and Germany’s issuing country code ‘D’. The coin’s outer ring bears the 12 stars of the European flag."
   },
   {
+    "id": "016",
     "country": "Greece",
     "countryCode": "GR",
     "year": 2004,
@@ -294,6 +308,7 @@
     "notes": "The twelve stars of the European Union positioned around the outer circle surround the design of an ancient statue depicting a discobolus in his attempt to throw the discus. The base of the statue covers a small part of the coin's external ring (outer part). To the left is the logo of the Olympic Games 'ATHENS 2004' and the five Olympic circles, and to the right, one above the other, are the figure '2' and the word 'ΕΥΡΩ'. The yearmark is written in split form around the star positioned bottom centre, as follows: 20*04 and the mintmark is above the athlete's head to the left."
   },
   {
+    "id": "017",
     "country": "Germany",
     "countryCode": "DE",
     "year": 2009,
@@ -315,6 +330,7 @@
     "notes": "The coin features the Ludwigskirche, a symbol of Saarbrücken, the capital of the Saarland. It shows the distinctive east facade and bell tower of the church, with the word ‘SAARLAND’ and ‘G’, a mint mark, underneath. It was designed by Friedrich Brenner, whose initials appear to the right of the image. The year of mintage, 2009, the 12 stars of the European Union and the words ‘BUNDESREPUBLIK DEUTSCHLAND’ are depicted on the outer ring."
   },
   {
+    "id": "018",
     "country": "Germany",
     "countryCode": "DE",
     "year": 2007,
@@ -336,6 +352,7 @@
     "notes": "The coin shows Schwerin Castle and bears the inscription ‘Mecklenburg-Vorpommern’ - the federal state of Mecklenburg-West Pomerania where the castle is located. The mintmark, ‘A’, ‘D’, ‘F’, ‘G’ or ‘J’, appears above the image, and the engraver’s initials ‘HH’ below it. The year of mintage, 2007, the 12 stars of the European Union and the words ‘Bundesrepublik Deutschland’ appear in the outer ring."
   },
   {
+    "id": "019",
     "country": "Italy",
     "countryCode": "IT",
     "year": 2007,
@@ -357,6 +374,7 @@
     "notes": "The coin shows the Treaty document signed by the six founding countries on a background evoking the paving (designed by Michelangelo) of the Piazza del Campidoglio in Rome, where the signing took place on 25 March 1957. ‘Treaty of Rome 50 years’, ‘EUROPE’ and the name of the issuing country appear in the respective languages of the euro area or in Latin. Thus, the legend differs from country to country, but the image is the same. The Treaty of Rome established the European Economic Community and ultimately led to the introduction of the euro in 1999 and the euro banknotes and coins in 2002. The anniversary was celebrated on 25 March 2007. The euro area countries have marked the occasion by jointly issuing this commemorative coin. Its design was selected following a competition organised by the European mints. The coin’s outer ring bears the 12 stars of the European Union."
   },
   {
+    "id": "020",
     "country": "France",
     "countryCode": "FR",
     "year": 2007,
@@ -378,6 +396,7 @@
     "notes": "The coin shows the Treaty document signed by the six founding countries on a background evoking the paving (designed by Michelangelo) of the Piazza del Campidoglio in Rome, where the signing took place on 25 March 1957. ‘Treaty of Rome 50 years’, ‘EUROPE’ and the name of the issuing country appear in the respective languages of the euro area or in Latin. Thus, the legend differs from country to country, but the image is the same. The Treaty of Rome established the European Economic Community and ultimately led to the introduction of the euro in 1999 and the euro banknotes and coins in 2002. The anniversary was celebrated on 25 March 2007. The euro area countries have marked the occasion by jointly issuing this commemorative coin. Its design was selected following a competition organised by the European mints. The coin’s outer ring bears the 12 stars of the European Union."
   },
   {
+    "id": "021",
     "country": "France",
     "countryCode": "FR",
     "year": 2008,
@@ -399,6 +418,7 @@
     "notes": "The coin is inscribed as follows: ‘2008 PRÉSIDENCE FRANÇAISE UNION EUROPÉENNE RF’. The mint mark and the mintmaster's mark are located below, to the left and the right respectively. The 12 stars of the European Union are shown on the outer ring."
   },
   {
+    "id": "022",
     "country": "Italy",
     "countryCode": "IT",
     "year": 2008,
@@ -420,6 +440,7 @@
     "notes": "The coin depicts a man and a woman with an olive branch, an ear of corn, a cogwheel and some barbed wire – symbols of the right to peace, food, work and freedom respectively. The monogram of the Italian Republic ‘RI’ is placed between the two figures, as is the year of issue ‘2008’. At the bottom of the image are the links of a chain forming the number ‘60’ and the inscription ‘DIRITTI UMANI’ (human rights). The initials ‘MCC’ of the artist Maria Carmela Colaneri and the mint mark ‘R’ are shown on the right. The outer ring of the coin depicts the 12 stars of the European Union."
   },
   {
+    "id": "023",
     "country": "Italy",
     "countryCode": "IT",
     "year": 2005,
@@ -441,6 +462,7 @@
     "notes": "The centre of the coin features Europa and the bull, with Europa holding a pen and the text of the European Constitution. To the upper left of the image is the mintmark ‘R’. The initials of engraver Maria Carmela Colaneri, ‘MCC’, appear on the lower left edge of the coin’s central part. The year of mintage is shown in the top right of the image above the head of the bull. Positioned just off-centre at the bottom of the image is the monogram of the Italian Republic, ‘RI’. The words ‘COSTITUZIONE EUROPEA’ form a semicircle along the outer ring of the coin beneath the central image, while twelve stars are depicted on the remainder of the outer ring."
   },
   {
+    "id": "024",
     "country": "Italy",
     "countryCode": "IT",
     "year": 2006,
@@ -462,6 +484,7 @@
     "notes": "An image of a skier, a dynamic, curvilinear figure, is in the centre of the coin. Above him are the words ‘GIOCHI INVERNALI’ and to his left the location of the Winter Games is marked by the word ‘TORINO’ and an image of Turin’s landmark Mole Antonelliana building. The monogram of the Italian Republic ‘RI’ and the mintmark ‘R’ are also to the skier’s left. The year of issue, 2006, and the initials of the designer ‘MCC’ (Maria Carmela Colaneri) are shown to his right. The coin’s outer ring bears the 12 stars of the European Union."
   },
   {
+    "id": "025",
     "country": "Italy",
     "countryCode": "IT",
     "year": 2012,
@@ -483,6 +506,7 @@
     "notes": "The inner part of the coin features a portrait of Giovanni Pascoli, a poet from the Romagna region who is a prominent representative of late 19th century Italian literature. The portrait is flanked by the poet’s year of death “1912”, the mintmark “R” and the letters “M.C.C.”, the initials of the designer Maria Carmela Colaneri, on the left and by the year of issue “2012”’ immediately above the monogram of the Italian Republic “RI” on the right. The inscription “G. PASCOLI” forms an arch along the bottom edge of the coin’s inner part below the portrait. The coin’s outer ring bears the 12 stars of the European Union."
   },
   {
+    "id": "026",
     "country": "Italy",
     "countryCode": "IT",
     "year": 2013,
@@ -504,6 +528,7 @@
     "notes": "The design shows the head of Giovanni BOCCACCIO in three quarter view facing right, drawn from the fresco by Andrea del Castagno, around 1450 ca. (Florence, Galleria degli Uffizi); around, on the bottom, BOCCACCIO 1313 2013; on the right, superimposed letters R (monogram of the Mint of Rome)/RI (monogram of Italian Republic)/m (monogram of the author Roberto Mauri). The coin’s outer ring bears the 12 stars of the European Union."
   },
   {
+    "id": "027",
     "country": "Italy",
     "countryCode": "IT",
     "year": 2014,
@@ -525,6 +550,7 @@
     "notes": "The design shows the head of Galileo Galilei from the painting of Justus Sustermans, 1636 (Florence, Galleria degli Uffizi); around, upside, GALILEO GALILEI; on the right, superimposed letters R (monogram of the Mint of Rome)/astronomic telescope/C.M. (monogram of the Author Claudia Momoni); on the left, superimposed letters of the Italian Republic monogram ‘RI’; in exergue 1564-2014. The coin’s outer ring bears the 12 stars of the European Union."
   },
   {
+    "id": "028",
     "country": "Italy",
     "countryCode": "IT",
     "year": 2012,
@@ -546,6 +572,7 @@
     "notes": "The inner part of the coin, designed by Helmut Andexlinger of the Austrian Mint and chosen by citizens and residents of the euro area to be the common commemorative coin for 2012, features the world in the form of a euro symbol in the centre, showing how the euro has become a true global player over the last ten years. The surrounding elements symbolise the importance of the euro to ordinary people (represented by a family group), to the financial world (the Eurotower), to trade (a ship), to industry (a factory), and to the energy sector and research and development (two wind turbines). The designer’s initials, “A.H.”, can be found (if you look very carefully) between the ship and the Eurotower. Along the upper and lower edges of the inner part of the coin are, respectively, the country of issue and the years “2002 – 2012”. The coin will be issued by all euro area countries. The coin’s outer ring depicts the 12 stars of the European Union."
   },
   {
+    "id": "029",
     "country": "Italy",
     "countryCode": "IT",
     "year": 2022,
@@ -567,6 +594,7 @@
     "notes": "The design depicts in the centre the portraits of the two Italian judges Giovanni Falcone and Paolo Borsellino, inspired by a picture of Tony Gentile. Above, the arc-shaped inscription ‘FALCONE – BORSELLINO’, underneath the dates ‘1992 2022’, with the acronym of the Italian Republic ‘RI’ in between; on the right, ‘R’, identifying the Mint of Rome; on the left, ‘VdS’, initials of the designer Valerio de Seta. The coin’s outer ring bears the 12 stars of the European flag."
   },
   {
+    "id": "030",
     "country": "France",
     "countryCode": "FR",
     "year": 2022,
@@ -588,6 +616,7 @@
     "notes": "President of the French Republic for two terms, Jacques Chirac was a major architect of the European construction. As such, he was President when the Euro was introduced in 2002, whose 20th anniversary we celebrate at the beginning of this year. The design shows a solemn profile of President Jacques Chirac looking towards the future. He is surrounded by several symbols representing his actions: a euro symbol, as sign of his involvement in the introduction of the Euro and his European spirit, and a French flag represented in heraldic colours, itself embellished with the RF as a reference to his presidency. His dates and name are inserted in the Euro’s logo. The mintmarks as well as the year date fit into the design. The coin’s outer ring bears the 12 stars of the European flag."
   },
   {
+    "id": "031",
     "country": "Italy",
     "countryCode": "IT",
     "year": 2022,
@@ -609,6 +638,7 @@
     "notes": "The design is a mix of two major elements of the Erasmus programme: the original intellectual inspiration, Erasmus himself, and the allegory of its influence over Europe. The first one is symbolised by one of the most known depiction of Erasmus. The second one is symbolised by a beam of links going across the coin from a beacon to another, representing the numerous intellectual and human exchanges between the European students. As a reference to Europe, some of these links form other stars, born from the synergy between the countries. The figure 35, for 35th anniversary comes out from the stars in a contemporary graphical style. The coin’s outer ring bears the 12 stars of the European flag."
   },
   {
+    "id": "032",
     "country": "Italy",
     "countryCode": "IT",
     "year": 2024,
@@ -630,6 +660,7 @@
     "notes": "The design depicts, in the centre, a stylized version of the heraldic symbol of Guardia di Finanza Corps: it portrays the concept of security and provides a future vision of the Corps’ role celebrating the past, by combining it with the years to come and challenges they will continue to face. This emblem includes different elements: mountain, sea and the sky, which are the natural environments where Corps operate; the Griffon, a mythological animal which, according to the legend, supervises protection of the Treasury, represented by the chest of the State, and the turreted crown. At the top, in semi-circle, is the inscription ‘GUARDIA DI FINANZA’. Below, ‘RI’, acronym of the Italian Republic and the dates ‘1774-2024’, year of the establishment of the Guardia di Finanza Corps and year of coin’s issue respectively; on the right, ‘R’, identifying the Mint of Rome and ‘MB’, the initials of designer Marta Bonifacio. The coin’s outer ring bears the 12 stars of the European flag."
   },
   {
+    "id": "033",
     "country": "Germany",
     "countryCode": "DE",
     "year": 2024,
@@ -651,6 +682,7 @@
     "notes": "The coin is dedicated to the German state (Land) of Mecklenburg-Western Pomerania. It is the second issuance in the second series of German 2-euro commemorative coins featuring the German states, or Länder. Each year, a coin pays tribute to one of the 16 Länder by depicting a significant building or landmark. The order of the states is based on the rotating presidency of the Bundesrat, which is one of the five permanent constitutional bodies of the Federal Republic of Germany and represents the interests of the Länder. The design shows the Königsstuhl, an iconic formation of chalk cliffs and beech forest located in Jasmund National Park on the island of Rügen. The cliffs are depicted from the perspective of the shoreline, thereby highlighting the monumentality of this unique natural landmark in a particularly effective manner. The beautifully detailed image provides scale through the combined rendering of sea, birdlife and humankind. The modern typography, in harmony with the flying seagull, is skilfully integrated into the relief. The upper half of the coin’s inner circle features the inscription ‘MECKLENBURG VORPOMMERN’, the year of issue ‘2024’, Germany’s issuing country code ‘D’ and, at the upper right, the letter ‘X’ as placeholder for the mint mark of the respective mint (‘A’, ‘D’, ‘F’, ‘G’ or ‘J’). The initials of the artist Michael Otto (from Rodenbach, Germany) are shown in the lower half of the inner circle. The coin’s outer ring bears the 12 stars of the European flag."
   },
   {
+    "id": "034",
     "country": "Italy",
     "countryCode": "IT",
     "year": 2018,
@@ -672,6 +704,7 @@
     "notes": "The design shows an allegorical representation of Health with some symbols of the activities of the Ministry: Environment, Research, Nutrition and Medicine. On the left the logo ‘RI’, acronym of the Italian Republic; above the mintmark of the Mint of Rome ‘R’; at the base of the female figure the initials of the author Silvia Petrassi. From left to right, in semi-circle, the inscription ‘MINISTERO DELLA SALUTE’ and the dates ‘1958-2018’. The coin’s outer ring bears the 12 stars of the European Union."
   },
   {
+    "id": "035",
     "country": "Greece",
     "countryCode": "GR",
     "year": 2018,
@@ -693,6 +726,7 @@
     "notes": "The design features in the central part a rose, the canting badge of Rhodes, inspired from a coin minted by the ancient city of Rhodes, one of the most characteristic coins of the Dodecanese, with stylised waves fanning out from the centre. Inscribed along the inner edge is the wording ‘1948-2018 THE UNION OF THE DODECANESE WITH GREECE’ and ‘HELLENIC REPUBLIC’ (in Greek). Also visible at left is a palmette (the mintmark of the Greek mint) and, at right, the monogram of the artist (George Stamatopoulos). The coin’s outer ring bears the 12 stars of the European Union."
   },
   {
+    "id": "036",
     "country": "Austria",
     "countryCode": "AT",
     "year": 2018,
@@ -714,6 +748,7 @@
     "notes": "The design depicts the statue of Pallas Athena in front of the Greek-style building of the Austrian Parliament in Vienna. The goddess of wisdom serves as a symbol of the Austrian parliamentarism and stands for knowledge, reason and strategic talent. At the left side is the year ‘2018’ and underneath the text ‘100 JAHRE’ (100 YEARS). The text ‘REPUBLIK ÖSTERREICH’ (AUSTRIAN REPUBLIC) is inscribed at the bottom right in semi-circle. The coin’s outer ring bears the 12 stars of the European Union."
   },
   {
+    "id": "037",
     "country": "Germany",
     "countryCode": "DE",
     "year": 2018,
@@ -735,6 +770,7 @@
     "notes": "The design portrays Helmut Schmidt in a characteristic pose as he engages in dialogue with his interlocutor. In semi-circle at the top right the inscription ‘HELMUT SCHMIDT’ and at the right side the years ‘1918-2015’. The mint mark of the respective mint appears underneath the years. At the left side is the code of the issuing country ‘D’ and underneath is the year of issuance ‘2018’. At the bottom there are the initials of the artist. The coin’s outer ring bears the 12 stars of the European Union."
   },
   {
+    "id": "038",
     "country": "Germany",
     "countryCode": "DE",
     "year": 2018,
@@ -756,6 +792,7 @@
     "notes": "The design shows the main building of the Charlottenburg Palace from the side of the Cour d' Honneur. The inner part also features the name ‘BERLIN’ and the mint mark of the respective mint (‘A’, ‘D’, ‘F’, ‘G’ or ‘J’) at the bottom, the issuing country's country code ‘D’ right at the top, the year ‘2018’ left at the top and the engraver's mark left at the bottom. The coin’s outer ring bears the 12 stars of the European Union."
   },
   {
+    "id": "039",
     "country": "Germany",
     "countryCode": "DE",
     "year": 2011,
@@ -777,6 +814,7 @@
     "notes": "The inner part of the coin features the Cologne Cathedral above the words “Nordrhein-Westfalen” to designate the German federal state of North Rhine-Westphalia in which it stands. The 12 stars of the European Union are depicted on the outer ring, together with the year of issue, 2011, at the bottom."
   },
   {
+    "id": "040",
     "country": "Germany",
     "countryCode": "DE",
     "year": 2012,
@@ -798,6 +836,7 @@
     "notes": "The inner part of the coin, designed by Erich Ott, depicts one of Bavaria’s most famous landmarks, Neuschwanstein Castle, viewed from the east, with the gatehouse in the foreground, the romantic towers and turrets of the castle itself, and the majestic mountains behind. Beneath is the name of the federal state “BAYERN”. To the right is the mintmark of the respective mint (A, D, F, G or J) and to the left are the initials of the designer. The outer ring features the 12 stars of the European Union with a “D” at the top and “2012” at the bottom, denoting the country and year of issue respectively."
   },
   {
+    "id": "041",
     "country": "Germany",
     "countryCode": "DE",
     "year": 2013,
@@ -819,6 +858,7 @@
     "notes": "The inner part of the coin depicts the Maulbronn Monastery which is home to the most perfectly preserved medieval monastery complex north of the Alps. Founded in 1147, this complex has been a UNESCO World Heritage Site since 1993. On the top, the year of issuance ‘2013’. At the bottom, the inscription BADEN- WÜRTTEMBERG and underneath the indication of the issuing country ‘D’. The mint mark, represented by the letter A, D, F, G or J, is located at the right hand side. At the bottom left the initials of the artist. The coin’s outer ring bears the 12 stars of the European Union."
   },
   {
+    "id": "042",
     "country": "Netherlands",
     "countryCode": "NL",
     "year": 2013,
@@ -840,6 +880,7 @@
     "notes": "The design depicts on the foreground the effigy of Queen Beatrix and on the background, partly covered by the effigy of the Queen, the effigy of the Prince of Orange. The circumscription around both effigies reads: WILLEM-ALEXANDER PRINS VAN ORANJE (crown symbol) BEATRIX KONINGIN DER NEDERLANDEN (mint mark) 28 januari 2013 (mint master mark). The coin’s outer ring bears the 12 stars of the European Union."
   },
   {
+    "id": "043",
     "country": "Germany",
     "countryCode": "DE",
     "year": 2014,
@@ -861,6 +902,7 @@
     "notes": "The desigh shows the Church of St. Michael in Hildesheim, Lower Saxony which has been on the Unesco World Cultural Heritage list since 1985. At the top the year of issuance ‘2014’ and at the left the mintmark (A, D, F, G, J). At the bottom, the inscription ‘NIEDERSACHSEN’ and underneath the indication of the issuing country ‘D’. At the top right, the initials of the engraver OE (Ott Erich). The coin’s outer ring bears the 12 stars of the European Union."
   },
   {
+    "id": "044",
     "country": "Netherlands",
     "countryCode": "NL",
     "year": 2014,
@@ -882,6 +924,7 @@
     "notes": "The inner part of the coin depicts the effigies of both the King Willem-Alexander and the former Queen Beatrix. At the left, in semi-circle, the inscription ‘WILLEM-ALEXANDER KONING DER NEDERLANDEN’ and at the right, in semi-circle, the inscription ‘BEATRIX PRINSES DER NEDERLANDEN’. Between the two inscriptions, at the top, the crown symbol and at the bottom the mint master mark, the mint mark and in between the year of issuance ‘2014’. The coin’s outer ring bears the 12 stars of the European Union."
   },
   {
+    "id": "045",
     "country": "Germany",
     "countryCode": "DE",
     "year": 2015,
@@ -903,6 +946,7 @@
     "notes": "The design depicts a classic perspective on St. Paul’s Church in Frankfurt (the ‘Paulskirche’ was the seat of Germany’s first freely elected legislative body in 1849 and is regarded as the cradle of German democracy) and is therefore the perspective possessing the greatest recognition value. The design incisively brings out the tension between the dominant tower and the elliptical structure of the church. The slightly exaggerated flight of steps has an inviting quality while simultaneously offering support to the subjacent inscription ‘HESSEN’ (the Federal State of Hessen in which St. Paul’s Church is situated).The inner part also features the year ‘2015’ and the mint mark of the respective mint (‘A’, ‘D’, ‘F’, ‘G’ or ‘J’) at the left side as well as the issuing country’s indication ‘D’ and the engraver’s mark (the initials ‘HH’ — Heinz Hoyer) at the right side. The coin’s outer ring bears the 12 stars of the European Union."
   },
   {
+    "id": "046",
     "country": "France",
     "countryCode": "FR",
     "year": 2016,
@@ -924,6 +968,7 @@
     "notes": "The design shows a profile of a pensive François Mitterrand. Adjacent is his personal emblem of a half oak/half olive tree. Above are the dates marking the centenary of his birth (‘1916’ and ‘2016’) and his name. At the bottom, the indication of the issuing country ‘RF’. The coin’s outer ring bears the 12 stars of the European Union."
   },
   {
+    "id": "047",
     "country": "Belgium",
     "countryCode": "BE",
     "year": 2016,
@@ -945,6 +990,7 @@
     "notes": "The inner part of the coin displays in its centre the face of a child surrounded by the words ‘MISSING-DISPARU-VERMIST’, ‘WWW.CHILDFOCUS.BE’ and the trilingual indication of nationality ‘BELGIQUE-BELGIE-BELGIEN’ followed by the year 2016. The mark of the Brussels mint, a helmeted profile of the archangel Michael and the signature mark of the Master of the Mint appear to the left and right respectively of the face. The coin’s outer ring bears the 12 stars of the European Union."
   },
   {
+    "id": "048",
     "country": "Germany",
     "countryCode": "DE",
     "year": 2016,
@@ -966,6 +1012,7 @@
     "notes": "The design shows a view of the world-famous Zwinger Palace in Dresden, namely of the inner yard giving way to the Crown Gate. It includes the name ‘SACHSEN’ (Saxony) and the country code ‘D’ at the bottom, the mint mark of the respective mint (‘A’, ‘D’, ‘F’, ‘G’ or ‘J’) as well as the engraver’s mark (the initials ‘JT’ for Jordi Truxa) at the top right and the year ‘2016’ at the top left. The coin’s outer ring bears the 12 stars of the European Union."
   },
   {
+    "id": "049",
     "country": "France",
     "countryCode": "FR",
     "year": 2017,
@@ -987,6 +1034,7 @@
     "notes": "Since the 1990s, the fight against breast cancer has been a major cause around the world. On the occasion of the 25th anniversary of the pink ribbon, iconic symbol of this fight, Monnaie de Paris has decided to support this cause. For nearly 15 years, a pink ribbon prize has been presented every year to support research efforts and innovation.\r\n\r\nThe design represents a woman’s bust symbolically protected by a hand and the ribbon. It is surrounded, at the right side, by the inscription ‘25e ANNIVERSAIRE DU RUBAN ROSE’ (25th anniversary of the pink ribbon). The right side also features the years ‘1992 – 2017’, the indication of the issuing country ‘RF’ and the mintmarks. The coin’s outer ring bears the 12 stars of the European Union."
   },
   {
+    "id": "050",
     "country": "Germany",
     "countryCode": "DE",
     "year": 2017,
@@ -1008,6 +1056,7 @@
     "notes": "The design shows the Porta Nigra in Trier which is probably the best-preserved Roman city gate north of the Alps. The inner part also features the name ‘RHEINLAND-PFALZ’ and the issuing country’s code ‘D’ at the bottom. The mint mark of the respective mint (‘A’, ‘D’, ‘F’, ‘G’ or ‘J’) appears at the left and the year ‘2017’ appears at the top. At the right, the initials of the designer ‘CH’ (Chocola Frantisek). The coin’s outer ring bears the 12 stars of the European Union."
   },
   {
+    "id": "051",
     "country": "Germany",
     "countryCode": "DE",
     "year": 2019,
@@ -1029,6 +1078,7 @@
     "notes": "The design shows a highly detailed and finely sculpted rendering of the Bundesrat building. The upper half of the coin’s inner section includes the mint mark of the respective mint (‘A’, ‘D’, ‘F’, ‘G’ or ‘J’), the artist’s initials and the year ‘2019’. The lower half of the coin’s inner section contains the inscription ‘BUNDESRAT’ and Germany’s issuing country code ‘D’. The coin’s outer ring bears the 12 stars of the European Union."
   },
   {
+    "id": "052",
     "country": "Germany",
     "countryCode": "DE",
     "year": 2020,
@@ -1050,6 +1100,7 @@
     "notes": "The design shows Brandt, who was the chancellor of Germany at that time, keeling before the Monument to the Ghetto Heroes in Warsaw in a gesture of humility. Yhe Warsaw Ghetto Uprising of 1943 is evoked by the composition’s powerful imagery. Traced in extremely fine relief, the design pictures compelling symbols: a seven-branched menorah, the ghetto victims, as well as the genuflection. The inner part of the coin also features the artist’s initials (top), the mint mark of the respective mint (‘A’, ‘D’, ‘F’, ‘G’ or ‘J’), the year, ‘2020’ (centre left), Germany’s issuing country code, ‘D’ (bottom right), and the lettering ‘50 JAHRE KNIEFALL VON WARSCHAU’. The coin’s outer ring bears the 12 stars of the European flag."
   },
   {
+    "id": "053",
     "country": "Germany",
     "countryCode": "DE",
     "year": 2022,
@@ -1071,6 +1122,7 @@
     "notes": "The design shows Wartburg Castle, the first German castle to be listed as a UNESCO World Heritage Site. The inner part also features the name ‘THÜRINGEN’ and the issuing country’s country code ‘D’ at the bottom, the mint mark of the respective mint (‘A’, ‘D’, ‘F’, ‘G’ or ‘J’) as well as the engraver’s mark on the right and the the year ‘2022’ on the left. The artist: Olaf Stoy (Rabenau). The coin’s outer ring bears the 12 stars of the European flag."
   },
   {
+    "id": "054",
     "country": "Germany",
     "countryCode": "DE",
     "year": 2021,
@@ -1092,6 +1144,7 @@
     "notes": "The design shows the Magdeburg Cathedral, the first Gothic-style cathedral to be constructed on German soil. The inner part also features the name ‘SACHSEN-ANHALT’ and the issuing country’s country code ‘D’ at the bottom, the mint mark of the respective mint (‘A’, ‘D’, ‘F’, ‘G’ or ‘J’) as well as the the year ‘2021’ on the left and the engraver’s mark on the right. The coin’s outer ring bears the 12 stars of the European flag."
   },
   {
+    "id": "055",
     "country": "Germany",
     "countryCode": "DE",
     "year": 2025,
@@ -1113,6 +1166,7 @@
     "notes": "The national side features a typographic design: the right-aligned words ‘Wir sind ein Volk’ (‘We are one people’) are positioned, one on top of the other, to the left of a slightly off-centre vertical axis. The words ‘35 Jahre Deutsche Einheit’ (‘35 years of German unity’) are left-aligned on the right-hand side. The two blocks of text are offset slightly along the vertical axis and are bordered by horizontal lines at the top and bottom. The two texts are connected by a slightly enlarged ‘D’ in the middle. By offsetting the two blocks of text, the design alludes to a once-divided Germany, while the shared letter ‘D’ underscores that the populations of the former East and West Germanys have now been unified for 35 years. Despite the coin’s deceptively simple design, it nonetheless invites a range of associations, including the fall of the wall suggested by the bisected lines. The upper part of the coin’s inner circle also features the initials of the artist, Hattingen-based Thomas Serres (‘TS’), and beneath the initials the mint mark of the respective mint (‘A’, ‘D’, ‘F’, ‘G’ or ‘J’). At the bottom of the coin’s inner ring is the year of issue ‘2025’ and above it Germany’s issuing country code ‘D’. The coin’s outer ring bears the 12 stars of the European flag."
   },
   {
+    "id": "056",
     "country": "Germany",
     "countryCode": "DE",
     "year": 2025,
@@ -1134,6 +1188,7 @@
     "notes": "The design shows the Saarschleife bend in the Saar river, reduced to the key features of the motif of the meandering river, which characterises the hilly landscape. Groups of trees depicted along the course of the river symbolise the forested landscape around the picturesque Saarschleife. The bird’s-eye perspective means that the landmark natural waterway is seen embedded in the surrounding hills, which reach off into the distance. The inscription “Saarland” is positioned low down in the foreground, in order to not disturb the landscape’s sense of calmness and light. The upper half of the coin’s inner circle also features on the left the mark of the artist, Frankfurt-based Carsten Wolff, and on the right the letter “X” as placeholder for the mint mark of the respective mint (“A”, “D”, “F”, “G” or “J”). The lower half features the inscription “SAARLAND”, Germany’s issuing country code “D” and the year of issue, “2025”. The coin’s outer ring bears the 12 stars of the European flag."
   },
   {
+    "id": "057",
     "country": "Germany",
     "countryCode": "DE",
     "year": 2026,
@@ -1155,6 +1210,7 @@
     "notes": ""
   },
   {
+    "id": "058",
     "country": "Germany",
     "countryCode": "DE",
     "year": 2026,
@@ -1176,6 +1232,7 @@
     "notes": ""
   },
   {
+    "id": "059",
     "country": "Belgium",
     "countryCode": "BE",
     "year": 2012,
@@ -1197,6 +1254,7 @@
     "notes": "The inner part of the coin, designed by Helmut Andexlinger of the Austrian Mint and chosen by citizens and residents of the euro area to be the common commemorative coin for 2012, features the world in the form of a euro symbol in the centre, showing how the euro has become a true global player over the last ten years. The surrounding elements symbolise the importance of the euro to ordinary people (represented by a family group), to the financial world (the Eurotower), to trade (a ship), to industry (a factory), and to the energy sector and research and development (two wind turbines). The designer’s initials, “A.H.”, can be found (if you look very carefully) between the ship and the Eurotower. Along the upper and lower edges of the inner part of the coin are, respectively, the country of issue and the years “2002 – 2012”. The coin will be issued by all euro area countries. The coin’s outer ring depicts the 12 stars of the European Union."
   },
   {
+    "id": "060",
     "country": "Germany",
     "countryCode": "DE",
     "year": 2022,
@@ -1218,6 +1276,7 @@
     "notes": "The design is a mix of two major elements of the Erasmus programme: the original intellectual inspiration, Erasmus himself, and the allegory of its influence over Europe. The first one is symbolised by one of the most known depiction of Erasmus. The second one is symbolised by a beam of links going across the coin from a beacon to another, representing the numerous intellectual and human exchanges between the European students. As a reference to Europe, some of these links form other stars, born from the synergy between the countries. The figure 35, for 35th anniversary comes out from the stars in a contemporary graphical style. The coin’s outer ring bears the 12 stars of the European flag."
   },
   {
+    "id": "061",
     "country": "Austria",
     "countryCode": "AT",
     "year": 2015,
@@ -1239,6 +1298,7 @@
     "notes": "The designs show the EU flag as a symbol that unites people and cultures with shared visions and ideals for a better common future. Twelve stars that morph into human figures are embracing the birth of a new Europe. At the top right, in semi-circle, are the issuing country and the years ‘1985-2015’. At the bottom right are the initials of the artist (Georgios Stamatopoulos). The coin’s outer ring bears the 12 stars of the European Union."
   },
   {
+    "id": "062",
     "country": "Germany",
     "countryCode": "DE",
     "year": 2015,
