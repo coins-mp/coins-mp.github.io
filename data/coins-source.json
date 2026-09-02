@@ -810,5 +810,33 @@
     "description": "35 years of the Erasmus programme_Germany. Commemorative 2 euro coin of Germany.",
     "notes": "The design is a mix of two major elements of the Erasmus programme: the original intellectual inspiration, Erasmus himself, and the allegory of its influence over Europe. The first one is symbolised by one of the most known depiction of Erasmus. The second one is symbolised by a beam of links going across the coin from a beacon to another, representing the numerous intellectual and human exchanges between the European students. As a reference to Europe, some of these links form other stars, born from the synergy between the countries. The figure 35, for 35th anniversary comes out from the stars in a contemporary graphical style. The coin’s outer ring bears the 12 stars of the European flag.",
     "imageFile": "060_Germany_2022_2Euro_Commemorative_35-years-of-the-Erasmus-programme_Germany.jpeg"
+  },
+  {
+    "id": "061",
+    "country": "Austria",
+    "year": 2015,
+    "denomination": "2 €",
+    "type": "Commemorative",
+    "name": "The 30th anniversary of the EU flag_Austria",
+    "condition": "VF",
+    "status": "Collection",
+    "mintage": "",
+    "description": "The 30th anniversary of the EU flag_Austria. Commemorative 2 euro coin of Austria.",
+    "notes": "The designs show the EU flag as a symbol that unites people and cultures with shared visions and ideals for a better common future. Twelve stars that morph into human figures are embracing the birth of a new Europe. At the top right, in semi-circle, are the issuing country and the years ‘1985-2015’. At the bottom right are the initials of the artist (Georgios Stamatopoulos). The coin’s outer ring bears the 12 stars of the European Union.",
+    "imageFile": "061_Austria_2015_2Euro_Commemorative_The-30th-anniversary-of-the-EU-flag_Austria.jpeg"
+  },
+  {
+    "id": "062",
+    "country": "Germany",
+    "year": 2015,
+    "denomination": "2 €",
+    "type": "Commemorative",
+    "name": "The 30th anniversary of the EU flag_Germany",
+    "condition": "VF",
+    "status": "Collection",
+    "mintage": "",
+    "description": "The 30th anniversary of the EU flag_Germany. Commemorative 2 euro coin of Germany.",
+    "notes": "The designs show the EU flag as a symbol that unites people and cultures with shared visions and ideals for a better common future. Twelve stars that morph into human figures are embracing the birth of a new Europe. At the top right, in semi-circle, are the issuing country and the years ‘1985-2015’. At the bottom right are the initials of the artist (Georgios Stamatopoulos). The coin’s outer ring bears the 12 stars of the European Union.",
+    "imageFile": "062_Germany_2015_2Euro_Commemorative_The-30th-anniversary-of-the-EU-flag_Germany.jpeg"
   }
 ]
