@@ -557,6 +557,7 @@ def main():
             display_name = denomination
 
         coin = {
+            "id": coin_id,
             "country": country,
             "countryCode": country_code,
             "year": year,
