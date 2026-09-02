@@ -852,19 +852,5 @@
     "description": "Regular 2 € circulation coin of Spain.",
     "notes": "",
     "imageFile": ""
-  },
-  {
-    "id": "064",
-    "country": "Andorra",
-    "year": 1999,
-    "denomination": "1 cent",
-    "type": "Regular",
-    "name": "1 cent",
-    "condition": "F",
-    "status": "Collection",
-    "mintage": "",
-    "description": "Regular 1 cent circulation coin of Andorra.",
-    "notes": "",
-    "imageFile": ""
   }
 ]

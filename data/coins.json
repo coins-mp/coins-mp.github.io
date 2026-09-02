@@ -1340,27 +1340,5 @@
     "diameter": "25.75 mm",
     "description": "Regular 2 € circulation coin of Spain.",
     "notes": ""
-  },
-  {
-    "id": "064",
-    "country": "Andorra",
-    "countryCode": "AD",
-    "year": 1999,
-    "denomination": "1 cent",
-    "type": "Regular",
-    "name": "1 cent",
-    "condition": "F",
-    "mint": "",
-    "inCollection": true,
-    "status": "collection",
-    "duplicates": 0,
-    "wanted": false,
-    "image": "",
-    "mintage": "",
-    "metal": "Copper-plated steel",
-    "weight": "2.30 g",
-    "diameter": "16.25 mm",
-    "description": "Regular 1 cent circulation coin of Andorra.",
-    "notes": ""
   }
 ]
