@@ -1406,5 +1406,27 @@
     "diameter": "25.75 mm",
     "description": "70th anniversary of the Appeal of June 18. Commemorative 2 euro coin of France.",
     "notes": "The coin commemorates the 70th anniversary of the appeal (“Appel du 18 juin”) made by General de Gaulle – the leader of the Free French Forces – on the BBC in London on 18 June 1940, after the fall of France. Addressing the French people, de Gaulle declared that the war was not yet over. The speech is considered to mark the birth of the French Resistance and the beginning of its fight against the occupation of France during World War II. The coin’s outer ring bears the 12 stars of the European Union."
+  },
+  {
+    "id": "067",
+    "country": "Cyprus",
+    "countryCode": "CY",
+    "year": 2026,
+    "denomination": "1 cent",
+    "type": "Regular",
+    "name": "1 cent",
+    "condition": "VF",
+    "mint": "",
+    "inCollection": false,
+    "status": "missing",
+    "duplicates": 0,
+    "wanted": false,
+    "image": "images/coins/Cyprus/067_Cyprus_2026_1cent_Regular.jpeg",
+    "mintage": "",
+    "metal": "Copper-plated steel",
+    "weight": "2.30 g",
+    "diameter": "16.25 mm",
+    "description": "Regular 1 cent circulation coin of Cyprus.",
+    "notes": "The 1, 2 and 5-cent coins show the moufflon, a species of wild sheep found on Cyprus and representative of the island's wildlife."
   }
 ]
