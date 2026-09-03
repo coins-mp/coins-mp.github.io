@@ -163,7 +163,6 @@ def get_value(
         column=column
     ).value
 
-
 def find_existing_image(
     filename,
     country,
@@ -210,25 +209,22 @@ def find_existing_image(
         if suffix in file.stem:
             return file
 
-        return None
+    if country_folder.exists():
+        for file in country_folder.iterdir():
+            if not file.is_file():
+                continue
 
-    suffix = (
-        f"_{safe_filename_part(country)}"
-        f"_{year}"
-        f"_{denomination_filename(denomination)}"
-        f"_{safe_filename_part(coin_type)}"
-    )
-
-    for file in country_folder.iterdir():
-        if not file.is_file():
-            continue
-
-        if (
-            file.suffix.lower() in
-            {".jpeg", ".jpg", ".png", ".webp"}
-            and suffix in file.stem
-        ):
-            return file
+            if (
+                file.suffix.lower() in
+                {
+                    ".jpeg",
+                    ".jpg",
+                    ".png",
+                    ".webp"
+                }
+                and suffix in file.stem
+            ):
+                return file
 
     return None
 
@@ -416,12 +412,24 @@ def main():
 
         duplicates = 0
 
+        status_lower = status.lower()
+
+        if status_lower not in {
+            "collection",
+            "missing",
+            "duplicate"
+        }:
+            status_lower = "collection"
+
         if year is None:
-            print(
-                f"WARNING: skipped row "
-                f"{row}: invalid year"
-            )
-            continue
+            if status_lower == "missing":
+                year = ""
+            else:
+                print(
+                    f"WARNING: skipped row "
+                    f"{row}: invalid year"
+                )
+                continue
 
         if not denomination:
             print(
@@ -446,15 +454,6 @@ def main():
                 f"leaving it blank"
             )
             coin_type = ""
-
-        status_lower = status.lower()
-
-        if status_lower not in {
-            "collection",
-            "missing",
-            "duplicate"
-        }:
-            status_lower = "collection"
 
         # Duplicate must NOT also appear
         # in Missing.
