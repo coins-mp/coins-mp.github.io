@@ -1355,7 +1355,7 @@
     "status": "duplicate",
     "duplicates": 1,
     "wanted": false,
-    "image": "",
+    "image": "images/coins/Belgium/059_Belgium_2012_2Euro_Commemorative_Ten-years-of-the-euro_Belgium.jpeg",
     "mintage": "",
     "metal": "Bimetallic",
     "weight": "8.50 g",
@@ -1428,5 +1428,27 @@
     "diameter": "16.25 mm",
     "description": "Regular 1 cent circulation coin of Cyprus.",
     "notes": "The 1, 2 and 5-cent coins show the moufflon, a species of wild sheep found on Cyprus and representative of the island's wildlife."
+  },
+  {
+    "id": "068",
+    "country": "Cyprus",
+    "countryCode": "CY",
+    "year": "",
+    "denomination": "5 cent",
+    "type": "Regular",
+    "name": "5 cent",
+    "condition": "",
+    "mint": "",
+    "inCollection": false,
+    "status": "missing",
+    "duplicates": 0,
+    "wanted": false,
+    "image": "images/coins/Cyprus/068_Cyprus__5cent_Regular.jpeg",
+    "mintage": "",
+    "metal": "Copper-plated steel",
+    "weight": "3.92 g",
+    "diameter": "21.25 mm",
+    "description": "Regular 5 cent circulation coin of Cyprus.",
+    "notes": ""
   }
 ]
