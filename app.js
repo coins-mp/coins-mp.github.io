@@ -998,19 +998,27 @@ function renderTable(coins) {
 }
 
 function renderStats() {
-  const total =
-    state.coins.length;
-
   const collected =
     state.coins.filter(
       coin =>
-        coin.inCollection
+        coin.status ===
+        "collection"
+    ).length;
+
+  const commemorative =
+    state.coins.filter(
+      coin =>
+        coin.status ===
+          "collection" &&
+        coin.type ===
+          "Commemorative"
     ).length;
 
   const missing =
     state.coins.filter(
       coin =>
-        !coin.inCollection
+        coin.status ===
+        "missing"
     ).length;
 
   const duplicates =
@@ -1028,46 +1036,135 @@ function renderStats() {
     );
 
   const cards = [
-    [
-      "Catalog",
-      total
-    ],
+    {
+      label:
+        "2€ Commemorative",
+      value:
+        commemorative,
+      section:
+        "commemorative"
+    },
 
-    [
-      "In collection",
-      collected
-    ],
+    {
+      label:
+        "Collection",
+      value:
+        collected,
+      section:
+        "all"
+    },
 
-    [
-      "Missing",
-      missing
-    ],
+    {
+      label:
+        "Missing",
+      value:
+        missing,
+      section:
+        "missing"
+    },
 
-    [
-      "Duplicates",
-      duplicates
-    ]
+    {
+      label:
+        "Duplicates",
+      value:
+        duplicates,
+      section:
+        "duplicates"
+    }
   ];
 
   els.stats.innerHTML =
     cards
       .map(
-        ([
-          label,
-          value
-        ]) => `
-    <div class="stat-card">
+        card => `
+    <div
+      class="stat-card"
+      data-stat-section="${card.section}"
+      role="button"
+      tabindex="0"
+      style="cursor: pointer;"
+    >
       <div class="stat-label">
-        ${label}
+        ${card.label}
       </div>
 
       <div class="stat-value">
-        ${value}
+        ${card.value}
       </div>
     </div>
   `
       )
       .join("");
+
+  els.stats
+    .querySelectorAll(
+      "[data-stat-section]"
+    )
+    .forEach(
+      card => {
+        function openSection() {
+          const section =
+            card.dataset
+              .statSection;
+
+          state.section =
+            section;
+
+          state.page =
+            1;
+
+          document
+            .querySelectorAll(
+              ".nav-link"
+            )
+            .forEach(
+              button => {
+                button.classList.toggle(
+                  "active",
+                  button.dataset
+                    .section ===
+                    section
+                );
+              }
+            );
+
+          render();
+
+          window.scrollTo({
+            top:
+              els.sectionTitle
+                .getBoundingClientRect()
+                .top +
+              window.scrollY -
+              20,
+
+            behavior:
+              "smooth"
+          });
+        }
+
+        card.addEventListener(
+          "click",
+          openSection
+        );
+
+        card.addEventListener(
+          "keydown",
+          event => {
+            if (
+              event.key ===
+                "Enter" ||
+              event.key ===
+                " "
+            ) {
+              event.preventDefault();
+
+              openSection();
+            }
+          }
+        );
+      }
+    );
 }
 
 function updateStatsVisibility() {
