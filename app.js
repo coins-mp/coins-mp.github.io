@@ -4,6 +4,16 @@ const state = {
   view: localStorage.getItem("coinView") || "cards",
   theme: localStorage.getItem("coinTheme") || "light",
   sort: localStorage.getItem("coinSort") || "country-asc",
+
+  /*
+   * Sorting selected by clicking
+   * a table column header.
+   *
+   * This is intentionally separate
+   * from the Sort by dropdown.
+   */
+  tableSort: "",
+
   page: 1
 };
 
@@ -234,6 +244,89 @@ function denominationValue(value) {
   return number;
 }
 
+function compareText(
+  a,
+  b
+) {
+  return String(a || "")
+    .localeCompare(
+      String(b || ""),
+      "en",
+      {
+        sensitivity: "base",
+        numeric: true
+      }
+    );
+}
+
+
+function compareYearValues(
+  a,
+  b,
+  direction
+) {
+  const yearA =
+    a === "" ||
+    a === null ||
+    a === undefined
+      ? null
+      : Number(a);
+
+  const yearB =
+    b === "" ||
+    b === null ||
+    b === undefined
+      ? null
+      : Number(b);
+
+  /*
+   * Empty years, used by Missing,
+   * always remain at the end.
+   */
+  if (
+    yearA === null &&
+    yearB === null
+  ) {
+    return 0;
+  }
+
+  if (yearA === null) {
+    return 1;
+  }
+
+  if (yearB === null) {
+    return -1;
+  }
+
+  return (
+    (yearA - yearB) *
+    direction
+  );
+}
+
+
+function conditionValue(
+  condition
+) {
+  const order = {
+    G: 1,
+    VG: 2,
+    F: 3,
+    VF: 4,
+    XF: 5,
+    AU: 6,
+    UNC: 7
+  };
+
+  return (
+    order[
+      String(
+        condition || ""
+      ).toUpperCase()
+    ] || 999
+  );
+}
+
 function compareCountry(
   a,
   b,
@@ -284,11 +377,15 @@ function compareCountry(
   );
 }
 
-function sortCoins(coins) {
+function sortCoins(
+  coins,
+  sortValue = state.sort
+) {
   const sorted =
     [...coins];
 
-  switch (state.sort) {
+  switch (sortValue) {
+
     case "country-desc":
       sorted.sort(
         (a, b) =>
@@ -300,6 +397,7 @@ function sortCoins(coins) {
       );
       break;
 
+
     case "added-desc":
       sorted.sort(
         (a, b) =>
@@ -307,6 +405,7 @@ function sortCoins(coins) {
           coinIdNumber(a)
       );
       break;
+
 
     case "added-asc":
       sorted.sort(
@@ -316,14 +415,20 @@ function sortCoins(coins) {
       );
       break;
 
+
     case "year-desc":
       sorted.sort(
         (a, b) => {
           const difference =
-            Number(b.year || 0) -
-            Number(a.year || 0);
+            compareYearValues(
+              a.year,
+              b.year,
+              -1
+            );
 
-          if (difference !== 0) {
+          if (
+            difference !== 0
+          ) {
             return difference;
           }
 
@@ -335,15 +440,21 @@ function sortCoins(coins) {
         }
       );
       break;
+
 
     case "year-asc":
       sorted.sort(
         (a, b) => {
           const difference =
-            Number(a.year || 0) -
-            Number(b.year || 0);
+            compareYearValues(
+              a.year,
+              b.year,
+              1
+            );
 
-          if (difference !== 0) {
+          if (
+            difference !== 0
+          ) {
             return difference;
           }
 
@@ -355,6 +466,7 @@ function sortCoins(coins) {
         }
       );
       break;
+
 
     case "denomination-desc":
       sorted.sort(
@@ -367,7 +479,9 @@ function sortCoins(coins) {
               a.denomination
             );
 
-          if (difference !== 0) {
+          if (
+            difference !== 0
+          ) {
             return difference;
           }
 
@@ -379,6 +493,7 @@ function sortCoins(coins) {
         }
       );
       break;
+
 
     case "denomination-asc":
       sorted.sort(
@@ -391,7 +506,9 @@ function sortCoins(coins) {
               b.denomination
             );
 
-          if (difference !== 0) {
+          if (
+            difference !== 0
+          ) {
             return difference;
           }
 
@@ -403,6 +520,125 @@ function sortCoins(coins) {
         }
       );
       break;
+
+
+    case "type-asc":
+      sorted.sort(
+        (a, b) =>
+          compareText(
+            a.type,
+            b.type
+          )
+      );
+      break;
+
+
+    case "type-desc":
+      sorted.sort(
+        (a, b) =>
+          compareText(
+            b.type,
+            a.type
+          )
+      );
+      break;
+
+
+    case "name-asc":
+      sorted.sort(
+        (a, b) =>
+          compareText(
+            a.name,
+            b.name
+          )
+      );
+      break;
+
+
+    case "name-desc":
+      sorted.sort(
+        (a, b) =>
+          compareText(
+            b.name,
+            a.name
+          )
+      );
+      break;
+
+
+    case "condition-asc":
+      sorted.sort(
+        (a, b) =>
+          conditionValue(
+            a.condition
+          ) -
+          conditionValue(
+            b.condition
+          )
+      );
+      break;
+
+
+    case "condition-desc":
+      sorted.sort(
+        (a, b) =>
+          conditionValue(
+            b.condition
+          ) -
+          conditionValue(
+            a.condition
+          )
+      );
+      break;
+
+
+    case "status-asc":
+      sorted.sort(
+        (a, b) =>
+          compareText(
+            a.status,
+            b.status
+          )
+      );
+      break;
+
+
+    case "status-desc":
+      sorted.sort(
+        (a, b) =>
+          compareText(
+            b.status,
+            a.status
+          )
+      );
+      break;
+
+
+    case "duplicates-asc":
+      sorted.sort(
+        (a, b) =>
+          Number(
+            a.duplicates || 0
+          ) -
+          Number(
+            b.duplicates || 0
+          )
+      );
+      break;
+
+
+    case "duplicates-desc":
+      sorted.sort(
+        (a, b) =>
+          Number(
+            b.duplicates || 0
+          ) -
+          Number(
+            a.duplicates || 0
+          )
+      );
+      break;
+
 
     case "country-asc":
     default:
@@ -530,7 +766,16 @@ function getFilteredCoins() {
       }
     );
 
-  return sortCoins(filtered);
+  const activeSort =
+    state.view === "table" &&
+    state.tableSort
+      ? state.tableSort
+      : state.sort;
+
+  return sortCoins(
+    filtered,
+    activeSort
+  );
 }
 
 function getColumnsPerRow() {
@@ -931,6 +1176,166 @@ function renderCards(coins) {
         );
       }
     );
+}
+const tableSortColumns = [
+  "country",
+  "year",
+  "denomination",
+  "type",
+  "name",
+  "condition",
+  "status",
+  "duplicates"
+];
+
+
+function updateTableSortHeaders() {
+  const headers =
+    els.tableWrap
+      .querySelectorAll(
+        "thead th"
+      );
+
+  headers.forEach(
+    (
+      header,
+      index
+    ) => {
+      const key =
+        tableSortColumns[
+          index
+        ];
+
+      if (!key) {
+        return;
+      }
+
+      if (
+        !header.dataset
+          .originalLabel
+      ) {
+        header.dataset
+          .originalLabel =
+          header.textContent
+            .trim();
+      }
+
+      const label =
+        header.dataset
+          .originalLabel;
+
+      let arrow = "";
+
+      if (
+        state.tableSort ===
+        `${key}-asc`
+      ) {
+        arrow = " ↑";
+      }
+
+      if (
+        state.tableSort ===
+        `${key}-desc`
+      ) {
+        arrow = " ↓";
+      }
+
+      header.textContent =
+        `${label}${arrow}`;
+    }
+  );
+}
+
+
+function bindTableSorting() {
+  const headers =
+    els.tableWrap
+      .querySelectorAll(
+        "thead th"
+      );
+
+  headers.forEach(
+    (
+      header,
+      index
+    ) => {
+      const key =
+        tableSortColumns[
+          index
+        ];
+
+      if (!key) {
+        return;
+      }
+
+      header.style.cursor =
+        "pointer";
+
+      header.style.userSelect =
+        "none";
+
+      header.setAttribute(
+        "role",
+        "button"
+      );
+
+      header.setAttribute(
+        "tabindex",
+        "0"
+      );
+
+      header.setAttribute(
+        "title",
+        "Click to sort"
+      );
+
+      function sortColumn() {
+        const asc =
+          `${key}-asc`;
+
+        const desc =
+          `${key}-desc`;
+
+        /*
+         * First click = ascending.
+         * Second click = descending.
+         */
+        state.tableSort =
+          state.tableSort === asc
+            ? desc
+            : asc;
+
+        state.page = 1;
+
+        render();
+
+        updateTableSortHeaders();
+      }
+
+      header.addEventListener(
+        "click",
+        sortColumn
+      );
+
+      header.addEventListener(
+        "keydown",
+        event => {
+          if (
+            event.key ===
+              "Enter" ||
+            event.key ===
+              " "
+          ) {
+            event.preventDefault();
+
+            sortColumn();
+          }
+        }
+      );
+    }
+  );
+
+  updateTableSortHeaders();
 }
 
 function renderTable(coins) {
@@ -1839,6 +2244,8 @@ function render() {
     pageCoins
   );
 
+  updateTableSortHeaders();
+
   renderPagination(
     coins.length
   );
@@ -1869,6 +2276,13 @@ function bindEvents() {
     () => {
       state.sort =
         els.sort.value;
+
+      /*
+       * Sort by dropdown becomes
+       * active again.
+       */
+      state.tableSort =
+        "";
 
       localStorage.setItem(
         "coinSort",
@@ -2026,8 +2440,9 @@ async function init() {
 
   els.sort.value =
     state.sort;
-
+  
   bindEvents();
+  bindTableSorting();
 
   try {
     const response =
