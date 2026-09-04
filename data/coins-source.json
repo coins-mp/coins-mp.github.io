@@ -1258,5 +1258,47 @@
     "description": "Regular 1 cent circulation coin of Malta.",
     "notes": "The 1, 2 and 5-cent coins depict the altar at the prehistoric temple complex of Mnajdra, built around 3600 BC on a low elevation overlooking the sea.",
     "imageFile": "092_Malta__1cent_Regular.jpeg"
+  },
+  {
+    "id": "093",
+    "country": "Malta",
+    "year": "",
+    "denomination": "10 cent",
+    "type": "Regular",
+    "name": "10 cent",
+    "condition": "",
+    "status": "Missing",
+    "mintage": "",
+    "description": "Regular 10 cent circulation coin of Malta.",
+    "notes": "The 10, 20 and 50-cent coins bear the Emblem of Malta, a shield displaying a heraldic representation of the Maltese national flag and supporting a mural crown that represents the fortifications of Malta and denotes a city state. The shield is bounded on the left by an olive branch and on the right by a palm branch, symbols of peace traditionally associated with Malta, forming a wreath tied at its base by a ribbon which carries the inscription \"Repubblika ta' Malta\" (Republic of Malta).",
+    "imageFile": "093_Malta__10cent_Regular.jpeg"
+  },
+  {
+    "id": "094",
+    "country": "Malta",
+    "year": "",
+    "denomination": "2 cent",
+    "type": "Regular",
+    "name": "2 cent",
+    "condition": "",
+    "status": "Missing",
+    "mintage": "",
+    "description": "Regular 2 cent circulation coin of Malta.",
+    "notes": "The 1, 2 and 5-cent coins depict the altar at the prehistoric temple complex of Mnajdra, built around 3600 BC on a low elevation overlooking the sea.",
+    "imageFile": "094_Malta__2cent_Regular.jpeg"
+  },
+  {
+    "id": "095",
+    "country": "Malta",
+    "year": "",
+    "denomination": "20 cent",
+    "type": "Regular",
+    "name": "20 cent",
+    "condition": "",
+    "status": "Missing",
+    "mintage": "",
+    "description": "Regular 20 cent circulation coin of Malta.",
+    "notes": "The 10, 20 and 50-cent coins bear the Emblem of Malta, a shield displaying a heraldic representation of the Maltese national flag and supporting a mural crown that represents the fortifications of Malta and denotes a city state. The shield is bounded on the left by an olive branch and on the right by a palm branch, symbols of peace traditionally associated with Malta, forming a wreath tied at its base by a ribbon which carries the inscription \"Repubblika ta' Malta\" (Republic of Malta).",
+    "imageFile": "095_Malta__20cent_Regular.jpeg"
   }
 ]
