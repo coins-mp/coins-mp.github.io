@@ -2,63 +2,103 @@
 <html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Euro Coin Collection</title>
-  <link rel="stylesheet" href="style.css?v=8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <title>
+    My Euro Coin Collection
+  </title>
+
+  <link
+    rel="stylesheet"
+    href="style.css?v=8"
+  />
 </head>
+
 <body>
   <header class="site-header">
     <div class="brand">
-      <div class="brand-mark">€</div>
+      <div class="brand-mark">
+        €
+      </div>
 
       <div>
-        <h1>My Euro Coin Collection</h1>
-        <p>Regular euro coins and €2 commemoratives</p>
+        <h1>
+          My Euro Coin Collection
+        </h1>
+
+        <p>
+          Regular euro coins and €2 commemoratives
+        </p>
       </div>
     </div>
 
     <div class="header-actions">
-      <button id="themeToggle" class="secondary-btn" type="button">
+      <button
+        id="themeToggle"
+        class="secondary-btn"
+        type="button"
+      >
         🌙 Dark
       </button>
 
-      <button id="viewToggle" class="secondary-btn" type="button">
+      <button
+        id="viewToggle"
+        class="secondary-btn"
+        type="button"
+      >
         ▦ Table
       </button>
     </div>
   </header>
 
+
   <nav class="main-nav">
-    <button class="nav-link active" data-section="all">
+    <button
+      class="nav-link active"
+      data-section="home"
+    >
       Home
     </button>
 
-    <button class="nav-link" data-section="regular">
+    <button
+      class="nav-link"
+      data-section="regular"
+    >
       Regular €
     </button>
 
-    <button class="nav-link" data-section="commemorative">
+    <button
+      class="nav-link"
+      data-section="commemorative"
+    >
       2€ Commemorative
     </button>
 
-    <button class="nav-link" data-section="missing">
+    <button
+      class="nav-link"
+      data-section="missing"
+    >
       Missing
     </button>
 
-    <button class="nav-link" data-section="duplicates">
+    <button
+      class="nav-link"
+      data-section="duplicates"
+    >
       Duplicates
     </button>
-
-    <button class="nav-link" data-section="statistics">
-      Statistics
-    </button>
   </nav>
+
 
   <main class="page-shell">
     <section
       class="stats-grid"
       id="statsGrid"
     ></section>
+
 
     <section class="filters-panel">
       <div class="filter-group">
@@ -73,6 +113,7 @@
         </select>
       </div>
 
+
       <div class="filter-group">
         <label for="yearFilter">
           Year
@@ -84,6 +125,7 @@
           </option>
         </select>
       </div>
+
 
       <div class="filter-group">
         <label for="denominationFilter">
@@ -97,6 +139,7 @@
         </select>
       </div>
 
+
       <div class="filter-group">
         <label for="conditionFilter">
           Condition
@@ -108,6 +151,7 @@
           </option>
         </select>
       </div>
+
 
       <div class="filter-group">
         <label for="sortFilter">
@@ -149,6 +193,7 @@
         </select>
       </div>
 
+
       <div class="filter-group search-group">
         <label for="searchInput">
           Search
@@ -162,25 +207,29 @@
       </div>
     </section>
 
+
     <section class="section-heading">
       <div>
         <h2 id="sectionTitle">
-          Collection
+          All Coins
         </h2>
 
         <p id="resultCount"></p>
       </div>
     </section>
 
+
     <div
       id="paginationTop"
       class="pagination"
     ></div>
 
+
     <section
       id="coinGrid"
       class="coin-grid"
     ></section>
+
 
     <section
       id="coinTableWrap"
@@ -189,14 +238,37 @@
       <table class="coin-table">
         <thead>
           <tr>
-            <th>Country</th>
-            <th>Year</th>
-            <th>Denomination</th>
-            <th>Type</th>
-            <th>Name</th>
-            <th>Condition</th>
-            <th>Status</th>
-            <th>Duplicates</th>
+            <th>
+              Country
+            </th>
+
+            <th>
+              Year
+            </th>
+
+            <th>
+              Denomination
+            </th>
+
+            <th>
+              Type
+            </th>
+
+            <th>
+              Name
+            </th>
+
+            <th>
+              Condition
+            </th>
+
+            <th>
+              Status
+            </th>
+
+            <th>
+              Duplicates
+            </th>
           </tr>
         </thead>
 
@@ -204,15 +276,20 @@
       </table>
     </section>
 
+
     <div
       id="paginationBottom"
       class="pagination"
     ></div>
   </main>
 
+
   <footer class="site-footer">
-    <p>My Euro Coin Collection</p>
+    <p>
+      My Euro Coin Collection
+    </p>
   </footer>
+
 
   <div
     id="coinModal"
@@ -239,10 +316,12 @@
         ×
       </button>
 
+
       <div
         class="modal-image-panel"
         id="modalImagePanel"
       ></div>
+
 
       <div class="modal-content">
         <div class="modal-sticky-header">
@@ -264,31 +343,41 @@
           ></div>
         </div>
 
+
         <div class="modal-scroll-content">
           <div
             class="modal-facts"
             id="modalFacts"
           ></div>
 
+
           <section
             class="modal-text-section"
             id="descriptionSection"
           >
-            <h3>Description</h3>
+            <h3>
+              Description
+            </h3>
+
             <p id="modalDescription"></p>
           </section>
+
 
           <section
             class="modal-text-section"
             id="notesSection"
           >
-            <h3>My notes</h3>
+            <h3>
+              My notes
+            </h3>
+
             <p id="modalNotes"></p>
           </section>
         </div>
       </div>
     </article>
   </div>
+
 
   <script src="app.js?v=11"></script>
 </body>
