@@ -1,21 +1,30 @@
 const state = {
   coins: [],
-  section: "all",
-  view: localStorage.getItem("coinView") || "cards",
-  theme: localStorage.getItem("coinTheme") || "light",
-  sort: localStorage.getItem("coinSort") || "country-asc",
 
-  /*
-   * Sorting selected by clicking
-   * a table column header.
-   *
-   * This is intentionally separate
-   * from the Sort by dropdown.
-   */
+  section:
+    localStorage.getItem(
+      "coinSection"
+    ) || "home",
+
+  view:
+    localStorage.getItem(
+      "coinView"
+    ) || "cards",
+
+  theme:
+    localStorage.getItem(
+      "coinTheme"
+    ) || "light",
+
+  sort:
+    localStorage.getItem(
+      "coinSort"
+    ) || "country-asc",
+
   tableSort:
-  localStorage.getItem(
-    "coinTableSort"
-  ) || "",
+    localStorage.getItem(
+      "coinTableSort"
+    ) || "",
 
   page: 1
 };
@@ -51,12 +60,11 @@ const els = {
 };
 
 const sectionTitles = {
-  all: "Collection",
+  home: "All Coins",
   regular: "Regular Euro Coins",
   commemorative: "2€ Commemorative",
   missing: "Missing Coins",
-  duplicates: "Duplicates",
-  statistics: "Statistics"
+  duplicates: "Duplicates"
 };
 
 let viewerController = null;
@@ -668,12 +676,6 @@ function getFilteredCoins() {
   const filtered =
     state.coins.filter(
       coin => {
-        if (
-          state.section === "all" &&
-          coin.status !== "collection"
-        ) {
-          return false;
-        }
 
         if (
           state.section === "regular" &&
@@ -1463,7 +1465,7 @@ function renderStats() {
       value:
         collected,
       section:
-        "all"
+        "home"
     },
 
     {
@@ -1522,6 +1524,11 @@ function renderStats() {
           state.section =
             section;
 
+          localStorage.setItem(
+            "coinSection",
+            state.section
+          );
+          
           state.page =
             1;
 
@@ -1588,7 +1595,7 @@ function updateStatsVisibility() {
   els.stats.classList.toggle(
     "hidden",
     isMobile &&
-    state.section !== "all"
+    state.section !== "home"
   );
 }
 
@@ -2258,6 +2265,22 @@ function render() {
   );
 }
 
+function updateActiveNav() {
+  document
+    .querySelectorAll(
+      ".nav-link"
+    )
+    .forEach(
+      button => {
+        button.classList.toggle(
+          "active",
+          button.dataset.section ===
+            state.section
+        );
+      }
+    );
+}
+
 function bindEvents() {
   [
     els.country,
@@ -2344,9 +2367,14 @@ function bindEvents() {
             state.section =
               button.dataset.section;
 
+            localStorage.setItem(
+              "coinSection",
+              state.section
+            );
+            
             state.page =
-              1;
-
+               1;
+  
             render();
           }
         );
@@ -2451,6 +2479,8 @@ async function init() {
 
   els.sort.value =
     state.sort;
+
+  updateActiveNav();
   
   bindEvents();
   bindTableSorting();
