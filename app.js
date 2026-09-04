@@ -33,6 +33,7 @@ const els = {
   grid: document.getElementById("coinGrid"),
   tableWrap: document.getElementById("coinTableWrap"),
   tableBody: document.getElementById("coinTableBody"),
+  stats: document.getElementById("statsGrid"),
   country: document.getElementById("countryFilter"),
   year: document.getElementById("yearFilter"),
   denomination: document.getElementById("denominationFilter"),
@@ -60,6 +61,7 @@ const els = {
 
 const sectionTitles = {
   home: "All Coins",
+  collection: "My Collection",
   regular: "Regular Euro Coins",
   commemorative: "2€ Commemorative",
   missing: "Missing Coins",
@@ -68,6 +70,7 @@ const sectionTitles = {
 
 let viewerController = null;
 
+
 function flagEmoji(code) {
   return String(code || "")
     .toUpperCase()
@@ -75,10 +78,12 @@ function flagEmoji(code) {
       /./g,
       char =>
         String.fromCodePoint(
-          127397 + char.charCodeAt()
+          127397 +
+          char.charCodeAt()
         )
     );
 }
+
 
 function escapeHtml(value) {
   return String(value ?? "")
@@ -88,6 +93,7 @@ function escapeHtml(value) {
     .replaceAll('"', "&quot;")
     .replaceAll("'", "&#039;");
 }
+
 
 function setTheme(theme) {
   state.theme = theme;
@@ -105,6 +111,7 @@ function setTheme(theme) {
       ? "🌙 Dark"
       : "☀️ Light";
 }
+
 
 function setView(view) {
   state.view = view;
@@ -130,22 +137,37 @@ function setView(view) {
       : "▦ Cards";
 }
 
-function populateSelect(select, values) {
+
+function populateSelect(
+  select,
+  values
+) {
   const first =
     select.options[0].outerHTML;
 
-  select.innerHTML = first;
+  select.innerHTML =
+    first;
 
-  values.forEach(value => {
-    const option =
-      document.createElement("option");
+  values.forEach(
+    value => {
+      const option =
+        document.createElement(
+          "option"
+        );
 
-    option.value = value;
-    option.textContent = value;
+      option.value =
+        value;
 
-    select.appendChild(option);
-  });
+      option.textContent =
+        value;
+
+      select.appendChild(
+        option
+      );
+    }
+  );
 }
+
 
 function populateFilters() {
   populateSelect(
@@ -153,18 +175,21 @@ function populateFilters() {
     [
       ...new Set(
         state.coins.map(
-          coin => coin.country
+          coin =>
+            coin.country
         )
       )
     ].sort(
       (a, b) =>
-        String(a).localeCompare(
-          String(b),
-          "en",
-          {
-            sensitivity: "base"
-          }
-        )
+        String(a)
+          .localeCompare(
+            String(b),
+            "en",
+            {
+              sensitivity:
+                "base"
+            }
+          )
     )
   );
 
@@ -172,9 +197,17 @@ function populateFilters() {
     els.year,
     [
       ...new Set(
-        state.coins.map(
-          coin => coin.year
-        )
+        state.coins
+          .map(
+            coin =>
+              coin.year
+          )
+          .filter(
+            year =>
+              year !== "" &&
+              year !== null &&
+              year !== undefined
+          )
       )
     ].sort(
       (a, b) =>
@@ -188,7 +221,8 @@ function populateFilters() {
     [
       ...new Set(
         state.coins.map(
-          coin => coin.denomination
+          coin =>
+            coin.denomination
         )
       )
     ]
@@ -200,13 +234,15 @@ function populateFilters() {
       ...new Set(
         state.coins
           .map(
-            coin => coin.condition
+            coin =>
+              coin.condition
           )
           .filter(Boolean)
       )
     ].sort()
   );
 }
+
 
 function coinIdNumber(coin) {
   const value =
@@ -215,12 +251,17 @@ function coinIdNumber(coin) {
       10
     );
 
-  return Number.isFinite(value)
+  return Number.isFinite(
+    value
+  )
     ? value
     : 0;
 }
 
-function denominationValue(value) {
+
+function denominationValue(
+  value
+) {
   const text =
     String(value || "")
       .trim()
@@ -228,10 +269,13 @@ function denominationValue(value) {
       .replace(",", ".");
 
   const match =
-    text.match(/[\d.]+/);
+    text.match(
+      /[\d.]+/
+    );
 
   if (!match) {
-    return Number.MAX_SAFE_INTEGER;
+    return Number
+      .MAX_SAFE_INTEGER;
   }
 
   const number =
@@ -239,8 +283,13 @@ function denominationValue(value) {
       match[0]
     );
 
-  if (!Number.isFinite(number)) {
-    return Number.MAX_SAFE_INTEGER;
+  if (
+    !Number.isFinite(
+      number
+    )
+  ) {
+    return Number
+      .MAX_SAFE_INTEGER;
   }
 
   if (
@@ -254,6 +303,7 @@ function denominationValue(value) {
   return number;
 }
 
+
 function compareText(
   a,
   b
@@ -263,8 +313,11 @@ function compareText(
       String(b || ""),
       "en",
       {
-        sensitivity: "base",
-        numeric: true
+        sensitivity:
+          "base",
+
+        numeric:
+          true
       }
     );
 }
@@ -290,8 +343,8 @@ function compareYearValues(
       : Number(b);
 
   /*
-   * Empty years, used by Missing,
-   * always remain at the end.
+   * Empty years always stay
+   * at the end.
    */
   if (
     yearA === null &&
@@ -300,16 +353,23 @@ function compareYearValues(
     return 0;
   }
 
-  if (yearA === null) {
+  if (
+    yearA === null
+  ) {
     return 1;
   }
 
-  if (yearB === null) {
+  if (
+    yearB === null
+  ) {
     return -1;
   }
 
   return (
-    (yearA - yearB) *
+    (
+      yearA -
+      yearB
+    ) *
     direction
   );
 }
@@ -333,9 +393,11 @@ function conditionValue(
       String(
         condition || ""
       ).toUpperCase()
-    ] || 999
+    ] ||
+    999
   );
 }
+
 
 function compareCountry(
   a,
@@ -343,16 +405,23 @@ function compareCountry(
   direction = 1
 ) {
   const countryCompare =
-    String(a.country || "")
+    String(
+      a.country || ""
+    )
       .localeCompare(
-        String(b.country || ""),
+        String(
+          b.country || ""
+        ),
         "en",
         {
-          sensitivity: "base"
+          sensitivity:
+            "base"
         }
       );
 
-  if (countryCompare !== 0) {
+  if (
+    countryCompare !== 0
+  ) {
     return (
       countryCompare *
       direction
@@ -360,10 +429,16 @@ function compareCountry(
   }
 
   const yearCompare =
-    Number(a.year || 0) -
-    Number(b.year || 0);
+    Number(
+      a.year || 0
+    ) -
+    Number(
+      b.year || 0
+    );
 
-  if (yearCompare !== 0) {
+  if (
+    yearCompare !== 0
+  ) {
     return yearCompare;
   }
 
@@ -376,9 +451,12 @@ function compareCountry(
     );
 
   if (
-    denominationCompare !== 0
+    denominationCompare !==
+    0
   ) {
-    return denominationCompare;
+    return (
+      denominationCompare
+    );
   }
 
   return (
@@ -387,6 +465,7 @@ function compareCountry(
   );
 }
 
+
 function sortCoins(
   coins,
   sortValue = state.sort
@@ -394,8 +473,9 @@ function sortCoins(
   const sorted =
     [...coins];
 
-  switch (sortValue) {
-
+  switch (
+    sortValue
+  ) {
     case "country-desc":
       sorted.sort(
         (a, b) =>
@@ -437,7 +517,8 @@ function sortCoins(
             );
 
           if (
-            difference !== 0
+            difference !==
+            0
           ) {
             return difference;
           }
@@ -463,7 +544,8 @@ function sortCoins(
             );
 
           if (
-            difference !== 0
+            difference !==
+            0
           ) {
             return difference;
           }
@@ -490,7 +572,8 @@ function sortCoins(
             );
 
           if (
-            difference !== 0
+            difference !==
+            0
           ) {
             return difference;
           }
@@ -517,7 +600,8 @@ function sortCoins(
             );
 
           if (
-            difference !== 0
+            difference !==
+            0
           ) {
             return difference;
           }
@@ -628,10 +712,12 @@ function sortCoins(
       sorted.sort(
         (a, b) =>
           Number(
-            a.duplicates || 0
+            a.duplicates ||
+            0
           ) -
           Number(
-            b.duplicates || 0
+            b.duplicates ||
+            0
           )
       );
       break;
@@ -641,10 +727,12 @@ function sortCoins(
       sorted.sort(
         (a, b) =>
           Number(
-            b.duplicates || 0
+            b.duplicates ||
+            0
           ) -
           Number(
-            a.duplicates || 0
+            a.duplicates ||
+            0
           )
       );
       break;
@@ -666,6 +754,7 @@ function sortCoins(
   return sorted;
 }
 
+
 function getFilteredCoins() {
   const search =
     els.search.value
@@ -676,39 +765,90 @@ function getFilteredCoins() {
     state.coins.filter(
       coin => {
 
+        /*
+         * HOME
+         *
+         * No status filter.
+         * Shows absolutely all coins.
+         */
+
+
+        /*
+         * MY COLLECTION
+         *
+         * Regular +
+         * Commemorative,
+         * status = collection.
+         */
         if (
-          state.section === "regular" &&
+          state.section ===
+            "collection" &&
+          coin.status !==
+            "collection"
+        ) {
+          return false;
+        }
+
+
+        /*
+         * REGULAR
+         */
+        if (
+          state.section ===
+            "regular" &&
           (
-            coin.status !== "collection" ||
-            coin.type !== "Regular"
+            coin.status !==
+              "collection" ||
+            coin.type !==
+              "Regular"
           )
         ) {
           return false;
         }
 
+
+        /*
+         * 2€ COMMEMORATIVE
+         */
         if (
-          state.section === "commemorative" &&
+          state.section ===
+            "commemorative" &&
           (
-            coin.status !== "collection" ||
-            coin.type !== "Commemorative"
+            coin.status !==
+              "collection" ||
+            coin.type !==
+              "Commemorative"
           )
         ) {
           return false;
         }
 
+
+        /*
+         * MISSING
+         */
         if (
-          state.section === "missing" &&
-          coin.status !== "missing"
+          state.section ===
+            "missing" &&
+          coin.status !==
+            "missing"
         ) {
           return false;
         }
 
+
+        /*
+         * DUPLICATES
+         */
         if (
-          state.section === "duplicates" &&
-          coin.status !== "duplicate"
+          state.section ===
+            "duplicates" &&
+          coin.status !==
+            "duplicate"
         ) {
           return false;
         }
+
 
         if (
           els.country.value &&
@@ -718,21 +858,28 @@ function getFilteredCoins() {
           return false;
         }
 
+
         if (
           els.year.value &&
-          String(coin.year) !==
+          String(
+            coin.year
+          ) !==
             els.year.value
         ) {
           return false;
         }
 
+
         if (
-          els.denomination.value &&
+          els.denomination
+            .value &&
           coin.denomination !==
-            els.denomination.value
+            els.denomination
+              .value
         ) {
           return false;
         }
+
 
         if (
           els.condition.value &&
@@ -742,7 +889,10 @@ function getFilteredCoins() {
           return false;
         }
 
-        if (search) {
+
+        if (
+          search
+        ) {
           const haystack = [
             coin.country,
             coin.year,
@@ -771,7 +921,8 @@ function getFilteredCoins() {
     );
 
   const activeSort =
-    state.view === "table" &&
+    state.view ===
+      "table" &&
     state.tableSort
       ? state.tableSort
       : state.sort;
@@ -782,15 +933,20 @@ function getFilteredCoins() {
   );
 }
 
+
 function getColumnsPerRow() {
   const width =
     window.innerWidth;
 
-  if (width <= 560) {
+  if (
+    width <= 560
+  ) {
     return 1;
   }
 
-  if (width <= 900) {
+  if (
+    width <= 900
+  ) {
     return 2;
   }
 
@@ -799,21 +955,33 @@ function getColumnsPerRow() {
       .getBoundingClientRect()
       .width;
 
-  if (!gridWidth) {
+  if (
+    !gridWidth
+  ) {
     return 4;
   }
 
-  const minCardWidth = 245;
-  const gap = 16;
+  const minCardWidth =
+    245;
+
+  const gap =
+    16;
 
   return Math.max(
     1,
     Math.floor(
-      (gridWidth + gap) /
-      (minCardWidth + gap)
+      (
+        gridWidth +
+        gap
+      ) /
+      (
+        minCardWidth +
+        gap
+      )
     )
   );
 }
+
 
 function getCoinsPerPage() {
   return (
@@ -821,6 +989,7 @@ function getCoinsPerPage() {
     5
   );
 }
+
 
 function createPaginationHtml(
   totalPages
@@ -877,6 +1046,7 @@ function createPaginationHtml(
   return html;
 }
 
+
 function bindPaginationButtons(
   container,
   totalPages
@@ -900,7 +1070,8 @@ function bindPaginationButtons(
                 nextPage
               ) ||
               nextPage < 1 ||
-              nextPage > totalPages
+              nextPage >
+                totalPages
             ) {
               return;
             }
@@ -926,6 +1097,7 @@ function bindPaginationButtons(
       }
     );
 }
+
 
 function renderPagination(
   totalCoins
@@ -960,11 +1132,14 @@ function renderPagination(
   ) {
     containers.forEach(
       container => {
-        container.innerHTML = "";
+        container.innerHTML =
+          "";
 
         container
           .classList
-          .add("hidden");
+          .add(
+            "hidden"
+          );
       }
     );
 
@@ -980,7 +1155,9 @@ function renderPagination(
     container => {
       container
         .classList
-        .remove("hidden");
+        .remove(
+          "hidden"
+        );
 
       container.innerHTML =
         html;
@@ -993,10 +1170,13 @@ function renderPagination(
   );
 }
 
+
 function statusBadges(coin) {
   const badges = [];
 
-  if (coin.condition) {
+  if (
+    coin.condition
+  ) {
     badges.push(
       `<span class="badge condition">${escapeHtml(
         coin.condition
@@ -1004,25 +1184,39 @@ function statusBadges(coin) {
     );
   }
 
-  if (coin.inCollection) {
+  if (
+    coin.status ===
+    "duplicate"
+  ) {
     badges.push(
-      `<span class="badge collection">✓ In collection</span>`
+      `<span class="badge duplicate">↻ Duplicate</span>`
+    );
+  } else if (
+    coin.status ===
+    "missing"
+  ) {
+    badges.push(
+      `<span class="badge missing">○ Missing</span>`
     );
   } else {
     badges.push(
-      `<span class="badge missing">○ Missing</span>`
+      `<span class="badge collection">✓ In collection</span>`
     );
   }
 
   if (
-    coin.duplicates > 0
+    coin.duplicates > 0 &&
+    coin.status !==
+      "duplicate"
   ) {
     badges.push(
       `<span class="badge duplicate">↻ Duplicate ×${coin.duplicates}</span>`
     );
   }
 
-  if (coin.wanted) {
+  if (
+    coin.wanted
+  ) {
     badges.push(
       `<span class="badge wanted">Wanted</span>`
     );
@@ -1031,11 +1225,14 @@ function statusBadges(coin) {
   return badges.join("");
 }
 
+
 function imageMarkup(
   coin,
   modal = false
 ) {
-  if (coin.image) {
+  if (
+    coin.image
+  ) {
     const extraClass =
       modal
         ? ' class="modal-coin-image"'
@@ -1067,8 +1264,11 @@ function imageMarkup(
   `;
 }
 
+
 function renderCards(coins) {
-  if (!coins.length) {
+  if (
+    !coins.length
+  ) {
     els.grid.innerHTML =
       `<div class="empty-state">No coins match the selected filters.</div>`;
 
@@ -1079,80 +1279,87 @@ function renderCards(coins) {
     coins
       .map(
         coin => `
-    <article class="coin-card">
+          <article class="coin-card">
 
-      <button
-        class="coin-image coin-open"
-        type="button"
-        data-coin-index="${state.coins.indexOf(
-          coin
-        )}"
-        aria-label="Open details for ${escapeHtml(
-          coin.name ||
-          `${coin.denomination} ${coin.country}`
-        )}"
-      >
-        ${imageMarkup(coin)}
-      </button>
+            <button
+              class="coin-image coin-open"
+              type="button"
+              data-coin-index="${state.coins.indexOf(
+                coin
+              )}"
+              aria-label="Open details for ${escapeHtml(
+                coin.name ||
+                `${coin.denomination} ${coin.country}`
+              )}"
+            >
+              ${imageMarkup(
+                coin
+              )}
+            </button>
 
-      <div class="coin-content">
+            <div class="coin-content">
 
-        <div class="coin-topline">
-          <span>
-            ${flagEmoji(
-              coin.countryCode
-            )}
-            ${escapeHtml(
-              coin.country
-            )}
-          </span>
+              <div class="coin-topline">
+                <span>
+                  ${flagEmoji(
+                    coin.countryCode
+                  )}
+                  ${escapeHtml(
+                    coin.country
+                  )}
+                </span>
 
-          <span>
-            ${coin.year}
-          </span>
-        </div>
+                <span>
+                  ${escapeHtml(
+                    coin.year
+                  )}
+                </span>
+              </div>
 
-        <h3 class="coin-title">
-          ${escapeHtml(
-            coin.name ||
-            `${coin.denomination} ${coin.country}`
-          )}
-        </h3>
+              <h3 class="coin-title">
+                ${escapeHtml(
+                  coin.name ||
+                  `${coin.denomination} ${coin.country}`
+                )}
+              </h3>
 
-        <div class="coin-meta">
-          ${escapeHtml(
-            coin.denomination
-          )}
-          · ${escapeHtml(
-            coin.type
-          )}
+              <div class="coin-meta">
+                ${escapeHtml(
+                  coin.denomination
+                )}
 
-          ${
-            coin.mint
-              ? ` · Mint ${escapeHtml(
+                ·
+
+                ${escapeHtml(
+                  coin.type
+                )}
+
+                ${
                   coin.mint
-                )}`
-              : ""
-          }
-        </div>
+                    ? ` · Mint ${escapeHtml(
+                        coin.mint
+                      )}`
+                    : ""
+                }
+              </div>
 
-        ${
-          coin.description
-            ? `<p class="coin-preview">${escapeHtml(
+              ${
                 coin.description
-              )}</p>`
-            : ""
-        }
+                  ? `<p class="coin-preview">${escapeHtml(
+                      coin.description
+                    )}</p>`
+                  : ""
+              }
 
-        <div class="badges">
-          ${statusBadges(
-            coin
-          )}
-        </div>
+              <div class="badges">
+                ${statusBadges(
+                  coin
+                )}
+              </div>
 
-      </div>
-    </article>
-  `
+            </div>
+          </article>
+        `
       )
       .join("");
 
@@ -1173,6 +1380,12 @@ function renderCards(coins) {
                 )
               ];
 
+            if (
+              !coin
+            ) {
+              return;
+            }
+
             openCoinModal(
               coin
             );
@@ -1181,6 +1394,8 @@ function renderCards(coins) {
       }
     );
 }
+
+
 const tableSortColumns = [
   "country",
   "year",
@@ -1210,7 +1425,9 @@ function updateTableSortHeaders() {
           index
         ];
 
-      if (!key) {
+      if (
+        !key
+      ) {
         return;
       }
 
@@ -1234,14 +1451,16 @@ function updateTableSortHeaders() {
         state.tableSort ===
         `${key}-asc`
       ) {
-        arrow = " ↑";
+        arrow =
+          " ↑";
       }
 
       if (
         state.tableSort ===
         `${key}-desc`
       ) {
-        arrow = " ↓";
+        arrow =
+          " ↓";
       }
 
       header.textContent =
@@ -1268,7 +1487,9 @@ function bindTableSorting() {
           index
         ];
 
-      if (!key) {
+      if (
+        !key
+      ) {
         return;
       }
 
@@ -1300,12 +1521,9 @@ function bindTableSorting() {
         const desc =
           `${key}-desc`;
 
-        /*
-         * First click = ascending.
-         * Second click = descending.
-         */
         state.tableSort =
-          state.tableSort === asc
+          state.tableSort ===
+            asc
             ? desc
             : asc;
 
@@ -1313,11 +1531,11 @@ function bindTableSorting() {
           "coinTableSort",
           state.tableSort
         );
-        state.page = 1;
+
+        state.page =
+          1;
 
         render();
-
-        updateTableSortHeaders();
       }
 
       header.addEventListener(
@@ -1346,15 +1564,30 @@ function bindTableSorting() {
   updateTableSortHeaders();
 }
 
+
 function renderTable(coins) {
   els.tableBody.innerHTML =
     coins
       .map(
         coin => {
-          const status =
-            coin.inCollection
-              ? "In collection"
-              : "Missing";
+          let status =
+            "In collection";
+
+          if (
+            coin.status ===
+            "missing"
+          ) {
+            status =
+              "Missing";
+          }
+
+          if (
+            coin.status ===
+            "duplicate"
+          ) {
+            status =
+              "Duplicate";
+          }
 
           const coinIndex =
             state.coins.indexOf(
@@ -1382,7 +1615,9 @@ function renderTable(coins) {
               </td>
 
               <td>
-                ${coin.year}
+                ${escapeHtml(
+                  coin.year
+                )}
               </td>
 
               <td>
@@ -1399,7 +1634,8 @@ function renderTable(coins) {
 
               <td>
                 ${escapeHtml(
-                  coin.name || "—"
+                  coin.name ||
+                  "—"
                 )}
               </td>
 
@@ -1411,7 +1647,9 @@ function renderTable(coins) {
               </td>
 
               <td>
-                ${status}
+                ${escapeHtml(
+                  status
+                )}
               </td>
 
               <td>
@@ -1441,7 +1679,9 @@ function renderTable(coins) {
               coinIndex
             ];
 
-          if (!coin) {
+          if (
+            !coin
+          ) {
             return;
           }
 
@@ -1474,13 +1714,205 @@ function renderTable(coins) {
     );
 }
 
+
+function renderStats() {
+  if (
+    !els.stats
+  ) {
+    return;
+  }
+
+  const collection =
+    state.coins.filter(
+      coin =>
+        coin.status ===
+        "collection"
+    ).length;
+
+  const regular =
+    state.coins.filter(
+      coin =>
+        coin.status ===
+          "collection" &&
+        coin.type ===
+          "Regular"
+    ).length;
+
+  const commemorative =
+    state.coins.filter(
+      coin =>
+        coin.status ===
+          "collection" &&
+        coin.type ===
+          "Commemorative"
+    ).length;
+
+  const missing =
+    state.coins.filter(
+      coin =>
+        coin.status ===
+        "missing"
+    ).length;
+
+  const duplicates =
+    state.coins.filter(
+      coin =>
+        coin.status ===
+        "duplicate"
+    ).length;
+
+  const cards = [
+    {
+      label:
+        "My Collection",
+
+      value:
+        collection,
+
+      section:
+        "collection"
+    },
+
+    {
+      label:
+        "Regular €",
+
+      value:
+        regular,
+
+      section:
+        "regular"
+    },
+
+    {
+      label:
+        "2€ Commemorative",
+
+      value:
+        commemorative,
+
+      section:
+        "commemorative"
+    },
+
+    {
+      label:
+        "Missing",
+
+      value:
+        missing,
+
+      section:
+        "missing"
+    },
+
+    {
+      label:
+        "Duplicates",
+
+      value:
+        duplicates,
+
+      section:
+        "duplicates"
+    }
+  ];
+
+  els.stats.innerHTML =
+    cards
+      .map(
+        card => `
+          <div
+            class="stat-card"
+            data-stat-section="${card.section}"
+            role="button"
+            tabindex="0"
+            style="cursor: pointer;"
+          >
+            <div class="stat-label">
+              ${escapeHtml(
+                card.label
+              )}
+            </div>
+
+            <div class="stat-value">
+              ${card.value}
+            </div>
+          </div>
+        `
+      )
+      .join("");
+
+  els.stats
+    .querySelectorAll(
+      "[data-stat-section]"
+    )
+    .forEach(
+      card => {
+        function openSection() {
+          state.section =
+            card.dataset
+              .statSection;
+
+          localStorage.setItem(
+            "coinSection",
+            state.section
+          );
+
+          state.page =
+            1;
+
+          updateActiveNav();
+
+          render();
+
+          window.scrollTo({
+            top:
+              els.sectionTitle
+                .getBoundingClientRect()
+                .top +
+              window.scrollY -
+                20,
+
+            behavior:
+              "smooth"
+          });
+        }
+
+        card.addEventListener(
+          "click",
+          openSection
+        );
+
+        card.addEventListener(
+          "keydown",
+          event => {
+            if (
+              event.key ===
+                "Enter" ||
+              event.key ===
+                " "
+            ) {
+              event.preventDefault();
+
+              openSection();
+            }
+          }
+        );
+      }
+    );
+}
+
+
 function openCoinModal(coin) {
   const dialog =
     els.modal.querySelector(
       ".modal-dialog"
     );
 
-  if (!dialog) {
+  if (
+    !dialog
+  ) {
     return;
   }
 
@@ -1506,10 +1938,38 @@ function openCoinModal(coin) {
     coin.name ||
     `${coin.denomination} ${coin.country}`;
 
+  const subtitleParts = [];
+
+  if (
+    coin.year !== "" &&
+    coin.year !== null &&
+    coin.year !== undefined
+  ) {
+    subtitleParts.push(
+      coin.year
+    );
+  }
+
+  if (
+    coin.denomination
+  ) {
+    subtitleParts.push(
+      coin.denomination
+    );
+  }
+
+  if (
+    coin.type
+  ) {
+    subtitleParts.push(
+      coin.type
+    );
+  }
+
   els.modalSubtitle.textContent =
-    `${coin.year} · ` +
-    `${coin.denomination} · ` +
-    `${coin.type}`;
+    subtitleParts.join(
+      " · "
+    );
 
   els.modalBadges.innerHTML =
     statusBadges(
@@ -1580,20 +2040,20 @@ function openCoinModal(coin) {
           label,
           value
         ]) => `
-    <div class="fact">
-      <div class="fact-label">
-        ${escapeHtml(
-          label
-        )}
-      </div>
+          <div class="fact">
+            <div class="fact-label">
+              ${escapeHtml(
+                label
+              )}
+            </div>
 
-      <div class="fact-value">
-        ${escapeHtml(
-          value
-        )}
-      </div>
-    </div>
-  `
+            <div class="fact-value">
+              ${escapeHtml(
+                value
+              )}
+            </div>
+          </div>
+        `
       )
       .join("");
 
@@ -1605,11 +2065,15 @@ function openCoinModal(coin) {
 
     els.descriptionSection
       .classList
-      .remove("hidden");
+      .remove(
+        "hidden"
+      );
   } else {
     els.descriptionSection
       .classList
-      .add("hidden");
+      .add(
+        "hidden"
+      );
   }
 
   if (
@@ -1620,11 +2084,15 @@ function openCoinModal(coin) {
 
     els.notesSection
       .classList
-      .remove("hidden");
+      .remove(
+        "hidden"
+      );
   } else {
     els.notesSection
       .classList
-      .add("hidden");
+      .add(
+        "hidden"
+      );
   }
 
   els.modal.classList.remove(
@@ -1646,16 +2114,23 @@ function openCoinModal(coin) {
         "img"
       );
 
-  if (!image) {
+  if (
+    !image
+  ) {
     return;
   }
 
   let viewerOpen =
     false;
 
-  let scale = 1;
-  let posX = 0;
-  let posY = 0;
+  let scale =
+    1;
+
+  let posX =
+    0;
+
+  let posY =
+    0;
 
   let dragging =
     false;
@@ -1663,8 +2138,11 @@ function openCoinModal(coin) {
   let moved =
     false;
 
-  let startX = 0;
-  let startY = 0;
+  let startX =
+    0;
+
+  let startY =
+    0;
 
   let startPosX =
     0;
@@ -1681,15 +2159,22 @@ function openCoinModal(coin) {
   let pinchStartScale =
     1;
 
+
   function applyTransform() {
     image.style.transform =
       `translate3d(${posX}px, ${posY}px, 0) scale(${scale})`;
   }
 
+
   function resetTransform() {
-    scale = 1;
-    posX = 0;
-    posY = 0;
+    scale =
+      1;
+
+    posX =
+      0;
+
+    posY =
+      0;
 
     dragging =
       false;
@@ -1706,6 +2191,7 @@ function openCoinModal(coin) {
       "dragging"
     );
   }
+
 
   function initialScale() {
     if (
@@ -1725,6 +2211,7 @@ function openCoinModal(coin) {
     return 2.2;
   }
 
+
   function openViewer() {
     viewerOpen =
       true;
@@ -1736,11 +2223,15 @@ function openCoinModal(coin) {
     scale =
       initialScale();
 
-    posX = 0;
-    posY = 0;
+    posX =
+      0;
+
+    posY =
+      0;
 
     applyTransform();
   }
+
 
   function closeViewer() {
     viewerOpen =
@@ -1753,6 +2244,7 @@ function openCoinModal(coin) {
     resetTransform();
   }
 
+
   function pointerDistance() {
     const points =
       [
@@ -1760,8 +2252,7 @@ function openCoinModal(coin) {
       ];
 
     if (
-      points.length <
-      2
+      points.length < 2
     ) {
       return 0;
     }
@@ -1775,10 +2266,13 @@ function openCoinModal(coin) {
     );
   }
 
+
   image.addEventListener(
     "click",
     () => {
-      if (moved) {
+      if (
+        moved
+      ) {
         moved =
           false;
 
@@ -1796,6 +2290,7 @@ function openCoinModal(coin) {
       closeViewer();
     }
   );
+
 
   image.addEventListener(
     "pointerdown",
@@ -1824,8 +2319,7 @@ function openCoinModal(coin) {
       } catch (_) {}
 
       if (
-        pointers.size ===
-        2
+        pointers.size === 2
       ) {
         pinchStartDistance =
           pointerDistance();
@@ -1871,6 +2365,7 @@ function openCoinModal(coin) {
     }
   );
 
+
   image.addEventListener(
     "pointermove",
     event => {
@@ -1894,8 +2389,7 @@ function openCoinModal(coin) {
       );
 
       if (
-        pointers.size ===
-        2
+        pointers.size === 2
       ) {
         const distance =
           pointerDistance();
@@ -1976,6 +2470,7 @@ function openCoinModal(coin) {
     }
   );
 
+
   function stopPointer(
     event
   ) {
@@ -2003,13 +2498,13 @@ function openCoinModal(coin) {
     } catch (_) {}
 
     if (
-      pointers.size <
-      2
+      pointers.size < 2
     ) {
       pinchStartDistance =
         0;
     }
   }
+
 
   image.addEventListener(
     "pointerup",
@@ -2032,6 +2527,7 @@ function openCoinModal(coin) {
   };
 }
 
+
 function closeCoinModal() {
   if (
     viewerController &&
@@ -2047,7 +2543,9 @@ function closeCoinModal() {
       ".modal-dialog"
     );
 
-  if (dialog) {
+  if (
+    dialog
+  ) {
     dialog.classList.remove(
       "image-viewer"
     );
@@ -2070,8 +2568,8 @@ function closeCoinModal() {
   );
 }
 
-function render() {
 
+function render() {
   const coins =
     getFilteredCoins();
 
@@ -2115,7 +2613,8 @@ function render() {
   els.sectionTitle.textContent =
     sectionTitles[
       state.section
-    ];
+    ] ||
+    "All Coins";
 
   els.resultCount.textContent =
     `${coins.length} coin${
@@ -2139,7 +2638,21 @@ function render() {
   );
 }
 
+
 function updateActiveNav() {
+  /*
+   * My Collection is opened from
+   * a statistics card, not from
+   * the main navigation.
+   *
+   * Therefore Home remains highlighted.
+   */
+  const activeSection =
+    state.section ===
+      "collection"
+      ? "home"
+      : state.section;
+
   document
     .querySelectorAll(
       ".nav-link"
@@ -2148,12 +2661,14 @@ function updateActiveNav() {
       button => {
         button.classList.toggle(
           "active",
-          button.dataset.section ===
-            state.section
+          button.dataset
+            .section ===
+            activeSection
         );
       }
     );
 }
+
 
 function bindEvents() {
   [
@@ -2175,6 +2690,7 @@ function bindEvents() {
     }
   );
 
+
   els.sort.addEventListener(
     "change",
     () => {
@@ -2182,8 +2698,8 @@ function bindEvents() {
         els.sort.value;
 
       /*
-       * Sort by dropdown becomes
-       * active again.
+       * Dropdown sorting takes
+       * control again.
        */
       state.tableSort =
         "";
@@ -2191,7 +2707,7 @@ function bindEvents() {
       localStorage.removeItem(
         "coinTableSort"
       );
-      
+
       localStorage.setItem(
         "coinSort",
         state.sort
@@ -2204,6 +2720,7 @@ function bindEvents() {
     }
   );
 
+
   els.search.addEventListener(
     "input",
     () => {
@@ -2214,6 +2731,7 @@ function bindEvents() {
     }
   );
 
+
   document
     .querySelectorAll(
       ".nav-link"
@@ -2223,61 +2741,57 @@ function bindEvents() {
         button.addEventListener(
           "click",
           () => {
-            document
-              .querySelectorAll(
-                ".nav-link"
-              )
-              .forEach(
-                b =>
-                  b.classList.remove(
-                    "active"
-                  )
-              );
-
-            button.classList.add(
-              "active"
-            );
-
             state.section =
-              button.dataset.section;
+              button.dataset
+                .section;
 
             localStorage.setItem(
               "coinSection",
               state.section
             );
-            
+
             state.page =
-               1;
-  
+              1;
+
+            updateActiveNav();
+
             render();
           }
         );
       }
     );
 
+
   els.themeToggle.addEventListener(
     "click",
     () => {
       setTheme(
         state.theme ===
-        "light"
+          "light"
           ? "dark"
           : "light"
       );
     }
   );
 
+
   els.viewToggle.addEventListener(
     "click",
     () => {
       setView(
         state.view ===
-        "cards"
+          "cards"
           ? "table"
           : "cards"
       );
+
+      state.page =
+        1;
+
+      render();
     }
   );
+
 
   document
     .querySelectorAll(
@@ -2292,15 +2806,18 @@ function bindEvents() {
       }
     );
 
+
   document.addEventListener(
     "keydown",
     event => {
       if (
         event.key !==
           "Escape" ||
-        els.modal.classList.contains(
-          "hidden"
-        )
+        els.modal
+          .classList
+          .contains(
+            "hidden"
+          )
       ) {
         return;
       }
@@ -2309,10 +2826,10 @@ function bindEvents() {
     }
   );
 
+
   window.addEventListener(
     "resize",
     () => {
-
       state.page =
         1;
 
@@ -2321,7 +2838,39 @@ function bindEvents() {
   );
 }
 
+
 async function init() {
+  /*
+   * Protect against old values
+   * such as:
+   *
+   * statistics
+   * all
+   */
+  const validSections = [
+    "home",
+    "collection",
+    "regular",
+    "commemorative",
+    "missing",
+    "duplicates"
+  ];
+
+  if (
+    !validSections.includes(
+      state.section
+    )
+  ) {
+    state.section =
+      "home";
+
+    localStorage.setItem(
+      "coinSection",
+      state.section
+    );
+  }
+
+
   setTheme(
     state.theme
   );
@@ -2329,6 +2878,7 @@ async function init() {
   setView(
     state.view
   );
+
 
   const validSorts = [
     "country-asc",
@@ -2348,15 +2898,46 @@ async function init() {
   ) {
     state.sort =
       "country-asc";
+
+    localStorage.setItem(
+      "coinSort",
+      state.sort
+    );
   }
+
+
+  const validTableSorts =
+    tableSortColumns.flatMap(
+      key => [
+        `${key}-asc`,
+        `${key}-desc`
+      ]
+    );
+
+  if (
+    state.tableSort &&
+    !validTableSorts.includes(
+      state.tableSort
+    )
+  ) {
+    state.tableSort =
+      "";
+
+    localStorage.removeItem(
+      "coinTableSort"
+    );
+  }
+
 
   els.sort.value =
     state.sort;
 
   updateActiveNav();
-  
+
   bindEvents();
+
   bindTableSorting();
+
 
   try {
     const response =
@@ -2377,6 +2958,8 @@ async function init() {
 
     populateFilters();
 
+    renderStats();
+
     render();
 
   } catch (
@@ -2396,5 +2979,6 @@ async function init() {
     );
   }
 }
+
 
 init();
