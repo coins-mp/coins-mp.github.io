@@ -1356,5 +1356,33 @@
     "description": "Regular 1 € circulation coin of Netherlands.",
     "notes": "Second series: King Willem-Alexander is shown with the inscription \"Willem-Alexander Koning der Nederlanden\" (King of the Netherlands). The mint marks appear on either side of the year of issuance.",
     "imageFile": "099_Netherlands__1Euro_Regular.jpeg"
+  },
+  {
+    "id": "100",
+    "country": "Portugal",
+    "year": "",
+    "denomination": "1 cent",
+    "type": "Regular",
+    "name": "1 cent",
+    "condition": "",
+    "status": "Missing",
+    "mintage": "",
+    "description": "Regular 1 cent circulation coin of Portugal.",
+    "notes": "1, 2 and 5-cent coins: these bear the image of the first royal seal, from 1134, along with the inscription \"Portugal\".",
+    "imageFile": "100_Portugal__1cent_Regular.jpeg"
+  },
+  {
+    "id": "101",
+    "country": "Slovakia",
+    "year": "",
+    "denomination": "1 €",
+    "type": "Regular",
+    "name": "1 Euro",
+    "condition": "",
+    "status": "Missing",
+    "mintage": "",
+    "description": "Regular 1 € circulation coin of Slovakia.",
+    "notes": "The €1 and €2 coins depict a double cross on three hills, as featured in the national emblem of Slovakia.",
+    "imageFile": "101_Slovakia__1Euro_Regular.jpeg"
   }
 ]
