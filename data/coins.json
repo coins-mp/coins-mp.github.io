@@ -1692,5 +1692,27 @@
     "diameter": "24.25 mm",
     "description": "Regular 50 cent circulation coin of France.",
     "notes": "In 2024 France introduced a new 50 cent coin series. Designed by Joaquin Jimenez, the coin features a portrait of Nobel Prize-winning scientist Marie Curie, known for her pioneering work on radioactivity. The portrait is set within a French flag motif, symbolising Curie's iconic place in the French Republic, represented by the letters RF."
+  },
+  {
+    "id": "080",
+    "country": "Ireland",
+    "countryCode": "IE",
+    "year": "",
+    "denomination": "1 cent",
+    "type": "Regular",
+    "name": "1 cent",
+    "condition": "",
+    "mint": "",
+    "inCollection": false,
+    "status": "missing",
+    "duplicates": 0,
+    "wanted": false,
+    "image": "images/coins/Ireland/080_Ireland__1cent_Regular.jpeg",
+    "mintage": "",
+    "metal": "Copper-plated steel",
+    "weight": "2.30 g",
+    "diameter": "16.25 mm",
+    "description": "Regular 1 cent circulation coin of Ireland.",
+    "notes": "The Government of Ireland decided on a single national design for all Irish coin denominations. They show the Celtic harp, a traditional symbol of Ireland, decorated with the year of issue and the inscription \"Éire\" − the Irish word for Ireland. The harp shown was designed by Jarlath Hayes."
   }
 ]
