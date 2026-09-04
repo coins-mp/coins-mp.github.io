@@ -1244,5 +1244,19 @@
     "description": "Regular 1 € circulation coin of Lithuania.",
     "notes": "Lithuania’s euro coins show the coat of arms of the Republic of Lithuania, Vytis, the country of issuance \"LIETUVA\" and the year of issuance \"2015\". The coins also feature the 12 stars of the European flag. They were designed by the sculptor Antanas Žukauskas.",
     "imageFile": "091_Lithuania__1Euro_Regular.jpeg"
+  },
+  {
+    "id": "092",
+    "country": "Malta",
+    "year": "",
+    "denomination": "1 cent",
+    "type": "Regular",
+    "name": "1 cent",
+    "condition": "",
+    "status": "Missing",
+    "mintage": "",
+    "description": "Regular 1 cent circulation coin of Malta.",
+    "notes": "The 1, 2 and 5-cent coins depict the altar at the prehistoric temple complex of Mnajdra, built around 3600 BC on a low elevation overlooking the sea.",
+    "imageFile": "092_Malta__1cent_Regular.jpeg"
   }
 ]
