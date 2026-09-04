@@ -1384,5 +1384,19 @@
     "description": "Regular 1 € circulation coin of Slovakia.",
     "notes": "The €1 and €2 coins depict a double cross on three hills, as featured in the national emblem of Slovakia.",
     "imageFile": "101_Slovakia__1Euro_Regular.jpeg"
+  },
+  {
+    "id": "102",
+    "country": "Spain",
+    "year": "",
+    "denomination": "2 €",
+    "type": "Regular",
+    "name": "2 Euro",
+    "condition": "",
+    "status": "Missing",
+    "mintage": "",
+    "description": "Regular 2 € circulation coin of Spain.",
+    "notes": "Spain’s coins feature three designs with effigies of the King, Miguel de Cervantes and the cathedral of Santiago de Compostela. There are three series of coins in circulation. All are valid.\n\nFor the second series, the coins were slightly redesigned in 2010 in order to comply with the common guidelines issued by the European Commission. The year, for instance, is inscribed on the inner part of the coin.\n\nThe first and second series show a portrait of King Juan Carlos I de Borbón y Borbón.",
+    "imageFile": "102_Spain__2Euro_Regular.jpeg"
   }
 ]
