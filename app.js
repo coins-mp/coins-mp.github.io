@@ -33,7 +33,6 @@ const els = {
   grid: document.getElementById("coinGrid"),
   tableWrap: document.getElementById("coinTableWrap"),
   tableBody: document.getElementById("coinTableBody"),
-  stats: document.getElementById("statsGrid"),
   country: document.getElementById("countryFilter"),
   year: document.getElementById("yearFilter"),
   denomination: document.getElementById("denominationFilter"),
@@ -1475,194 +1474,6 @@ function renderTable(coins) {
     );
 }
 
-function renderStats() {
-  const collected =
-    state.coins.filter(
-      coin =>
-        coin.status ===
-        "collection"
-    ).length;
-
-  const commemorative =
-    state.coins.filter(
-      coin =>
-        coin.status ===
-          "collection" &&
-        coin.type ===
-          "Commemorative"
-    ).length;
-
-  const missing =
-    state.coins.filter(
-      coin =>
-        coin.status ===
-        "missing"
-    ).length;
-
-  const duplicates =
-    state.coins.reduce(
-      (
-        sum,
-        coin
-      ) =>
-        sum +
-        (
-          coin.duplicates ||
-          0
-        ),
-      0
-    );
-
-  const cards = [
-    {
-      label:
-        "2€ Commemorative",
-      value:
-        commemorative,
-      section:
-        "commemorative"
-    },
-
-    {
-      label:
-        "Collection",
-      value:
-        collected,
-      section:
-        "home"
-    },
-
-    {
-      label:
-        "Missing",
-      value:
-        missing,
-      section:
-        "missing"
-    },
-
-    {
-      label:
-        "Duplicates",
-      value:
-        duplicates,
-      section:
-        "duplicates"
-    }
-  ];
-
-  els.stats.innerHTML =
-    cards
-      .map(
-        card => `
-    <div
-      class="stat-card"
-      data-stat-section="${card.section}"
-      role="button"
-      tabindex="0"
-      style="cursor: pointer;"
-    >
-      <div class="stat-label">
-        ${card.label}
-      </div>
-
-      <div class="stat-value">
-        ${card.value}
-      </div>
-    </div>
-  `
-      )
-      .join("");
-
-  els.stats
-    .querySelectorAll(
-      "[data-stat-section]"
-    )
-    .forEach(
-      card => {
-        function openSection() {
-          const section =
-            card.dataset
-              .statSection;
-
-          state.section =
-            section;
-
-          localStorage.setItem(
-            "coinSection",
-            state.section
-          );
-          
-          state.page =
-            1;
-
-          document
-            .querySelectorAll(
-              ".nav-link"
-            )
-            .forEach(
-              button => {
-                button.classList.toggle(
-                  "active",
-                  button.dataset
-                    .section ===
-                    section
-                );
-              }
-            );
-
-          render();
-
-          window.scrollTo({
-            top:
-              els.sectionTitle
-                .getBoundingClientRect()
-                .top +
-              window.scrollY -
-              20,
-
-            behavior:
-              "smooth"
-          });
-        }
-
-        card.addEventListener(
-          "click",
-          openSection
-        );
-
-        card.addEventListener(
-          "keydown",
-          event => {
-            if (
-              event.key ===
-                "Enter" ||
-              event.key ===
-                " "
-            ) {
-              event.preventDefault();
-
-              openSection();
-            }
-          }
-        );
-      }
-    );
-}
-
-function updateStatsVisibility() {
-  const isMobile =
-    window.matchMedia(
-      "(max-width: 560px)"
-    ).matches;
-
-  els.stats.classList.toggle(
-    "hidden",
-    isMobile &&
-    state.section !== "home"
-  );
-}
-
 function openCoinModal(coin) {
   const dialog =
     els.modal.querySelector(
@@ -2260,7 +2071,6 @@ function closeCoinModal() {
 }
 
 function render() {
-  updateStatsVisibility();
 
   const coins =
     getFilteredCoins();
@@ -2502,7 +2312,6 @@ function bindEvents() {
   window.addEventListener(
     "resize",
     () => {
-      updateStatsVisibility();
 
       state.page =
         1;
@@ -2567,8 +2376,6 @@ async function init() {
       await response.json();
 
     populateFilters();
-
-    renderStats();
 
     render();
 
