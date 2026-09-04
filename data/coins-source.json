@@ -1202,5 +1202,47 @@
     "description": "Regular 2 € circulation coin of Latvia.",
     "notes": "The €2 coin features a Latvian folk maiden. This image was originally used on the silver 5 lats coin in 1929. The edge of the coin bears the inscription DIEVS * SVĒTĪ * LATVIJU (GOD BLESS LATVIA). The designer is Guntars Sietiņš.",
     "imageFile": "088_Latvia__2Euro_Regular.jpeg"
+  },
+  {
+    "id": "089",
+    "country": "Lithuania",
+    "year": "",
+    "denomination": "2 cent",
+    "type": "Regular",
+    "name": "2 cent",
+    "condition": "",
+    "status": "Missing",
+    "mintage": "",
+    "description": "Regular 2 cent circulation coin of Lithuania.",
+    "notes": "Lithuania’s euro coins show the coat of arms of the Republic of Lithuania, Vytis, the country of issuance \"LIETUVA\" and the year of issuance \"2015\". The coins also feature the 12 stars of the European flag. They were designed by the sculptor Antanas Žukauskas.",
+    "imageFile": "089_Lithuania__2cent_Regular.jpeg"
+  },
+  {
+    "id": "090",
+    "country": "Lithuania",
+    "year": "",
+    "denomination": "5 cent",
+    "type": "Regular",
+    "name": "5 cent",
+    "condition": "",
+    "status": "Missing",
+    "mintage": "",
+    "description": "Regular 5 cent circulation coin of Lithuania.",
+    "notes": "Lithuania’s euro coins show the coat of arms of the Republic of Lithuania, Vytis, the country of issuance \"LIETUVA\" and the year of issuance \"2015\". The coins also feature the 12 stars of the European flag. They were designed by the sculptor Antanas Žukauskas.",
+    "imageFile": "090_Lithuania__5cent_Regular.jpeg"
+  },
+  {
+    "id": "091",
+    "country": "Lithuania",
+    "year": "",
+    "denomination": "1 €",
+    "type": "Regular",
+    "name": "1 Euro",
+    "condition": "",
+    "status": "Missing",
+    "mintage": "",
+    "description": "Regular 1 € circulation coin of Lithuania.",
+    "notes": "Lithuania’s euro coins show the coat of arms of the Republic of Lithuania, Vytis, the country of issuance \"LIETUVA\" and the year of issuance \"2015\". The coins also feature the 12 stars of the European flag. They were designed by the sculptor Antanas Žukauskas.",
+    "imageFile": "091_Lithuania__1Euro_Regular.jpeg"
   }
 ]
