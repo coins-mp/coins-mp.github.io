@@ -1300,5 +1300,61 @@
     "description": "Regular 20 cent circulation coin of Malta.",
     "notes": "The 10, 20 and 50-cent coins bear the Emblem of Malta, a shield displaying a heraldic representation of the Maltese national flag and supporting a mural crown that represents the fortifications of Malta and denotes a city state. The shield is bounded on the left by an olive branch and on the right by a palm branch, symbols of peace traditionally associated with Malta, forming a wreath tied at its base by a ribbon which carries the inscription \"Repubblika ta' Malta\" (Republic of Malta).",
     "imageFile": "095_Malta__20cent_Regular.jpeg"
+  },
+  {
+    "id": "096",
+    "country": "Netherlands",
+    "year": "",
+    "denomination": "1 cent",
+    "type": "Regular",
+    "name": "1 cent",
+    "condition": "",
+    "status": "Missing",
+    "mintage": "",
+    "description": "Regular 1 cent circulation coin of Netherlands.",
+    "notes": "Second series: Superimposed on an effigy of the King Willem-Alexander are the words \"Willem-Alexander Koning der Nederlanden\" (King of the Netherlands). The mint marks appear on either side of the name.",
+    "imageFile": "096_Netherlands__1cent_Regular.jpeg"
+  },
+  {
+    "id": "097",
+    "country": "Netherlands",
+    "year": "",
+    "denomination": "2 cent",
+    "type": "Regular",
+    "name": "2 cent",
+    "condition": "",
+    "status": "Missing",
+    "mintage": "",
+    "description": "Regular 2 cent circulation coin of Netherlands.",
+    "notes": "Second series: Superimposed on an effigy of the King Willem-Alexander are the words \"Willem-Alexander Koning der Nederlanden\" (King of the Netherlands). The mint marks appear on either side of the name.",
+    "imageFile": "097_Netherlands__2cent_Regular.jpeg"
+  },
+  {
+    "id": "098",
+    "country": "Netherlands",
+    "year": "",
+    "denomination": "50 cent",
+    "type": "Regular",
+    "name": "50 cent",
+    "condition": "",
+    "status": "Missing",
+    "mintage": "",
+    "description": "Regular 50 cent circulation coin of Netherlands.",
+    "notes": "Second series: Superimposed on an effigy of the King Willem-Alexander are the words \"Willem-Alexander Koning der Nederlanden; (King of the Netherlands). The mint marks appear on either side of the name.",
+    "imageFile": "098_Netherlands__50cent_Regular.jpeg"
+  },
+  {
+    "id": "099",
+    "country": "Netherlands",
+    "year": "",
+    "denomination": "1 €",
+    "type": "Regular",
+    "name": "1 Euro",
+    "condition": "",
+    "status": "Missing",
+    "mintage": "",
+    "description": "Regular 1 € circulation coin of Netherlands.",
+    "notes": "Second series: King Willem-Alexander is shown with the inscription \"Willem-Alexander Koning der Nederlanden\" (King of the Netherlands). The mint marks appear on either side of the year of issuance.",
+    "imageFile": "099_Netherlands__1Euro_Regular.jpeg"
   }
 ]
