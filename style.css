@@ -175,6 +175,75 @@ select {
   padding: 0 24px 48px;
 }
 
+
+/* Summary cards */
+
+.stats-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      5,
+      minmax(0, 1fr)
+    );
+
+  gap: 14px;
+
+  margin-bottom: 18px;
+}
+
+.stat-card {
+  min-width: 0;
+
+  background: var(--surface);
+
+  border: 1px solid var(--border);
+
+  border-radius: 16px;
+
+  padding: 18px;
+
+  box-shadow: var(--shadow);
+
+  cursor: pointer;
+
+  transition:
+    transform .18s ease,
+    border-color .18s ease,
+    background .18s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-2px);
+
+  border-color: var(--accent);
+}
+
+.stat-card:focus-visible {
+  outline: 2px solid var(--accent);
+
+  outline-offset: 2px;
+}
+
+.stat-label {
+  color: var(--text-secondary);
+
+  font-size: 14px;
+
+  line-height: 1.25;
+}
+
+.stat-value {
+  font-size: 28px;
+
+  font-weight: 700;
+
+  margin-top: 5px;
+}
+
+
+/* Filters */
+
 .filters-panel {
   display: grid;
 
@@ -238,6 +307,9 @@ select {
   grid-column: 3 / 4;
 }
 
+
+/* Section heading */
+
 .section-heading {
   display: flex;
 
@@ -259,6 +331,9 @@ select {
 
   color: var(--text-secondary);
 }
+
+
+/* Cards */
 
 .coin-grid {
   display: grid;
@@ -525,6 +600,9 @@ select {
   color: var(--wanted);
 }
 
+
+/* Table */
+
 .coin-table-wrap {
   overflow-x: auto;
 
@@ -572,6 +650,9 @@ select {
   background: var(--surface-soft);
 }
 
+
+/* Pagination */
+
 .pagination {
   margin-top: 24px;
 
@@ -588,6 +669,7 @@ select {
 
 #paginationTop {
   margin-top: 10px;
+
   margin-bottom: 36px;
 }
 
@@ -658,6 +740,7 @@ select {
 
   border-radius: 16px;
 }
+
 
 /* Coin details modal */
 
@@ -782,6 +865,7 @@ select {
 
   -webkit-user-drag: none;
 }
+
 
 /* Full-screen image viewer */
 
@@ -1009,11 +1093,22 @@ select {
   line-height: 1.6;
 }
 
+
+/* Tablet */
+
 @media (max-width: 900px) {
   .site-header {
     align-items: flex-start;
 
     flex-direction: column;
+  }
+
+  .stats-grid {
+    grid-template-columns:
+      repeat(
+        2,
+        minmax(0, 1fr)
+      );
   }
 
   .filters-panel {
@@ -1042,6 +1137,9 @@ select {
     min-height: 340px;
   }
 }
+
+
+/* Mobile */
 
 @media (max-width: 560px) {
   .site-header,
@@ -1103,6 +1201,38 @@ select {
 
     font-size: 13px;
   }
+
+
+  /* Summary cards on mobile */
+
+  .stats-grid {
+    grid-template-columns:
+      repeat(
+        2,
+        minmax(0, 1fr)
+      );
+
+    gap: 7px;
+
+    margin-bottom: 10px;
+  }
+
+  .stat-card {
+    padding: 9px 10px;
+
+    border-radius: 11px;
+  }
+
+  .stat-label {
+    font-size: 10px;
+  }
+
+  .stat-value {
+    font-size: 19px;
+
+    margin-top: 1px;
+  }
+
 
   .filters-panel {
     grid-template-columns:
