@@ -1090,5 +1090,33 @@
     "description": "Regular 1 cent circulation coin of Ireland.",
     "notes": "The Government of Ireland decided on a single national design for all Irish coin denominations. They show the Celtic harp, a traditional symbol of Ireland, decorated with the year of issue and the inscription \"Éire\" − the Irish word for Ireland. The harp shown was designed by Jarlath Hayes.",
     "imageFile": "080_Ireland__1cent_Regular.jpeg"
+  },
+  {
+    "id": "081",
+    "country": "Ireland",
+    "year": "",
+    "denomination": "2 €",
+    "type": "Regular",
+    "name": "2 Euro",
+    "condition": "",
+    "status": "Missing",
+    "mintage": "",
+    "description": "Regular 2 € circulation coin of Ireland.",
+    "notes": "The Government of Ireland decided on a single national design for all Irish coin denominations. They show the Celtic harp, a traditional symbol of Ireland, decorated with the year of issue and the inscription \"Éire\" − the Irish word for Ireland. The harp shown was designed by Jarlath Hayes.\n\nEdge lettering of the €2 coin: 2**, repeated six times, alternately upright and inverted.",
+    "imageFile": "081_Ireland__2Euro_Regular.jpeg"
+  },
+  {
+    "id": "082",
+    "country": "Ireland",
+    "year": "",
+    "denomination": "20 cent",
+    "type": "Regular",
+    "name": "20 cent",
+    "condition": "",
+    "status": "Missing",
+    "mintage": "",
+    "description": "Regular 20 cent circulation coin of Ireland.",
+    "notes": "The Government of Ireland decided on a single national design for all Irish coin denominations. They show the Celtic harp, a traditional symbol of Ireland, decorated with the year of issue and the inscription \"Éire\" − the Irish word for Ireland. The harp shown was designed by Jarlath Hayes.",
+    "imageFile": "082_Ireland__20cent_Regular.jpeg"
   }
 ]
