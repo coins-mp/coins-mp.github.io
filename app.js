@@ -12,7 +12,10 @@ const state = {
    * This is intentionally separate
    * from the Sort by dropdown.
    */
-  tableSort: "",
+  tableSort:
+  localStorage.getItem(
+    "coinTableSort"
+  ) || "",
 
   page: 1
 };
@@ -1305,6 +1308,10 @@ function bindTableSorting() {
             ? desc
             : asc;
 
+        localStorage.setItem(
+          "coinTableSort",
+          state.tableSort
+        );
         state.page = 1;
 
         render();
@@ -2284,6 +2291,10 @@ function bindEvents() {
       state.tableSort =
         "";
 
+      localStorage.removeItem(
+        "coinTableSort"
+      );
+      
       localStorage.setItem(
         "coinSort",
         state.sort
