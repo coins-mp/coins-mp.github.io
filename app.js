@@ -1357,58 +1357,122 @@ function renderTable(coins) {
               ? "In collection"
               : "Missing";
 
+          const coinIndex =
+            state.coins.indexOf(
+              coin
+            );
+
           return `
-      <tr>
-        <td>
-          ${flagEmoji(
-            coin.countryCode
-          )}
-          ${escapeHtml(
-            coin.country
-          )}
-        </td>
+            <tr
+              class="coin-table-row"
+              data-coin-index="${coinIndex}"
+              tabindex="0"
+              role="button"
+              aria-label="Open details for ${escapeHtml(
+                coin.name ||
+                `${coin.denomination} ${coin.country}`
+              )}"
+            >
+              <td>
+                ${flagEmoji(
+                  coin.countryCode
+                )}
+                ${escapeHtml(
+                  coin.country
+                )}
+              </td>
 
-        <td>
-          ${coin.year}
-        </td>
+              <td>
+                ${coin.year}
+              </td>
 
-        <td>
-          ${escapeHtml(
-            coin.denomination
-          )}
-        </td>
+              <td>
+                ${escapeHtml(
+                  coin.denomination
+                )}
+              </td>
 
-        <td>
-          ${escapeHtml(
-            coin.type
-          )}
-        </td>
+              <td>
+                ${escapeHtml(
+                  coin.type
+                )}
+              </td>
 
-        <td>
-          ${escapeHtml(
-            coin.name || "—"
-          )}
-        </td>
+              <td>
+                ${escapeHtml(
+                  coin.name || "—"
+                )}
+              </td>
 
-        <td>
-          ${escapeHtml(
-            coin.condition ||
-            "—"
-          )}
-        </td>
+              <td>
+                ${escapeHtml(
+                  coin.condition ||
+                  "—"
+                )}
+              </td>
 
-        <td>
-          ${status}
-        </td>
+              <td>
+                ${status}
+              </td>
 
-        <td>
-          ${coin.duplicates || 0}
-        </td>
-      </tr>
-    `;
+              <td>
+                ${coin.duplicates || 0}
+              </td>
+            </tr>
+          `;
         }
       )
       .join("");
+
+  els.tableBody
+    .querySelectorAll(
+      ".coin-table-row"
+    )
+    .forEach(
+      row => {
+        function openRowCoin() {
+          const coinIndex =
+            Number(
+              row.dataset
+                .coinIndex
+            );
+
+          const coin =
+            state.coins[
+              coinIndex
+            ];
+
+          if (!coin) {
+            return;
+          }
+
+          openCoinModal(
+            coin
+          );
+        }
+
+        row.addEventListener(
+          "click",
+          openRowCoin
+        );
+
+        row.addEventListener(
+          "keydown",
+          event => {
+            if (
+              event.key ===
+                "Enter" ||
+              event.key ===
+                " "
+            ) {
+              event.preventDefault();
+
+              openRowCoin();
+            }
+          }
+        );
+      }
+    );
 }
 
 function renderStats() {
