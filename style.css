@@ -1320,21 +1320,39 @@ select {
   }
 
   .modal {
-    padding: 8px;
+    padding:
+      8px
+      8px
+      max(
+        8px,
+        env(safe-area-inset-bottom)
+      );
   }
 
   .modal-dialog {
     width: 100%;
 
-    max-height: 96vh;
+    height:
+      calc(
+        100dvh -
+        16px
+      );
+
+    max-height:
+      calc(
+        100dvh -
+        16px
+      );
 
     border-radius: 14px;
 
     grid-template-columns: 1fr;
 
     grid-template-rows:
-      minmax(300px, 48vh)
-      auto;
+      minmax(260px, 46dvh)
+      minmax(0, 1fr);
+
+    overflow: hidden;
   }
 
   .modal-image-panel {
@@ -1362,23 +1380,49 @@ select {
   }
 
   .modal-dialog.image-viewer {
+    position: fixed;
+
+    inset: 0;
+
     width: 100vw;
 
     height: 100dvh;
+
+    max-width: none;
 
     max-height: none;
 
     border-radius: 0;
 
     grid-template-rows: none;
+
+    overflow: hidden;
   }
 
   .modal-dialog.image-viewer .modal-image-panel {
-    height: 100%;
+    width: 100%;
+
+    height: 100dvh;
+
+    min-height: 0;
 
     max-height: none;
 
     padding: 0;
+
+    overflow: hidden;
+  }
+
+  .modal-dialog.image-viewer .modal-image-panel img {
+    width: 100%;
+
+    height: 100%;
+
+    max-width: 100%;
+
+    max-height: 100%;
+
+    object-fit: contain;
   }
 
   .modal-content {
@@ -1386,20 +1430,45 @@ select {
 
     min-height: 0;
 
-    max-height: none;
+    height: 100%;
+
+    max-height: 100%;
+
+    display: flex;
+
+    flex-direction: column;
 
     overflow: hidden;
   }
 
   .modal-sticky-header {
+    flex-shrink: 0;
+
     padding: 22px 16px 14px;
   }
 
   .modal-scroll-content {
+    min-height: 0;
+
+    flex: 1 1 auto;
+
     padding:
-      0 16px 18px;
+      0
+      16px
+      calc(
+        36px +
+        env(safe-area-inset-bottom)
+      );
 
     overflow-y: auto;
+
+    overflow-x: hidden;
+
+    -webkit-overflow-scrolling:
+      touch;
+
+    overscroll-behavior:
+      contain;
   }
 
   .modal-content h2 {
