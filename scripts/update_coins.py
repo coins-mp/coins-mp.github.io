@@ -378,6 +378,10 @@ def main():
             source_coin.get("name")
         )
 
+        series = clean(
+            source_coin.get("series")
+        )
+
         condition = clean(
             source_coin.get(
                 "condition"
@@ -563,6 +567,7 @@ def main():
             "denomination": denomination,
             "type": coin_type,
             "name": display_name,
+            "series": series,
             "condition": condition,
             "mint": "",
             "inCollection": in_collection,
