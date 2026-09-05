@@ -2012,10 +2012,17 @@ function renderCards(coins) {
               </div>
 
               ${
-                coin.description
-                  ? `<p class="coin-preview">${escapeHtml(
-                      coin.description
-                    )}</p>`
+                coin.series
+                  ? `
+                    <div
+                      class="coin-meta"
+                      style="margin-top: 4px;"
+                    >
+                      Series: ${escapeHtml(
+                        coin.series
+                      )}
+                    </div>
+                  `
                   : ""
               }
 
