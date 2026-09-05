@@ -2880,18 +2880,20 @@ function openCoinModal(coin) {
 
 
   function initialScale() {
-    if (
-      window.innerWidth <=
-      560
-    ) {
-      return 1.8;
-    }
-
+    /*
+     * Mobile / tablet:
+     *
+     * Open the coin fully fitted
+     * inside the screen first.
+     *
+     * The user can then pinch
+     * with two fingers to zoom.
+     */
     if (
       window.innerWidth <=
       900
     ) {
-      return 2;
+      return 1;
     }
 
     return 2.2;
