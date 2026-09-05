@@ -70,6 +70,463 @@ const sectionTitles = {
 
 let viewerController = null;
 
+let modalNavigationCoins = [];
+let modalNavigationIndex = -1;
+
+
+function ensureModalNavigationStyles() {
+  if (
+    document.getElementById(
+      "coin-modal-navigation-styles"
+    )
+  ) {
+    return;
+  }
+
+  const style =
+    document.createElement(
+      "style"
+    );
+
+  style.id =
+    "coin-modal-navigation-styles";
+
+  style.textContent = `
+    .modal-coin-navigation {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 18px;
+      width: 100%;
+      margin-top: 22px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(127, 127, 127, 0.25);
+      box-sizing: border-box;
+    }
+
+    .modal-coin-nav-side {
+      min-width: 0;
+    }
+
+    .modal-coin-nav-side.next {
+      text-align: right;
+    }
+
+    .modal-coin-nav-button {
+      display: inline-flex;
+      flex-direction: column;
+      gap: 5px;
+      max-width: 100%;
+      padding: 0;
+      margin: 0;
+      border: 0;
+      background: transparent;
+      color: inherit;
+      font: inherit;
+      cursor: pointer;
+      text-align: left;
+    }
+
+    .modal-coin-nav-side.next
+      .modal-coin-nav-button {
+      align-items: flex-end;
+      text-align: right;
+    }
+
+    .modal-coin-nav-direction {
+      font-size: 14px;
+      line-height: 1.2;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      opacity: 0.8;
+    }
+
+    .modal-coin-nav-coin {
+      display: block;
+      max-width: 100%;
+      font-size: 16px;
+      line-height: 1.3;
+      font-weight: 500;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .modal-coin-nav-mobile {
+      display: none;
+    }
+
+    .modal-coin-nav-button:hover
+      .modal-coin-nav-coin,
+    .modal-coin-nav-button:hover
+      .modal-coin-nav-direction {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 560px) {
+      .modal-coin-navigation {
+        gap: 10px;
+        margin-top: 14px;
+        padding-top: 12px;
+      }
+
+      .modal-coin-nav-button {
+        width: 100%;
+        padding: 9px 12px;
+        border: 1px solid rgba(127, 127, 127, 0.45);
+        border-radius: 9px;
+        background: rgba(127, 127, 127, 0.06);
+      }
+
+      .modal-coin-nav-side.next
+        .modal-coin-nav-button {
+        align-items: center;
+      }
+
+      .modal-coin-nav-side
+        .modal-coin-nav-button {
+        align-items: center;
+      }
+
+      .modal-coin-nav-desktop {
+        display: none;
+      }
+
+      .modal-coin-nav-mobile {
+        display: inline;
+        font-size: 14px;
+        line-height: 1.2;
+        font-weight: 700;
+        text-transform: none;
+        letter-spacing: normal;
+      }
+    }
+  `;
+
+  document.head.appendChild(
+    style
+  );
+}
+
+
+function modalCoinNavigationLabel(
+  coin
+) {
+  const parts = [
+    coin.country,
+    coin.denomination
+  ];
+
+  if (
+    coin.year !== "" &&
+    coin.year !== null &&
+    coin.year !== undefined
+  ) {
+    parts.push(
+      coin.year
+    );
+  }
+
+  return parts
+    .filter(Boolean)
+    .join(" · ");
+}
+
+
+function getModalNavigationCoins() {
+  return getFilteredCoins();
+}
+
+
+function renderModalNavigation(
+  currentCoin
+) {
+  ensureModalNavigationStyles();
+
+  const oldNavigation =
+    els.modal.querySelector(
+      ".modal-coin-navigation"
+    );
+
+  if (
+    oldNavigation
+  ) {
+    oldNavigation.remove();
+  }
+
+
+  modalNavigationCoins =
+    getModalNavigationCoins();
+
+
+  modalNavigationIndex =
+    modalNavigationCoins
+      .indexOf(
+        currentCoin
+      );
+
+
+  if (
+    modalNavigationIndex ===
+      -1
+  ) {
+    modalNavigationIndex =
+      modalNavigationCoins
+        .findIndex(
+          coin =>
+            String(
+              coin.id
+            ) ===
+            String(
+              currentCoin.id
+            )
+        );
+  }
+
+
+  if (
+    modalNavigationIndex ===
+      -1
+  ) {
+    return;
+  }
+
+
+  const previousCoin =
+    modalNavigationIndex >
+      0
+      ? modalNavigationCoins[
+          modalNavigationIndex -
+          1
+        ]
+      : null;
+
+
+  const nextCoin =
+    modalNavigationIndex <
+      modalNavigationCoins.length -
+        1
+      ? modalNavigationCoins[
+          modalNavigationIndex +
+          1
+        ]
+      : null;
+
+
+  if (
+    !previousCoin &&
+    !nextCoin
+  ) {
+    return;
+  }
+
+
+  const navigation =
+    document.createElement(
+      "div"
+    );
+
+  navigation.className =
+    "modal-coin-navigation";
+
+
+  const previousSide =
+    document.createElement(
+      "div"
+    );
+
+  previousSide.className =
+    "modal-coin-nav-side previous";
+
+
+  if (
+    previousCoin
+  ) {
+    const button =
+      document.createElement(
+        "button"
+      );
+
+    button.type =
+      "button";
+
+    button.className =
+      "modal-coin-nav-button";
+
+    button.setAttribute(
+      "aria-label",
+      `Previous coin: ${modalCoinNavigationLabel(
+        previousCoin
+      )}`
+    );
+
+    button.innerHTML = `
+      <span class="modal-coin-nav-direction">
+        <span class="modal-coin-nav-desktop">
+          ← PREVIOUS
+        </span>
+
+        <span class="modal-coin-nav-mobile">
+          ← Previous
+        </span>
+      </span>
+
+      <span class="modal-coin-nav-coin modal-coin-nav-desktop">
+        ${escapeHtml(
+          modalCoinNavigationLabel(
+            previousCoin
+          )
+        )}
+      </span>
+    `;
+
+    button.addEventListener(
+      "click",
+      event => {
+        event.stopPropagation();
+
+        openCoinModal(
+          previousCoin
+        );
+      }
+    );
+
+    previousSide.appendChild(
+      button
+    );
+  }
+
+
+  const nextSide =
+    document.createElement(
+      "div"
+    );
+
+  nextSide.className =
+    "modal-coin-nav-side next";
+
+
+  if (
+    nextCoin
+  ) {
+    const button =
+      document.createElement(
+        "button"
+      );
+
+    button.type =
+      "button";
+
+    button.className =
+      "modal-coin-nav-button";
+
+    button.setAttribute(
+      "aria-label",
+      `Next coin: ${modalCoinNavigationLabel(
+        nextCoin
+      )}`
+    );
+
+    button.innerHTML = `
+      <span class="modal-coin-nav-direction">
+        <span class="modal-coin-nav-desktop">
+          NEXT →
+        </span>
+
+        <span class="modal-coin-nav-mobile">
+          Next →
+        </span>
+      </span>
+
+      <span class="modal-coin-nav-coin modal-coin-nav-desktop">
+        ${escapeHtml(
+          modalCoinNavigationLabel(
+            nextCoin
+          )
+        )}
+      </span>
+    `;
+
+    button.addEventListener(
+      "click",
+      event => {
+        event.stopPropagation();
+
+        openCoinModal(
+          nextCoin
+        );
+      }
+    );
+
+    nextSide.appendChild(
+      button
+    );
+  }
+
+
+  navigation.appendChild(
+    previousSide
+  );
+
+  navigation.appendChild(
+    nextSide
+  );
+
+  els.modalImagePanel.appendChild(
+    navigation
+  );
+}
+
+
+function openPreviousModalCoin() {
+  if (
+    modalNavigationIndex <=
+    0
+  ) {
+    return;
+  }
+
+  const coin =
+    modalNavigationCoins[
+      modalNavigationIndex -
+      1
+    ];
+
+  if (
+    coin
+  ) {
+    openCoinModal(
+      coin
+    );
+  }
+}
+
+
+function openNextModalCoin() {
+  if (
+    modalNavigationIndex <
+      0 ||
+    modalNavigationIndex >=
+      modalNavigationCoins.length -
+        1
+  ) {
+    return;
+  }
+
+  const coin =
+    modalNavigationCoins[
+      modalNavigationIndex +
+      1
+    ];
+
+  if (
+    coin
+  ) {
+    openCoinModal(
+      coin
+    );
+  }
+}
 
 function flagEmoji(code) {
   return String(code || "")
@@ -1929,6 +2386,10 @@ function openCoinModal(coin) {
       true
     );
 
+  renderModalNavigation(
+    coin
+  );
+  
   els.modalCountry.textContent =
     `${flagEmoji(
       coin.countryCode
@@ -2553,7 +3014,13 @@ function closeCoinModal() {
 
   viewerController =
     null;
+  
+  modalNavigationCoins =
+    [];
 
+  modalNavigationIndex =
+    -1;
+  
   els.modal.classList.add(
     "hidden"
   );
@@ -2806,13 +3273,10 @@ function bindEvents() {
       }
     );
 
-
-  document.addEventListener(
+   document.addEventListener(
     "keydown",
     event => {
       if (
-        event.key !==
-          "Escape" ||
         els.modal
           .classList
           .contains(
@@ -2822,7 +3286,55 @@ function bindEvents() {
         return;
       }
 
-      closeCoinModal();
+
+      if (
+        event.key ===
+        "Escape"
+      ) {
+        closeCoinModal();
+
+        return;
+      }
+
+
+      /*
+       * Arrow navigation is desktop only.
+       *
+       * Do not change coin while the
+       * enlarged image viewer is active.
+       */
+      if (
+        window.innerWidth <=
+          900 ||
+        (
+          viewerController &&
+          viewerController.isOpen()
+        )
+      ) {
+        return;
+      }
+
+
+      if (
+        event.key ===
+        "ArrowLeft"
+      ) {
+        event.preventDefault();
+
+        openPreviousModalCoin();
+
+        return;
+      }
+
+
+      if (
+        event.key ===
+        "ArrowRight"
+      ) {
+        event.preventDefault();
+
+        openNextModalCoin();
+      }
     }
   );
 
