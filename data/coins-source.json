@@ -1413,5 +1413,50 @@
     "description": "Regular 2 € circulation coin of Spain.",
     "notes": "Spain’s coins feature three designs with effigies of the King, Miguel de Cervantes and the cathedral of Santiago de Compostela. There are three series of coins in circulation. All are valid.\n\nFor the second series, the coins were slightly redesigned in 2010 in order to comply with the common guidelines issued by the European Commission. The year, for instance, is inscribed on the inner part of the coin.\n\nIn 2015, Spain introduced a third series of €1 and €2 coins showing the new King Felipe VI and the country code ‘ESPAÑA 2015’. The mint mark appears at the right of the effigy.",
     "imageFile": "103_Spain__2Euro_Regular.jpeg"
+  },
+  {
+    "id": "104",
+    "country": "Belgium",
+    "year": "",
+    "denomination": "20 cent",
+    "type": "Regular",
+    "name": "20 cent",
+    "series": "",
+    "condition": "",
+    "status": "Missing",
+    "mintage": "",
+    "description": "Regular 20 cent circulation coin of Belgium.",
+    "notes": "Belgium's euro coins were designed by Jan Alfons Keustermans, Director of the Municipal Academy of Fine Arts of Turnhout. There are three series of coins in circulation. All are valid.\n\nThe first series depicts King Albert II in the inner part of the coin, while the royal monogram - a capital \"A\" underneath a crown - among 12 stars, symbolising Europe, as well as the year of issuance appear in the outer part.",
+    "imageFile": "104_Belgium__20cent_Regular.jpeg"
+  },
+  {
+    "id": "105",
+    "country": "Belgium",
+    "year": "",
+    "denomination": "50 cent",
+    "type": "Regular",
+    "name": "50 cent",
+    "series": "2008 Second series",
+    "condition": "",
+    "status": "Missing",
+    "mintage": "",
+    "description": "Regular 50 cent circulation coin of Belgium.",
+    "notes": "Belgium's euro coins were designed by Jan Alfons Keustermans, Director of the Municipal Academy of Fine Arts of Turnhout. There are three series of coins in circulation. All are valid.\n\nIn 2008, Belgium slightly modified the design in order to comply with the European Commission's guidelines. The coins of the second series also show King Albert II, but the royal monogram and the year of issuance now appear in the inner part of the coin, as do the mint marks and the country code for Belgium, \"BE\".",
+    "imageFile": "105_Belgium__50cent_Regular.jpeg"
+  },
+  {
+    "id": "106",
+    "country": "Belgium",
+    "year": "",
+    "denomination": "50 cent",
+    "type": "Regular",
+    "name": "50 cent",
+    "series": "2014 Third series",
+    "condition": "",
+    "status": "Missing",
+    "mintage": "",
+    "description": "Regular 50 cent circulation coin of Belgium.",
+    "notes": "Belgium's euro coins were designed by Jan Alfons Keustermans, Director of the Municipal Academy of Fine Arts of Turnhout. There are three series of coins in circulation. All are valid.\n\nIn 2014, Belgium introduced the third series of euro coins, which show King Philippe, his royal monogram \"FP\" and the country code for Belgium, \"BE\". The mint marks appear on either side of the year of issuance.",
+    "imageFile": "106_Belgium__50cent_Regular.jpeg"
   }
 ]
