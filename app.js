@@ -74,6 +74,25 @@ let modalNavigationCoins = [];
 let modalNavigationIndex = -1;
 
 
+/*
+ * Modal Previous / Next navigation.
+ *
+ * IMPORTANT:
+ *
+ * modalImagePanel was originally intended
+ * to contain only the coin image.
+ *
+ * We now also place navigation inside it,
+ * therefore we explicitly make the panel
+ * a vertical flex container:
+ *
+ * IMAGE
+ *
+ * PREVIOUS                 NEXT
+ *
+ * Navigation stays at the bottom of the
+ * complete left image panel.
+ */
 function ensureModalNavigationStyles() {
   if (
     document.getElementById(
@@ -92,113 +111,322 @@ function ensureModalNavigationStyles() {
     "coin-modal-navigation-styles";
 
   style.textContent = `
-    .modal-coin-navigation {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-      gap: 18px;
-      width: 100%;
-      margin-top: 22px;
-      padding-top: 18px;
-      border-top: 1px solid rgba(127, 127, 127, 0.25);
+    /*
+     * LEFT SIDE OF MODAL
+     *
+     * Force image + navigation to be
+     * arranged vertically.
+     */
+    #modalImagePanel {
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: stretch !important;
+      justify-content: flex-start !important;
+      min-width: 0;
+      min-height: 0;
       box-sizing: border-box;
     }
 
+
+    /*
+     * Coin image occupies the available
+     * image area but does not push the
+     * navigation outside the panel.
+     */
+    #modalImagePanel > .modal-coin-image {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      min-height: 0;
+      object-fit: contain;
+      flex: 1 1 auto;
+    }
+
+
+    /*
+     * Navigation always gets its own
+     * full-width row underneath the image.
+     */
+    .modal-coin-navigation {
+      display: grid;
+      grid-template-columns:
+        minmax(0, 1fr)
+        minmax(0, 1fr);
+
+      gap: 20px;
+
+      width: 100%;
+
+      flex: 0 0 auto;
+
+      margin-top: auto;
+
+      padding:
+        18px
+        24px
+        20px;
+
+      border-top:
+        1px solid
+        rgba(
+          127,
+          127,
+          127,
+          0.25
+        );
+
+      box-sizing:
+        border-box;
+    }
+
+
     .modal-coin-nav-side {
       min-width: 0;
+      display: flex;
+      align-items: flex-start;
     }
+
+
+    .modal-coin-nav-side.previous {
+      justify-content:
+        flex-start;
+      text-align:
+        left;
+    }
+
 
     .modal-coin-nav-side.next {
-      text-align: right;
+      justify-content:
+        flex-end;
+      text-align:
+        right;
     }
 
+
     .modal-coin-nav-button {
-      display: inline-flex;
-      flex-direction: column;
-      gap: 5px;
-      max-width: 100%;
-      padding: 0;
-      margin: 0;
-      border: 0;
-      background: transparent;
-      color: inherit;
-      font: inherit;
-      cursor: pointer;
-      text-align: left;
+      display:
+        inline-flex;
+
+      flex-direction:
+        column;
+
+      gap:
+        5px;
+
+      max-width:
+        100%;
+
+      padding:
+        0;
+
+      margin:
+        0;
+
+      border:
+        0;
+
+      background:
+        transparent;
+
+      color:
+        inherit;
+
+      font:
+        inherit;
+
+      cursor:
+        pointer;
+
+      text-align:
+        left;
     }
+
 
     .modal-coin-nav-side.next
       .modal-coin-nav-button {
-      align-items: flex-end;
-      text-align: right;
+      align-items:
+        flex-end;
+
+      text-align:
+        right;
     }
+
 
     .modal-coin-nav-direction {
-      font-size: 14px;
-      line-height: 1.2;
-      font-weight: 800;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      opacity: 0.8;
+      font-size:
+        14px;
+
+      line-height:
+        1.2;
+
+      font-weight:
+        800;
+
+      letter-spacing:
+        0.05em;
+
+      text-transform:
+        uppercase;
+
+      opacity:
+        0.8;
     }
+
 
     .modal-coin-nav-coin {
-      display: block;
-      max-width: 100%;
-      font-size: 16px;
-      line-height: 1.3;
-      font-weight: 500;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
+      display:
+        block;
+
+      max-width:
+        100%;
+
+      font-size:
+        16px;
+
+      line-height:
+        1.3;
+
+      font-weight:
+        500;
+
+      overflow:
+        hidden;
+
+      text-overflow:
+        ellipsis;
+
+      white-space:
+        nowrap;
     }
 
+
     .modal-coin-nav-mobile {
-      display: none;
+      display:
+        none;
     }
+
 
     .modal-coin-nav-button:hover
       .modal-coin-nav-coin,
     .modal-coin-nav-button:hover
       .modal-coin-nav-direction {
-      text-decoration: underline;
+      text-decoration:
+        underline;
     }
 
-    @media (max-width: 560px) {
+
+    /*
+     * When the image itself is enlarged,
+     * Previous / Next must not float on
+     * top of the enlarged image.
+     */
+    .modal-dialog.image-viewer
       .modal-coin-navigation {
-        gap: 10px;
-        margin-top: 14px;
-        padding-top: 12px;
+      display:
+        none !important;
+    }
+
+
+    /*
+     * MOBILE
+     *
+     * Only compact Previous / Next
+     * buttons are displayed.
+     */
+    @media (
+      max-width: 560px
+    ) {
+      .modal-coin-navigation {
+        gap:
+          10px;
+
+        margin-top:
+          auto;
+
+        padding:
+          12px
+          14px
+          14px;
       }
 
+
       .modal-coin-nav-button {
-        width: 100%;
-        padding: 9px 12px;
-        border: 1px solid rgba(127, 127, 127, 0.45);
-        border-radius: 9px;
-        background: rgba(127, 127, 127, 0.06);
+        width:
+          auto;
+
+        min-width:
+          110px;
+
+        padding:
+          9px
+          12px;
+
+        border:
+          1px solid
+          rgba(
+            127,
+            127,
+            127,
+            0.45
+          );
+
+        border-radius:
+          9px;
+
+        background:
+          rgba(
+            127,
+            127,
+            127,
+            0.06
+          );
       }
+
+
+      .modal-coin-nav-side.previous
+        .modal-coin-nav-button {
+        align-items:
+          flex-start;
+
+        text-align:
+          left;
+      }
+
 
       .modal-coin-nav-side.next
         .modal-coin-nav-button {
-        align-items: center;
+        align-items:
+          flex-end;
+
+        text-align:
+          right;
       }
 
-      .modal-coin-nav-side
-        .modal-coin-nav-button {
-        align-items: center;
-      }
 
       .modal-coin-nav-desktop {
-        display: none;
+        display:
+          none;
       }
 
+
       .modal-coin-nav-mobile {
-        display: inline;
-        font-size: 14px;
-        line-height: 1.2;
-        font-weight: 700;
-        text-transform: none;
-        letter-spacing: normal;
+        display:
+          inline;
+
+        font-size:
+          14px;
+
+        line-height:
+          1.2;
+
+        font-weight:
+          700;
+
+        text-transform:
+          none;
+
+        letter-spacing:
+          normal;
       }
     }
   `;
@@ -330,6 +558,9 @@ function renderModalNavigation(
     "modal-coin-navigation";
 
 
+  /*
+   * LEFT SIDE — PREVIOUS
+   */
   const previousSide =
     document.createElement(
       "div"
@@ -362,6 +593,7 @@ function renderModalNavigation(
 
     button.innerHTML = `
       <span class="modal-coin-nav-direction">
+
         <span class="modal-coin-nav-desktop">
           ← PREVIOUS
         </span>
@@ -369,6 +601,7 @@ function renderModalNavigation(
         <span class="modal-coin-nav-mobile">
           ← Previous
         </span>
+
       </span>
 
       <span class="modal-coin-nav-coin modal-coin-nav-desktop">
@@ -397,6 +630,9 @@ function renderModalNavigation(
   }
 
 
+  /*
+   * RIGHT SIDE — NEXT
+   */
   const nextSide =
     document.createElement(
       "div"
@@ -429,6 +665,7 @@ function renderModalNavigation(
 
     button.innerHTML = `
       <span class="modal-coin-nav-direction">
+
         <span class="modal-coin-nav-desktop">
           NEXT →
         </span>
@@ -436,6 +673,7 @@ function renderModalNavigation(
         <span class="modal-coin-nav-mobile">
           Next →
         </span>
+
       </span>
 
       <span class="modal-coin-nav-coin modal-coin-nav-desktop">
@@ -472,6 +710,11 @@ function renderModalNavigation(
     nextSide
   );
 
+
+  /*
+   * Navigation is inserted AFTER the image
+   * inside the LEFT modal panel.
+   */
   els.modalImagePanel.appendChild(
     navigation
   );
@@ -527,6 +770,7 @@ function openNextModalCoin() {
     );
   }
 }
+
 
 function flagEmoji(code) {
   return String(code || "")
@@ -799,10 +1043,6 @@ function compareYearValues(
       ? null
       : Number(b);
 
-  /*
-   * Empty years always stay
-   * at the end.
-   */
   if (
     yearA === null &&
     yearB === null
@@ -911,9 +1151,7 @@ function compareCountry(
     denominationCompare !==
     0
   ) {
-    return (
-      denominationCompare
-    );
+    return denominationCompare;
   }
 
   return (
@@ -1222,21 +1460,6 @@ function getFilteredCoins() {
     state.coins.filter(
       coin => {
 
-        /*
-         * HOME
-         *
-         * No status filter.
-         * Shows absolutely all coins.
-         */
-
-
-        /*
-         * MY COLLECTION
-         *
-         * Regular +
-         * Commemorative,
-         * status = collection.
-         */
         if (
           state.section ===
             "collection" &&
@@ -1247,9 +1470,6 @@ function getFilteredCoins() {
         }
 
 
-        /*
-         * REGULAR
-         */
         if (
           state.section ===
             "regular" &&
@@ -1264,9 +1484,6 @@ function getFilteredCoins() {
         }
 
 
-        /*
-         * 2€ COMMEMORATIVE
-         */
         if (
           state.section ===
             "commemorative" &&
@@ -1281,9 +1498,6 @@ function getFilteredCoins() {
         }
 
 
-        /*
-         * MISSING
-         */
         if (
           state.section ===
             "missing" &&
@@ -1294,9 +1508,6 @@ function getFilteredCoins() {
         }
 
 
-        /*
-         * DUPLICATES
-         */
         if (
           state.section ===
             "duplicates" &&
@@ -2380,16 +2591,27 @@ function openCoinModal(coin) {
   viewerController =
     null;
 
+
+  /*
+   * First place only the image
+   * into the left panel.
+   */
   els.modalImagePanel.innerHTML =
     imageMarkup(
       coin,
       true
     );
 
+
+  /*
+   * Then append navigation as a
+   * separate row underneath it.
+   */
   renderModalNavigation(
     coin
   );
-  
+
+
   els.modalCountry.textContent =
     `${flagEmoji(
       coin.countryCode
@@ -2502,6 +2724,7 @@ function openCoinModal(coin) {
           value
         ]) => `
           <div class="fact">
+
             <div class="fact-label">
               ${escapeHtml(
                 label
@@ -2513,6 +2736,7 @@ function openCoinModal(coin) {
                 value
               )}
             </div>
+
           </div>
         `
       )
@@ -2568,6 +2792,7 @@ function openCoinModal(coin) {
   document.body.classList.add(
     "modal-open"
   );
+
 
   const image =
     els.modalImagePanel
@@ -2977,6 +3202,7 @@ function openCoinModal(coin) {
     stopPointer
   );
 
+
   viewerController = {
     isOpen() {
       return viewerOpen;
@@ -3014,13 +3240,13 @@ function closeCoinModal() {
 
   viewerController =
     null;
-  
+
   modalNavigationCoins =
     [];
 
   modalNavigationIndex =
     -1;
-  
+
   els.modal.classList.add(
     "hidden"
   );
@@ -3107,13 +3333,6 @@ function render() {
 
 
 function updateActiveNav() {
-  /*
-   * My Collection is opened from
-   * a statistics card, not from
-   * the main navigation.
-   *
-   * Therefore Home remains highlighted.
-   */
   const activeSection =
     state.section ===
       "collection"
@@ -3164,10 +3383,6 @@ function bindEvents() {
       state.sort =
         els.sort.value;
 
-      /*
-       * Dropdown sorting takes
-       * control again.
-       */
       state.tableSort =
         "";
 
@@ -3273,7 +3488,8 @@ function bindEvents() {
       }
     );
 
-   document.addEventListener(
+
+  document.addEventListener(
     "keydown",
     event => {
       if (
@@ -3298,10 +3514,10 @@ function bindEvents() {
 
 
       /*
-       * Arrow navigation is desktop only.
+       * Desktop keyboard navigation.
        *
-       * Do not change coin while the
-       * enlarged image viewer is active.
+       * Disable it while the image is
+       * enlarged.
        */
       if (
         window.innerWidth <=
@@ -3352,13 +3568,6 @@ function bindEvents() {
 
 
 async function init() {
-  /*
-   * Protect against old values
-   * such as:
-   *
-   * statistics
-   * all
-   */
   const validSections = [
     "home",
     "collection",
