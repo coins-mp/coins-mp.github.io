@@ -2679,7 +2679,12 @@ function openCoinModal(coin) {
       "Type",
       coin.type
     ],
-
+  
+    [
+      "Series",
+      coin.series
+    ],
+  
     [
       "Condition",
       coin.condition
