@@ -1458,5 +1458,35 @@
     "description": "Regular 50 cent circulation coin of Belgium.",
     "notes": "Belgium's euro coins were designed by Jan Alfons Keustermans, Director of the Municipal Academy of Fine Arts of Turnhout. There are three series of coins in circulation. All are valid.\n\nIn 2014, Belgium introduced the third series of euro coins, which show King Philippe, his royal monogram \"FP\" and the country code for Belgium, \"BE\". The mint marks appear on either side of the year of issuance.",
     "imageFile": "106_Belgium__50cent_Regular.jpeg"
+  },
+  {
+    "id": "107",
+    "country": "Belgium",
+    "year": "",
+    "denomination": "1 cent",
+    "type": "Regular",
+    "name": "1 cent",
+    "series": "2014 Third series",
+    "condition": "",
+    "status": "Missing",
+    "mintage": "",
+    "description": "Regular 1 cent circulation coin of Belgium.",
+    "notes": "Belgium's euro coins were designed by Jan Alfons Keustermans, Director of the Municipal Academy of Fine Arts of Turnhout. There are three series of coins in circulation. All are valid.\n\nIn 2014, Belgium introduced the third series of euro coins, which show King Philippe, his royal monogram \"FP\" and the country code for Belgium, \"BE\". The mint marks appear on either side of the year of issuance.",
+    "imageFile": "107_Belgium__1cent_Regular.jpeg"
+  },
+  {
+    "id": "108",
+    "country": "Belgium",
+    "year": "",
+    "denomination": "2 cent",
+    "type": "Regular",
+    "name": "2 cent",
+    "series": "2014 Third series",
+    "condition": "",
+    "status": "Missing",
+    "mintage": "",
+    "description": "Regular 2 cent circulation coin of Belgium.",
+    "notes": "Belgium's euro coins were designed by Jan Alfons Keustermans, Director of the Municipal Academy of Fine Arts of Turnhout. There are three series of coins in circulation. All are valid.\n\nIn 2014, Belgium introduced the third series of euro coins, which show King Philippe, his royal monogram \"FP\" and the country code for Belgium, \"BE\". The mint marks appear on either side of the year of issuance.",
+    "imageFile": "108_Belgium__2cent_Regular.jpeg"
   }
 ]
