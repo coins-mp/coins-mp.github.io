@@ -1488,5 +1488,20 @@
     "description": "Regular 2 cent circulation coin of Belgium.",
     "notes": "Belgium's euro coins were designed by Jan Alfons Keustermans, Director of the Municipal Academy of Fine Arts of Turnhout. There are three series of coins in circulation. All are valid.\n\nIn 2014, Belgium introduced the third series of euro coins, which show King Philippe, his royal monogram \"FP\" and the country code for Belgium, \"BE\". The mint marks appear on either side of the year of issuance.",
     "imageFile": "108_Belgium__2cent_Regular.jpeg"
+  },
+  {
+    "id": "109",
+    "country": "Luxembourg",
+    "year": "",
+    "denomination": "5 cent",
+    "type": "Regular",
+    "name": "5 cent",
+    "series": "",
+    "condition": "",
+    "status": "Missing",
+    "mintage": "",
+    "description": "Regular 5 cent circulation coin of Luxembourg.",
+    "notes": "Yvette Gastauer-Claire designed the coins by agreement with the Royal Household and the Luxembourg Government.\r\n\r\nAll the Luxembourg coins bear the profile of His Royal Highness Grand Duke Henri. They also bear the year of issue and the word \"Luxembourg\" written in Luxembourgish (\"Lëtzebuerg\").",
+    "imageFile": "109_Luxembourg__5cent_Regular.jpeg"
   }
 ]
