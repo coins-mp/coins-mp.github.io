@@ -74,25 +74,6 @@ let modalNavigationCoins = [];
 let modalNavigationIndex = -1;
 
 
-/*
- * Modal Previous / Next navigation.
- *
- * IMPORTANT:
- *
- * modalImagePanel was originally intended
- * to contain only the coin image.
- *
- * We now also place navigation inside it,
- * therefore we explicitly make the panel
- * a vertical flex container:
- *
- * IMAGE
- *
- * PREVIOUS                 NEXT
- *
- * Navigation stays at the bottom of the
- * complete left image panel.
- */
 function ensureModalNavigationStyles() {
   if (
     document.getElementById(
@@ -111,12 +92,6 @@ function ensureModalNavigationStyles() {
     "coin-modal-navigation-styles";
 
   style.textContent = `
-    /*
-     * LEFT SIDE OF MODAL
-     *
-     * Force image + navigation to be
-     * arranged vertically.
-     */
     #modalImagePanel {
       display: flex !important;
       flex-direction: column !important;
@@ -127,12 +102,6 @@ function ensureModalNavigationStyles() {
       box-sizing: border-box;
     }
 
-
-    /*
-     * Coin image occupies the available
-     * image area but does not push the
-     * navigation outside the panel.
-     */
     #modalImagePanel > .modal-coin-image {
       display: block;
       width: 100%;
@@ -142,13 +111,9 @@ function ensureModalNavigationStyles() {
       flex: 1 1 auto;
     }
 
-
-    /*
-     * Navigation always gets its own
-     * full-width row underneath the image.
-     */
     .modal-coin-navigation {
       display: grid;
+
       grid-template-columns:
         minmax(0, 1fr)
         minmax(0, 1fr);
@@ -179,29 +144,30 @@ function ensureModalNavigationStyles() {
         border-box;
     }
 
-
     .modal-coin-nav-side {
       min-width: 0;
-      display: flex;
-      align-items: flex-start;
-    }
 
+      display: flex;
+
+      align-items:
+        flex-start;
+    }
 
     .modal-coin-nav-side.previous {
       justify-content:
         flex-start;
+
       text-align:
         left;
     }
 
-
     .modal-coin-nav-side.next {
       justify-content:
         flex-end;
+
       text-align:
         right;
     }
-
 
     .modal-coin-nav-button {
       display:
@@ -241,7 +207,6 @@ function ensureModalNavigationStyles() {
         left;
     }
 
-
     .modal-coin-nav-side.next
       .modal-coin-nav-button {
       align-items:
@@ -250,7 +215,6 @@ function ensureModalNavigationStyles() {
       text-align:
         right;
     }
-
 
     .modal-coin-nav-direction {
       font-size:
@@ -271,7 +235,6 @@ function ensureModalNavigationStyles() {
       opacity:
         0.8;
     }
-
 
     .modal-coin-nav-coin {
       display:
@@ -299,12 +262,10 @@ function ensureModalNavigationStyles() {
         nowrap;
     }
 
-
     .modal-coin-nav-mobile {
       display:
         none;
     }
-
 
     .modal-coin-nav-button:hover
       .modal-coin-nav-coin,
@@ -314,25 +275,12 @@ function ensureModalNavigationStyles() {
         underline;
     }
 
-
-    /*
-     * When the image itself is enlarged,
-     * Previous / Next must not float on
-     * top of the enlarged image.
-     */
     .modal-dialog.image-viewer
       .modal-coin-navigation {
       display:
         none !important;
     }
 
-
-    /*
-     * MOBILE
-     *
-     * Only compact Previous / Next
-     * buttons are displayed.
-     */
     @media (
       max-width: 560px
     ) {
@@ -348,7 +296,6 @@ function ensureModalNavigationStyles() {
           14px
           14px;
       }
-
 
       .modal-coin-nav-button {
         width:
@@ -382,7 +329,6 @@ function ensureModalNavigationStyles() {
           );
       }
 
-
       .modal-coin-nav-side.previous
         .modal-coin-nav-button {
         align-items:
@@ -391,7 +337,6 @@ function ensureModalNavigationStyles() {
         text-align:
           left;
       }
-
 
       .modal-coin-nav-side.next
         .modal-coin-nav-button {
@@ -402,12 +347,10 @@ function ensureModalNavigationStyles() {
           right;
       }
 
-
       .modal-coin-nav-desktop {
         display:
           none;
       }
-
 
       .modal-coin-nav-mobile {
         display:
@@ -482,17 +425,14 @@ function renderModalNavigation(
     oldNavigation.remove();
   }
 
-
   modalNavigationCoins =
     getModalNavigationCoins();
-
 
   modalNavigationIndex =
     modalNavigationCoins
       .indexOf(
         currentCoin
       );
-
 
   if (
     modalNavigationIndex ===
@@ -511,14 +451,12 @@ function renderModalNavigation(
         );
   }
 
-
   if (
     modalNavigationIndex ===
       -1
   ) {
     return;
   }
-
 
   const previousCoin =
     modalNavigationIndex >
@@ -528,7 +466,6 @@ function renderModalNavigation(
           1
         ]
       : null;
-
 
   const nextCoin =
     modalNavigationIndex <
@@ -540,14 +477,12 @@ function renderModalNavigation(
         ]
       : null;
 
-
   if (
     !previousCoin &&
     !nextCoin
   ) {
     return;
   }
-
 
   const navigation =
     document.createElement(
@@ -557,10 +492,6 @@ function renderModalNavigation(
   navigation.className =
     "modal-coin-navigation";
 
-
-  /*
-   * LEFT SIDE — PREVIOUS
-   */
   const previousSide =
     document.createElement(
       "div"
@@ -568,7 +499,6 @@ function renderModalNavigation(
 
   previousSide.className =
     "modal-coin-nav-side previous";
-
 
   if (
     previousCoin
@@ -629,10 +559,6 @@ function renderModalNavigation(
     );
   }
 
-
-  /*
-   * RIGHT SIDE — NEXT
-   */
   const nextSide =
     document.createElement(
       "div"
@@ -640,7 +566,6 @@ function renderModalNavigation(
 
   nextSide.className =
     "modal-coin-nav-side next";
-
 
   if (
     nextCoin
@@ -701,7 +626,6 @@ function renderModalNavigation(
     );
   }
 
-
   navigation.appendChild(
     previousSide
   );
@@ -710,11 +634,6 @@ function renderModalNavigation(
     nextSide
   );
 
-
-  /*
-   * Navigation is inserted AFTER the image
-   * inside the LEFT modal panel.
-   */
   els.modalImagePanel.appendChild(
     navigation
   );
@@ -797,7 +716,8 @@ function escapeHtml(value) {
 
 
 function setTheme(theme) {
-  state.theme = theme;
+  state.theme =
+    theme;
 
   document.documentElement.dataset.theme =
     theme;
@@ -815,7 +735,8 @@ function setTheme(theme) {
 
 
 function setView(view) {
-  state.view = view;
+  state.view =
+    view;
 
   localStorage.setItem(
     "coinView",
@@ -1125,7 +1046,6 @@ function compareCountry(
     );
   }
 
-
   const denominationCompare =
     denominationValue(
       a.denomination
@@ -1141,7 +1061,6 @@ function compareCountry(
     return denominationCompare;
   }
 
-
   const yearCompare =
     compareYearValues(
       a.year,
@@ -1155,7 +1074,6 @@ function compareCountry(
   ) {
     return yearCompare;
   }
-
 
   return (
     coinIdNumber(a) -
@@ -1862,6 +1780,7 @@ function statusBadges(coin) {
     badges.push(
       `<span class="badge duplicate">↻ Duplicate</span>`
     );
+
   } else if (
     coin.status ===
     "missing"
@@ -1869,6 +1788,7 @@ function statusBadges(coin) {
     badges.push(
       `<span class="badge missing">○ Missing</span>`
     );
+
   } else {
     badges.push(
       `<span class="badge collection">✓ In collection</span>`
@@ -1971,10 +1891,12 @@ function renderCards(coins) {
             <div class="coin-content">
 
               <div class="coin-topline">
+
                 <span>
                   ${flagEmoji(
                     coin.countryCode
                   )}
+
                   ${escapeHtml(
                     coin.country
                   )}
@@ -1985,6 +1907,7 @@ function renderCards(coins) {
                     coin.year
                   )}
                 </span>
+
               </div>
 
               <h3 class="coin-title">
@@ -2036,6 +1959,7 @@ function renderCards(coins) {
               </div>
 
             </div>
+
           </article>
         `
       )
@@ -2123,7 +2047,8 @@ function updateTableSortHeaders() {
         header.dataset
           .originalLabel;
 
-      let arrow = "";
+      let arrow =
+        "";
 
       if (
         state.tableSort ===
@@ -2283,10 +2208,12 @@ function renderTable(coins) {
                 `${coin.denomination} ${coin.country}`
               )}"
             >
+
               <td>
                 ${flagEmoji(
                   coin.countryCode
                 )}
+
                 ${escapeHtml(
                   coin.country
                 )}
@@ -2333,6 +2260,7 @@ function renderTable(coins) {
               <td>
                 ${coin.duplicates || 0}
               </td>
+
             </tr>
           `;
         }
@@ -2507,6 +2435,7 @@ function renderStats() {
             tabindex="0"
             style="cursor: pointer;"
           >
+
             <div class="stat-label">
               ${escapeHtml(
                 card.label
@@ -2516,6 +2445,7 @@ function renderStats() {
             <div class="stat-value">
               ${card.value}
             </div>
+
           </div>
         `
       )
@@ -2601,26 +2531,15 @@ function openCoinModal(coin) {
   viewerController =
     null;
 
-
-  /*
-   * First place only the image
-   * into the left panel.
-   */
   els.modalImagePanel.innerHTML =
     imageMarkup(
       coin,
       true
     );
 
-
-  /*
-   * Then append navigation as a
-   * separate row underneath it.
-   */
   renderModalNavigation(
     coin
   );
-
 
   els.modalCountry.textContent =
     `${flagEmoji(
@@ -2631,7 +2550,8 @@ function openCoinModal(coin) {
     coin.name ||
     `${coin.denomination} ${coin.country}`;
 
-  const subtitleParts = [];
+  const subtitleParts =
+    [];
 
   if (
     coin.year !== "" &&
@@ -2689,12 +2609,12 @@ function openCoinModal(coin) {
       "Type",
       coin.type
     ],
-  
+
     [
       "Series",
       coin.series
     ],
-  
+
     [
       "Condition",
       coin.condition
@@ -2768,6 +2688,7 @@ function openCoinModal(coin) {
       .remove(
         "hidden"
       );
+
   } else {
     els.descriptionSection
       .classList
@@ -2787,6 +2708,7 @@ function openCoinModal(coin) {
       .remove(
         "hidden"
       );
+
   } else {
     els.notesSection
       .classList
@@ -2807,7 +2729,6 @@ function openCoinModal(coin) {
   document.body.classList.add(
     "modal-open"
   );
-
 
   const image =
     els.modalImagePanel
@@ -2860,6 +2781,9 @@ function openCoinModal(coin) {
   let pinchStartScale =
     1;
 
+  let gestureStartScale =
+    1;
+
 
   function applyTransform() {
     image.style.transform =
@@ -2895,17 +2819,44 @@ function openCoinModal(coin) {
 
 
   function initialScale() {
-    /*
-     * Mobile / tablet:
-     *
-     * Open the coin fully fitted
-     * inside the screen first.
-     *
-     * The user can then pinch
-     * with two fingers to zoom.
-     */
-      return 1;
-   }
+    return 1;
+  }
+
+
+  function setImageScale(
+    newScale
+  ) {
+    scale =
+      Math.min(
+        5,
+        Math.max(
+          1,
+          newScale
+        )
+      );
+
+    if (
+      scale === 1
+    ) {
+      posX =
+        0;
+
+      posY =
+        0;
+    }
+
+    applyTransform();
+  }
+
+
+  function zoomImage(
+    factor
+  ) {
+    setImageScale(
+      scale *
+      factor
+    );
+  }
 
 
   function openViewer() {
@@ -2962,65 +2913,123 @@ function openCoinModal(coin) {
     );
   }
 
-   image.addEventListener(
-  "wheel",
-  event => {
-    if (
-      !viewerOpen
-    ) {
-      return;
+
+  /*
+   * Mouse wheel / trackpad.
+   *
+   * Works without requiring Ctrl.
+   */
+  image.addEventListener(
+    "wheel",
+    event => {
+      if (
+        !viewerOpen
+      ) {
+        return;
+      }
+
+      event.preventDefault();
+
+      const zoomFactor =
+        event.deltaY < 0
+          ? 1.12
+          : 0.88;
+
+      zoomImage(
+        zoomFactor
+      );
+    },
+    {
+      passive:
+        false
     }
+  );
 
-    if (
-      !event.ctrlKey
-    ) {
-      return;
+
+  /*
+   * Safari / macOS trackpad pinch.
+   *
+   * Safari can send gesture events
+   * instead of ordinary wheel events.
+   */
+  image.addEventListener(
+    "gesturestart",
+    event => {
+      if (
+        !viewerOpen
+      ) {
+        return;
+      }
+
+      event.preventDefault();
+
+      gestureStartScale =
+        scale;
+
+      moved =
+        true;
+    },
+    {
+      passive:
+        false
     }
+  );
 
-    event.preventDefault();
 
-    const zoomFactor =
-      event.deltaY < 0
-        ? 1.12
-        : 0.88;
+  image.addEventListener(
+    "gesturechange",
+    event => {
+      if (
+        !viewerOpen
+      ) {
+        return;
+      }
 
-    const nextScale =
-      Math.min(
-        4,
-        Math.max(
-          1,
-          scale *
-          zoomFactor
-        )
+      event.preventDefault();
+
+      setImageScale(
+        gestureStartScale *
+        event.scale
       );
 
-    if (
-      nextScale ===
-      scale
-    ) {
-      return;
+      moved =
+        true;
+    },
+    {
+      passive:
+        false
     }
+  );
 
-    scale =
-      nextScale;
 
-    if (
-      scale === 1
-    ) {
-      posX =
-        0;
+  image.addEventListener(
+    "gestureend",
+    event => {
+      if (
+        !viewerOpen
+      ) {
+        return;
+      }
 
-      posY =
-        0;
+      event.preventDefault();
+
+      gestureStartScale =
+        scale;
+
+      setTimeout(
+        () => {
+          moved =
+            false;
+        },
+        100
+      );
+    },
+    {
+      passive:
+        false
     }
+  );
 
-    applyTransform();
-  },
-  {
-    passive:
-      false
-  }
-);
 
   image.addEventListener(
     "click",
@@ -3074,7 +3083,8 @@ function openCoinModal(coin) {
       } catch (_) {}
 
       if (
-        pointers.size === 2
+        pointers.size ===
+        2
       ) {
         pinchStartDistance =
           pointerDistance();
@@ -3144,7 +3154,8 @@ function openCoinModal(coin) {
       );
 
       if (
-        pointers.size === 2
+        pointers.size ===
+        2
       ) {
         const distance =
           pointerDistance();
@@ -3153,36 +3164,19 @@ function openCoinModal(coin) {
           pinchStartDistance >
           0
         ) {
-          scale =
+          const newScale =
             pinchStartScale *
             (
               distance /
               pinchStartDistance
             );
 
-          scale =
-            Math.min(
-              4,
-              Math.max(
-                1,
-                scale
-              )
-            );
-
-          if (
-            scale === 1
-          ) {
-            posX =
-              0;
-
-            posY =
-              0;
-          }
+          setImageScale(
+            newScale
+          );
 
           moved =
             true;
-
-          applyTransform();
         }
 
         return;
@@ -3571,7 +3565,6 @@ function bindEvents() {
         return;
       }
 
-
       if (
         event.key ===
         "Escape"
@@ -3581,13 +3574,6 @@ function bindEvents() {
         return;
       }
 
-
-      /*
-       * Desktop keyboard navigation.
-       *
-       * Disable it while the image is
-       * enlarged.
-       */
       if (
         window.innerWidth <=
           900 ||
@@ -3599,7 +3585,6 @@ function bindEvents() {
         return;
       }
 
-
       if (
         event.key ===
         "ArrowLeft"
@@ -3610,7 +3595,6 @@ function bindEvents() {
 
         return;
       }
-
 
       if (
         event.key ===
