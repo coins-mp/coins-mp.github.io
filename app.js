@@ -2904,15 +2904,8 @@ function openCoinModal(coin) {
      * The user can then pinch
      * with two fingers to zoom.
      */
-    if (
-      window.innerWidth <=
-      900
-    ) {
       return 1;
-    }
-
-    return 2.2;
-  }
+   }
 
 
   function openViewer() {
