@@ -2962,6 +2962,65 @@ function openCoinModal(coin) {
     );
   }
 
+   image.addEventListener(
+  "wheel",
+  event => {
+    if (
+      !viewerOpen
+    ) {
+      return;
+    }
+
+    if (
+      !event.ctrlKey
+    ) {
+      return;
+    }
+
+    event.preventDefault();
+
+    const zoomFactor =
+      event.deltaY < 0
+        ? 1.12
+        : 0.88;
+
+    const nextScale =
+      Math.min(
+        4,
+        Math.max(
+          1,
+          scale *
+          zoomFactor
+        )
+      );
+
+    if (
+      nextScale ===
+      scale
+    ) {
+      return;
+    }
+
+    scale =
+      nextScale;
+
+    if (
+      scale === 1
+    ) {
+      posX =
+        0;
+
+      posY =
+        0;
+    }
+
+    applyTransform();
+  },
+  {
+    passive:
+      false
+  }
+);
 
   image.addEventListener(
     "click",
