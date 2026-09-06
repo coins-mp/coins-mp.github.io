@@ -1125,19 +1125,6 @@ function compareCountry(
     );
   }
 
-  const yearCompare =
-    Number(
-      a.year || 0
-    ) -
-    Number(
-      b.year || 0
-    );
-
-  if (
-    yearCompare !== 0
-  ) {
-    return yearCompare;
-  }
 
   const denominationCompare =
     denominationValue(
@@ -1153,6 +1140,22 @@ function compareCountry(
   ) {
     return denominationCompare;
   }
+
+
+  const yearCompare =
+    compareYearValues(
+      a.year,
+      b.year,
+      1
+    );
+
+  if (
+    yearCompare !==
+    0
+  ) {
+    return yearCompare;
+  }
+
 
   return (
     coinIdNumber(a) -
