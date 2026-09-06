@@ -2915,9 +2915,12 @@ function openCoinModal(coin) {
 
 
   /*
-   * Mouse wheel / trackpad.
+   * DESKTOP / MACBOOK TRACKPAD
    *
-   * Works without requiring Ctrl.
+   * Two-finger movement pans the image.
+   * Pinch zooms it.
+   *
+   * Mouse wheel still zooms.
    */
   image.addEventListener(
     "wheel",
@@ -2930,6 +2933,95 @@ function openCoinModal(coin) {
 
       event.preventDefault();
 
+
+      /*
+       * Trackpad pinch on Chrome /
+       * Chromium usually arrives as
+       * Ctrl + wheel.
+       */
+      if (
+        event.ctrlKey
+      ) {
+        const zoomFactor =
+          Math.exp(
+            -event.deltaY *
+            0.01
+          );
+
+        const oldScale =
+          scale;
+
+        const newScale =
+          Math.min(
+            5,
+            Math.max(
+              1,
+              oldScale *
+              zoomFactor
+            )
+          );
+
+
+        if (
+          newScale ===
+          oldScale
+        ) {
+          return;
+        }
+
+
+        /*
+         * Keep the zoom approximately
+         * around the current viewport
+         * centre.
+         */
+        scale =
+          newScale;
+
+
+        if (
+          scale === 1
+        ) {
+          posX =
+            0;
+
+          posY =
+            0;
+        }
+
+
+        applyTransform();
+
+        return;
+      }
+
+
+      /*
+       * Normal two-finger trackpad scroll:
+       * move the enlarged image.
+       */
+      if (
+        scale > 1
+      ) {
+        posX -=
+          event.deltaX;
+
+        posY -=
+          event.deltaY;
+
+        applyTransform();
+
+        moved =
+          true;
+
+        return;
+      }
+
+
+      /*
+       * Mouse wheel when image is still
+       * at scale 1: zoom.
+       */
       const zoomFactor =
         event.deltaY < 0
           ? 1.12
@@ -2947,10 +3039,7 @@ function openCoinModal(coin) {
 
 
   /*
-   * Safari / macOS trackpad pinch.
-   *
-   * Safari can send gesture events
-   * instead of ordinary wheel events.
+   * SAFARI / macOS PINCH
    */
   image.addEventListener(
     "gesturestart",
@@ -2987,10 +3076,32 @@ function openCoinModal(coin) {
 
       event.preventDefault();
 
-      setImageScale(
-        gestureStartScale *
-        event.scale
-      );
+      const newScale =
+        Math.min(
+          5,
+          Math.max(
+            1,
+            gestureStartScale *
+              event.scale
+          )
+        );
+
+      scale =
+        newScale;
+
+
+      if (
+        scale === 1
+      ) {
+        posX =
+          0;
+
+        posY =
+          0;
+      }
+
+
+      applyTransform();
 
       moved =
         true;
@@ -3021,7 +3132,7 @@ function openCoinModal(coin) {
           moved =
             false;
         },
-        100
+        120
       );
     },
     {
