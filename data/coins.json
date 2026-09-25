@@ -3287,28 +3287,5 @@
     "diameter": "18.75 mm",
     "description": "Regular 2 cent circulation coin of Andorra.",
     "notes": "Тест"
-  },
-  {
-    "id": "146",
-    "country": "Austria",
-    "countryCode": "AT",
-    "year": 2013,
-    "denomination": "1 cent",
-    "type": "Regular",
-    "name": "1 cent",
-    "series": "",
-    "condition": "UNC",
-    "mint": "",
-    "inCollection": true,
-    "status": "duplicate",
-    "duplicates": 1,
-    "wanted": false,
-    "image": "images/coins/Austria/146_Austria_2013_1cent_Regular.jpeg",
-    "mintage": "",
-    "metal": "Copper-plated steel",
-    "weight": "2.30 g",
-    "diameter": "16.25 mm",
-    "description": "Regular 1 cent circulation coin of Austria.",
-    "notes": ""
   }
 ]
