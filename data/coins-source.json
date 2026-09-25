@@ -2029,5 +2029,20 @@
     "notes": "TETS COIN",
     "id": "144",
     "imageFile": "144_Andorra_2030_1euro_Regular.jpeg"
+  },
+  {
+    "country": "Andorra",
+    "year": "2026",
+    "denomination": "2 cent",
+    "type": "Regular",
+    "condition": "G",
+    "status": "Collection",
+    "name": "",
+    "series": "",
+    "mintage": "",
+    "description": "",
+    "notes": "Тест",
+    "id": "145",
+    "imageFile": "145_Andorra_2026_2cent_Regular.jpeg"
   }
 ]
