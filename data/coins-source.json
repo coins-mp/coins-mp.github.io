@@ -2044,5 +2044,20 @@
     "notes": "Тест",
     "id": "145",
     "imageFile": "145_Andorra_2026_2cent_Regular.jpeg"
+  },
+  {
+    "country": "Austria",
+    "year": "2013",
+    "denomination": "1 cent",
+    "type": "Regular",
+    "condition": "XF",
+    "status": "Duplicate",
+    "name": "",
+    "series": "",
+    "mintage": "",
+    "description": "",
+    "notes": "",
+    "id": "146",
+    "imageFile": "146_Austria_2013_1cent_Regular.jpeg"
   }
 ]
