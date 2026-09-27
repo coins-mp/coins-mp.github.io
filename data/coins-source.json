@@ -2097,12 +2097,11 @@
     "denomination": "2 €",
     "type": "Regular",
     "name": "2 Euro",
-    "series": "",
     "condition": "XF",
     "status": "Collection",
     "mintage": "",
     "description": "Regular 2 € circulation coin of Greece.",
-    "notes": "Auto TEST",
+    "notes": "Тест на двойное изменение",
     "imageFile": "149_Greece_2002_2Euro_Regular.jpeg"
   },
   {
