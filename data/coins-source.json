@@ -2118,20 +2118,5 @@
     "description": "Regular 2 € circulation coin of Greece.",
     "notes": "Тест 62",
     "imageFile": ""
-  },
-  {
-    "country": "Greece",
-    "year": "2026",
-    "denomination": "1 cent",
-    "type": "Regular",
-    "condition": "XF",
-    "status": "Collection",
-    "name": "",
-    "series": "",
-    "mintage": "",
-    "description": "",
-    "notes": "Test 62 ADD",
-    "id": "152",
-    "imageFile": ""
   }
 ]
