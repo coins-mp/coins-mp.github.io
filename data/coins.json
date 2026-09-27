@@ -3379,28 +3379,5 @@
     "diameter": "25.75 mm",
     "description": "Regular 2 € circulation coin of Greece.",
     "notes": "Auto TEST"
-  },
-  {
-    "id": "150",
-    "country": "Greece",
-    "countryCode": "GR",
-    "year": 2030,
-    "denomination": "2 €",
-    "type": "Regular",
-    "name": "2 Euro",
-    "series": "",
-    "condition": "XF",
-    "mint": "",
-    "inCollection": true,
-    "status": "collection",
-    "duplicates": 0,
-    "wanted": false,
-    "image": "",
-    "mintage": "",
-    "metal": "Bimetallic",
-    "weight": "8.50 g",
-    "diameter": "25.75 mm",
-    "description": "Regular 2 € circulation coin of Greece.",
-    "notes": "2ND TEST"
   }
 ]
