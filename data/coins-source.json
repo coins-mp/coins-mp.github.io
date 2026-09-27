@@ -2105,21 +2105,6 @@
     "imageFile": "149_Greece_2002_2Euro_Regular.jpeg"
   },
   {
-    "id": "150",
-    "country": "Greece",
-    "year": "2030",
-    "denomination": "2 €",
-    "type": "Regular",
-    "name": "",
-    "series": "",
-    "condition": "XF",
-    "status": "Collection",
-    "mintage": "",
-    "description": "Regular 2 € circulation coin of Greece.",
-    "notes": "Тест изменений",
-    "imageFile": ""
-  },
-  {
     "id": "151",
     "country": "Greece",
     "year": 2035,
