@@ -2089,5 +2089,20 @@
     "description": "Regular 1 € circulation coin of Portugal.",
     "notes": "Three different euro designs were chosen from entries to a national competition. Designer Vítor Manuel Fernandes dos Santos, who drew his inspiration from historical symbols and the seals of the first King of Portugal, Dom Afonso Henriques, won the competition with the following motifs: 10, 20 and 50-cent coins: these depict the royal seal of 1142 as the centrepiece of the design.\r\n\r\n€1 and €2 coins: the country's castles and coats of arms are set amid the European stars. This symbolises dialogue, the exchange of values and the dynamics of the building of Europe. The centrepiece is the royal seal of 1144",
     "imageFile": "148_Portugal_2002_1Euro_Regular.jpeg"
+  },
+  {
+    "id": "149",
+    "country": "Greece",
+    "year": 2002,
+    "denomination": "2 €",
+    "type": "Regular",
+    "name": "2 Euro",
+    "series": "",
+    "condition": "XF",
+    "status": "Collection",
+    "mintage": "",
+    "description": "Regular 2 € circulation coin of Greece.",
+    "notes": "Auto TEST",
+    "imageFile": "149_Greece_2002_2Euro_Regular.jpeg"
   }
 ]
