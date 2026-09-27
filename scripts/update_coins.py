@@ -528,23 +528,16 @@ def main():
                     f"coin of {country}."
                 )
 
-        if not image_filename:
-            image_filename = build_image_filename(
-                coin_id,
+        if image_filename:
+            image_path = process_image(
+                image_filename,
                 country,
                 year,
                 denomination,
-                coin_type,
-                name
+                coin_type
             )
-
-        image_path = process_image(
-            image_filename,
-            country,
-            year,
-            denomination,
-            coin_type
-        )
+        else:
+            image_path = ""
 
         if name:
             display_name = name
