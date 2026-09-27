@@ -3,6 +3,7 @@ name: Update coin catalog
 on:
   push:
     paths:
+      - "data/coins-source.json"
       - "incoming/**"
       - "scripts/update_coins.py"
       - "scripts/export_excel.py"
