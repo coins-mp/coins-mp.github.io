@@ -3349,7 +3349,7 @@
     "status": "collection",
     "duplicates": 0,
     "wanted": false,
-    "image": "images/coins/Portugal/140_Portugal_2002_1Euro_Regular.jpeg",
+    "image": "images/coins/Portugal/148_Portugal_2002_1Euro_Regular.jpeg",
     "mintage": "",
     "metal": "Bimetallic",
     "weight": "7.50 g",
@@ -3402,5 +3402,28 @@
     "diameter": "25.75 mm",
     "description": "Regular 2 € circulation coin of Greece.",
     "notes": "Тест 62"
+  },
+  {
+    "id": "152",
+    "country": "Andorra",
+    "countryCode": "AD",
+    "year": 2030,
+    "denomination": "50 cent",
+    "type": "Regular",
+    "name": "50 cent",
+    "series": "",
+    "condition": "XF",
+    "mint": "",
+    "inCollection": true,
+    "status": "collection",
+    "duplicates": 0,
+    "wanted": false,
+    "image": "",
+    "mintage": "",
+    "metal": "Nordic gold",
+    "weight": "7.80 g",
+    "diameter": "24.25 mm",
+    "description": "Regular 50 cent circulation coin of Andorra.",
+    "notes": "dvjdvjdsjlvjvv"
   }
 ]

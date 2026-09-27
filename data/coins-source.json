@@ -2118,5 +2118,20 @@
     "description": "Regular 2 € circulation coin of Greece.",
     "notes": "Тест 62",
     "imageFile": ""
+  },
+  {
+    "country": "Andorra",
+    "year": "2030",
+    "denomination": "50 cent",
+    "type": "Regular",
+    "condition": "XF",
+    "status": "Collection",
+    "name": "",
+    "series": "",
+    "mintage": "",
+    "description": "",
+    "notes": "dvjdvjdsjlvjvv",
+    "id": "152",
+    "imageFile": ""
   }
 ]
