@@ -3381,29 +3381,6 @@
     "notes": "FINAL LOCAL CRUD TEST"
   },
   {
-    "id": "153",
-    "country": "Andorra",
-    "countryCode": "AD",
-    "year": 2035,
-    "denomination": "10 cent",
-    "type": "Regular",
-    "name": "10 cent",
-    "series": "",
-    "condition": "UNC",
-    "mint": "",
-    "inCollection": true,
-    "status": "collection",
-    "duplicates": 0,
-    "wanted": false,
-    "image": "images/coins/Andorra/153_Andorra_2035_10cent_Regular.jpeg",
-    "mintage": "",
-    "metal": "Nordic gold",
-    "weight": "4.10 g",
-    "diameter": "19.75 mm",
-    "description": "Regular 10 cent circulation coin of Andorra.",
-    "notes": "FINAL LOCAL CRUD TEST"
-  },
-  {
     "id": "154",
     "country": "Andorra",
     "countryCode": "AD",
@@ -3425,5 +3402,28 @@
     "diameter": "16.25 mm",
     "description": "Regular 1 cent circulation coin of Andorra.",
     "notes": "image TEST"
+  },
+  {
+    "id": "155",
+    "country": "Vatican City",
+    "countryCode": "VA",
+    "year": 2035,
+    "denomination": "1 cent",
+    "type": "Regular",
+    "name": "1 cent",
+    "series": "",
+    "condition": "XF",
+    "mint": "",
+    "inCollection": true,
+    "status": "collection",
+    "duplicates": 0,
+    "wanted": false,
+    "image": "images/coins/Vatican-City/155_Vatican-City_2035_1cent_Regular.png",
+    "mintage": "",
+    "metal": "Copper-plated steel",
+    "weight": "2.30 g",
+    "diameter": "16.25 mm",
+    "description": "Regular 1 cent circulation coin of Vatican City.",
+    "notes": "Test test"
   }
 ]
