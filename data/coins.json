@@ -3418,12 +3418,12 @@
     "status": "collection",
     "duplicates": 0,
     "wanted": false,
-    "image": "images/coins/Andorra/154_Andorra_2028_1cent_Regular.jpeg",
+    "image": "",
     "mintage": "",
     "metal": "Copper-plated steel",
     "weight": "2.30 g",
     "diameter": "16.25 mm",
     "description": "Regular 1 cent circulation coin of Andorra.",
-    "notes": "FINAL LOCAL CRUD TEST"
+    "notes": "image TEST"
   }
 ]
