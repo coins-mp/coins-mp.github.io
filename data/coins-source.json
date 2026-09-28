@@ -2092,33 +2092,19 @@
     "imageFile": "148_Portugal_2002_1Euro_Regular.jpeg"
   },
   {
-    "country": "Andorra",
-    "year": "2031",
-    "denomination": "2 cent",
-    "type": "Regular",
-    "condition": "XF",
-    "status": "Collection",
-    "name": "",
-    "series": "",
-    "mintage": "",
-    "description": "",
-    "notes": "FINAL LOCAL CRUD TEST",
-    "id": "152",
-    "imageFile": "152_Andorra_2031_2cent_Regular.jpeg"
-  },
-  {
     "id": "154",
     "country": "Andorra",
-    "year": 2029,
+    "year": "2029",
     "denomination": "1 cent",
     "type": "Regular",
-    "name": "1 cent",
-    "condition": "G",
+    "name": "",
+    "condition": "UNC",
     "status": "Collection",
     "mintage": "",
     "description": "Regular 1 cent circulation coin of Andorra.",
-    "notes": "image TEST",
-    "imageFile": "154_Andorra_2029_1cent_Regular.jpeg"
+    "notes": "Test TEST",
+    "imageFile": "",
+    "series": ""
   },
   {
     "id": "155",
