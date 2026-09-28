@@ -2091,24 +2091,9 @@
     "imageFile": "148_Portugal_2002_1Euro_Regular.jpeg"
   },
   {
-    "id": "151",
-    "country": "Greece",
-    "year": 2035,
-    "denomination": "2 €",
-    "type": "Regular",
-    "name": "2 Euro",
-    "series": "",
-    "condition": "XF",
-    "status": "Collection",
-    "mintage": "",
-    "description": "Regular 2 € circulation coin of Greece.",
-    "notes": "Тест 62",
-    "imageFile": ""
-  },
-  {
     "country": "Andorra",
-    "year": "2030",
-    "denomination": "50 cent",
+    "year": "2029",
+    "denomination": "2 cent",
     "type": "Regular",
     "condition": "XF",
     "status": "Collection",
@@ -2116,9 +2101,9 @@
     "series": "",
     "mintage": "",
     "description": "",
-    "notes": "dvjdvjdsjlvjvv",
+    "notes": "FINAL LOCAL CRUD TEST",
     "id": "152",
-    "imageFile": ""
+    "imageFile": "152_Andorra_2029_2cent_Regular.jpeg"
   },
   {
     "id": "153",
@@ -2134,5 +2119,20 @@
     "description": "Regular 10 cent circulation coin of Andorra.",
     "notes": "FINAL LOCAL CRUD TEST",
     "imageFile": "153_Andorra_2035_10cent_Regular.jpeg"
+  },
+  {
+    "country": "Andorra",
+    "year": "2028",
+    "denomination": "1 cent",
+    "type": "Regular",
+    "condition": "UNC",
+    "status": "Collection",
+    "name": "",
+    "series": "",
+    "mintage": "",
+    "description": "",
+    "notes": "FINAL LOCAL CRUD TEST",
+    "id": "154",
+    "imageFile": "154_Andorra_2028_1cent_Regular.jpeg"
   }
 ]
