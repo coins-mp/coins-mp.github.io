@@ -2122,18 +2122,17 @@
     "imageFile": "153_Andorra_2035_10cent_Regular.jpeg"
   },
   {
+    "id": "154",
     "country": "Andorra",
-    "year": "2028",
+    "year": 2028,
     "denomination": "1 cent",
     "type": "Regular",
+    "name": "1 cent",
     "condition": "UNC",
     "status": "Collection",
-    "name": "",
-    "series": "",
     "mintage": "",
-    "description": "",
-    "notes": "FINAL LOCAL CRUD TEST",
-    "id": "154",
-    "imageFile": "154_Andorra_2028_1cent_Regular.jpeg"
+    "description": "Regular 1 cent circulation coin of Andorra.",
+    "notes": "image TEST",
+    "imageFile": ""
   }
 ]
