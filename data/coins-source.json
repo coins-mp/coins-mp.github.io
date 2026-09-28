@@ -2119,5 +2119,20 @@
     "description": "Regular 1 cent circulation coin of Andorra.",
     "notes": "image TEST",
     "imageFile": "154_Andorra_2029_1cent_Regular.jpeg"
+  },
+  {
+    "id": "155",
+    "country": "Vatican City",
+    "year": 2035,
+    "denomination": "1 cent",
+    "type": "Regular",
+    "name": "1 cent",
+    "series": "",
+    "condition": "XF",
+    "status": "Collection",
+    "mintage": "",
+    "description": "Regular 1 cent circulation coin of Vatican City.",
+    "notes": "Test test",
+    "imageFile": "155_Vatican-City_2035_1cent_Regular.png"
   }
 ]
