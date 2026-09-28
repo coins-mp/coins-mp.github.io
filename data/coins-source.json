@@ -2107,21 +2107,6 @@
     "imageFile": "152_Andorra_2031_2cent_Regular.jpeg"
   },
   {
-    "id": "153",
-    "country": "Andorra",
-    "year": 2035,
-    "denomination": "10 cent",
-    "type": "Regular",
-    "name": "10 cent",
-    "series": "",
-    "condition": "UNC",
-    "status": "Collection",
-    "mintage": "",
-    "description": "Regular 10 cent circulation coin of Andorra.",
-    "notes": "FINAL LOCAL CRUD TEST",
-    "imageFile": "153_Andorra_2035_10cent_Regular.jpeg"
-  },
-  {
     "id": "154",
     "country": "Andorra",
     "year": 2029,
