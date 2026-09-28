@@ -2210,5 +2210,35 @@
     "notes": "Spain’s coins feature three designs with effigies of the King, Miguel de Cervantes and the cathedral of Santiago de Compostela. There are three series of coins in circulation. All are valid.\n\nThe first and second series show a portrait of King Juan Carlos I de Borbón y Borbón.",
     "id": "161",
     "imageFile": "161_Spain_2007_1euro_Regular.jpeg"
+  },
+  {
+    "country": "Spain",
+    "year": "2011",
+    "denomination": "1 €",
+    "type": "Regular",
+    "condition": "F",
+    "status": "Collection",
+    "name": "",
+    "series": "",
+    "mintage": "",
+    "description": "",
+    "notes": "For the second series, the coins were slightly redesigned in 2010 in order to comply with the common guidelines issued by the European Commission. The year, for instance, is inscribed on the inner part of the coin.\n\nIn 2015, Spain introduced a third series of €1 and €2 coins showing the new King Felipe VI and the country code ‘ESPAÑA 2015’. The mint mark appears at the right of the effigy.",
+    "id": "162",
+    "imageFile": "162_Spain_2011_1euro_Regular.jpeg"
+  },
+  {
+    "country": "Spain",
+    "year": "2024",
+    "denomination": "1 €",
+    "type": "Regular",
+    "condition": "XF",
+    "status": "Collection",
+    "name": "",
+    "series": "",
+    "mintage": "",
+    "description": "",
+    "notes": "Spain has updated the design of the Spanish national face of the 1 and 2 euro coins to be produced from 2015 in order to illustrate the change in the position of the Head of State. 1 and 2 euro coins from previous years featuring the old Spanish national face will remain valid.\n\nIn 2015, Spain introduced a third series of €1 and €2 coins showing the new King Felipe VI and the country code ‘ESPAÑA 2015’. The mint mark appears at the right of the effigy.",
+    "id": "163",
+    "imageFile": "163_Spain_2024_1euro_Regular.jpeg"
   }
 ]
