@@ -3349,7 +3349,7 @@
     "status": "collection",
     "duplicates": 0,
     "wanted": false,
-    "image": "images/coins/Portugal/140_Portugal_2002_1Euro_Regular.jpeg",
+    "image": "images/coins/Portugal/148_Portugal_2002_1Euro_Regular.jpeg",
     "mintage": "",
     "metal": "Bimetallic",
     "weight": "7.50 g",
@@ -3477,9 +3477,9 @@
     "country": "Malta",
     "countryCode": "MT",
     "year": 2019,
-    "denomination": "2 €",
+    "denomination": "1 €",
     "type": "Regular",
-    "name": "2 Euro",
+    "name": "1 Euro",
     "series": "",
     "condition": "XF",
     "mint": "",
@@ -3490,9 +3490,9 @@
     "image": "images/coins/Malta/159_Malta_2019_2euro_Regular.jpeg",
     "mintage": "",
     "metal": "Bimetallic",
-    "weight": "8.50 g",
-    "diameter": "25.75 mm",
-    "description": "Regular 2 € circulation coin of Malta.",
+    "weight": "7.50 g",
+    "diameter": "23.25 mm",
+    "description": "Regular 1 € circulation coin of Malta.",
     "notes": "The €1 and €2 coins show the emblem used by the Sovereign Order of Malta. During the Order's rule over Malta, between 1530 and 1798, the eight-pointed cross became associated with the island and is now often referred to as the Maltese Cross."
   },
   {
@@ -3516,7 +3516,7 @@
     "weight": "7.50 g",
     "diameter": "23.25 mm",
     "description": "Regular 1 € circulation coin of Slovenia.",
-    "notes": "The €1 and €2 coins show the emblem used by the Sovereign Order of Malta. During the Order's rule over Malta, between 1530 and 1798, the eight-pointed cross became associated with the island and is now often referred to as the Maltese Cross."
+    "notes": "This coin bears a portrait of Primož Trubar, author of the first book printed in Slovene.\n\nThe designs of the Slovenian euro coins were unanimously chosen in 2005 by the Bank of Slovenia and the Slovenian Ministry of Finance from the proposals submitted by five reputed Slovenian designers. They are the work of Miljenko Licul, Maja Licul..."
   },
   {
     "id": "161",
