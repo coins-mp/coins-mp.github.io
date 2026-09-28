@@ -2091,20 +2091,6 @@
     "imageFile": "148_Portugal_2002_1Euro_Regular.jpeg"
   },
   {
-    "id": "149",
-    "country": "Greece",
-    "year": 2002,
-    "denomination": "2 €",
-    "type": "Regular",
-    "name": "2 Euro",
-    "condition": "XF",
-    "status": "Collection",
-    "mintage": "",
-    "description": "Regular 2 € circulation coin of Greece.",
-    "notes": "Тест 62 \r\n двойное изменение",
-    "imageFile": "149_Greece_2002_2Euro_Regular.jpeg"
-  },
-  {
     "id": "151",
     "country": "Greece",
     "year": 2035,
