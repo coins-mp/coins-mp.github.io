@@ -2077,21 +2077,6 @@
     "imageFile": "148_Portugal_2002_1Euro_Regular.jpeg"
   },
   {
-    "id": "154",
-    "country": "Andorra",
-    "year": "2029",
-    "denomination": "1 cent",
-    "type": "Regular",
-    "name": "",
-    "condition": "UNC",
-    "status": "Collection",
-    "mintage": "",
-    "description": "Regular 1 cent circulation coin of Andorra.",
-    "notes": "Test TEST",
-    "imageFile": "",
-    "series": ""
-  },
-  {
     "id": "155",
     "country": "Vatican City",
     "year": 2035,
