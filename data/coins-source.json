@@ -2120,5 +2120,35 @@
     "description": "Regular 1 cent circulation coin of Vatican City.",
     "notes": "Test test",
     "imageFile": "155_Vatican-City_2035_1cent_Regular.png"
+  },
+  {
+    "country": "France",
+    "year": "2000",
+    "denomination": "1 €",
+    "type": "Regular",
+    "condition": "F",
+    "status": "Collection",
+    "name": "",
+    "series": "",
+    "mintage": "",
+    "description": "The design chosen for the first series of €1 and €2 coins was the work of the artist Joaquin Jimenez. It features a tree symbolising life, continuity and growth, standing within a hexagon and encircled by the motto of the French Republic, \"Liberté, Egalité, Fraternité\" (Liberty, equality, fraternity).",
+    "notes": "A competition was organised in 1996-1997 to choose the design of the national sides of the euro coins.\n\nA panel, chaired by the Minister for Economic and Financial Affairs and made up of experts in numismatics, artists, members of parliament, one former member of the European Commission (Christine Scrivener), the French Mint Director Emmanuel Constans, the General Engraver Pierre Rodier, actress Irène Jacob and members of professional bodies, chose the winning designs from over 1 200 entries received from 97 participants.\n\nOn the €1 and €2 coins, a tree symbolising life, growth and stability is framed by a hexagon – France – and surrounded by the motto of the French Republic: ‘Liberté, Égalité, Fraternité’ (Freedom, Equality, Fraternity). The edge lettering on the €2 coin is ‘2**’ repeated six times, alternately upright and inverted.",
+    "id": "156",
+    "imageFile": "156_France_2000_1euro_Regular.jpeg"
+  },
+  {
+    "country": "Ireland",
+    "year": "2000",
+    "denomination": "1 €",
+    "type": "Regular",
+    "condition": "VF",
+    "status": "Collection",
+    "name": "",
+    "series": "",
+    "mintage": "",
+    "description": "",
+    "notes": "The Government of Ireland decided on a single national design for all Irish coin denominations. They show the Celtic harp, a traditional symbol of Ireland, decorated with the year of issue and the inscription \"Éire\" − the Irish word for Ireland. The harp shown was designed by Jarlath Hayes.",
+    "id": "157",
+    "imageFile": "157_Ireland_2000_1euro_Regular.jpeg"
   }
 ]
