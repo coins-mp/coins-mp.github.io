@@ -45,16 +45,17 @@
   {
     "id": "006",
     "country": "Spain",
-    "year": 1999,
+    "year": "1999",
     "denomination": "2 €",
     "type": "Regular",
-    "name": "2 Euro",
-    "condition": "VF",
+    "name": "",
+    "condition": "F",
     "status": "Collection",
     "mintage": "",
     "description": "Regular 2 € circulation coin of Spain.",
-    "notes": "The first and second series show a portrait of King Juan Carlos I de Borbón y Borbón.\r\n\r\nIn 2015, Spain introduced a third series of €1 and €2 coins showing the new King Felipe VI and the country code ‘ESPAÑA 2015’. The mint mark appears at the right of the effigy.",
-    "imageFile": "006_Spain_1999_2Euro_Regular.jpeg"
+    "notes": "First series\n\nThe first and second series show a portrait of King Juan Carlos I de Borbón y Borbón.\n\nIn 2015, Spain introduced a third series of €1 and €2 coins showing the new King Felipe VI and the country code ‘ESPAÑA 2015’. The mint mark appears at the right of the effigy.",
+    "imageFile": "006_Spain_1999_2euro_Regular.jpeg",
+    "series": ""
   },
   {
     "id": "007",
@@ -1922,13 +1923,13 @@
     "year": "2023",
     "denomination": "2 €",
     "type": "Regular",
-    "condition": "VF",
+    "condition": "XF",
     "status": "Collection",
     "name": "",
     "series": "",
     "mintage": "",
     "description": "",
-    "notes": "This coin shows the poet France Prešeren and the inscription \"Shivé naj vsi naródi\" (God’s blessing on all nations) − a line taken from his poem \"Zdravljica\" which is also used in the country’s national anthem. Edge lettering of the €2 coin: SLOVENIJA followed by an engraved dot.",
+    "notes": "The €2 coin shows the portrait of France Prešeren, Slovenia's greatest poet, together with the line 'Shivé naj vsi naródi' (God’s blessing on all nations) in his handwriting. The words are taken from the seventh verse of his poem Zdravlijca (‘A Toast’), which is also the Slovenian national anthem. The edge lettering consists of the word SLOVENIJA followed by an engraved dot.",
     "id": "143",
     "imageFile": "143_Slovenia_2023_2euro_Regular.jpeg"
   },
