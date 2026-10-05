@@ -418,6 +418,9 @@ def main():
 
         status_lower = status.lower()
 
+        if status_lower == "found":
+            continue
+
         if status_lower not in {
             "collection",
             "missing",
