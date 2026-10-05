@@ -16,7 +16,7 @@ def clean(value):
 def normalize_status(coin):
     status = clean(coin.get("status")).lower()
 
-    if status in {"collection", "missing", "duplicate"}:
+    if status in {"collection", "missing", "found", "duplicate"}:
         return status.capitalize()
 
     if coin.get("duplicates", 0):
