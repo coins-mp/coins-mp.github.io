@@ -895,7 +895,7 @@
     "type": "Regular",
     "name": "50 cent",
     "condition": "",
-    "status": "Missing",
+    "status": "Found",
     "mintage": "",
     "description": "Regular 50 cent circulation coin of Cyprus.",
     "notes": "Featured on the 10, 20 and 50-cent coins is the Kyrenia ship, a trading vessel which dates back to the fourth century BC and a symbol of Cyprus's seafaring history and its importance as a centre of trade.",
@@ -2952,5 +2952,20 @@
     "notes": "First series\n\nQueen Beatrix is shown with the inscription \"Beatrix Koningin der Nederlanden\" (Queen of the Netherlands).\n\nThe Netherlands chose two designs by Bruno Ninaber van Eyben, showing Queen Beatrix, for the first series. There are two series of coins in circulation. Both are valid.",
     "id": "219",
     "imageFile": "219_Netherlands_2001_2euro_Regular.jpeg"
+  },
+  {
+    "country": "Cyprus",
+    "year": "2008",
+    "denomination": "50 cent",
+    "type": "Regular",
+    "condition": "VF",
+    "status": "Collection",
+    "name": "",
+    "series": "",
+    "mintage": "",
+    "description": "",
+    "notes": "Featured on the 10, 20 and 50-cent coins is the Kyrenia ship, a trading vessel which dates back to the fourth century BC and a symbol of Cyprus's seafaring history and its importance as a centre of trade.\n\nAn open competition was launched in 2005 by the Central Bank of Cyprus to select the designs of the Cypriot euro coins, which were to have three different motifs reflecting the country’s specificity with regard to culture, nature and the sea.",
+    "id": "220",
+    "imageFile": "220_Cyprus_2008_50cent_Regular.jpeg"
   }
 ]
