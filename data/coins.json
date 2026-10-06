@@ -1403,29 +1403,6 @@
     "notes": "The coin commemorates the 70th anniversary of the appeal (“Appel du 18 juin”) made by General de Gaulle – the leader of the Free French Forces – on the BBC in London on 18 June 1940, after the fall of France. Addressing the French people, de Gaulle declared that the war was not yet over. The speech is considered to mark the birth of the French Resistance and the beginning of its fight against the occupation of France during World War II. The coin’s outer ring bears the 12 stars of the European Union."
   },
   {
-    "id": "067",
-    "country": "Cyprus",
-    "countryCode": "CY",
-    "year": "",
-    "denomination": "1 cent",
-    "type": "Regular",
-    "name": "1 cent",
-    "series": "",
-    "condition": "",
-    "mint": "",
-    "inCollection": false,
-    "status": "missing",
-    "duplicates": 0,
-    "wanted": false,
-    "image": "images/coins/Cyprus/067_Cyprus_2026_1cent_Regular.jpeg",
-    "mintage": "",
-    "metal": "Copper-plated steel",
-    "weight": "2.30 g",
-    "diameter": "16.25 mm",
-    "description": "Regular 1 cent circulation coin of Cyprus.",
-    "notes": "The 1, 2 and 5-cent coins show the moufflon, a species of wild sheep found on Cyprus and representative of the island's wildlife."
-  },
-  {
     "id": "068",
     "country": "Cyprus",
     "countryCode": "CY",
@@ -4667,5 +4644,28 @@
     "diameter": "24.25 mm",
     "description": "Regular 50 cent circulation coin of Cyprus.",
     "notes": "Featured on the 10, 20 and 50-cent coins is the Kyrenia ship, a trading vessel which dates back to the fourth century BC and a symbol of Cyprus's seafaring history and its importance as a centre of trade.\n\nAn open competition was launched in 2005 by the Central Bank of Cyprus to select the designs of the Cypriot euro coins, which were to have three different motifs reflecting the country’s specificity with regard to culture, nature and the sea."
+  },
+  {
+    "id": "221",
+    "country": "Cyprus",
+    "countryCode": "CY",
+    "year": 2030,
+    "denomination": "1 cent",
+    "type": "Regular",
+    "name": "1 cent",
+    "series": "",
+    "condition": "AU",
+    "mint": "",
+    "inCollection": true,
+    "status": "collection",
+    "duplicates": 0,
+    "wanted": false,
+    "image": "images/coins/Cyprus/221_Cyprus_2030_1cent_Regular.png",
+    "mintage": "",
+    "metal": "Copper-plated steel",
+    "weight": "2.30 g",
+    "diameter": "16.25 mm",
+    "description": "Regular 1 cent circulation coin of Cyprus.",
+    "notes": "test"
   }
 ]
