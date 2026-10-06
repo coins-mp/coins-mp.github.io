@@ -865,13 +865,14 @@
     "year": "",
     "denomination": "1 cent",
     "type": "Regular",
-    "name": "1 cent",
+    "name": "",
     "condition": "",
-    "status": "Found",
+    "status": "Missing",
     "mintage": "",
     "description": "Regular 1 cent circulation coin of Cyprus.",
     "notes": "The 1, 2 and 5-cent coins show the moufflon, a species of wild sheep found on Cyprus and representative of the island's wildlife.",
-    "imageFile": "067_Cyprus_2026_1cent_Regular.jpeg"
+    "imageFile": "067_Cyprus_2026_1cent_Regular.jpeg",
+    "series": ""
   },
   {
     "id": "068",
@@ -2967,20 +2968,5 @@
     "notes": "Featured on the 10, 20 and 50-cent coins is the Kyrenia ship, a trading vessel which dates back to the fourth century BC and a symbol of Cyprus's seafaring history and its importance as a centre of trade.\n\nAn open competition was launched in 2005 by the Central Bank of Cyprus to select the designs of the Cypriot euro coins, which were to have three different motifs reflecting the country’s specificity with regard to culture, nature and the sea.",
     "id": "220",
     "imageFile": "220_Cyprus_2008_50cent_Regular.jpeg"
-  },
-  {
-    "id": "221",
-    "country": "Cyprus",
-    "year": 2030,
-    "denomination": "1 cent",
-    "type": "Regular",
-    "name": "1 cent",
-    "series": "",
-    "condition": "AU",
-    "status": "Collection",
-    "mintage": "",
-    "description": "Regular 1 cent circulation coin of Cyprus.",
-    "notes": "test",
-    "imageFile": "221_Cyprus_2030_1cent_Regular.png"
   }
 ]
