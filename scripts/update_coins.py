@@ -564,6 +564,9 @@ def main():
             "type": coin_type,
             "name": display_name,
             "series": series,
+            "designSeriesId": clean(
+                source_coin.get("designSeriesId")
+            ),
             "condition": condition,
             "mint": "",
             "inCollection": in_collection,
