@@ -690,27 +690,8 @@
         "2 €"
       ],
       "startYear": 1999,
-      "endYear": 2006,
-      "note": "Original national-side layout"
-    },
-    {
-      "id": "fi-regular-02",
-      "country": "Finland",
-      "number": 2,
-      "name": "",
-      "denominations": [
-        "1 cent",
-        "2 cent",
-        "5 cent",
-        "10 cent",
-        "20 cent",
-        "50 cent",
-        "1 €",
-        "2 €"
-      ],
-      "startYear": 2007,
       "endYear": null,
-      "note": "FI country code and new mint mark"
+      "note": "All denominations; minor mint-mark changes are not separate series"
     },
     {
       "id": "fr-regular-01",
