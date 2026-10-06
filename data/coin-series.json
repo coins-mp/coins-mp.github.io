@@ -1,0 +1,829 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-10-06",
+  "scope": "Regular",
+  "yearBasis": "coin_inscription",
+  "series": [
+    {
+      "id": "at-regular-01",
+      "country": "Austria",
+      "number": 1,
+      "name": "",
+      "denominations": [
+        "1 cent",
+        "2 cent",
+        "5 cent",
+        "10 cent",
+        "20 cent",
+        "50 cent",
+        "1 €",
+        "2 €"
+      ],
+      "startYear": 2002,
+      "endYear": null,
+      "note": "All denominations"
+    },
+    {
+      "id": "ad-regular-01",
+      "country": "Andorra",
+      "number": 1,
+      "name": "",
+      "denominations": [
+        "1 cent",
+        "2 cent",
+        "5 cent",
+        "10 cent",
+        "20 cent",
+        "50 cent",
+        "1 €",
+        "2 €"
+      ],
+      "startYear": 2014,
+      "endYear": null,
+      "note": "All denominations"
+    },
+    {
+      "id": "be-regular-01",
+      "country": "Belgium",
+      "number": 1,
+      "name": "Albert II",
+      "denominations": [
+        "1 cent",
+        "2 cent",
+        "5 cent",
+        "10 cent",
+        "20 cent",
+        "50 cent",
+        "1 €",
+        "2 €"
+      ],
+      "startYear": 1999,
+      "endYear": 2007,
+      "note": "All denominations"
+    },
+    {
+      "id": "be-regular-02",
+      "country": "Belgium",
+      "number": 2,
+      "name": "Albert II",
+      "denominations": [
+        "1 cent",
+        "2 cent",
+        "5 cent",
+        "10 cent",
+        "20 cent",
+        "50 cent",
+        "1 €",
+        "2 €"
+      ],
+      "startYear": 2008,
+      "endYear": 2013,
+      "note": "Revised national-side layout"
+    },
+    {
+      "id": "be-regular-03",
+      "country": "Belgium",
+      "number": 3,
+      "name": "Philippe",
+      "denominations": [
+        "1 cent",
+        "2 cent",
+        "5 cent",
+        "10 cent",
+        "20 cent",
+        "50 cent",
+        "1 €",
+        "2 €"
+      ],
+      "startYear": 2014,
+      "endYear": null,
+      "note": "All denominations"
+    },
+    {
+      "id": "bg-regular-01",
+      "country": "Bulgaria",
+      "number": 1,
+      "name": "",
+      "denominations": [
+        "1 cent",
+        "2 cent",
+        "5 cent",
+        "10 cent",
+        "20 cent",
+        "50 cent",
+        "1 €",
+        "2 €"
+      ],
+      "startYear": 2026,
+      "endYear": null,
+      "note": "All denominations"
+    },
+    {
+      "id": "va-regular-01",
+      "country": "Vatican City",
+      "number": 1,
+      "name": "John Paul II",
+      "denominations": [
+        "1 cent",
+        "2 cent",
+        "5 cent",
+        "10 cent",
+        "20 cent",
+        "50 cent",
+        "1 €",
+        "2 €"
+      ],
+      "startYear": 2002,
+      "endYear": 2005,
+      "note": "All denominations"
+    },
+    {
+      "id": "va-regular-02",
+      "country": "Vatican City",
+      "number": 2,
+      "name": "Sede Vacante",
+      "denominations": [
+        "1 cent",
+        "2 cent",
+        "5 cent",
+        "10 cent",
+        "20 cent",
+        "50 cent",
+        "1 €",
+        "2 €"
+      ],
+      "startYear": 2005,
+      "endYear": 2005,
+      "note": "Vacant papal seat; coins dated 2005"
+    },
+    {
+      "id": "va-regular-03",
+      "country": "Vatican City",
+      "number": 3,
+      "name": "Benedict XVI",
+      "denominations": [
+        "1 cent",
+        "2 cent",
+        "5 cent",
+        "10 cent",
+        "20 cent",
+        "50 cent",
+        "1 €",
+        "2 €"
+      ],
+      "startYear": 2006,
+      "endYear": 2013,
+      "note": "All denominations"
+    },
+    {
+      "id": "va-regular-04",
+      "country": "Vatican City",
+      "number": 4,
+      "name": "Francis",
+      "denominations": [
+        "1 cent",
+        "2 cent",
+        "5 cent",
+        "10 cent",
+        "20 cent",
+        "50 cent",
+        "1 €",
+        "2 €"
+      ],
+      "startYear": 2014,
+      "endYear": 2016,
+      "note": "Papal portrait"
+    },
+    {
+      "id": "va-regular-05",
+      "country": "Vatican City",
+      "number": 5,
+      "name": "Francis",
+      "denominations": [
+        "1 cent",
+        "2 cent",
+        "5 cent",
+        "10 cent",
+        "20 cent",
+        "50 cent",
+        "1 €",
+        "2 €"
+      ],
+      "startYear": 2017,
+      "endYear": 2025,
+      "note": "Papal coat of arms"
+    },
+    {
+      "id": "va-regular-06",
+      "country": "Vatican City",
+      "number": 6,
+      "name": "Leo XIV",
+      "denominations": [
+        "1 cent",
+        "2 cent",
+        "5 cent",
+        "10 cent",
+        "20 cent",
+        "50 cent",
+        "1 €",
+        "2 €"
+      ],
+      "startYear": 2026,
+      "endYear": null,
+      "note": "Portrait and coat of arms on different denominations"
+    },
+    {
+      "id": "de-regular-01",
+      "country": "Germany",
+      "number": 1,
+      "name": "",
+      "denominations": [
+        "1 cent",
+        "2 cent",
+        "5 cent",
+        "10 cent",
+        "20 cent",
+        "50 cent",
+        "1 €",
+        "2 €"
+      ],
+      "startYear": 2002,
+      "endYear": null,
+      "note": "All denominations"
+    },
+    {
+      "id": "gr-regular-01",
+      "country": "Greece",
+      "number": 1,
+      "name": "",
+      "denominations": [
+        "1 cent",
+        "2 cent",
+        "5 cent",
+        "10 cent",
+        "20 cent",
+        "50 cent",
+        "1 €",
+        "2 €"
+      ],
+      "startYear": 2002,
+      "endYear": null,
+      "note": "All denominations"
+    },
+    {
+      "id": "ie-regular-01",
+      "country": "Ireland",
+      "number": 1,
+      "name": "",
+      "denominations": [
+        "1 cent",
+        "2 cent",
+        "5 cent",
+        "10 cent",
+        "20 cent",
+        "50 cent",
+        "1 €",
+        "2 €"
+      ],
+      "startYear": 2002,
+      "endYear": null,
+      "note": "All denominations"
+    },
+    {
+      "id": "es-regular-01",
+      "country": "Spain",
+      "number": 1,
+      "name": "",
+      "denominations": [
+        "1 cent",
+        "2 cent",
+        "5 cent",
+        "10 cent",
+        "20 cent",
+        "50 cent",
+        "1 €",
+        "2 €"
+      ],
+      "startYear": 1999,
+      "endYear": 2009,
+      "note": "All denominations; Juan Carlos I on EUR 1 and EUR 2"
+    },
+    {
+      "id": "es-regular-02",
+      "country": "Spain",
+      "number": 2,
+      "name": "",
+      "denominations": [
+        "1 cent",
+        "2 cent",
+        "5 cent",
+        "10 cent",
+        "20 cent",
+        "50 cent"
+      ],
+      "startYear": 2010,
+      "endYear": null,
+      "note": "1, 2, 5, 10, 20 and 50 cents"
+    },
+    {
+      "id": "es-regular-03",
+      "country": "Spain",
+      "number": 2,
+      "name": "Juan Carlos I",
+      "denominations": [
+        "1 €",
+        "2 €"
+      ],
+      "startYear": 2010,
+      "endYear": 2014,
+      "note": "EUR 1 and EUR 2"
+    },
+    {
+      "id": "es-regular-04",
+      "country": "Spain",
+      "number": 3,
+      "name": "Felipe VI",
+      "denominations": [
+        "1 €",
+        "2 €"
+      ],
+      "startYear": 2015,
+      "endYear": null,
+      "note": "EUR 1 and EUR 2"
+    },
+    {
+      "id": "it-regular-01",
+      "country": "Italy",
+      "number": 1,
+      "name": "",
+      "denominations": [
+        "1 cent",
+        "2 cent",
+        "5 cent",
+        "10 cent",
+        "20 cent",
+        "50 cent",
+        "1 €",
+        "2 €"
+      ],
+      "startYear": 2002,
+      "endYear": null,
+      "note": "All denominations"
+    },
+    {
+      "id": "cy-regular-01",
+      "country": "Cyprus",
+      "number": 1,
+      "name": "",
+      "denominations": [
+        "1 cent",
+        "2 cent",
+        "5 cent",
+        "10 cent",
+        "20 cent",
+        "50 cent",
+        "1 €",
+        "2 €"
+      ],
+      "startYear": 2008,
+      "endYear": null,
+      "note": "All denominations"
+    },
+    {
+      "id": "lv-regular-01",
+      "country": "Latvia",
+      "number": 1,
+      "name": "",
+      "denominations": [
+        "1 cent",
+        "2 cent",
+        "5 cent",
+        "10 cent",
+        "20 cent",
+        "50 cent",
+        "1 €",
+        "2 €"
+      ],
+      "startYear": 2014,
+      "endYear": null,
+      "note": "All denominations"
+    },
+    {
+      "id": "lt-regular-01",
+      "country": "Lithuania",
+      "number": 1,
+      "name": "",
+      "denominations": [
+        "1 cent",
+        "2 cent",
+        "5 cent",
+        "10 cent",
+        "20 cent",
+        "50 cent",
+        "1 €",
+        "2 €"
+      ],
+      "startYear": 2015,
+      "endYear": null,
+      "note": "All denominations"
+    },
+    {
+      "id": "lu-regular-01",
+      "country": "Luxembourg",
+      "number": 1,
+      "name": "Henri",
+      "denominations": [
+        "1 cent",
+        "2 cent",
+        "5 cent",
+        "10 cent",
+        "20 cent",
+        "50 cent",
+        "1 €",
+        "2 €"
+      ],
+      "startYear": 2002,
+      "endYear": 2025,
+      "note": "All denominations"
+    },
+    {
+      "id": "lu-regular-02",
+      "country": "Luxembourg",
+      "number": 2,
+      "name": "Guillaume",
+      "denominations": [
+        "1 cent",
+        "2 cent",
+        "5 cent",
+        "10 cent",
+        "20 cent",
+        "50 cent",
+        "1 €",
+        "2 €"
+      ],
+      "startYear": 2026,
+      "endYear": null,
+      "note": "All denominations"
+    },
+    {
+      "id": "mt-regular-01",
+      "country": "Malta",
+      "number": 1,
+      "name": "",
+      "denominations": [
+        "1 cent",
+        "2 cent",
+        "5 cent",
+        "10 cent",
+        "20 cent",
+        "50 cent",
+        "1 €",
+        "2 €"
+      ],
+      "startYear": 2008,
+      "endYear": null,
+      "note": "All denominations"
+    },
+    {
+      "id": "mc-regular-01",
+      "country": "Monaco",
+      "number": 1,
+      "name": "Rainier III",
+      "denominations": [
+        "1 cent",
+        "2 cent",
+        "5 cent",
+        "10 cent",
+        "20 cent",
+        "50 cent",
+        "1 €",
+        "2 €"
+      ],
+      "startYear": 2001,
+      "endYear": 2005,
+      "note": "Different designs by denomination group"
+    },
+    {
+      "id": "mc-regular-02",
+      "country": "Monaco",
+      "number": 2,
+      "name": "Albert II",
+      "denominations": [
+        "1 cent",
+        "2 cent",
+        "5 cent",
+        "10 cent",
+        "20 cent",
+        "50 cent",
+        "1 €",
+        "2 €"
+      ],
+      "startYear": 2006,
+      "endYear": 2024,
+      "note": "Portrait, monogram and coat of arms"
+    },
+    {
+      "id": "mc-regular-03",
+      "country": "Monaco",
+      "number": 3,
+      "name": "Albert II",
+      "denominations": [
+        "1 cent",
+        "2 cent",
+        "5 cent",
+        "10 cent",
+        "20 cent",
+        "50 cent",
+        "1 €",
+        "2 €"
+      ],
+      "startYear": 2025,
+      "endYear": null,
+      "note": "New portrait on EUR 1 and EUR 2; country series"
+    },
+    {
+      "id": "nl-regular-01",
+      "country": "Netherlands",
+      "number": 1,
+      "name": "Beatrix",
+      "denominations": [
+        "1 cent",
+        "2 cent",
+        "5 cent",
+        "10 cent",
+        "20 cent",
+        "50 cent",
+        "1 €",
+        "2 €"
+      ],
+      "startYear": 1999,
+      "endYear": 2013,
+      "note": "All denominations"
+    },
+    {
+      "id": "nl-regular-02",
+      "country": "Netherlands",
+      "number": 2,
+      "name": "Willem-Alexander",
+      "denominations": [
+        "1 cent",
+        "2 cent",
+        "5 cent",
+        "10 cent",
+        "20 cent",
+        "50 cent",
+        "1 €",
+        "2 €"
+      ],
+      "startYear": 2014,
+      "endYear": null,
+      "note": "All denominations"
+    },
+    {
+      "id": "pt-regular-01",
+      "country": "Portugal",
+      "number": 1,
+      "name": "",
+      "denominations": [
+        "1 cent",
+        "2 cent",
+        "5 cent",
+        "10 cent",
+        "20 cent",
+        "50 cent",
+        "1 €",
+        "2 €"
+      ],
+      "startYear": 2002,
+      "endYear": null,
+      "note": "All denominations"
+    },
+    {
+      "id": "sm-regular-01",
+      "country": "San Marino",
+      "number": 1,
+      "name": "",
+      "denominations": [
+        "1 cent",
+        "2 cent",
+        "5 cent",
+        "10 cent",
+        "20 cent",
+        "50 cent",
+        "1 €",
+        "2 €"
+      ],
+      "startYear": 2002,
+      "endYear": 2016,
+      "note": "All denominations"
+    },
+    {
+      "id": "sm-regular-02",
+      "country": "San Marino",
+      "number": 2,
+      "name": "",
+      "denominations": [
+        "1 cent",
+        "2 cent",
+        "5 cent",
+        "10 cent",
+        "20 cent",
+        "50 cent",
+        "1 €",
+        "2 €"
+      ],
+      "startYear": 2017,
+      "endYear": null,
+      "note": "All denominations"
+    },
+    {
+      "id": "sk-regular-01",
+      "country": "Slovakia",
+      "number": 1,
+      "name": "",
+      "denominations": [
+        "1 cent",
+        "2 cent",
+        "5 cent",
+        "10 cent",
+        "20 cent",
+        "50 cent",
+        "1 €",
+        "2 €"
+      ],
+      "startYear": 2009,
+      "endYear": null,
+      "note": "All denominations"
+    },
+    {
+      "id": "si-regular-01",
+      "country": "Slovenia",
+      "number": 1,
+      "name": "",
+      "denominations": [
+        "1 cent",
+        "2 cent",
+        "5 cent",
+        "10 cent",
+        "20 cent",
+        "50 cent",
+        "1 €",
+        "2 €"
+      ],
+      "startYear": 2007,
+      "endYear": null,
+      "note": "All denominations"
+    },
+    {
+      "id": "fi-regular-01",
+      "country": "Finland",
+      "number": 1,
+      "name": "",
+      "denominations": [
+        "1 cent",
+        "2 cent",
+        "5 cent",
+        "10 cent",
+        "20 cent",
+        "50 cent",
+        "1 €",
+        "2 €"
+      ],
+      "startYear": 1999,
+      "endYear": 2006,
+      "note": "Original national-side layout"
+    },
+    {
+      "id": "fi-regular-02",
+      "country": "Finland",
+      "number": 2,
+      "name": "",
+      "denominations": [
+        "1 cent",
+        "2 cent",
+        "5 cent",
+        "10 cent",
+        "20 cent",
+        "50 cent",
+        "1 €",
+        "2 €"
+      ],
+      "startYear": 2007,
+      "endYear": null,
+      "note": "FI country code and new mint mark"
+    },
+    {
+      "id": "fr-regular-01",
+      "country": "France",
+      "number": 1,
+      "name": "Marianne",
+      "denominations": [
+        "1 cent",
+        "2 cent",
+        "5 cent"
+      ],
+      "startYear": 1999,
+      "endYear": null,
+      "note": "1, 2 and 5 cents"
+    },
+    {
+      "id": "fr-regular-02",
+      "country": "France",
+      "number": 1,
+      "name": "The Sower",
+      "denominations": [
+        "10 cent",
+        "20 cent",
+        "50 cent"
+      ],
+      "startYear": 1999,
+      "endYear": 2023,
+      "note": "10, 20 and 50 cents"
+    },
+    {
+      "id": "fr-regular-03",
+      "country": "France",
+      "number": 2,
+      "name": "New portraits",
+      "denominations": [
+        "10 cent",
+        "20 cent",
+        "50 cent"
+      ],
+      "startYear": 2024,
+      "endYear": null,
+      "note": "10 cents: Simone Veil; 20 cents: Josephine Baker; 50 cents: Marie Curie"
+    },
+    {
+      "id": "fr-regular-04",
+      "country": "France",
+      "number": 1,
+      "name": "Tree",
+      "denominations": [
+        "1 €",
+        "2 €"
+      ],
+      "startYear": 1999,
+      "endYear": 2021,
+      "note": "EUR 1 and EUR 2"
+    },
+    {
+      "id": "fr-regular-05",
+      "country": "France",
+      "number": 2,
+      "name": "Oak and olive",
+      "denominations": [
+        "1 €",
+        "2 €"
+      ],
+      "startYear": 2022,
+      "endYear": null,
+      "note": "EUR 1 and EUR 2"
+    },
+    {
+      "id": "hr-regular-01",
+      "country": "Croatia",
+      "number": 1,
+      "name": "",
+      "denominations": [
+        "1 cent",
+        "2 cent",
+        "5 cent",
+        "10 cent",
+        "20 cent",
+        "50 cent",
+        "1 €",
+        "2 €"
+      ],
+      "startYear": 2023,
+      "endYear": null,
+      "note": "All denominations"
+    },
+    {
+      "id": "ee-regular-01",
+      "country": "Estonia",
+      "number": 1,
+      "name": "",
+      "denominations": [
+        "1 cent",
+        "2 cent",
+        "5 cent",
+        "10 cent",
+        "20 cent",
+        "50 cent",
+        "1 €",
+        "2 €"
+      ],
+      "startYear": 2011,
+      "endYear": null,
+      "note": "All denominations"
+    }
+  ],
+  "sources": [
+    "https://economy-finance.ec.europa.eu/euro/euro-coins-and-notes/euro-coins/national-sides-euro-coins_en",
+    "https://www.ecb.europa.eu/euro/coins/html/index.en.html",
+    "https://www.bcl.lu/en/Banknotes-and-Coins/billets_pieces/car_pieces/nouvelles-faces/",
+    "https://www.cfn.va/it/numismatica/1171-divisionale-fdc-2026-con-5-euro-bimetallica.html",
+    "https://publications.bof.fi/bitstream/handle/10024/54094/Suomenpankki-fi-en_Releases_2006.pdf?isAllowed=y&sequence=1"
+  ]
+}
