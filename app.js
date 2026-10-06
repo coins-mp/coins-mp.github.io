@@ -1914,7 +1914,7 @@ function coinSeriesMarkup(coin) {
       <span class="coin-series-years">—</span>
     </div>`;
   }
-  const years = `${series.startYear} — ${series.endYear === null ? "—" : series.endYear}`;
+  const years = `${series.startYear} — ${series.endYear === null ? "Present" : series.endYear}`;
   return `<div class="coin-series-block" title="${escapeHtml(series.name || `Series ${series.number}`)}">
     <span class="badge coin-series-badge series-${Number(series.number)}">Series ${Number(series.number)}</span>
     <span class="coin-series-years">${escapeHtml(years)}</span>
@@ -2652,10 +2652,15 @@ function openCoinModal(coin) {
       " · "
     );
 
-  els.modalBadges.innerHTML =
-    statusBadges(
-      coin
-    );
+  els.modalBadges.classList.remove("badges");
+  els.modalBadges.classList.add("coin-bottomline");
+
+  els.modalBadges.innerHTML = `
+    <div class="badges">
+      ${statusBadges(coin)}
+    </div>
+    ${coinSeriesMarkup(coin)}
+  `;
 
   const facts = [
     [
