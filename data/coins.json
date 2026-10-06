@@ -2336,7 +2336,7 @@
     "type": "Regular",
     "name": "20 cent",
     "series": "",
-    "designSeriesId": "",
+    "designSeriesId": "be-regular-01",
     "condition": "",
     "mint": "",
     "inCollection": false,
@@ -2349,7 +2349,7 @@
     "weight": "5.74 g",
     "diameter": "22.25 mm",
     "description": "Regular 20 cent circulation coin of Belgium.",
-    "notes": "Belgium's euro coins were designed by Jan Alfons Keustermans, Director of the Municipal Academy of Fine Arts of Turnhout. There are three series of coins in circulation. All are valid.\n\nThe first series depicts King Albert II in the inner part of the coin, while the royal monogram - a capital \"A\" underneath a crown - among 12 stars, symbolising Europe, as well as the year of issuance appear in the outer part."
+    "notes": "Belgium's euro coins were designed by Jan Alfons Keustermans, Director of the Municipal Academy of Fine Arts of Turnhout. There are three series of coins in circulation. All are valid.\r\n\r\nThe first series depicts King Albert II in the inner part of the coin, while the royal monogram - a capital \"A\" underneath a crown - among 12 stars, symbolising Europe, as well as the year of issuance appear in the outer part."
   },
   {
     "id": "105",
