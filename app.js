@@ -1856,6 +1856,71 @@ function imageMarkup(
 }
 
 
+// National design series for regular euro coins.
+let coinSeriesCatalog = [];
+
+async function loadCoinSeriesCatalog() {
+  try {
+    const response = await fetch(`data/coin-series.json?t=${Date.now()}`, {
+      cache: "no-store"
+    });
+    if (!response.ok) throw new Error("Could not load coin-series.json");
+    const data = await response.json();
+    if (data.schemaVersion !== 1 || !Array.isArray(data.series)) {
+      throw new Error("Invalid coin series catalog");
+    }
+    coinSeriesCatalog = data.series;
+  } catch (error) {
+    coinSeriesCatalog = [];
+    console.warn("Coin series are unavailable:", error);
+  }
+}
+
+function seriesDenomination(value) {
+  return String(value || "").trim().toLowerCase()
+    .replace(/euros?/g, "€").replace(/cents/g, "cent")
+    .replace(/\s+/g, "").replace(/,/g, ".");
+}
+
+function getCoinDesignSeries(coin) {
+  if (String(coin.type || "").trim().toLowerCase() !== "regular") {
+    return null;
+  }
+  const country = String(coin.country || "").trim().toLowerCase();
+  const denomination = seriesDenomination(coin.denomination);
+  const candidates = coinSeriesCatalog.filter(series =>
+    String(series.country || "").trim().toLowerCase() === country &&
+    Array.isArray(series.denominations) &&
+    series.denominations.some(value => seriesDenomination(value) === denomination)
+  );
+  if (coin.designSeriesId) {
+    return candidates.find(series => series.id === coin.designSeriesId) || null;
+  }
+  const yearText = String(coin.year ?? "").trim();
+  const year = /^\d{4}$/.test(yearText) ? Number(yearText) : null;
+  const matches = year === null ? candidates : candidates.filter(series =>
+    year >= series.startYear && (series.endYear === null || year <= series.endYear)
+  );
+  return matches.length === 1 ? matches[0] : null;
+}
+
+function coinSeriesMarkup(coin) {
+  if (String(coin.type || "").trim().toLowerCase() !== "regular" ||
+      !coinSeriesCatalog.length) return "";
+  const series = getCoinDesignSeries(coin);
+  if (!series) {
+    return `<div class="coin-series-block" title="Select a design series in Edit Coin.">
+      <span class="badge coin-series-badge series-unassigned">Series —</span>
+      <span class="coin-series-years">—</span>
+    </div>`;
+  }
+  const years = `${series.startYear} — ${series.endYear === null ? "—" : series.endYear}`;
+  return `<div class="coin-series-block" title="${escapeHtml(series.name || `Series ${series.number}`)}">
+    <span class="badge coin-series-badge series-${Number(series.number)}">Series ${Number(series.number)}</span>
+    <span class="coin-series-years">${escapeHtml(years)}</span>
+  </div>`;
+}
+
 function renderCards(coins) {
   if (
     !coins.length
@@ -1952,10 +2017,13 @@ function renderCards(coins) {
                   : ""
               }
 
-              <div class="badges">
-                ${statusBadges(
-                  coin
-                )}
+              <div class="coin-bottomline">
+                <div class="badges">
+                  ${statusBadges(
+                    coin
+                  )}
+                </div>
+                ${coinSeriesMarkup(coin)}
               </div>
 
             </div>
@@ -3840,6 +3908,8 @@ async function init() {
 
     state.coins =
       await response.json();
+
+    await loadCoinSeriesCatalog();
 
     populateFilters();
 
