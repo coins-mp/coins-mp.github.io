@@ -61,7 +61,7 @@ const els = {
 
 const sectionTitles = {
   home: "All Coins",
-  collection: "My Collection",
+  collection: "In Collection",
   regular: "Regular Euro Coins",
   commemorative: "2€ Commemorative",
   missing: "Missing Coins",
@@ -1490,8 +1490,7 @@ function getFilteredCoins() {
             coin.name,
             coin.condition,
             coin.mint,
-            coin.description,
-            coin.notes
+
           ]
             .join(" ")
             .toLowerCase();
@@ -2390,193 +2389,91 @@ function renderTable(coins) {
 
 
 function renderStats() {
-  if (
-    !els.stats
-  ) {
-    return;
-  }
+  if (!els.stats) return;
 
-  const collection =
-    state.coins.filter(
-      coin =>
-        coin.status ===
-        "collection"
-    ).length;
-
-  const regular =
-    state.coins.filter(
-      coin =>
-        coin.status ===
-          "collection" &&
-        coin.type ===
-          "Regular"
-    ).length;
-
-  const commemorative =
-    state.coins.filter(
-      coin =>
-        coin.status ===
-          "collection" &&
-        coin.type ===
-          "Commemorative"
-    ).length;
-
-  const missing =
-    state.coins.filter(
-      coin =>
-        coin.status ===
-        "missing"
-    ).length;
-
-  const duplicates =
-    state.coins.filter(
-      coin =>
-        coin.status ===
-        "duplicate"
-    ).length;
+  const count = predicate =>
+    state.coins.filter(predicate).length;
 
   const cards = [
     {
-      label:
-        "My Collection",
-
-      value:
-        collection,
-
-      section:
-        "collection"
+      label: "All Coins",
+      value: count(c => c.status !== "found"),
+      section: "home"
     },
-
     {
-      label:
-        "Regular €",
-
-      value:
-        regular,
-
-      section:
-        "regular"
+      label: "In Collection",
+      value: count(c => c.status === "collection"),
+      section: "collection"
     },
-
     {
-      label:
-        "2€ Commemorative",
-
-      value:
-        commemorative,
-
-      section:
-        "commemorative"
+      label: "Regular €",
+      value: count(c =>
+        c.status === "collection" &&
+        c.type === "Regular"
+      ),
+      section: "regular"
     },
-
     {
-      label:
-        "Missing",
-
-      value:
-        missing,
-
-      section:
-        "missing"
+      label: "2€ Commemorative",
+      value: count(c =>
+        c.status === "collection" &&
+        c.type === "Commemorative"
+      ),
+      section: "commemorative"
     },
-
     {
-      label:
-        "Duplicates",
-
-      value:
-        duplicates,
-
-      section:
-        "duplicates"
+      label: "Missing",
+      value: count(c => c.status === "missing"),
+      section: "missing"
+    },
+    {
+      label: "Duplicates",
+      value: count(c => c.status === "duplicate"),
+      section: "duplicates"
     }
   ];
 
-  els.stats.innerHTML =
-    cards
-      .map(
-        card => `
-          <div
-            class="stat-card"
-            data-stat-section="${card.section}"
-            role="button"
-            tabindex="0"
-            style="cursor: pointer;"
-          >
-
-            <div class="stat-label">
-              ${escapeHtml(
-                card.label
-              )}
-            </div>
-
-            <div class="stat-value">
-              ${card.value}
-            </div>
-
-          </div>
-        `
-      )
-      .join("");
+  els.stats.innerHTML = cards.map(card => `
+    <button
+      type="button"
+      class="stat-card"
+      data-stat-section="${card.section}"
+      aria-pressed="${state.section === card.section}"
+    >
+      <span class="stat-label">
+        ${escapeHtml(card.label)}
+      </span>
+      <span class="stat-value">
+        ${card.value}
+      </span>
+    </button>
+  `).join("");
 
   els.stats
-    .querySelectorAll(
-      "[data-stat-section]"
-    )
-    .forEach(
-      card => {
-        function openSection() {
-          state.section =
-            card.dataset
-              .statSection;
+    .querySelectorAll("[data-stat-section]")
+    .forEach(card => {
+      card.addEventListener("click", () => {
+        state.section = card.dataset.statSection;
+        state.page = 1;
 
-          localStorage.setItem(
-            "coinSection",
-            state.section
-          );
-
-          state.page =
-            1;
-
-          updateActiveNav();
-
-          render();
-
-          window.scrollTo({
-            top:
-              els.sectionTitle
-                .getBoundingClientRect()
-                .top +
-              window.scrollY -
-                20,
-
-            behavior:
-              "smooth"
-          });
-        }
-
-        card.addEventListener(
-          "click",
-          openSection
+        localStorage.setItem(
+          "coinSection",
+          state.section
         );
 
-        card.addEventListener(
-          "keydown",
-          event => {
-            if (
-              event.key ===
-                "Enter" ||
-              event.key ===
-                " "
-            ) {
-              event.preventDefault();
+        updateActiveNav();
+        render();
 
-              openSection();
-            }
-          }
-        );
-      }
-    );
+        window.scrollTo({
+          top: Math.max(
+            0,
+            els.sectionTitle.getBoundingClientRect().top +
+              window.scrollY - 20
+          ),
+          behavior: "smooth"
+        });
+      });
+    });
 }
 
 
@@ -3580,30 +3477,44 @@ function render() {
 
 
 function updateActiveNav() {
-  const activeSection =
-    state.section ===
-      "collection"
-      ? "home"
-      : state.section;
-
   document
-    .querySelectorAll(
-      ".nav-link"
-    )
-    .forEach(
-      button => {
-        button.classList.toggle(
-          "active",
-          button.dataset
-            .section ===
-            activeSection
-        );
-      }
-    );
+    .querySelectorAll("[data-stat-section]")
+    .forEach(card => {
+      const active =
+        card.dataset.statSection === state.section;
+
+      card.classList.toggle("active", active);
+      card.setAttribute("aria-pressed", String(active));
+    });
 }
 
 
 function bindEvents() {
+    document
+    .getElementById("resetFilters")
+    ?.addEventListener("click", () => {
+      [
+        els.country,
+        els.year,
+        els.denomination,
+        els.condition
+      ].forEach(el => {
+        el.value = "";
+      });
+
+      els.search.value = "";
+      els.sort.value = "country-asc";
+
+      state.sort = "country-asc";
+      state.tableSort = "";
+      state.page = 1;
+
+      localStorage.setItem("coinSort", state.sort);
+      localStorage.removeItem("coinTableSort");
+
+      render();
+    });
+
   [
     els.country,
     els.year,
