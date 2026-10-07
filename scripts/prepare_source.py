@@ -86,6 +86,12 @@ def main():
             "name": clean(
                 coin.get("name")
             ),
+            "series": clean(
+                coin.get("series")
+            ),
+            "designSeriesId": clean(
+                coin.get("designSeriesId")
+            ),
             "condition": clean(
                 coin.get("condition")
             ),
