@@ -890,6 +890,7 @@ function populateFilters() {
         String(a).localeCompare(String(b), "en");
     })
   );
+}
 
 
 function coinIdNumber(coin) {
