@@ -14,7 +14,7 @@
 
   <link
     rel="stylesheet"
-    href="style.css?v=10"
+    href="style.css?v=11"
   />
 </head>
 
@@ -54,44 +54,6 @@
       </button>
     </div>
   </header>
-
-
-  <nav class="main-nav">
-    <button
-      class="nav-link active"
-      data-section="home"
-    >
-      Home
-    </button>
-
-    <button
-      class="nav-link"
-      data-section="regular"
-    >
-      Regular €
-    </button>
-
-    <button
-      class="nav-link"
-      data-section="commemorative"
-    >
-      2€ Commemorative
-    </button>
-
-    <button
-      class="nav-link"
-      data-section="missing"
-    >
-      Missing
-    </button>
-
-    <button
-      class="nav-link"
-      data-section="duplicates"
-    >
-      Duplicates
-    </button>
-  </nav>
 
 
   <main class="page-shell">
@@ -197,15 +159,23 @@
 
 
       <div class="filter-group search-group">
-        <label for="searchInput">
-          Search
-        </label>
+        <label for="searchInput">Search</label>
 
-        <input
-          id="searchInput"
-          type="search"
-          placeholder="Country, coin name, year..."
-        />
+        <div class="search-controls">
+          <input
+            id="searchInput"
+            type="search"
+            placeholder="Country, coin name, year..."
+          />
+
+          <button
+            id="resetFilters"
+            class="secondary-btn"
+            type="button"
+          >
+            Reset filters
+          </button>
+        </div>
       </div>
     </section>
 
@@ -381,6 +351,6 @@
   </div>
 
 
-  <script src="app.js?v=12"></script>
+  <script src="app.js?v=13"></script>
 </body>
 </html>
