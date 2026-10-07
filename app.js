@@ -842,12 +842,31 @@ function populateFilters() {
     els.denomination,
     [
       ...new Set(
-        state.coins.map(
-          coin =>
-            coin.denomination
-        )
+        state.coins
+          .map(coin => coin.denomination)
+          .filter(Boolean)
       )
-    ]
+    ].sort(
+      (a, b) =>
+        denominationValue(b) - denominationValue(a)
+    )
+  );
+
+  const conditionOrder = [
+    "G",
+    "VG",
+    "F",
+    "VF",
+    "XF",
+    "AU",
+    "UNC"
+  ];
+
+  const conditionRanks = new Map(
+    conditionOrder.map((condition, index) => [
+      condition,
+      index
+    ])
   );
 
   populateSelect(
@@ -855,15 +874,22 @@ function populateFilters() {
     [
       ...new Set(
         state.coins
-          .map(
-            coin =>
-              coin.condition
-          )
+          .map(coin => coin.condition)
           .filter(Boolean)
       )
-    ].sort()
+    ].sort((a, b) => {
+      const rankA = conditionRanks.get(
+        String(a).trim().toUpperCase()
+      ) ?? 99;
+
+      const rankB = conditionRanks.get(
+        String(b).trim().toUpperCase()
+      ) ?? 99;
+
+      return rankA - rankB ||
+        String(a).localeCompare(String(b), "en");
+    })
   );
-}
 
 
 function coinIdNumber(coin) {
