@@ -4870,5 +4870,29 @@
     "diameter": "24.25 mm",
     "description": "Regular 50 cent circulation coin of Cyprus.",
     "notes": "Featured on the 10, 20 and 50-cent coins is the Kyrenia ship, a trading vessel which dates back to the fourth century BC and a symbol of Cyprus's seafaring history and its importance as a centre of trade.\n\nAn open competition was launched in 2005 by the Central Bank of Cyprus to select the designs of the Cypriot euro coins, which were to have three different motifs reflecting the country’s specificity with regard to culture, nature and the sea."
+  },
+  {
+    "id": "221",
+    "country": "Vatican City",
+    "countryCode": "VA",
+    "year": 2035,
+    "denomination": "1 €",
+    "type": "Regular",
+    "name": "1 Euro",
+    "series": "",
+    "designSeriesId": "va-regular-06",
+    "condition": "XF",
+    "mint": "",
+    "inCollection": true,
+    "status": "collection",
+    "duplicates": 0,
+    "wanted": false,
+    "image": "",
+    "mintage": "",
+    "metal": "Bimetallic",
+    "weight": "7.50 g",
+    "diameter": "23.25 mm",
+    "description": "Regular 1 € circulation coin of Vatican City.",
+    "notes": "Refresh test"
   }
 ]
