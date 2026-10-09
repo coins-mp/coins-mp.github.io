@@ -1755,7 +1755,7 @@
   {
     "id": "128",
     "country": "Croatia",
-    "year": 2023,
+    "year": "2023",
     "denomination": "1 cent",
     "type": "Regular",
     "name": "1 cent",
@@ -1765,7 +1765,8 @@
     "mintage": "",
     "description": "Regular 1 cent circulation coin of Croatia.",
     "notes": "Croatia has chosen four designs for their national sides of the euro coins, all featuring the distinctive Croatian chequerboard pattern in the background. All the coins also depict the 12 stars of the European flag.\n\nThe 1-cent coin shows a motif of the letters “HR” in the angular Glagolitic script. The Glagolitic alphabet is the oldest known Slavic script and was used in Croatia until the 19th century. The coin was designed by Maja Škripelj and includes the year of issuance and the inscription “HRVATSKA”, the country’s name in Croatian.",
-    "imageFile": "128_Croatia_2023_1cent_Regular.jpeg"
+    "imageFile": "128_Croatia_2023_1cent_Regular.jpeg",
+    "designSeriesId": "hr-regular-01"
   },
   {
     "id": "129",
@@ -3418,5 +3419,37 @@
     "notes": "First series\n\nA competition was organised in 1996-1997 to choose the design of the national sides of the euro coins.\n\nA panel, chaired by the Minister for Economic and Financial Affairs and made up of experts in numismatics, artists, members of parliament, one former member of the European Commission (Christine Scrivener), the French Mint Director Emmanuel Constans, the General Engraver Pierre Rodier, actress Irène Jacob and members of professional bodies, chose the winning designs from over 1 200 entries received from 97 participants.\n\nThe 1, 2 and 5-cent coins show a modern portrait of Marianne, the personification of the French Republic.",
     "id": "247",
     "imageFile": "247_France_1999_5cent_Regular.jpeg"
+  },
+  {
+    "designSeriesId": "mt-regular-01",
+    "country": "Malta",
+    "year": "2013",
+    "denomination": "5 cent",
+    "type": "Regular",
+    "condition": "VF",
+    "status": "Collection",
+    "name": "",
+    "series": "",
+    "mintage": "",
+    "description": "Regular 5 cent circulation coin of Malta.",
+    "notes": "The 1, 2 and 5-cent coins depict the altar at the prehistoric temple complex of Mnajdra, a Neolithic complex dating back to 3600 BC which is considered to be one of the oldest free-standing temple groupings in the world.",
+    "id": "248",
+    "imageFile": "248_Malta_2013_5cent_Regular.jpeg"
+  },
+  {
+    "designSeriesId": "mt-regular-01",
+    "country": "Malta",
+    "year": "2008",
+    "denomination": "50 cent",
+    "type": "Regular",
+    "condition": "F",
+    "status": "Collection",
+    "name": "",
+    "series": "",
+    "mintage": "",
+    "description": "Regular 5 cent circulation coin of Malta.",
+    "notes": "The 10, 20 and 50-cent coins bear the Emblem of Malta, a shield displaying a heraldic representation of the Maltese national flag and supporting a mural crown that represents the fortifications of Malta and denotes a city state. The shield is bounded on the left by an olive branch and on the right by a palm branch, symbols of peace traditionally associated with Malta, forming a wreath tied at its base by a ribbon which carries the inscription \"Repubblika ta' Malta\" (Republic of Malta).",
+    "id": "249",
+    "imageFile": "249_Malta_2008_50cent_Regular.jpeg"
   }
 ]
