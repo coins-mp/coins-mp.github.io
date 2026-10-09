@@ -3220,13 +3220,13 @@
     "type": "Regular",
     "condition": "F",
     "status": "Collection",
-    "name": "",
+    "name": "2 cent",
     "series": "",
     "mintage": "",
     "description": "",
     "notes": "The 1, 2 and 5-cent coins show the moufflon, a species of wild sheep found on Cyprus and representative of the island's wildlife.",
     "id": "235",
-    "imageFile": ""
+    "imageFile": "235_Cyprus_2008_2cent_Regular.jpeg"
   },
   {
     "designSeriesId": "ee-regular-01",
@@ -3643,5 +3643,37 @@
     "notes": "In Italy, the euro coin designs were subject to scrutiny by a national technical and artistic committee before being presented to the nation on RAI UNO, Italy's largest national television station. A different design has been selected for each denomination, chosen from masterpieces by Italy's famous artists. The statue of Emperor Marcus Aurelius on horseback is the main feature on this coin.\n\nThe statue of Emperor Marcus Aurelius on horseback is the main feature on this coin.",
     "id": "261",
     "imageFile": "261_Italy_2023_50cent_Regular.jpeg"
+  },
+  {
+    "designSeriesId": "lv-regular-01",
+    "country": "Latvia",
+    "year": "2014",
+    "denomination": "20 cent",
+    "type": "Regular",
+    "condition": "VF",
+    "status": "Collection",
+    "name": "",
+    "series": "",
+    "mintage": "",
+    "description": "",
+    "notes": "The Latvian euro coins have been in circulation as of 1 January 2014.\n\nThe 20 cent coin shows the large coat of arms of the Republic of Latvia. The designer is Laimonis Šēnbergs.",
+    "id": "262",
+    "imageFile": "262_Latvia_2014_20cent_Regular.jpeg"
+  },
+  {
+    "designSeriesId": "lt-regular-01",
+    "country": "Lithuania",
+    "year": "2015",
+    "denomination": "20 cent",
+    "type": "Regular",
+    "condition": "VF",
+    "status": "Collection",
+    "name": "",
+    "series": "",
+    "mintage": "",
+    "description": "",
+    "notes": "Lithuania’s euro coins show the coat of arms of the Republic of Lithuania, Vytis, the country of issuance \"LIETUVA\" and the year of issuance \"2015\". The coins also feature the 12 stars of the European flag. They were designed by the sculptor Antanas Žukauskas.",
+    "id": "263",
+    "imageFile": "263_Lithuania_2015_20cent_Regular.jpeg"
   }
 ]
