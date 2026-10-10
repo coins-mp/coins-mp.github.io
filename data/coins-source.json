@@ -3028,7 +3028,7 @@
     "type": "Regular",
     "condition": "F",
     "status": "Collection",
-    "name": "",
+    "name": "2 cent",
     "series": "",
     "mintage": "",
     "description": "",
@@ -3060,7 +3060,7 @@
     "type": "Regular",
     "condition": "F",
     "status": "Collection",
-    "name": "",
+    "name": "5 cent",
     "series": "",
     "mintage": "",
     "description": "",
@@ -3172,7 +3172,7 @@
     "type": "Regular",
     "condition": "F",
     "status": "Collection",
-    "name": "",
+    "name": "50 cent",
     "series": "",
     "mintage": "",
     "description": "",
@@ -3867,5 +3867,21 @@
     "notes": "Yvette Gastauer-Claire designed the coins by agreement with the Royal Household and the Luxembourg Government.\n\nAll the Luxembourg coins bear the profile of His Royal Highness Grand Duke Henri. They also bear the year of issue and the word \"Luxembourg\" written in Luxembourgish (\"Lëtzebuerg\").",
     "id": "275",
     "imageFile": "275_Luxembourg_2004_50cent_Regular.jpeg"
+  },
+  {
+    "designSeriesId": "be-regular-01",
+    "country": "Belgium",
+    "year": "2006",
+    "denomination": "2 cent",
+    "type": "Regular",
+    "condition": "VF",
+    "status": "Collection",
+    "name": "",
+    "series": "",
+    "mintage": "",
+    "description": "",
+    "notes": "All denominations of the first series, issued in 2002, show the effigy of His Majesty Albert II, King of the Belgians, encircled by the twelve stars of the European Union with the royal monogram (capital 'A' and crown) to the right. The Belgian euro coins were designed by Jan Alfons Keustermans, Director of the Municipal Academy of Fine Arts of Turnhout, and chosen by a panel made up of high-ranked officials, experts in numismatics and artists.",
+    "id": "276",
+    "imageFile": "276_Belgium_2006_2cent_Regular.jpeg"
   }
 ]
