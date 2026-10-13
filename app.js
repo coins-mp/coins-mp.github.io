@@ -3740,6 +3740,7 @@ window.addEventListener("resize", () => {
   lastViewportWidth = width;
   render();
 });
+}
 
 
 async function init() {
