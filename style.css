@@ -1759,3 +1759,31 @@ html[data-theme="dark"] .stat-card[aria-pressed="true"] {
     font-size: 14px;
   }
 }
+
+/* Navigation between collections */
+.collection-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.collection-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.collection-link[aria-current="page"] {
+  background: #eeece6;
+}
+
+html[data-theme="dark"] .collection-link[aria-current="page"] {
+  background: #34312b;
+}
+
+.site-header {
+  flex-wrap: wrap;
+}
