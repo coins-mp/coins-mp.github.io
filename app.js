@@ -3730,16 +3730,16 @@ function bindEvents() {
   );
 
 
-  window.addEventListener(
-    "resize",
-    () => {
-      state.page =
-        1;
+let lastViewportWidth = window.innerWidth;
 
-      render();
-    }
-  );
-}
+window.addEventListener("resize", () => {
+  const width = window.innerWidth;
+
+  if (width === lastViewportWidth) return;
+
+  lastViewportWidth = width;
+  render();
+});
 
 
 async function init() {
