@@ -1468,17 +1468,18 @@
   {
     "id": "109",
     "country": "Luxembourg",
-    "year": "",
+    "year": "2004",
     "denomination": "5 cent",
     "type": "Regular",
     "name": "5 cent",
     "series": "",
-    "condition": "",
-    "status": "Missing",
+    "condition": "VF",
+    "status": "Collection",
     "mintage": "",
     "description": "Regular 5 cent circulation coin of Luxembourg.",
-    "notes": "Yvette Gastauer-Claire designed the coins by agreement with the Royal Household and the Luxembourg Government.\r\n\r\nAll the Luxembourg coins bear the profile of His Royal Highness Grand Duke Henri. They also bear the year of issue and the word \"Luxembourg\" written in Luxembourgish (\"Lëtzebuerg\").",
-    "imageFile": "109_Luxembourg__5cent_Regular.jpeg"
+    "notes": "Yvette Gastauer-Claire designed the coins by agreement with the Royal Household and the Luxembourg Government.\n\nAll the Luxembourg coins bear the profile of His Royal Highness Grand Duke Henri. They also bear the year of issue and the word \"Luxembourg\" written in Luxembourgish (\"Lëtzebuerg\").",
+    "imageFile": "109_Luxembourg_2004_5cent_Regular.jpeg",
+    "designSeriesId": "lu-regular-01"
   },
   {
     "id": "110",
@@ -1846,7 +1847,7 @@
   {
     "id": "134",
     "country": "Germany",
-    "year": "2023",
+    "year": "2014",
     "denomination": "1 cent",
     "type": "Regular",
     "name": "1 cent",
@@ -1856,7 +1857,7 @@
     "mintage": "",
     "description": "Regular 1 cent circulation coin of Germany.",
     "notes": "German officials and experts in numismatics chose three different designs for their euro coins.\n\n1, 2 and 5-cent coins: the oak twig, reminiscent of that found on the former German pfennig coins, provides the motif for these coins. It was designed by Professor Rolf Lederbogen.",
-    "imageFile": "134_Germany_2023_1cent_Regular.jpeg",
+    "imageFile": "134_Germany_2014_1cent_Regular.jpeg",
     "designSeriesId": "de-regular-01"
   },
   {
@@ -2135,18 +2136,19 @@
   },
   {
     "country": "Netherlands",
-    "year": "2000",
+    "year": "1999",
     "denomination": "1 €",
     "type": "Regular",
     "condition": "F",
     "status": "Collection",
-    "name": "",
+    "name": "1 €",
     "series": "",
     "mintage": "",
     "description": "",
     "notes": "The Netherlands chose two designs by Bruno Ninaber van Eyben, showing Queen Beatrix, for the first series. There are two series of coins in circulation. Both are valid.\n\nFirst series: Queen Beatrix is shown with the inscription \"Beatrix Koningin der Nederlanden\" (Queen of the Netherlands).",
     "id": "164",
-    "imageFile": "164_Netherlands_2000_1euro_Regular.jpeg"
+    "imageFile": "164_Netherlands_1999_1euro_Regular.jpeg",
+    "designSeriesId": "nl-regular-01"
   },
   {
     "country": "Netherlands",
@@ -2360,48 +2362,51 @@
   },
   {
     "country": "Slovakia",
-    "year": "2020",
+    "year": "2019",
     "denomination": "1 cent",
     "type": "Regular",
-    "condition": "F",
+    "condition": "VF",
     "status": "Collection",
-    "name": "",
+    "name": "1 cent",
     "series": "",
     "mintage": "",
     "description": "",
     "notes": "In July 2004, only two months after the country became a member of the European Union, the National Bank of Slovakia launched an open competition for the design of the national sides of the future Slovak euro coins.\n\nThe 1, 2 and 5 cent coins feature the Tatra Mountains’ peak, Kriváň, a symbol of the sovereignty of the Slovak nation, and the national emblem of Slovakia.",
     "id": "179",
-    "imageFile": "179_Slovakia_2020_1cent_Regular.jpeg"
+    "imageFile": "179_Slovakia_2019_1cent_Regular.jpeg",
+    "designSeriesId": "sk-regular-01"
   },
   {
     "country": "Slovakia",
-    "year": "2018",
+    "year": "2010",
     "denomination": "2 cent",
     "type": "Regular",
     "condition": "VF",
     "status": "Collection",
-    "name": "",
+    "name": "2 cent",
     "series": "",
     "mintage": "",
     "description": "",
     "notes": "In July 2004, only two months after the country became a member of the European Union, the National Bank of Slovakia launched an open competition for the design of the national sides of the future Slovak euro coins.\n\nThe 1, 2 and 5 cent coins feature the Tatra Mountains’ peak, Kriváň, a symbol of the sovereignty of the Slovak nation, and the national emblem of Slovakia.",
     "id": "180",
-    "imageFile": "180_Slovakia_2018_2cent_Regular.jpeg"
+    "imageFile": "180_Slovakia_2010_2cent_Regular.jpeg",
+    "designSeriesId": "sk-regular-01"
   },
   {
     "country": "Slovakia",
-    "year": "2020",
+    "year": "2025",
     "denomination": "5 cent",
     "type": "Regular",
     "condition": "VF",
     "status": "Collection",
-    "name": "",
+    "name": "5 cent",
     "series": "",
     "mintage": "",
     "description": "",
     "notes": "In July 2004, only two months after the country became a member of the European Union, the National Bank of Slovakia launched an open competition for the design of the national sides of the future Slovak euro coins.\n\nThe 1, 2 and 5 cent coins feature the Tatra Mountains’ peak, Kriváň, a symbol of the sovereignty of the Slovak nation, and the national emblem of Slovakia.",
     "id": "181",
-    "imageFile": "181_Slovakia_2020_5cent_Regular.jpeg"
+    "imageFile": "181_Slovakia_2025_5cent_Regular.jpeg",
+    "designSeriesId": "sk-regular-01"
   },
   {
     "country": "Slovakia",
@@ -3042,9 +3047,9 @@
     "year": "2006",
     "denomination": "5 cent",
     "type": "Regular",
-    "condition": "F",
+    "condition": "VF",
     "status": "Collection",
-    "name": "",
+    "name": "5 cent",
     "series": "",
     "mintage": "",
     "description": "",
