@@ -2031,33 +2031,35 @@
   },
   {
     "country": "Ireland",
-    "year": "2000",
+    "year": "2002",
     "denomination": "1 €",
     "type": "Regular",
     "condition": "VF",
     "status": "Collection",
-    "name": "",
+    "name": "1 €",
     "series": "",
     "mintage": "",
     "description": "",
     "notes": "The Government of Ireland decided on a single national design for all Irish coin denominations. They show the Celtic harp, a traditional symbol of Ireland, decorated with the year of issue and the inscription \"Éire\" − the Irish word for Ireland. The harp shown was designed by Jarlath Hayes.",
     "id": "157",
-    "imageFile": "157_Ireland_2000_1euro_Regular.jpeg"
+    "imageFile": "157_Ireland_2000_1euro_Regular.jpeg",
+    "designSeriesId": "ie-regular-01"
   },
   {
     "country": "Latvia",
-    "year": "2011",
+    "year": "2014",
     "denomination": "1 €",
     "type": "Regular",
     "condition": "F",
     "status": "Collection",
-    "name": "",
+    "name": "1 €",
     "series": "",
     "mintage": "",
     "description": "",
     "notes": "The €1 coin features a Latvian folk maiden. This image was originally used on the silver 5 lats coin in 1929. The designer is Guntars Sietiņš.",
     "id": "158",
-    "imageFile": "158_Latvia_2011_1euro_Regular.jpeg"
+    "imageFile": "158_Latvia_2011_1euro_Regular.jpeg",
+    "designSeriesId": "lv-regular-01"
   },
   {
     "country": "Malta",
