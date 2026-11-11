@@ -1895,7 +1895,7 @@
   {
     "id": "137",
     "country": "Germany",
-    "year": "2023",
+    "year": "2004",
     "denomination": "10 cent",
     "type": "Regular",
     "name": "10 cent",
@@ -1905,7 +1905,7 @@
     "mintage": "",
     "description": "Regular 10 cent circulation coin of Germany.",
     "notes": "German officials and experts in numismatics chose three different designs for their euro coins.\n\n10, 20 and 50-cent coins: the Brandenburg Gate, a symbol of the division of Germany and its subsequent reunification, is the motif used on these coins. The perspective of the design, by Reinhard Heinsdorff, emphasises the opening of the gate, stressing the unification of Germany and Europe.",
-    "imageFile": "137_Germany_2023_10cent_Regular.jpeg",
+    "imageFile": "137_Germany_2004_10cent_Regular.jpeg",
     "designSeriesId": "de-regular-01"
   },
   {
@@ -3890,5 +3890,21 @@
     "notes": "All denominations of the first series, issued in 2002, show the effigy of His Majesty Albert II, King of the Belgians, encircled by the twelve stars of the European Union with the royal monogram (capital 'A' and crown) to the right. The Belgian euro coins were designed by Jan Alfons Keustermans, Director of the Municipal Academy of Fine Arts of Turnhout, and chosen by a panel made up of high-ranked officials, experts in numismatics and artists.",
     "id": "276",
     "imageFile": "276_Belgium_2006_2cent_Regular.jpeg"
+  },
+  {
+    "designSeriesId": "de-regular-01",
+    "country": "Germany",
+    "year": "2023",
+    "denomination": "10 cent",
+    "type": "Regular",
+    "condition": "XF",
+    "status": "Duplicate",
+    "name": "",
+    "series": "",
+    "mintage": "",
+    "description": "",
+    "notes": "German officials and experts in numismatics chose three different designs for their euro coins. 10, 20 and 50-cent coins: the Brandenburg Gate, a symbol of the division of Germany and its subsequent reunification, is the motif used on these coins. The perspective of the design, by Reinhard Heinsdorff, emphasises the opening of the gate, stressing the unification of Germany and Europe.",
+    "id": "277",
+    "imageFile": "277_Germany_2023_10cent_Regular.jpeg"
   }
 ]
